@@ -124,7 +124,7 @@ namespace WindowsFormsApp1
 
             if (logicSettings.SelectedItem != null)
             {
-                statusDialog.Text += "\nMode: " + logicSettings.Text + ", Open Downstairs: " + openDownstairs.Checked + ", Open Upstairs: " + openUpstairs.Checked + ", Charged Battery: " + batteryCharge.Checked;
+                statusDialog.Text += "\nValidation complete";
             }
             else 
             {
