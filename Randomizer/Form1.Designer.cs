@@ -167,17 +167,17 @@
             // statusDialog
             // 
             this.statusDialog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusDialog.Location = new System.Drawing.Point(12, 342);
+            this.statusDialog.Location = new System.Drawing.Point(12, 283);
             this.statusDialog.Name = "statusDialog";
             this.statusDialog.ReadOnly = true;
-            this.statusDialog.Size = new System.Drawing.Size(601, 96);
+            this.statusDialog.Size = new System.Drawing.Size(601, 155);
             this.statusDialog.TabIndex = 14;
             this.statusDialog.Text = "";
             // 
             // randomizeButton
             // 
             this.randomizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.randomizeButton.Location = new System.Drawing.Point(12, 287);
+            this.randomizeButton.Location = new System.Drawing.Point(12, 228);
             this.randomizeButton.Name = "randomizeButton";
             this.randomizeButton.Size = new System.Drawing.Size(161, 49);
             this.randomizeButton.TabIndex = 15;
