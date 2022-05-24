@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+        Process cmd;
         public Form1()
         {
             InitializeComponent();
@@ -58,7 +60,8 @@ namespace WindowsFormsApp1
             {
                 seed.Text += (char)r.Next(33, 126);
             }
-            
+
+            cmd = new Process();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,11 +91,34 @@ namespace WindowsFormsApp1
                 {
                     randoSeed += (int)c;
                 }
-                statusDialog.Text += "\nSucessfully generated randomized ISO at " + destinationPath.Text + " using seed " + randoSeed;
+
+                runUnplugCommand("help");
+                
+                //statusDialog.Text += "\nSucessfully generated randomized ISO at " + destinationPath.Text + " using seed " + randoSeed;
             }
 
 
             
+        }
+
+        private void runUnplugCommand(string command) 
+        {
+            var info = new ProcessStartInfo();
+
+            string fullCommand = @"D:\ChibiRando\Randomizer\unplug " + command;
+
+            info.UseShellExecute = false;
+            info.WorkingDirectory = @"C:\Windows\System32";
+
+            info.FileName = "cmd.exe";
+            info.Verb = "runas";
+            info.Arguments = "/c " + command;
+            info.WindowStyle = ProcessWindowStyle.Minimized;
+            info.RedirectStandardOutput = true;
+            cmd.StartInfo = info;
+            cmd.Start();
+
+            statusDialog.Text += cmd.StandardOutput.ReadToEnd();
         }
 
         private bool validInput()
