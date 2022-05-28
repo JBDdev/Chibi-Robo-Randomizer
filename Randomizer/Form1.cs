@@ -118,7 +118,7 @@ namespace WindowsFormsApp1
             cmd.StartInfo = info;
             cmd.Start();
 
-            statusDialog.Text += cmd.StandardOutput.ReadToEnd();
+            statusDialog.Text += "\n " + cmd.StandardOutput.ReadToEnd();
         }
 
         private bool validInput()
