@@ -92,7 +92,7 @@ namespace WindowsFormsApp1
                     randoSeed += (int)c;
                 }
 
-                runUnplugCommand("help");
+                runUnplugCommand("--help");
                 
                 //statusDialog.Text += "\nSucessfully generated randomized ISO at " + destinationPath.Text + " using seed " + randoSeed;
             }
@@ -112,7 +112,7 @@ namespace WindowsFormsApp1
 
             info.FileName = "cmd.exe";
             info.Verb = "runas";
-            info.Arguments = "/c " + command;
+            info.Arguments = "/c " + fullCommand;
             info.WindowStyle = ProcessWindowStyle.Minimized;
             info.RedirectStandardOutput = true;
             cmd.StartInfo = info;
