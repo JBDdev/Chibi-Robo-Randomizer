@@ -108,43 +108,45 @@ namespace WindowsFormsApp1
                 
 
 
-                runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage02 -o " + @"D:\ChibiRando\Randomizer\Stages\stage02.json");
+                
                 
 
                 initializeStages();
-                statusDialog.Text += "\n Initialized Stages";
+                statusDialog.Text += "\nInitialized Stages";
 
                 JToken test = foyerObj.SelectToken("objects[336].object");
-                test.Replace("item_army_photo");
+                test.Replace("item_goggle");
                 File.WriteAllText("../../Stages/stage02.json", foyerObj.ToString());
 
                 runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage02.json");
 
 
-                statusDialog.Text += "\n Updated Foyer Stage Data";
+                statusDialog.Text += "\nUpdated Foyer Stage Data";
 
             }          
         }
 
         private void initializeStages() 
         {
-            livingRoomObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage07.json")) as JObject;
-            kitchenObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage01.json")) as JObject;
-            drainObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage11.json")) as JObject;
+            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage07 -o " + @"D:\ChibiRando\Randomizer\Stages\stage07.json");
+            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage01 -o " + @"D:\ChibiRando\Randomizer\Stages\stage01.json");
+            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage11 -o " + @"D:\ChibiRando\Randomizer\Stages\stage11.json");
+            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage09 -o " + @"D:\ChibiRando\Randomizer\Stages\stage09.json");
+            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage03 -o " + @"D:\ChibiRando\Randomizer\Stages\stage03.json");
+            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage06 -o " + @"D:\ChibiRando\Randomizer\Stages\stage06.json");
+            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage04 -o " + @"D:\ChibiRando\Randomizer\Stages\stage04.json");
+            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage02 -o " + @"D:\ChibiRando\Randomizer\Stages\stage02.json");
 
-            backyardObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage09.json")) as JObject;
-            basementObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage03.json")) as JObject;
-            bedroomObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage06.json")) as JObject;
-            jennyRoomObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage04.json")) as JObject;
+            livingRoomObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../Stages/stage07.json")) as JObject;
+            kitchenObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../Stages/stage01.json")) as JObject;
+            drainObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../Stages/stage11.json")) as JObject;
+            backyardObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../Stages/stage09.json")) as JObject;
+            basementObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../Stages/stage03.json")) as JObject;
+            bedroomObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../Stages/stage06.json")) as JObject;
+            jennyRoomObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../Stages/stage04.json")) as JObject;
+            foyerObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../Stages/stage02.json")) as JObject;
 
-            if (openUpstairs.Checked)
-            {
-                foyerObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage02OpenUpstairs.json")) as JObject;
-            }
-            else
-            {
-                foyerObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage02.json")) as JObject;
-            }
+            
         }
         private void runUnplugCommand(string command) 
         {
@@ -158,7 +160,7 @@ namespace WindowsFormsApp1
             info.FileName = "cmd.exe";
             info.Verb = "runas";
             info.Arguments = "/C " + fullCommand;
-            info.WindowStyle = ProcessWindowStyle.Normal;
+            info.WindowStyle = ProcessWindowStyle.Minimized;
             info.RedirectStandardOutput = true;
             cmd.StartInfo = info;
             cmd.Start();

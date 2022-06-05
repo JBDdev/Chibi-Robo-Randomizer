@@ -2411,7 +2411,7 @@
         "atc",
         "projectile"
       ],
-      "script": 1484
+      "script": 1134
     },
     {
       "id": 88,
@@ -9280,7 +9280,7 @@
     },
     {
       "id": 336,
-      "object": "item_army_photo",
+      "object": "item_goggle",
       "position": {
         "x": 92.85,
         "y": 37.09,
@@ -14075,35 +14075,6 @@
       "spawnFlag": null,
       "variant": 0,
       "flags": [
-        "climb",
-        "clamber",
-        "interact"
-      ],
-      "script": null
-    },
-    {
-      "id": 513,
-      "object": "living_books_1",
-      "position": {
-        "x": 52.914,
-        "y": 35.49,
-        "z": -8.015
-      },
-      "rotation": {
-        "x": 0,
-        "y": -12,
-        "z": 0
-      },
-      "scale": {
-        "x": 1.0,
-        "y": 1.0,
-        "z": 1.0
-      },
-      "data": 0,
-      "spawnFlag": null,
-      "variant": 0,
-      "flags": [
-        "spawn",
         "climb",
         "clamber",
         "interact"
