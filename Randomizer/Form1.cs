@@ -8,12 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
         Process cmd;
+        JObject livingRoomObj;
+        JObject kitchenObj;
+        JObject drainObj;
+        JObject foyerObj;
+        JObject backyardObj;
+        JObject basementObj;
+        JObject bedroomObj;
+        JObject jennyRoomObj;
+
         public Form1()
         {
             InitializeComponent();
@@ -55,6 +66,7 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //General Initialization Zone (tm)
             Random r = new Random();
             for (int i = 0; i < 10; i++) 
             {
@@ -62,18 +74,18 @@ namespace WindowsFormsApp1
             }
 
             cmd = new Process();
-        }
 
+            
+
+        }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
         private void settingsLabel_Click(object sender, EventArgs e)
         {
 
         }
-
         private void seed_Click(object sender, EventArgs e)
         {
 
@@ -82,25 +94,58 @@ namespace WindowsFormsApp1
         private void randomizeButton_Click(object sender, EventArgs e)
         {
 
-            if (validInput()) 
+            if (true) 
             {
 
-                //Actually pretty sick way of generating rando seed and making it a smaller number, should hold on to this and move it somewhere else later
+                //Actually pretty sick/goofy way of generating rando seed and making it a smaller number, should hold on to this and move it somewhere else later
                 int randoSeed = 0;
                 foreach (char c in seed.Text) 
                 {
                     randoSeed += (int)c;
                 }
 
-                runUnplugCommand("--help");
+
                 
-                //statusDialog.Text += "\nSucessfully generated randomized ISO at " + destinationPath.Text + " using seed " + randoSeed;
-            }
 
 
-            
+                runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage02 -o " + @"D:\ChibiRando\Randomizer\Stages\stage02.json");
+                
+
+                initializeStages();
+                statusDialog.Text += "\n Initialized Stages";
+
+                JToken test = foyerObj.SelectToken("objects[336].object");
+                test.Replace("item_army_photo");
+                File.WriteAllText("../../Stages/stage02.json", foyerObj.ToString());
+
+                runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage02.json");
+
+
+                statusDialog.Text += "\n Updated Foyer Stage Data";
+
+            }          
         }
 
+        private void initializeStages() 
+        {
+            livingRoomObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage07.json")) as JObject;
+            kitchenObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage01.json")) as JObject;
+            drainObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage11.json")) as JObject;
+
+            backyardObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage09.json")) as JObject;
+            basementObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage03.json")) as JObject;
+            bedroomObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage06.json")) as JObject;
+            jennyRoomObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage04.json")) as JObject;
+
+            if (openUpstairs.Checked)
+            {
+                foyerObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage02OpenUpstairs.json")) as JObject;
+            }
+            else
+            {
+                foyerObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../DefaultStages/stage02.json")) as JObject;
+            }
+        }
         private void runUnplugCommand(string command) 
         {
             var info = new ProcessStartInfo();
@@ -112,15 +157,18 @@ namespace WindowsFormsApp1
 
             info.FileName = "cmd.exe";
             info.Verb = "runas";
-            info.Arguments = "/c " + fullCommand;
-            info.WindowStyle = ProcessWindowStyle.Minimized;
+            info.Arguments = "/C " + fullCommand;
+            info.WindowStyle = ProcessWindowStyle.Normal;
             info.RedirectStandardOutput = true;
             cmd.StartInfo = info;
             cmd.Start();
 
+            
+
+            statusDialog.Text += "\nRunning command: " + fullCommand;
+
             statusDialog.Text += "\n" + cmd.StandardOutput.ReadToEnd();
         }
-
         private bool validInput()
         {
             statusDialog.Text = "";

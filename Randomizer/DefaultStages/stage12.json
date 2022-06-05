@@ -1,0 +1,16 @@
+{
+  "objects": [
+    {
+      "id": 0,
+      "object": "cb_robo",
+      "position": {"x": 0.0, "y": 0.0, "z": 80.0},
+      "rotation": {"x": 0, "y": 0, "z": 0},
+      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "data": 0,
+      "spawnFlag": null,
+      "variant": 0,
+      "flags": ["spawn", "botcam", "reflect", "interact"],
+      "script": null
+    }
+  ]
+}
