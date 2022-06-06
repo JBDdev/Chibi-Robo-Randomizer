@@ -114,7 +114,6 @@
             this.logicSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logicSettings.FormattingEnabled = true;
             this.logicSettings.Items.AddRange(new object[] {
-            "Casual",
             "Glitchless",
             "Glitched",
             "No Logic"});

@@ -104,31 +104,31 @@ namespace WindowsFormsApp1
                     randoSeed += (int)c;
                 }
 
+                statusDialog.Text += "\nTesting for generating checks from JSON file. Don't forget to uncomment everything else!!";
 
+                RootObject test = Newtonsoft.Json.JsonConvert.DeserializeObject<RootObject>(File.ReadAllText("../../itemChecks.json"));
+
+                statusDialog.Text += "\nObject in room  " + test.rooms[0].Name + " is: " + test.rooms[0].locations[0].ObjectName;
+                statusDialog.Text += "\nObject in room  " + test.rooms[2].Name + " is: " + test.rooms[2].locations[0].ObjectName;
+
+                //initializeStages();
+                //statusDialog.Text += "\nInitialized Stages";
+
+                ////Rewrite stage02 for testing
+                //JToken test1 = foyerObj.SelectToken("objects[336].object");
+                //test1.Replace("item_tamagotti");
+                //if (openUpstairs.Checked) 
+                //{
+                //    JToken latestToken = foyerObj.SelectToken("objects[512]");
+                //    latestToken.AddAfterSelf(Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../openUpstairs.json")) as JObject);                
+                //}
                 
+                //File.WriteAllText("../../Stages/stage02.json", foyerObj.ToString());
+
+                //runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage02.json");
 
 
-                
-                
-
-                initializeStages();
-                statusDialog.Text += "\nInitialized Stages";
-
-                //Rewrite stage02 for testing
-                JToken test1 = foyerObj.SelectToken("objects[336].object");
-                test1.Replace("item_tamagotti");
-                if (openUpstairs.Checked) 
-                {
-                    JToken latestToken = foyerObj.SelectToken("objects[512]");
-                    latestToken.AddAfterSelf(Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../openUpstairs.json")) as JObject);                
-                }
-                
-                File.WriteAllText("../../Stages/stage02.json", foyerObj.ToString());
-
-                runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage02.json");
-
-
-                statusDialog.Text += "\nUpdated Foyer Stage Data";
+                //statusDialog.Text += "\nUpdated Foyer Stage Data";
 
             }          
         }
@@ -217,5 +217,7 @@ namespace WindowsFormsApp1
 
             return true;
         }
+
+        
     }
 }

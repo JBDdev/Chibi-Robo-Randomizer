@@ -1,0 +1,102 @@
+{
+	"rooms": [
+		{
+			"name": "livingroom",
+			"checks": [
+				{
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0,
+					"id": 0,
+					"name": "Potato"
+				}
+			]
+		},
+
+		{
+			"name": "kitchen",
+			"checks": [
+				{
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0,
+					"id": 0,
+					"name": "testName"
+				}
+			]
+		},
+		{
+			"name": "drain",
+			"checks": [
+				{
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0,
+					"id": 0,
+					"name": "Cheese"
+				}
+			]
+		},
+		{
+			"name": "foyer",
+			"checks": [
+				{
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0,
+					"id": 0,
+					"name": "testName"
+				}
+			]
+		},
+		{
+			"name": "basement",
+			"checks": [
+				{
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0,
+					"id": 0,
+					"name": "testName"
+				}
+			]
+		},
+		{
+			"name": "backyard",
+			"checks": [
+				{
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0,
+					"id": 0,
+					"name": "testName"
+				}
+			]
+		},
+		{
+			"name": "jennyroom",
+			"checks": [
+				{
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0,
+					"id": 0,
+					"name": "testName"
+				}
+			]
+		},
+		{
+			"name": "bedroom",
+			"checks": [
+				{
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0,
+					"id": 0,
+					"name": "testName"
+				}
+			]
+		}
+	]
+	
+}
