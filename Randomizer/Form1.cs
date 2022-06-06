@@ -114,8 +114,15 @@ namespace WindowsFormsApp1
                 initializeStages();
                 statusDialog.Text += "\nInitialized Stages";
 
-                JToken test = foyerObj.SelectToken("objects[336].object");
-                test.Replace("item_goggle");
+                //Rewrite stage02 for testing
+                JToken test1 = foyerObj.SelectToken("objects[336].object");
+                test1.Replace("item_tamagotti");
+                if (openUpstairs.Checked) 
+                {
+                    JToken latestToken = foyerObj.SelectToken("objects[512]");
+                    latestToken.AddAfterSelf(Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../openUpstairs.json")) as JObject);                
+                }
+                
                 File.WriteAllText("../../Stages/stage02.json", foyerObj.ToString());
 
                 runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage02.json");
