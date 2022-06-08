@@ -4,11 +4,549 @@
 			"name": "livingroom",
 			"checks": [
 				{
-					"x": 0.0,
+					"x": -231.42,
+					"y": 24.27,
+					"z": -61.97,
+					"id": 19,
+					"name": "item_frog_ring",
+					"prereqs": []
+				},
+				{
+					"x": -266.7,
+					"y": 148.98,
+					"z": -168.44,
+					"id": 20,
+					"name": "item_frog_ring",
+					"prereqs": [ "ladder", "bridge", "blaster", "copter" ]
+				},
+				{
+					"x": -252.52,
+					"y": 27.92,
+					"z": 88.37,
+					"id": 21,
+					"name": "item_frog_ring",
+					"prereqs": [ "ladder", "bridge", "copter" ]
+				},
+				{
+					"x": -47.9,
+					"y": 40.08,
+					"z": 69.37,
+					"id": 36,
+					"name": "coin_c",
+					"prereqs": [ "copter" ]
+				},
+				{
+					"x": -252.19,
+					"y": 0.3,
+					"z": -89.81,
+					"id": 37,
+					"name": "coin_c",
+					"prereqs": []
+				},
+				{
+					"x": -271.91,
+					"y": 12.0,
+					"z": 45.13,
+					"id": 38,
+					"name": "coin_c",
+					"prereqs": []
+				},
+				{
+					"x": -227.34,
+					"y": 76.58,
+					"z": -121.02,
+					"id": 39,
+					"name": "coin_c",
+					"prereqs": [ "ladder", "copter" ]
+				},
+				{
+					"x": -227.86,
+					"y": 76.5,
+					"z": -106.26,
+					"id": 40,
+					"name": "coin_c",
+					"prereqs": [ "ladder", "copter" ]
+				},
+				{
+					"x": 37.5,
+					"y": 97.0,
+					"z": -188.51,
+					"id": 41,
+					"name": "coin_c",
+					"prereqs": []
+				},
+				{
+					"x": 155.72,
+					"y": 0.89,
+					"z": -28.92,
+					"id": 42,
+					"name": "coin_c",
+					"prereqs": []
+				},
+				{
+					"x": 174.79,
+					"y": 96.39,
+					"z": 9.18,
+					"id": 43,
+					"name": "coin_c",
+					"prereqs": [ "copter" ]
+				},
+				{
+					"x": 174.81,
+					"y": 96.39,
+					"z": 16.39,
+					"id": 44,
+					"name": "coin_c",
+					"prereqs": [ "copter" ]
+				},
+				{
+					"x": 174.87,
+					"y": 96.39,
+					"z": 1.91,
+					"id": 45,
+					"name": "coin_c",
+					"prereqs": [ "copter" ]
+				},
+				{
+					"x": 68.83,
+					"y": 55.6,
+					"z": -92.01,
+					"id": 46,
+					"name": "coin_s",
+					"prereqs": []
+				},
+				{
+					"x": 255.74,
+					"y": 181.1,
+					"z": 251.19,
+					"id": 47,
+					"name": "coin_s",
+					"prereqs": [ "ladder", "bridge", "copter" ]
+				},
+				{
+					"x": 238.9,
+					"y": 181.1,
+					"z": 265.76,
+					"id": 48,
+					"name": "coin_s",
+					"prereqs": [ "ladder", "bridge", "copter" ]
+				},
+				{
+					"x": 214.86,
+					"y": 88.69,
+					"z": 187.92,
+					"id": 49,
+					"name": "coin_s",
+					"prereqs": [ "ladder", "copter" ]
+				},
+				{
+					"x": 84.53,
 					"y": 0.0,
-					"z": 0.0,
-					"id": 0,
-					"name": "Potato"
+					"z": 295.04,
+					"id": 115,
+					"name": "item_kami_kuzu",
+					"prereqs": []
+				},
+				{
+					"x": 183.17,
+					"y": -1.1,
+					"z": 299.73,
+					"id": 116,
+					"name": "item_kami_kuzu",
+					"prereqs": []
+				},
+				{
+					"x": 209.81,
+					"y": 0.0,
+					"z": 122.44,
+					"id": 117,
+					"name": "item_kami_kuzu",
+					"prereqs": []
+				},
+				{
+					"x": 73.24,
+					"y": 54.49,
+					"z": -81.49,
+					"id": 118,
+					"name": "item_kami_kuzu",
+					"prereqs": [ "copter" ]
+				},
+				{
+					"x": -49.27,
+					"y": 0.3,
+					"z": 6.94,
+					"id": 119,
+					"name": "item_kami_kuzu",
+					"prereqs": []
+				},
+				{
+					"x": 222.72,
+					"y": 79.6,
+					"z": -225.15,
+					"id": 120,
+					"name": "item_cookie_kakera",
+					"prereqs": []
+				},
+				{
+					"x": 46.27,
+					"y": 1.0,
+					"z": 42.7,
+					"id": 133,
+					"name": "item_brush",
+					"prereqs": []
+				},
+				{
+					"x": 21.63,
+					"y": 40.34,
+					"z": -106.99,
+					"id": 240,
+					"name": "living_happy_box",
+					"prereqs": []
+				},
+				{
+					"x": -226.97,
+					"y": 20.78,
+					"z": -106.99,
+					"id": 241,
+					"name": "living_happy_box",
+					"prereqs": [ "ladder", "copter" ]
+				},
+				{
+					"x": 219.88,
+					"y": 176.58,
+					"z": -273.2,
+					"id": 242,
+					"name": "living_happy_box",
+					"prereqs": [ "copter" ]
+				},
+				{
+					"x": -242.18,
+					"y": 101.11,
+					"z": -115.21,
+					"id": 243,
+					"name": "living_happy_box",
+					"prereqs": [ "ladder", "copter" ]
+				},
+				{
+					"x": 254.99,
+					"y": 100.93,
+					"z": 252.06,
+					"id": 244,
+					"name": "living_happy_box",
+					"prereqs": [ "ladder", "copter" ]
+				},
+				{
+					"x": -121.32,
+					"y": 111.06,
+					"z": 329.83,
+					"id": 245,
+					"name": "living_happy_box",
+					"prereqs": [ "ladder", "copter" ]
+				},
+				{
+					"x": -54.34,
+					"y": 69.87,
+					"z": -362.21,
+					"id": 246,
+					"name": "living_happy_box",
+					"prereqs": []
+				},
+
+				{
+					"x": 248.94,
+					"y": 216.86,
+					"z": 259.21,
+					"id": 247,
+					"name": "living_happy_box",
+					"prereqs": [ "ladder", "bridge", "copter" ]
+				},
+				{
+					"x": -228.64,
+					"y": 160.13,
+					"z": -247.63,
+					"id": 248,
+					"name": "living_happy_box",
+					"prereqs": [ "ladder", "bridge", "copter" ]
+				},
+				{
+					"x": 261.32,
+					"y": 80.03,
+					"z": -320.54,
+					"id": 249,
+					"name": "living_happy_box",
+					"prereqs": []
+				},
+				{
+					"x": 180.42,
+					"y": 0.0,
+					"z": -363.39,
+					"id": 257,
+					"name": "item_kami_kuzu",
+					"prereqs": []
+				},
+				{
+					"x": -195.06,
+					"y": 0.0,
+					"z": -308.29,
+					"id": 258,
+					"name": "item_kami_kuzu",
+					"prereqs": []
+				},
+				{
+					"x": -182.73,
+					"y": 0.0,
+					"z": -306.4,
+					"id": 259,
+					"name": "item_kami_kuzu",
+					"prereqs": []
+				},
+				{
+					"x": -5.15,
+					"y": 11.5,
+					"z": -188.4,
+					"id": 260,
+					"name": "item_kami_kuzu",
+					"prereqs": []
+				},
+				{
+					"x": 155.75,
+					"y": 39.3,
+					"z": 103.0,
+					"id": 261,
+					"name": "item_kami_kuzu",
+					"prereqs": [ "copter" ]
+				},
+				{
+					"x": -6.98,
+					"y": 59.2,
+					"z": -160.71,
+					"id": 278,
+					"name": "coin_s",
+					"prereqs": [ "" ]
+				},
+				{
+					"x": 229.41,
+					"y": 53.69,
+					"z": -160.05,
+					"id": 279,
+					"name": "coin_s",
+					"prereqs": [ "copter" ]
+				},
+				{
+					"x": 151.02,
+					"y": 40.46,
+					"z": -47.83,
+					"id": 302,
+					"name": "item_receipt",
+					"prereqs": [ "divorce", "copter" ]
+				},
+				{
+					"x": 90.95,
+					"y": 0.0,
+					"z": 74.65,
+					"id": 319,
+					"name": "item_kami_kuzu",
+					"prereqs": []
+				},
+				{
+					"x": 59.86,
+					"y": 0.2,
+					"z": -81.43,
+					"id": 320,
+					"name": "item_kami_kuzu",
+					"prereqs": []
+				},
+				{
+					"x": 158.25,
+					"y": 40.0,
+					"z": -4.1,
+					"id": 321,
+					"name": "item_kami_kuzu",
+					"prereqs": [ "copter" ]
+				},
+				{
+					"x": 117.8,
+					"y": 0.41,
+					"z": 12.04,
+					"id": 322,
+					"name": "item_cookie_kakera",
+					"prereqs": []
+				},
+				{
+					"x": 155.45,
+					"y": 40.0,
+					"z": -28.82,
+					"id": 323,
+					"name": "item_cookie_kakera",
+					"prereqs": [ "copter" ]
+				},
+				{
+					"x": 277.76,
+					"y": 0.9,
+					"z": -76.29,
+					"id": 324,
+					"name": "leaf",
+					"prereqs": []
+				},
+				{
+					"x": 263.28,
+					"y": 0.0,
+					"z": -62.9,
+					"id": 325,
+					"name": "leaf",
+					"prereqs": []
+				},
+				{
+					"x": 253.65,
+					"y": 0.0,
+					"z": -94.75,
+					"id": 326,
+					"name": "leaf",
+					"prereqs": []
+				},
+				{
+					"x": -43.46,
+					"y": 33.59,
+					"z": -352.5,
+					"id": 338,
+					"name": "coin_s",
+					"prereqs": [ "ladder", "copter" ]
+				},
+				{
+					"x": 113.39,
+					"y": 28.09,
+					"z": 112.63,
+					"id": 339,
+					"name": "coin_c",
+					"prereqs": [ "copter" ]
+				},
+				{
+					"x": -3.48,
+					"y": 0.0,
+					"z": 364.34,
+					"id": 340,
+					"name": "coin_c",
+					"prereqs": []
+				},
+				{
+					"x": 9.25,
+					"y": 0.0,
+					"z": 364.24,
+					"id": 341,
+					"name": "coin_c",
+					"prereqs": []
+				},
+				{
+					"x": 22.11,
+					"y": 0.0,
+					"z": 364.29,
+					"id": 342,
+					"name": "coin_c",
+					"prereqs": []
+				},
+				{
+					"x": 253.16,
+					"y": 23.99,
+					"z": 306.76,
+					"id": 367,
+					"name": "item_kami_kuzu",
+					"prereqs": []
+				},
+				{
+					"x": 246.22,
+					"y": 23.99,
+					"z": 315.28,
+					"id": 368,
+					"name": "item_kami_kuzu",
+					"prereqs": []
+				},
+				{
+					"x": 215.29,
+					"y": 25.59,
+					"z": 352.46,
+					"id": 437,
+					"name": "item_candy_gomi",
+					"prereqs": []
+				},
+				{
+					"x": -90.19,
+					"y": 1.5,
+					"z": 85.1,
+					"id": 438,
+					"name": "item_candy_gomi",
+					"prereqs": []
+				},
+				{
+					"x": 136.28,
+					"y": 40.59,
+					"z": 94.04,
+					"id": 439,
+					"name": "item_candy_gomi",
+					"prereqs": [ "copter" ]
+				},
+				{
+					"x": 76.43,
+					"y": 1.6,
+					"z": 89.36,
+					"id": 440,
+					"name": "item_candy_gomi",
+					"prereqs": []
+				},
+				{
+					"x": -44.18,
+					"y": 1.6,
+					"z": -167.99,
+					"id": 441,
+					"name": "item_candy_gomi",
+					"prereqs": []
+				},
+				{
+					"x": 22.73,
+					"y": 40.59,
+					"z": -140.7,
+					"id": 442,
+					"name": "item_candy_gomi",
+					"prereqs": []
+				},
+				{
+					"x": 22.36,
+					"y": 40.59,
+					"z": -127.3,
+					"id": 443,
+					"name": "item_candy_gomi",
+					"prereqs": []
+				},
+				{
+					"x": 79.08,
+					"y": 56.29,
+					"z": -90.45,
+					"id": 444,
+					"name": "item_candy_gomi",
+					"prereqs": [ "copter" ]
+				},
+				{
+					"x": 151.28,
+					"y": 40.0,
+					"z": 52.85,
+					"id": 445,
+					"name": "item_okasi_gomi_1",
+					"prereqs": [ "copter" ]
+				},
+				{
+					"x": -4.27,
+					"y": 40.0,
+					"z": 49.47,
+					"id": 446,
+					"name": "item_okasi_gomi_2",
+					"prereqs": [ "copter" ]
+				},
+				{
+					"x": 0.91,
+					"y": 40.0,
+					"z": 68.68,
+					"id": 447,
+					"name": "item_okasi_gomi_2",
+					"prereqs": [ "copter" ]
 				}
 			]
 		},
