@@ -1346,7 +1346,7 @@
     },
     {
       "id": 112,
-      "object": "npc_hock_ship_114",
+      "object": "item_denchi_1",
       "position": {"x": 456.92, "y": -46.91, "z": -511.47},
       "rotation": {"x": 0, "y": 153, "z": 0},
       "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
@@ -1514,7 +1514,7 @@
     },
     {
       "id": 126,
-      "object": "item_frog_ring",
+      "object": "item_kairozu",
       "position": {"x": 627.9, "y": 35.0, "z": -464.89},
       "rotation": {"x": -30, "y": 160, "z": 20},
       "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
@@ -3506,7 +3506,7 @@
     },
     {
       "id": 292,
-      "object": "item_t_block_3",
+      "object": "item_brush",
       "position": {"x": 386.2, "y": 257.79, "z": -108.84},
       "rotation": {"x": 0, "y": 0, "z": 0},
       "scale": {"x": 1.0, "y": 1.0, "z": 1.0},

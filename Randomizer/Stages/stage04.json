@@ -2206,7 +2206,7 @@
       "spawnFlag": null,
       "variant": 0,
       "flags": ["interact", "projectile"],
-      "script": 536
+      "script": 988
     },
     {
       "id": 184,
@@ -2834,7 +2834,7 @@
     },
     {
       "id": 236,
-      "object": "item_tyuusyaki",
+      "object": "cb_cannon_lv_2",
       "position": {"x": 33.49, "y": 40.18, "z": -98.63},
       "rotation": {"x": 0, "y": -143, "z": 0},
       "scale": {"x": 1.0, "y": 1.0, "z": 1.0},

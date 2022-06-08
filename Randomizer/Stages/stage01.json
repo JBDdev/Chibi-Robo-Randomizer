@@ -298,7 +298,7 @@
       "spawnFlag": null,
       "variant": 0,
       "flags": ["interact", "projectile"],
-      "script": 586
+      "script": 1224
     },
     {
       "id": 25,
@@ -322,7 +322,7 @@
       "spawnFlag": null,
       "variant": 0,
       "flags": ["interact", "projectile"],
-      "script": 965
+      "script": 789
     },
     {
       "id": 27,
@@ -434,7 +434,7 @@
     },
     {
       "id": 36,
-      "object": "item_mag_cup",
+      "object": "item_chibi_house_denti_2",
       "position": {"x": -60.84, "y": 76.01, "z": -180.18},
       "rotation": {"x": 0, "y": -80, "z": 0},
       "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
@@ -446,8 +446,8 @@
     },
     {
       "id": 37,
-      "object": "item_spoon",
-      "position": {"x": 119.16, "y": 114.47, "z": -181.56},
+      "object": "item_receipt",
+      "position": {"x": 119.16, "y": 124.47, "z": -181.56},
       "rotation": {"x": 0, "y": 18, "z": 0},
       "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
       "data": 0,
@@ -2726,7 +2726,7 @@
     },
     {
       "id": 227,
-      "object": "item_tug",
+      "object": "item_capsule_31",
       "position": {"x": 314.25, "y": 41.1, "z": -182.33},
       "rotation": {"x": 0, "y": -169, "z": 0},
       "scale": {"x": 1.0, "y": 1.5, "z": 1.0},
@@ -2738,7 +2738,7 @@
     },
     {
       "id": 228,
-      "object": "item_houtai",
+      "object": "item_kure_3",
       "position": {"x": -242.47, "y": 169.1, "z": -134.59},
       "rotation": {"x": 0, "y": 0, "z": 0},
       "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
@@ -2882,7 +2882,7 @@
     },
     {
       "id": 240,
-      "object": "item_frog_ring",
+      "object": "item_ticket",
       "position": {"x": -42.31, "y": 72.99, "z": 121.01},
       "rotation": {"x": -30, "y": 60, "z": 0},
       "scale": {"x": 1.0, "y": 1.0, "z": 1.0},

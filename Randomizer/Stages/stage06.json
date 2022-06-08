@@ -1958,7 +1958,7 @@
     },
     {
       "id": 163,
-      "object": "item_rex_tooth",
+      "object": "item_left_foot",
       "position": {"x": -310.89, "y": 1.4, "z": 113.32},
       "rotation": {"x": 0, "y": 0, "z": 0},
       "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
@@ -2330,7 +2330,7 @@
     },
     {
       "id": 194,
-      "object": "item_ticket",
+      "object": "item_t_block_3",
       "position": {"x": -4.06, "y": 87.57, "z": -56.37},
       "rotation": {"x": 0, "y": 0, "z": 0},
       "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
@@ -2558,7 +2558,7 @@
     },
     {
       "id": 213,
-      "object": "item_frog",
+      "object": "item_mag_cup",
       "position": {"x": -113.75, "y": 0.0, "z": 272.03},
       "rotation": {"x": 0, "y": 140, "z": 0},
       "scale": {"x": 1.0, "y": 1.0, "z": 1.0},

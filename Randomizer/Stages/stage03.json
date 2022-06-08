@@ -74,7 +74,7 @@
     },
     {
       "id": 6,
-      "object": "item_deka_denchi",
+      "object": "item_c_denchi",
       "position": {"x": 108.15, "y": 2.99, "z": -37.12},
       "rotation": {"x": 0, "y": -30, "z": 0},
       "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
@@ -1454,7 +1454,7 @@
     },
     {
       "id": 121,
-      "object": "item_chibi_house_denti_2",
+      "object": "item_frog_ring",
       "position": {"x": -4.29, "y": 95.69, "z": -91.6},
       "rotation": {"x": 0, "y": 0, "z": 0},
       "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
@@ -1730,7 +1730,7 @@
     },
     {
       "id": 144,
-      "object": "item_kayaku",
+      "object": "item_deka_denchi",
       "position": {"x": -140.78, "y": 88.83, "z": -16.49},
       "rotation": {"x": 0, "y": 0, "z": 0},
       "scale": {"x": 1.0, "y": 1.0, "z": 1.0},

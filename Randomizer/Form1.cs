@@ -25,6 +25,8 @@ namespace WindowsFormsApp1
         JObject bedroomObj;
         JObject jennyRoomObj;
 
+        List<int> occupiedChecks;
+
         public Form1()
         {
             InitializeComponent();
@@ -75,7 +77,7 @@ namespace WindowsFormsApp1
 
             cmd = new Process();
 
-            
+            occupiedChecks = new List<int>();
 
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -94,7 +96,7 @@ namespace WindowsFormsApp1
         private void randomizeButton_Click(object sender, EventArgs e)
         {
 
-            if (true) 
+            if (validInput()) 
             {
 
                 //Actually pretty sick/goofy way of generating rando seed and making it a smaller number, should hold on to this and move it somewhere else later
@@ -104,31 +106,11 @@ namespace WindowsFormsApp1
                     randoSeed += (int)c;
                 }
 
-                statusDialog.Text += "\nTesting for generating checks from JSON file. Don't forget to uncomment everything else!!";
+                initializeStages();
 
-                RootObject test = Newtonsoft.Json.JsonConvert.DeserializeObject<RootObject>(File.ReadAllText("../../itemChecks.json"));
+                //Any code that handles stage editing / randomization goes here!
 
-                statusDialog.Text += "\nObject in room  " + test.rooms[0].Name + " is: " + test.rooms[0].locations[0].ObjectName;
-                statusDialog.Text += "\nObject in room  " + test.rooms[2].Name + " is: " + test.rooms[2].locations[0].ObjectName;
-
-                //initializeStages();
-                //statusDialog.Text += "\nInitialized Stages";
-
-                ////Rewrite stage02 for testing
-                //JToken test1 = foyerObj.SelectToken("objects[336].object");
-                //test1.Replace("item_tamagotti");
-                //if (openUpstairs.Checked) 
-                //{
-                //    JToken latestToken = foyerObj.SelectToken("objects[512]");
-                //    latestToken.AddAfterSelf(Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../openUpstairs.json")) as JObject);                
-                //}
-                
-                //File.WriteAllText("../../Stages/stage02.json", foyerObj.ToString());
-
-                //runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage02.json");
-
-
-                //statusDialog.Text += "\nUpdated Foyer Stage Data";
+                reimportStages();
 
             }          
         }
@@ -218,6 +200,72 @@ namespace WindowsFormsApp1
             return true;
         }
 
+        //Picks locations for the key items, puts them into the appropriate locations, and then updates the spoiler log
+        private void shuffleKeyItems(int seed) 
+        {
         
+        }
+
+        //Picks locations for the non-key items, puts them into the appropriate locations. May or may not add to the spoiler log to avoid clutter yet idk
+        private void shuffleJunkItems(int seed) 
+        {
+        
+        }
+
+        private void reimportStages() 
+        {
+            File.WriteAllText("../../Stages/stage01.json", kitchenObj.ToString());
+            File.WriteAllText("../../Stages/stage02.json", foyerObj.ToString());
+            File.WriteAllText("../../Stages/stage03.json", basementObj.ToString());
+            File.WriteAllText("../../Stages/stage04.json", jennyRoomObj.ToString());
+            File.WriteAllText("../../Stages/stage06.json", bedroomObj.ToString());
+            File.WriteAllText("../../Stages/stage07.json", livingRoomObj.ToString());
+            File.WriteAllText("../../Stages/stage09.json", backyardObj.ToString());
+            File.WriteAllText("../../Stages/stage11.json", drainObj.ToString());
+
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage01.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage02.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage03.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage04.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage06.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage07.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage09.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage11.json");
+        }
+
+        private void testCodeDump() 
+        {
+ 
+            //This is some code to pick a random check from the living room and put a frog in its place
+            RootObject test = Newtonsoft.Json.JsonConvert.DeserializeObject<RootObject>(File.ReadAllText("../../itemChecks.json"));
+
+            Random r = new Random();
+            int testLocation = r.Next(0, test.rooms[0].locations.Count() - 1);
+
+
+            JToken test1 = livingRoomObj.SelectToken("objects[" + test.rooms[0].locations[testLocation].ID + "].object");
+            test1.Replace("item_frog");
+
+            File.WriteAllText("../../Stages/stage07.json", livingRoomObj.ToString());
+
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage07 " + @"D:\ChibiRando\Randomizer\Stages\stage07.json");
+
+
+
+
+            //Rewriting foyer + code for adding in upstairs early
+            JToken test2 = foyerObj.SelectToken("objects[336].object");
+            test2.Replace("item_tamagotti");
+            if (openUpstairs.Checked)
+            {
+                JToken latestToken = foyerObj.SelectToken("objects[512]");
+                latestToken.AddAfterSelf(Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../openUpstairs.json")) as JObject);
+            }
+
+            File.WriteAllText("../../Stages/stage02.json", foyerObj.ToString());
+
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage02.json");
+
+        }
     }
 }
