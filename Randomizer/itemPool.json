@@ -1,0 +1,194 @@
+{
+	"items": [
+		{
+			"name": "item_frog_ring",
+			"numChecks": 10,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_brush",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_tyuusyaki",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_spoon",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_mag_cup",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_chip_53",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_chip_54",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_hocyouki",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_c_denchi",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_chibi_house_denti_2",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_deka_denchi",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_left_foot",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_army_photo",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_t_block_6",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_t_block_4",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_t_block_3",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_kure_1",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_kure_3",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_kure_4",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_kure_5",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_tug",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_houtai",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_ticket",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_kayaku",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_car_item",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_nwing_item",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_frog",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_rex_tooth",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_goggle",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_denchi_3",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_denchi_2",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "item_denchi_1",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"name": "coin_c",
+			"numChecks": 30,
+			"flags": [ "interact" ]
+		},
+		{
+			"name": "coin_s",
+			"numChecks": 7,
+			"flags": [ "interact" ]
+		},
+		{
+			"name": "coin_g",
+			"numChecks": 4,
+			"flags": [ "interact" ]
+		},
+		{
+			"name": "item_junk_a",
+			"numChecks": 15,
+			"flags": [ "interact" ]
+		},
+		{
+			"name": "item_junk_b",
+			"numChecks": 15,
+			"flags": [ "interact" ]
+		},
+		{
+			"name": "item_junk_c",
+			"numChecks": 10,
+			"flags": [ "interact" ]
+		}
+	]
+}

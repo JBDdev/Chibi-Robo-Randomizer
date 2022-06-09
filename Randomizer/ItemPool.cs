@@ -10,27 +10,17 @@ namespace WindowsFormsApp1
 {
     public class ItemPool
     {
-        List<string> keyItemNames = new List<string>();
-
-        public ItemPool(List<string> excludedItems) 
-        {
-            //Default 10 Frog Rings in the Pool
-            keyItemNames.Add("item_frog_ring");
-            keyItemNames.Add("item_frog_ring");
-            keyItemNames.Add("item_frog_ring");
-            keyItemNames.Add("item_frog_ring");
-            keyItemNames.Add("item_frog_ring");
-            keyItemNames.Add("item_frog_ring");
-            keyItemNames.Add("item_frog_ring");
-            keyItemNames.Add("item_frog_ring");
-            keyItemNames.Add("item_frog_ring");
-            keyItemNames.Add("item_frog_ring");
-
-            //Equipment
-            keyItemNames.Add("");
-        }
+        [JsonProperty("items")]
+        public List<Item> Items { get; set; }
+    }
+    public class Item 
+    {
+        public string name { get; set; }
+        public int numChecks { get; set; }
+        public string[] flags { get; set; }
     }
 
+    //Handles check locations
     public class RootObject 
     {
         [JsonProperty("rooms")]

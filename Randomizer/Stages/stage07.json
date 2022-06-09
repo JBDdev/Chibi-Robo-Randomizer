@@ -1940,7 +1940,7 @@
         "interact",
         "projectile"
       ],
-      "script": 1545
+      "script": 1134
     },
     {
       "id": 68,
@@ -4162,7 +4162,7 @@
         "interact",
         "projectile"
       ],
-      "script": 1879
+      "script": 1439
     },
     {
       "id": 146,
@@ -6688,7 +6688,7 @@
     },
     {
       "id": 240,
-      "object": "living_happy_box",
+      "object": "item_frog",
       "position": {
         "x": 21.63,
         "y": 40.34,
@@ -6709,6 +6709,10 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "interact",
+        "lift",
+        "cull",
+        "flash",
         "explode",
         "climb",
         "clamber",
@@ -6719,7 +6723,7 @@
     },
     {
       "id": 241,
-      "object": "living_happy_box",
+      "object": "item_frog",
       "position": {
         "x": -226.97,
         "y": 20.78,
@@ -6740,6 +6744,10 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "interact",
+        "lift",
+        "cull",
+        "flash",
         "explode",
         "climb",
         "clamber",
@@ -6750,7 +6758,7 @@
     },
     {
       "id": 242,
-      "object": "living_happy_box",
+      "object": "item_frog",
       "position": {
         "x": 219.88,
         "y": 176.58,
@@ -6771,6 +6779,10 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "interact",
+        "lift",
+        "cull",
+        "flash",
         "explode",
         "climb",
         "clamber",
@@ -6781,7 +6793,7 @@
     },
     {
       "id": 243,
-      "object": "living_happy_box",
+      "object": "item_frog",
       "position": {
         "x": -242.18,
         "y": 101.11,
@@ -6802,6 +6814,10 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "interact",
+        "lift",
+        "cull",
+        "flash",
         "explode",
         "climb",
         "clamber",
@@ -6812,7 +6828,7 @@
     },
     {
       "id": 244,
-      "object": "living_happy_box",
+      "object": "item_frog",
       "position": {
         "x": 254.99,
         "y": 100.93,
@@ -6833,6 +6849,10 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "interact",
+        "lift",
+        "cull",
+        "flash",
         "explode",
         "climb",
         "clamber",
@@ -6843,7 +6863,7 @@
     },
     {
       "id": 245,
-      "object": "living_happy_box",
+      "object": "item_frog",
       "position": {
         "x": -121.32,
         "y": 111.06,
@@ -6864,6 +6884,10 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "interact",
+        "lift",
+        "cull",
+        "flash",
         "explode",
         "climb",
         "clamber",
@@ -6874,7 +6898,7 @@
     },
     {
       "id": 246,
-      "object": "living_happy_box",
+      "object": "item_frog",
       "position": {
         "x": -54.34,
         "y": 69.87,
@@ -6895,6 +6919,10 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "interact",
+        "lift",
+        "cull",
+        "flash",
         "explode",
         "fall",
         "grab"
@@ -6903,7 +6931,7 @@
     },
     {
       "id": 247,
-      "object": "living_happy_box",
+      "object": "item_frog",
       "position": {
         "x": 248.94,
         "y": 216.86,
@@ -6924,6 +6952,10 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "interact",
+        "lift",
+        "cull",
+        "flash",
         "explode",
         "climb",
         "clamber",
@@ -6934,7 +6966,7 @@
     },
     {
       "id": 248,
-      "object": "living_happy_box",
+      "object": "item_frog",
       "position": {
         "x": -228.64,
         "y": 160.13,
@@ -6955,6 +6987,10 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "interact",
+        "lift",
+        "cull",
+        "flash",
         "explode",
         "climb",
         "clamber",
@@ -6965,7 +7001,7 @@
     },
     {
       "id": 249,
-      "object": "living_happy_box",
+      "object": "item_frog",
       "position": {
         "x": 261.32,
         "y": 80.03,
@@ -6986,6 +7022,10 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "interact",
+        "lift",
+        "cull",
+        "flash",
         "explode",
         "climb",
         "clamber",

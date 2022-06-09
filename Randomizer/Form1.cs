@@ -25,7 +25,9 @@ namespace WindowsFormsApp1
         JObject bedroomObj;
         JObject jennyRoomObj;
 
-        List<int> occupiedChecks;
+        RootObject stageData;
+        ItemPool itemPool;
+        Random r;
 
         public Form1()
         {
@@ -110,6 +112,12 @@ namespace WindowsFormsApp1
                 //
                 //
 
+                stageData = Newtonsoft.Json.JsonConvert.DeserializeObject<RootObject>(File.ReadAllText("../../itemChecks.json"));
+                itemPool = Newtonsoft.Json.JsonConvert.DeserializeObject<ItemPool>(File.ReadAllText("../../itemPool.json"));
+
+                r = new Random(randoSeed);
+                shuffleItemsGlitchless();
+
 
                 //Edits for Open Upstairs setting
                 if (openUpstairs.Checked)
@@ -162,9 +170,9 @@ namespace WindowsFormsApp1
             cmd.StartInfo = info;
             cmd.Start();
 
-            statusDialog.Text += "\nRunning command: " + fullCommand;
+            //statusDialog.Text += "\nRunning command: " + fullCommand;
 
-            statusDialog.Text += "\n" + cmd.StandardOutput.ReadToEnd();
+            //statusDialog.Text += "\n" + cmd.StandardOutput.ReadToEnd();
         }
         private bool validInput()
         {
@@ -206,17 +214,44 @@ namespace WindowsFormsApp1
             return true;
         }
 
-        //Picks locations for the key items, puts them into the appropriate locations, and then updates the spoiler log
-        private void shuffleKeyItems(int seed) 
+        //Picks locations for the items, puts them into the appropriate locations, and then updates the spoiler log
+        private void shuffleItemsGlitchless() 
         {
-        
+            //Setup
+            int nextCheck;
+            List<ItemLocation> allLocations = new List<ItemLocation>();
+            List<bool> occupiedChecks = new List<bool>();
+            for (int i = 0; i < stageData.rooms.Count; i++) 
+            {
+                for (int j = 0; j < stageData.rooms[i].locations.Count(); i++) 
+                {
+                    allLocations.Add(stageData.rooms[i].locations[j]);
+                    occupiedChecks.Add(false);
+                }                    
+            }
+
+            //Shuffle Charger and Battery
+            while (true) 
+            {
+                nextCheck = r.Next(0, allLocations.Count() - 1);
+                if (allLocations[nextCheck].Prereqs.Contains("ladder") || allLocations[nextCheck].Prereqs.Contains("bridge")) 
+                {
+                    continue;
+                }
+                //Edit the correct object
+            }
+
+            //Check here for any locks, then check again after shuffling battery
+            
+
+            
+            //Shuffle Leg
+
+            //Shuffle any key items that would otherwise cause locks for the above
+
+
         }
 
-        //Picks locations for the non-key items, puts them into the appropriate locations. May or may not add to the spoiler log to avoid clutter yet idk
-        private void shuffleJunkItems(int seed) 
-        {
-        
-        }
 
         private void reimportStages() 
         {
@@ -229,14 +264,14 @@ namespace WindowsFormsApp1
             File.WriteAllText("../../Stages/stage09.json", backyardObj.ToString());
             File.WriteAllText("../../Stages/stage11.json", drainObj.ToString());
 
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage01.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage01 " + @"D:\ChibiRando\Randomizer\Stages\stage01.json");
             runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage02.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage03.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage04.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage06.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage07.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage09.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage11.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage03 " + @"D:\ChibiRando\Randomizer\Stages\stage03.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage04 " + @"D:\ChibiRando\Randomizer\Stages\stage04.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage06 " + @"D:\ChibiRando\Randomizer\Stages\stage06.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage07 " + @"D:\ChibiRando\Randomizer\Stages\stage07.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage09 " + @"D:\ChibiRando\Randomizer\Stages\stage09.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage11 " + @"D:\ChibiRando\Randomizer\Stages\stage11.json");
         }
 
         private void testCodeDump() 
@@ -267,6 +302,37 @@ namespace WindowsFormsApp1
             File.WriteAllText("../../Stages/stage02.json", foyerObj.ToString());
 
             runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage02.json");
+
+
+            //Replacing the living room happy blocks with frogs
+
+            string[] flags = { "flash", "spawn", "cull", "lift", "interact" };
+            foreach (ItemLocation loc in test.rooms[0].locations)
+            {
+                if (loc.ID < 240 || loc.ID > 249)
+                    continue;
+                livingRoomObj.SelectToken("objects[" + loc.ID + "].object").Replace("item_frog");
+
+                int finalFlagIndex = livingRoomObj.SelectToken("objects[" + loc.ID + "].flags").Children().Count() - 1;
+
+                List<JToken> oldFlags = new List<JToken>();
+
+                foreach (JToken flag in livingRoomObj.SelectToken("objects[" + loc.ID + "].flags").Children())
+                {
+                    oldFlags.Add(flag);
+                }
+
+                for (int i = 1; i < oldFlags.Count; i++)
+                {
+                    oldFlags[i].Remove();
+                }
+
+                livingRoomObj.SelectToken("objects[" + loc.ID + "].flags[0]").AddAfterSelf("flash");
+                livingRoomObj.SelectToken("objects[" + loc.ID + "].flags[0]").AddAfterSelf("cull");
+                livingRoomObj.SelectToken("objects[" + loc.ID + "].flags[0]").AddAfterSelf("lift");
+                livingRoomObj.SelectToken("objects[" + loc.ID + "].flags[0]").AddAfterSelf("interact");
+
+            }
 
         }
     }

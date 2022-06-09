@@ -5153,7 +5153,7 @@
         "interact",
         "projectile"
       ],
-      "script": 988
+      "script": 536
     },
     {
       "id": 184,
@@ -6624,10 +6624,10 @@
     },
     {
       "id": 236,
-      "object": "cb_radar",
+      "object": "item_tyuusyaki",
       "position": {
         "x": 33.49,
-        "y": 45.18,
+        "y": 40.18,
         "z": -98.63
       },
       "rotation": {
