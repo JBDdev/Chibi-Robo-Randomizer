@@ -34,8 +34,6 @@ namespace WindowsFormsApp1
 
         private void openISO_Click(object sender, EventArgs e)
         {
-
-
             using (OpenFileDialog ofd = new OpenFileDialog()) 
             {
                 ofd.InitialDirectory = "c:\\";
@@ -45,9 +43,7 @@ namespace WindowsFormsApp1
                 {
                     isoFilePath.Text = ofd.FileName;
                 }
-            }
-            
-            
+            }      
         }
 
         private void openDestination_Click(object sender, EventArgs e)
@@ -78,7 +74,6 @@ namespace WindowsFormsApp1
             cmd = new Process();
 
             occupiedChecks = new List<int>();
-
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -96,11 +91,12 @@ namespace WindowsFormsApp1
         private void randomizeButton_Click(object sender, EventArgs e)
         {
 
-            if (validInput()) 
+            if (true) 
             {
 
                 //Actually pretty sick/goofy way of generating rando seed and making it a smaller number, should hold on to this and move it somewhere else later
                 int randoSeed = 0;
+
                 foreach (char c in seed.Text) 
                 {
                     randoSeed += (int)c;
@@ -109,6 +105,18 @@ namespace WindowsFormsApp1
                 initializeStages();
 
                 //Any code that handles stage editing / randomization goes here!
+                //
+                //
+                //
+                //
+
+
+                //Edits for Open Upstairs setting
+                if (openUpstairs.Checked)
+                {
+                    JToken latestToken = foyerObj.SelectToken("objects[512]");
+                    latestToken.AddAfterSelf(Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../openUpstairs.json")) as JObject);
+                }
 
                 reimportStages();
 
@@ -153,8 +161,6 @@ namespace WindowsFormsApp1
             info.RedirectStandardOutput = true;
             cmd.StartInfo = info;
             cmd.Start();
-
-            
 
             statusDialog.Text += "\nRunning command: " + fullCommand;
 
@@ -256,11 +262,7 @@ namespace WindowsFormsApp1
             //Rewriting foyer + code for adding in upstairs early
             JToken test2 = foyerObj.SelectToken("objects[336].object");
             test2.Replace("item_tamagotti");
-            if (openUpstairs.Checked)
-            {
-                JToken latestToken = foyerObj.SelectToken("objects[512]");
-                latestToken.AddAfterSelf(Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../openUpstairs.json")) as JObject);
-            }
+            
 
             File.WriteAllText("../../Stages/stage02.json", foyerObj.ToString());
 

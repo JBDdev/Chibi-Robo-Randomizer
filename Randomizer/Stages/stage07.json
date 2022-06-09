@@ -556,7 +556,7 @@
     },
     {
       "id": 19,
-      "object": "item_houtai",
+      "object": "item_frog_ring",
       "position": {
         "x": -231.42,
         "y": 24.27,
@@ -586,7 +586,7 @@
     },
     {
       "id": 20,
-      "object": "item_kure_5",
+      "object": "item_frog_ring",
       "position": {
         "x": -266.7,
         "y": 148.98,
@@ -616,7 +616,7 @@
     },
     {
       "id": 21,
-      "object": "item_rex_tooth",
+      "object": "item_frog_ring",
       "position": {
         "x": -252.52,
         "y": 27.92,
@@ -1889,7 +1889,7 @@
     },
     {
       "id": 66,
-      "object": "item_frog",
+      "object": "npc_keath",
       "position": {
         "x": -217.28,
         "y": 115.99,
@@ -3809,7 +3809,7 @@
     },
     {
       "id": 133,
-      "object": "item_frog_ring",
+      "object": "item_brush",
       "position": {
         "x": 46.27,
         "y": 1.0,
@@ -7282,7 +7282,7 @@
     },
     {
       "id": 260,
-      "object": "item_frog",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -5.15,
         "y": 11.5,
@@ -8437,7 +8437,7 @@
     },
     {
       "id": 302,
-      "object": "item_tane_a_152",
+      "object": "item_receipt",
       "position": {
         "x": 151.02,
         "y": 40.46,
@@ -12395,7 +12395,7 @@
     },
     {
       "id": 446,
-      "object": "item_frog",
+      "object": "item_okasi_gomi_2",
       "position": {
         "x": -4.27,
         "y": 40.0,

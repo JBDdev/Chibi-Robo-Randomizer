@@ -3,757 +3,1758 @@
     {
       "id": 0,
       "object": "cb_robo",
-      "position": {"x": 0.0, "y": 0.0, "z": 0.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 1,
       "object": "haisui_map",
-      "position": {"x": 0.0, "y": 0.0, "z": 0.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 2,
       "object": "haisui_hashigo_b",
-      "position": {"x": 7.0, "y": -12.0, "z": 0.0},
-      "rotation": {"x": 0, "y": -90, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": 7.0,
+        "y": -12.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": -90,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "ladder", "interact"],
+      "flags": [
+        "spawn",
+        "ladder",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 3,
       "object": "haisui_hashigo_c",
-      "position": {"x": -55.0, "y": -12.0, "z": 0.0},
-      "rotation": {"x": 0, "y": -90, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -55.0,
+        "y": -12.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": -90,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "ladder", "interact"],
+      "flags": [
+        "spawn",
+        "ladder",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 4,
       "object": "haisui_hashigo_c",
-      "position": {"x": -35.0, "y": -12.0, "z": 0.0},
-      "rotation": {"x": 0, "y": 90, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -35.0,
+        "y": -12.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 90,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "ladder", "interact"],
+      "flags": [
+        "spawn",
+        "ladder",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 5,
       "object": "haisui_hashigo_d",
-      "position": {"x": 33.0, "y": 16.0, "z": 0.0},
-      "rotation": {"x": 0, "y": -90, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": 33.0,
+        "y": 16.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": -90,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "ladder", "interact"],
+      "flags": [
+        "spawn",
+        "ladder",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 6,
       "object": "haisui_soto",
-      "position": {"x": 169.28, "y": 0.0, "z": 0.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": 169.28,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 7,
       "object": "haisui_hashigo_f",
-      "position": {"x": -135.0, "y": -130.0, "z": 0.0},
-      "rotation": {"x": 0, "y": -90, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -135.0,
+        "y": -130.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": -90,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "ladder", "interact"],
+      "flags": [
+        "spawn",
+        "ladder",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 8,
       "object": "haisui_kabe",
-      "position": {"x": 0.0, "y": 0.0, "z": 0.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 9,
       "object": "haisui_rope",
-      "position": {"x": -108.55, "y": -99.84, "z": 0.0},
-      "rotation": {"x": 0, "y": -90, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -108.55,
+        "y": -99.84,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": -90,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "rope", "interact"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "rope",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 10,
       "object": "npc_hock_ship_114",
-      "position": {"x": -285.57, "y": 9.99, "z": -5.73},
-      "rotation": {"x": 0, "y": -67, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -285.57,
+        "y": 9.99,
+        "z": -5.73
+      },
+      "rotation": {
+        "x": 0,
+        "y": -67,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 11,
       "object": "haisui_nezumi",
-      "position": {"x": -228.45, "y": -12.3, "z": 1.61},
-      "rotation": {"x": 0, "y": 90, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -228.45,
+        "y": -12.3,
+        "z": 1.61
+      },
+      "rotation": {
+        "x": 0,
+        "y": 90,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 12,
       "object": "haisui_nezumi",
-      "position": {"x": -227.45, "y": -12.3, "z": 2.61},
-      "rotation": {"x": 0, "y": 90, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -227.45,
+        "y": -12.3,
+        "z": 2.61
+      },
+      "rotation": {
+        "x": 0,
+        "y": 90,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["interact"],
+      "flags": [
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 13,
       "object": "haisui_nezumi",
-      "position": {"x": -302.07, "y": -12.3, "z": -4.42},
-      "rotation": {"x": 0, "y": 90, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -302.07,
+        "y": -12.3,
+        "z": -4.42
+      },
+      "rotation": {
+        "x": 0,
+        "y": 90,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 14,
       "object": "haisui_nezumi",
-      "position": {"x": -195.06, "y": -130.0, "z": 0.93},
-      "rotation": {"x": 0, "y": 90, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -195.06,
+        "y": -130.0,
+        "z": 0.93
+      },
+      "rotation": {
+        "x": 0,
+        "y": 90,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 15,
       "object": "item_papa_yubiwa",
-      "position": {"x": -300.54, "y": -129.0, "z": 0.37},
-      "rotation": {"x": 0, "y": 0, "z": 10},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -300.54,
+        "y": -129.0,
+        "z": 0.37
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 10
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": 1,
       "variant": 0,
-      "flags": ["spawn", "lift", "interact"],
+      "flags": [
+        "spawn",
+        "lift",
+        "interact"
+      ],
       "script": 142
     },
     {
       "id": 16,
       "object": "haisui_pipe_a",
-      "position": {"x": 0.0, "y": 0.0, "z": 0.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "climb", "clamber", "interact"],
+      "flags": [
+        "spawn",
+        "climb",
+        "clamber",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 17,
       "object": "npc_papa",
-      "position": {"x": -95.07, "y": 81.4, "z": -96.08},
-      "rotation": {"x": 0, "y": -72, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -95.07,
+        "y": 81.4,
+        "z": -96.08
+      },
+      "rotation": {
+        "x": 0,
+        "y": -72,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 18,
       "object": "backyard_hose",
-      "position": {"x": -95.07, "y": 81.4, "z": -96.08},
-      "rotation": {"x": 0, "y": -72, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -95.07,
+        "y": 81.4,
+        "z": -96.08
+      },
+      "rotation": {
+        "x": 0,
+        "y": -72,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 19,
       "object": "haisui_room_1_c",
-      "position": {"x": -206.18, "y": -84.45, "z": 0.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -206.18,
+        "y": -84.45,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "projectile"],
+      "flags": [
+        "spawn",
+        "projectile"
+      ],
       "script": 143
     },
     {
       "id": 20,
       "object": "yogore_h_s",
-      "position": {"x": -29.93, "y": -11.9, "z": 0.01},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -29.93,
+        "y": -11.9,
+        "z": 0.01
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 146
     },
     {
       "id": 21,
       "object": "yogore_h_s",
-      "position": {"x": -21.85, "y": -11.9, "z": 0.94},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.3, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -21.85,
+        "y": -11.9,
+        "z": 0.94
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.3,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 156
     },
     {
       "id": 22,
       "object": "yogore_h_s",
-      "position": {"x": -7.37, "y": -11.9, "z": 1.23},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -7.37,
+        "y": -11.9,
+        "z": 1.23
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 157
     },
     {
       "id": 23,
       "object": "yogore_h_s",
-      "position": {"x": -133.78, "y": -11.9, "z": 0.47},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 0.9, "y": 1.0, "z": 0.79},
+      "position": {
+        "x": -133.78,
+        "y": -11.9,
+        "z": 0.47
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.9,
+        "y": 1.0,
+        "z": 0.79
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 158
     },
     {
       "id": 24,
       "object": "yogore_h_s",
-      "position": {"x": -147.89, "y": -41.0, "z": -0.98},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -147.89,
+        "y": -41.0,
+        "z": -0.98
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 159
     },
     {
       "id": 25,
       "object": "yogore_h_s",
-      "position": {"x": -153.49, "y": -41.0, "z": -1.39},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 0.58, "y": 1.0, "z": 0.58},
+      "position": {
+        "x": -153.49,
+        "y": -41.0,
+        "z": -1.39
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.58,
+        "y": 1.0,
+        "z": 0.58
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 160
     },
     {
       "id": 26,
       "object": "yogore_h_s",
-      "position": {"x": -140.11, "y": -130.0, "z": -0.08},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 0.9, "y": 1.0, "z": 0.79},
+      "position": {
+        "x": -140.11,
+        "y": -130.0,
+        "z": -0.08
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.9,
+        "y": 1.0,
+        "z": 0.79
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 161
     },
     {
       "id": 27,
       "object": "yogore_h_s",
-      "position": {"x": -169.09, "y": -130.0, "z": -6.14},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -169.09,
+        "y": -130.0,
+        "z": -6.14
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 162
     },
     {
       "id": 28,
       "object": "yogore_h_s",
-      "position": {"x": -273.25, "y": -130.0, "z": -2.33},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 0.79, "y": 1.0, "z": 0.69},
+      "position": {
+        "x": -273.25,
+        "y": -130.0,
+        "z": -2.33
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.79,
+        "y": 1.0,
+        "z": 0.69
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 163
     },
     {
       "id": 29,
       "object": "yogore_h_s",
-      "position": {"x": -331.18, "y": -130.0, "z": -1.42},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -331.18,
+        "y": -130.0,
+        "z": -1.42
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 164
     },
     {
       "id": 30,
       "object": "yogore_h_s",
-      "position": {"x": -145.03, "y": -130.0, "z": -1.7},
-      "rotation": {"x": 0, "y": -75, "z": 0},
-      "scale": {"x": 0.69, "y": 1.0, "z": 0.58},
+      "position": {
+        "x": -145.03,
+        "y": -130.0,
+        "z": -1.7
+      },
+      "rotation": {
+        "x": 0,
+        "y": -75,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.69,
+        "y": 1.0,
+        "z": 0.58
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 165
     },
     {
       "id": 31,
       "object": "yogore_h_s",
-      "position": {"x": -93.76, "y": -11.9, "z": -0.78},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.6, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -93.76,
+        "y": -11.9,
+        "z": -0.78
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.6,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 166
     },
     {
       "id": 32,
       "object": "yogore_h_s",
-      "position": {"x": -85.47, "y": -11.9, "z": -3.83},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -85.47,
+        "y": -11.9,
+        "z": -3.83
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 167
     },
     {
       "id": 33,
       "object": "yogore_h_k",
-      "position": {"x": -1.03, "y": -12.0, "z": -2.06},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -1.03,
+        "y": -12.0,
+        "z": -2.06
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 168
     },
     {
       "id": 34,
       "object": "yogore_h_k",
-      "position": {"x": -87.88, "y": -12.0, "z": -0.07},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -87.88,
+        "y": -12.0,
+        "z": -0.07
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 172
     },
     {
       "id": 35,
       "object": "yogore_h_k",
-      "position": {"x": -136.88, "y": -12.0, "z": -1.51},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 0.79, "y": 1.0, "z": 0.79},
+      "position": {
+        "x": -136.88,
+        "y": -12.0,
+        "z": -1.51
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.79,
+        "y": 1.0,
+        "z": 0.79
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 173
     },
     {
       "id": 36,
       "object": "yogore_h_k",
-      "position": {"x": -153.14, "y": -41.09, "z": -7.54},
-      "rotation": {"x": 0, "y": -100, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -153.14,
+        "y": -41.09,
+        "z": -7.54
+      },
+      "rotation": {
+        "x": 0,
+        "y": -100,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 174
     },
     {
       "id": 37,
       "object": "yogore_h_k",
-      "position": {"x": -146.87, "y": -41.09, "z": -6.07},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -146.87,
+        "y": -41.09,
+        "z": -6.07
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 175
     },
     {
       "id": 38,
       "object": "yogore_h_k",
-      "position": {"x": -276.25, "y": -130.0, "z": -6.5},
-      "rotation": {"x": 0, "y": -70, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -276.25,
+        "y": -130.0,
+        "z": -6.5
+      },
+      "rotation": {
+        "x": 0,
+        "y": -70,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 176
     },
     {
       "id": 39,
       "object": "yogore_h_k",
-      "position": {"x": -164.38, "y": -130.0, "z": -3.59},
-      "rotation": {"x": 0, "y": -125, "z": 0},
-      "scale": {"x": 0.69, "y": 1.0, "z": 0.49},
+      "position": {
+        "x": -164.38,
+        "y": -130.0,
+        "z": -3.59
+      },
+      "rotation": {
+        "x": 0,
+        "y": -125,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.69,
+        "y": 1.0,
+        "z": 0.49
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 177
     },
     {
       "id": 40,
       "object": "yogore_h_k",
-      "position": {"x": -166.29, "y": -130.0, "z": -9.51},
-      "rotation": {"x": 0, "y": -130, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -166.29,
+        "y": -130.0,
+        "z": -9.51
+      },
+      "rotation": {
+        "x": 0,
+        "y": -130,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "lowpri", "atc", "projectile"],
+      "flags": [
+        "spawn",
+        "lowpri",
+        "atc",
+        "projectile"
+      ],
       "script": 178
     },
     {
       "id": 41,
       "object": "fx_zact_ghost",
-      "position": {"x": 0.0, "y": 0.0, "z": 0.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 42,
       "object": "fx_zact_gicco",
-      "position": {"x": 0.0, "y": 0.0, "z": 0.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 43,
       "object": "fx_zact_tao",
-      "position": {"x": 0.0, "y": 0.0, "z": 0.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 44,
       "object": "fx_zact_frog",
-      "position": {"x": 0.0, "y": 0.0, "z": 0.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 45,
       "object": "fx_zact_injured",
-      "position": {"x": 0.0, "y": 0.0, "z": 0.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 46,
       "object": "fx_zact_pajamas",
-      "position": {"x": 0.0, "y": 0.0, "z": 0.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 47,
       "object": "fx_zact_pajamas",
-      "position": {"x": 1.0, "y": 0.0, "z": 1.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": 1.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 48,
       "object": "haisui_ana_a",
-      "position": {"x": 0.0, "y": 0.0, "z": 0.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 49,
       "object": "coin_g",
-      "position": {"x": -150.0, "y": -40.9, "z": 1.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -150.0,
+        "y": -40.9,
+        "z": 1.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 50,
       "object": "coin_g",
-      "position": {"x": -162.0, "y": -40.9, "z": 1.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -162.0,
+        "y": -40.9,
+        "z": 1.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 51,
       "object": "coin_g",
-      "position": {"x": -174.0, "y": -40.9, "z": 1.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -174.0,
+        "y": -40.9,
+        "z": 1.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 52,
       "object": "coin_c",
-      "position": {"x": -186.0, "y": -40.9, "z": 1.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -186.0,
+        "y": -40.9,
+        "z": 1.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 53,
       "object": "coin_c",
-      "position": {"x": -198.0, "y": -40.9, "z": 1.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -198.0,
+        "y": -40.9,
+        "z": 1.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 54,
       "object": "coin_c",
-      "position": {"x": -210.0, "y": -40.9, "z": 1.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -210.0,
+        "y": -40.9,
+        "z": 1.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 55,
       "object": "coin_g",
-      "position": {"x": -300.0, "y": -12.1, "z": 1.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -300.0,
+        "y": -12.1,
+        "z": 1.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 56,
       "object": "coin_c",
-      "position": {"x": -288.0, "y": -12.1, "z": 1.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -288.0,
+        "y": -12.1,
+        "z": 1.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 57,
       "object": "coin_c",
-      "position": {"x": -276.0, "y": -12.1, "z": 1.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -276.0,
+        "y": -12.1,
+        "z": 1.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 58,
       "object": "haisui_pipe_b",
-      "position": {"x": 0.0, "y": 0.0, "z": 0.0},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "climb", "clamber", "interact"],
+      "flags": [
+        "spawn",
+        "climb",
+        "clamber",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 59,
       "object": "haisui_water",
-      "position": {"x": -239.0, "y": -132.0, "z": -1.03},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 17.19, "y": 0.39, "z": 1.0},
+      "position": {
+        "x": -239.0,
+        "y": -132.0,
+        "z": -1.03
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 17.19,
+        "y": 0.39,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 60,
       "object": "haisui_water",
-      "position": {"x": -14.19, "y": -12.6, "z": -1.04},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 3.59, "y": 0.39, "z": 1.0},
+      "position": {
+        "x": -14.19,
+        "y": -12.6,
+        "z": -1.04
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 3.59,
+        "y": 0.39,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 61,
       "object": "parent_welding_tools",
-      "position": {"x": -11.6, "y": 0.0, "z": 43.48},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "position": {
+        "x": -11.6,
+        "y": 0.0,
+        "z": 43.48
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": null,
       "variant": 0,
-      "flags": ["spawn", "interact"],
+      "flags": [
+        "spawn",
+        "interact"
+      ],
       "script": null
     },
     {
       "id": 62,
-      "object": "item_kayaku",
-      "position": {"x": -214.17, "y": -90.29, "z": 0.06},
-      "rotation": {"x": 0, "y": 0, "z": 0},
-      "scale": {"x": 1.0, "y": 1.0, "z": 1.0},
+      "object": "item_frog_ring",
+      "position": {
+        "x": -214.17,
+        "y": -90.29,
+        "z": 0.06
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
       "data": 0,
       "spawnFlag": 10,
       "variant": 0,
-      "flags": ["spawn", "flash", "cull", "lift", "interact"],
+      "flags": [
+        "spawn",
+        "flash",
+        "cull",
+        "lift",
+        "interact"
+      ],
       "script": 179
     }
   ]
