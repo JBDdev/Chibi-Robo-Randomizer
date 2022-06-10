@@ -74,8 +74,6 @@ namespace WindowsFormsApp1
             }
 
             cmd = new Process();
-
-            occupiedChecks = new List<int>();
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -116,7 +114,9 @@ namespace WindowsFormsApp1
                 itemPool = Newtonsoft.Json.JsonConvert.DeserializeObject<ItemPool>(File.ReadAllText("../../itemPool.json"));
 
                 r = new Random(randoSeed);
-                shuffleItemsGlitchless();
+
+                //Performs the randomization based on the settings
+                Dictionary<string, string> newSpoilerLog = shuffleItemsGlitchless();
 
 
                 //Edits for Open Upstairs setting
@@ -169,10 +169,10 @@ namespace WindowsFormsApp1
             info.RedirectStandardOutput = true;
             cmd.StartInfo = info;
             cmd.Start();
-
+            cmd.WaitForExit();
             //statusDialog.Text += "\nRunning command: " + fullCommand;
 
-            //statusDialog.Text += "\n" + cmd.StandardOutput.ReadToEnd();
+            statusDialog.Text += "\n" + cmd.StandardOutput.ReadToEnd();
         }
         private bool validInput()
         {
@@ -214,44 +214,163 @@ namespace WindowsFormsApp1
             return true;
         }
 
-        //Picks locations for the items, puts them into the appropriate locations, and then updates the spoiler log
-        private void shuffleItemsGlitchless() 
+        //Picks locations for the items, puts them into the appropriate locations, and then returns the spoiler log
+        private Dictionary<string, string> shuffleItemsGlitchless() 
         {
-            //Setup
-            int nextCheck;
+            //*** SETUP ***
+
+            //List of all checks
             List<ItemLocation> allLocations = new List<ItemLocation>();
+
+            //Tracks what checks are occupied
             List<bool> occupiedChecks = new List<bool>();
+
+            //This will let us build the spoiler log later!
+            Dictionary<string, string> spoilerLog = new Dictionary<string, string>();
+
+
+
+            //Builds the list of checks and occupiedChecks counter
             for (int i = 0; i < stageData.rooms.Count; i++) 
             {
-                for (int j = 0; j < stageData.rooms[i].locations.Count(); i++) 
+                for (int j = 0; j < stageData.rooms[i].locations.Count(); j++) 
                 {
                     allLocations.Add(stageData.rooms[i].locations[j]);
                     occupiedChecks.Add(false);
                 }                    
             }
 
-            //Shuffle Charger and Battery
-            while (true) 
+            //Shuffles Charger
+            while(true)
             {
-                nextCheck = r.Next(0, allLocations.Count() - 1);
-                if (allLocations[nextCheck].Prereqs.Contains("ladder") || allLocations[nextCheck].Prereqs.Contains("bridge")) 
+                int nextCheck = r.Next(0, allLocations.Count() - 1);
+                statusDialog.Text += "\nFirst random roll: " + nextCheck;
+                if (allLocations[nextCheck].Prereqs.Contains("ladder") || allLocations[nextCheck].Prereqs.Contains("bridge"))
                 {
-                    continue;
+                    
                 }
-                //Edit the correct object
+                else
+                {
+                    
+                    occupiedChecks[nextCheck] = true;
+                    insertItem("item_chibi_house_denti_2", nextCheck);
+                    spoilerLog.Add("Giga-Charger", allLocations[nextCheck].Description);
+                    break;
+                }
+            }
+            
+            //Shuffles Battery
+            while (true)
+            {
+                int nextCheck = r.Next(0, allLocations.Count() - 1);
+                statusDialog.Text += "\nSecond random roll: " + nextCheck;
+                if (occupiedChecks[nextCheck] == true || allLocations[nextCheck].Prereqs.Contains("ladder") || allLocations[nextCheck].Prereqs.Contains("bridge"))
+                {
+
+                }
+                else 
+                {
+                    //Swaps between charged / uncharged battery depending on the settings
+                    if (batteryCharge.Checked)
+                    {
+                        insertItem("item_deka_denchi_full", nextCheck);
+                        spoilerLog.Add("Giga-Battery", allLocations[nextCheck].Description);
+                    }
+                    else
+                    {
+                        insertItem("item_deka_denchi", nextCheck);
+                        spoilerLog.Add("Giga-Battery", allLocations[nextCheck].Description);
+                    }
+                    occupiedChecks[nextCheck] = true;
+                    break;
+                }       
             }
 
-            //Check here for any locks, then check again after shuffling battery
-            
-
-            
             //Shuffle Leg
 
             //Shuffle any key items that would otherwise cause locks for the above
 
-
+            return spoilerLog;
         }
 
+        //Returns description for the check
+        private void insertItem(string objectName, int location) 
+        {
+            JToken token;
+
+            //Will be used in grabbing correct check from rooms that aren't the living room :?
+            int sumPreviousChecks = 0;
+
+            if (location < stageData.rooms[0].locations.Count())
+            {
+                //Getting the object from the exported living room and changing the name
+                token = livingRoomObj.SelectToken("objects[" + stageData.rooms[0].locations[location].ID + "].object");
+                token.Replace(objectName);
+
+                //Setting the correct flags for the new object
+                int finalFlagIndex = livingRoomObj.SelectToken("objects[" + stageData.rooms[0].locations[location].ID + "].flags").Children().Count() - 1;
+
+                List<JToken> oldFlags = new List<JToken>();
+
+                foreach (JToken flag in livingRoomObj.SelectToken("objects[" + stageData.rooms[0].locations[location].ID + "].flags").Children())
+                {
+                    oldFlags.Add(flag);
+                }
+
+                for (int i = 1; i < oldFlags.Count; i++)
+                {
+                    oldFlags[i].Remove();
+                }
+
+                switch (objectName)
+                {
+                    case "coin_c":
+                    case "coin_s":
+                    case "coin_g":
+                    case "item_junk_a":
+                    case "item_junk_b":
+                    case "item_junk_c":                                
+                        livingRoomObj.SelectToken("objects[" + stageData.rooms[0].locations[location].ID + "].flags[0]").AddAfterSelf("interact");
+                        break;
+                    default:
+                        livingRoomObj.SelectToken("objects[" + stageData.rooms[0].locations[location].ID + "].flags[0]").AddAfterSelf("flash");
+                        livingRoomObj.SelectToken("objects[" + stageData.rooms[0].locations[location].ID + "].flags[0]").AddAfterSelf("cull");
+                        livingRoomObj.SelectToken("objects[" + stageData.rooms[0].locations[location].ID + "].flags[0]").AddAfterSelf("lift");
+                        livingRoomObj.SelectToken("objects[" + stageData.rooms[0].locations[location].ID + "].flags[0]").AddAfterSelf("interact");
+                        break;
+                }
+                return;
+            }
+            else if (location < stageData.rooms[1].locations.Count())
+            {
+            
+            }
+            else if (location < stageData.rooms[2].locations.Count())
+            {
+
+            }
+            else if (location < stageData.rooms[3].locations.Count())
+            {
+
+            }
+            else if (location < stageData.rooms[4].locations.Count())
+            {
+
+            }
+            else if (location < stageData.rooms[5].locations.Count())
+            {
+
+            }
+            else if (location < stageData.rooms[6].locations.Count())
+            {
+
+            }
+            else 
+            {
+
+            }
+            return;
+        }
 
         private void reimportStages() 
         {

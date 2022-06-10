@@ -57,5 +57,8 @@ namespace WindowsFormsApp1
         [JsonProperty("prereqs")]
         public string[] Prereqs { get; set; }
 
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
     }
 }

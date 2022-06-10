@@ -9,7 +9,8 @@
 					"z": -61.97,
 					"id": 19,
 					"name": "item_frog_ring",
-					"prereqs": []
+					"prereqs": [ "ladder", "blaster", "copter" ],
+					"description": "Living Room Frog Ring (Behind Window)"
 				},
 				{
 					"x": -266.7,
@@ -17,7 +18,8 @@
 					"z": -168.44,
 					"id": 20,
 					"name": "item_frog_ring",
-					"prereqs": [ "ladder", "bridge", "blaster", "copter" ]
+					"prereqs": [ "ladder", "bridge", "copter" ],
+					"description": "Living Room Frog Ring (Corkboard)"
 				},
 				{
 					"x": -252.52,
@@ -25,7 +27,8 @@
 					"z": 88.37,
 					"id": 21,
 					"name": "item_frog_ring",
-					"prereqs": [ "ladder", "bridge", "copter" ]
+					"prereqs": [],
+					"description": "Living Room Frog Ring (Shelf)"
 				},
 				{
 					"x": -47.9,
@@ -33,7 +36,8 @@
 					"z": 69.37,
 					"id": 36,
 					"name": "coin_c",
-					"prereqs": [ "copter" ]
+					"prereqs": [ "copter" ],
+					"description": "Living Room Table 10M Coin"
 				},
 				{
 					"x": -252.19,
@@ -41,7 +45,8 @@
 					"z": -89.81,
 					"id": 37,
 					"name": "coin_c",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Under Bookshelf 10M Coin"
 				},
 				{
 					"x": -271.91,
@@ -49,7 +54,8 @@
 					"z": 45.13,
 					"id": 38,
 					"name": "coin_c",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Under TV 10M Coin"
 				},
 				{
 					"x": -227.34,
@@ -57,7 +63,8 @@
 					"z": -121.02,
 					"id": 39,
 					"name": "coin_c",
-					"prereqs": [ "ladder", "copter" ]
+					"prereqs": [ "ladder", "copter" ],
+					"description": "Living Room Bookshelf 10M Coin A"
 				},
 				{
 					"x": -227.86,
@@ -65,7 +72,8 @@
 					"z": -106.26,
 					"id": 40,
 					"name": "coin_c",
-					"prereqs": [ "ladder", "copter" ]
+					"prereqs": [ "ladder", "copter" ],
+					"description": "Living Room Bookshelf 10M Coin B"
 				},
 				{
 					"x": 37.5,
@@ -73,7 +81,8 @@
 					"z": -188.51,
 					"id": 41,
 					"name": "coin_c",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Armchair 10M Coin"
 				},
 				{
 					"x": 155.72,
@@ -81,7 +90,8 @@
 					"z": -28.92,
 					"id": 42,
 					"name": "coin_c",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Under Couch 10M Coin"
 				},
 				{
 					"x": 174.79,
@@ -89,7 +99,8 @@
 					"z": 9.18,
 					"id": 43,
 					"name": "coin_c",
-					"prereqs": [ "copter" ]
+					"prereqs": [ "copter" ],
+					"description": "Living Room Couch Backseat 10M Coin A"
 				},
 				{
 					"x": 174.81,
@@ -97,7 +108,8 @@
 					"z": 16.39,
 					"id": 44,
 					"name": "coin_c",
-					"prereqs": [ "copter" ]
+					"prereqs": [ "copter" ],
+					"description": "Living Room Couch Backseat 10M Coin B"
 				},
 				{
 					"x": 174.87,
@@ -105,7 +117,8 @@
 					"z": 1.91,
 					"id": 45,
 					"name": "coin_c",
-					"prereqs": [ "copter" ]
+					"prereqs": [ "copter" ],
+					"description": "Living Room Couch Backseat 10M Coin C"
 				},
 				{
 					"x": 68.83,
@@ -113,7 +126,8 @@
 					"z": -92.01,
 					"id": 46,
 					"name": "coin_s",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Cupholder 50M Coin"
 				},
 				{
 					"x": 255.74,
@@ -121,7 +135,8 @@
 					"z": 251.19,
 					"id": 47,
 					"name": "coin_s",
-					"prereqs": [ "ladder", "bridge", "copter" ]
+					"prereqs": [ "ladder", "bridge", "copter" ],
+					"description": "Living Room Plant Shelf 50M A"
 				},
 				{
 					"x": 238.9,
@@ -129,7 +144,8 @@
 					"z": 265.76,
 					"id": 48,
 					"name": "coin_s",
-					"prereqs": [ "ladder", "bridge", "copter" ]
+					"prereqs": [ "ladder", "bridge", "copter" ],
+					"description": "Living Room Plant Shelf 50M B"
 				},
 				{
 					"x": 214.86,
@@ -137,7 +153,8 @@
 					"z": 187.92,
 					"id": 49,
 					"name": "coin_s",
-					"prereqs": [ "ladder", "copter" ]
+					"prereqs": [ "ladder", "copter" ],
+					"description": "Living Room Plant Leaf 50M Coin"
 				},
 				{
 					"x": 84.53,
@@ -145,7 +162,8 @@
 					"z": 295.04,
 					"id": 115,
 					"name": "item_kami_kuzu",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Wastepaper by Trashbin B"
 				},
 				{
 					"x": 183.17,
@@ -153,7 +171,8 @@
 					"z": 299.73,
 					"id": 116,
 					"name": "item_kami_kuzu",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Candy Wrapper above Trashbin"
 				},
 				{
 					"x": 209.81,
@@ -161,7 +180,8 @@
 					"z": 122.44,
 					"id": 117,
 					"name": "item_kami_kuzu",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Wastepaper by Trashbin A"
 				},
 				{
 					"x": 73.24,
@@ -169,15 +189,17 @@
 					"z": -81.49,
 					"id": 118,
 					"name": "item_kami_kuzu",
-					"prereqs": [ "copter" ]
+					"prereqs": [ "copter" ],
+					"description": "Living Room Cupholder Wastepaper"
 				},
 				{
 					"x": -49.27,
 					"y": 0.3,
 					"z": 6.94,
 					"id": 119,
-					"name": "item_kami_kuzu",
-					"prereqs": []
+					"name": "item_cookie_kakera",
+					"prereqs": [],
+					"description": "Living Room Cookie Crumbs under Table"
 				},
 				{
 					"x": 222.72,
@@ -185,7 +207,8 @@
 					"z": -225.15,
 					"id": 120,
 					"name": "item_cookie_kakera",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Cookie Crumbs by Record Player"
 				},
 				{
 					"x": 46.27,
@@ -193,7 +216,8 @@
 					"z": 42.7,
 					"id": 133,
 					"name": "item_brush",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Toothbrush"
 				},
 				{
 					"x": 21.63,
@@ -201,7 +225,8 @@
 					"z": -106.99,
 					"id": 240,
 					"name": "living_happy_box",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Armchair Happy Block"
 				},
 				{
 					"x": -226.97,
@@ -209,7 +234,8 @@
 					"z": -106.99,
 					"id": 241,
 					"name": "living_happy_box",
-					"prereqs": [ "ladder", "copter" ]
+					"prereqs": [ "ladder", "copter" ],
+					"description": "Living Room Bookshelf Happy Block (Lower)"
 				},
 				{
 					"x": 219.88,
@@ -217,7 +243,8 @@
 					"z": -273.2,
 					"id": 242,
 					"name": "living_happy_box",
-					"prereqs": [ "copter" ]
+					"prereqs": [ "copter" ],
+					"description": "Living Room Top of Record Player Shelving Happy Block"
 				},
 				{
 					"x": -242.18,
@@ -225,7 +252,8 @@
 					"z": -115.21,
 					"id": 243,
 					"name": "living_happy_box",
-					"prereqs": [ "ladder", "copter" ]
+					"prereqs": [ "ladder", "copter" ],
+					"description": "Living Room Bookshelf Happy Block (Upper)"
 				},
 				{
 					"x": 254.99,
@@ -233,7 +261,8 @@
 					"z": 252.06,
 					"id": 244,
 					"name": "living_happy_box",
-					"prereqs": [ "ladder", "copter" ]
+					"prereqs": [ "ladder", "copter" ],
+					"description": "Living Room Plant Shelf Happy Block (Lower)"
 				},
 				{
 					"x": -121.32,
@@ -241,7 +270,8 @@
 					"z": 329.83,
 					"id": 245,
 					"name": "living_happy_box",
-					"prereqs": [ "ladder", "copter" ]
+					"prereqs": [ "ladder", "copter" ],
+					"description": "Living Room Grandfather Clock Shelving Happy Block"
 				},
 				{
 					"x": -54.34,
@@ -249,16 +279,17 @@
 					"z": -362.21,
 					"id": 246,
 					"name": "living_happy_box",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Above Chibi-House Happy Block"
 				},
-
 				{
 					"x": 248.94,
 					"y": 216.86,
 					"z": 259.21,
 					"id": 247,
 					"name": "living_happy_box",
-					"prereqs": [ "ladder", "bridge", "copter" ]
+					"prereqs": [ "ladder", "bridge", "copter" ],
+					"description": "Living Room Plant Shelf Happy Block (Upper)"
 				},
 				{
 					"x": -228.64,
@@ -266,7 +297,8 @@
 					"z": -247.63,
 					"id": 248,
 					"name": "living_happy_box",
-					"prereqs": [ "ladder", "bridge", "copter" ]
+					"prereqs": [ "ladder", "bridge", "copter" ],
+					"description": "Living Room Happy Block above Fireplace"
 				},
 				{
 					"x": 261.32,
@@ -274,7 +306,8 @@
 					"z": -320.54,
 					"id": 249,
 					"name": "living_happy_box",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Happy Block by Record Player"
 				},
 				{
 					"x": 180.42,
@@ -282,7 +315,8 @@
 					"z": -363.39,
 					"id": 257,
 					"name": "item_kami_kuzu",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Wastepaper by Door to Kitchen"
 				},
 				{
 					"x": -195.06,
@@ -290,7 +324,8 @@
 					"z": -308.29,
 					"id": 258,
 					"name": "item_kami_kuzu",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Fireplace Wastepaper A"
 				},
 				{
 					"x": -182.73,
@@ -298,7 +333,8 @@
 					"z": -306.4,
 					"id": 259,
 					"name": "item_kami_kuzu",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Fireplace Wastepaper B"
 				},
 				{
 					"x": -5.15,
@@ -306,7 +342,8 @@
 					"z": -188.4,
 					"id": 260,
 					"name": "item_kami_kuzu",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Wastepaper on Stack of Books"
 				},
 				{
 					"x": 155.75,
@@ -314,7 +351,8 @@
 					"z": 103.0,
 					"id": 261,
 					"name": "item_kami_kuzu",
-					"prereqs": [ "copter" ]
+					"prereqs": [ "copter" ],
+					"description": "Living Room Couch Wastepaper B"
 				},
 				{
 					"x": -6.98,
@@ -322,7 +360,8 @@
 					"z": -160.71,
 					"id": 278,
 					"name": "coin_s",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Armchair 50M Coin"
 				},
 				{
 					"x": 229.41,
@@ -330,7 +369,8 @@
 					"z": -160.05,
 					"id": 279,
 					"name": "coin_s",
-					"prereqs": [ "copter" ]
+					"prereqs": [ "copter" ],
+					"description": "Living Room Lamp 50M Coin"
 				},
 				{
 					"x": 151.02,
@@ -338,7 +378,8 @@
 					"z": -47.83,
 					"id": 302,
 					"name": "item_receipt",
-					"prereqs": [ "divorce", "copter" ]
+					"prereqs": [ "divorce", "copter" ],
+					"description": "Living Room Toy Receipt"
 				},
 				{
 					"x": 90.95,
@@ -346,7 +387,8 @@
 					"z": 74.65,
 					"id": 319,
 					"name": "item_kami_kuzu",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Wastepaper by Toothbrush Spawn"
 				},
 				{
 					"x": 59.86,
@@ -354,7 +396,8 @@
 					"z": -81.43,
 					"id": 320,
 					"name": "item_kami_kuzu",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Wastepaper below Cupholder"
 				},
 				{
 					"x": 158.25,
@@ -362,7 +405,8 @@
 					"z": -4.1,
 					"id": 321,
 					"name": "item_kami_kuzu",
-					"prereqs": [ "copter" ]
+					"prereqs": [ "copter" ],
+					"description": "Living Room Couch Wastepaper A"
 				},
 				{
 					"x": 117.8,
@@ -370,7 +414,8 @@
 					"z": 12.04,
 					"id": 322,
 					"name": "item_cookie_kakera",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Cookie Crumbs under Couch"
 				},
 				{
 					"x": 155.45,
@@ -378,7 +423,8 @@
 					"z": -28.82,
 					"id": 323,
 					"name": "item_cookie_kakera",
-					"prereqs": [ "copter" ]
+					"prereqs": [ "copter" ],
+					"description": "Living Room Cookie Crumbs on Couch"
 				},
 				{
 					"x": 277.76,
@@ -386,7 +432,8 @@
 					"z": -76.29,
 					"id": 324,
 					"name": "leaf",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Twig A"
 				},
 				{
 					"x": 263.28,
@@ -394,7 +441,8 @@
 					"z": -62.9,
 					"id": 325,
 					"name": "leaf",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Twig B"
 				},
 				{
 					"x": 253.65,
@@ -402,7 +450,8 @@
 					"z": -94.75,
 					"id": 326,
 					"name": "leaf",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Twig C"
 				},
 				{
 					"x": -43.46,
@@ -410,7 +459,8 @@
 					"z": -352.5,
 					"id": 338,
 					"name": "coin_s",
-					"prereqs": [ "ladder", "copter" ]
+					"prereqs": [ "ladder", "copter" ],
+					"description": "Living Room 50M Coin on top of Chibi-House"
 				},
 				{
 					"x": 113.39,
@@ -418,7 +468,8 @@
 					"z": 112.63,
 					"id": 339,
 					"name": "coin_c",
-					"prereqs": [ "copter" ]
+					"prereqs": [ "copter" ],
+					"description": "Living Room Couch 10M Coin (Below Left Armrest)"
 				},
 				{
 					"x": -3.48,
@@ -426,7 +477,8 @@
 					"z": 364.34,
 					"id": 340,
 					"name": "coin_c",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room 10M Coin behind Grandfather Clock Shelving C"
 				},
 				{
 					"x": 9.25,
@@ -434,7 +486,8 @@
 					"z": 364.24,
 					"id": 341,
 					"name": "coin_c",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room 10M Coin behind Grandfather Clock Shelving B"
 				},
 				{
 					"x": 22.11,
@@ -442,7 +495,8 @@
 					"z": 364.29,
 					"id": 342,
 					"name": "coin_c",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room 10M Coin behind Grandfather Clock Shelving A"
 				},
 				{
 					"x": 253.16,
@@ -450,7 +504,8 @@
 					"z": 306.76,
 					"id": 367,
 					"name": "item_kami_kuzu",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Wastepaper above Trashbin B"
 				},
 				{
 					"x": 246.22,
@@ -458,7 +513,8 @@
 					"z": 315.28,
 					"id": 368,
 					"name": "item_kami_kuzu",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Wastepaper above Trashbin A"
 				},
 				{
 					"x": 215.29,
@@ -466,7 +522,8 @@
 					"z": 352.46,
 					"id": 437,
 					"name": "item_candy_gomi",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Candy Wrapper above Trashbin"
 				},
 				{
 					"x": -90.19,
@@ -474,7 +531,8 @@
 					"z": 85.1,
 					"id": 438,
 					"name": "item_candy_gomi",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Candy Wrapper by Jenny A"
 				},
 				{
 					"x": 136.28,
@@ -482,7 +540,8 @@
 					"z": 94.04,
 					"id": 439,
 					"name": "item_candy_gomi",
-					"prereqs": [ "copter" ]
+					"prereqs": [ "copter" ],
+					"description": "Living Room Couch Candy Wrapper"
 				},
 				{
 					"x": 76.43,
@@ -490,7 +549,8 @@
 					"z": 89.36,
 					"id": 440,
 					"name": "item_candy_gomi",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Candy Wrapper by Jenny B"
 				},
 				{
 					"x": -44.18,
@@ -498,7 +558,8 @@
 					"z": -167.99,
 					"id": 441,
 					"name": "item_candy_gomi",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Candy Wrapper on Book Stack"
 				},
 				{
 					"x": 22.73,
@@ -506,7 +567,8 @@
 					"z": -140.7,
 					"id": 442,
 					"name": "item_candy_gomi",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Armchair Candy Wrapper B"
 				},
 				{
 					"x": 22.36,
@@ -514,7 +576,8 @@
 					"z": -127.3,
 					"id": 443,
 					"name": "item_candy_gomi",
-					"prereqs": []
+					"prereqs": [],
+					"description": "Living Room Armchair Candy Wrapper A"
 				},
 				{
 					"x": 79.08,
@@ -522,7 +585,8 @@
 					"z": -90.45,
 					"id": 444,
 					"name": "item_candy_gomi",
-					"prereqs": [ "copter" ]
+					"prereqs": [ "copter" ],
+					"description": "Living Room Cupholder Candy Wrapper"
 				},
 				{
 					"x": 151.28,
@@ -530,7 +594,8 @@
 					"z": 52.85,
 					"id": 445,
 					"name": "item_okasi_gomi_1",
-					"prereqs": [ "copter" ]
+					"prereqs": [ "copter" ],
+					"description": "Living Room Couch Candy Bag"
 				},
 				{
 					"x": -4.27,
@@ -538,7 +603,8 @@
 					"z": 49.47,
 					"id": 446,
 					"name": "item_okasi_gomi_2",
-					"prereqs": [ "copter" ]
+					"prereqs": [ "copter" ],
+					"description": "Living Room Table Cookie Box A"
 				},
 				{
 					"x": 0.91,
@@ -546,7 +612,8 @@
 					"z": 68.68,
 					"id": 447,
 					"name": "item_okasi_gomi_2",
-					"prereqs": [ "copter" ]
+					"prereqs": [ "copter" ],
+					"description": "Living Room Table Cookie Box B"
 				}
 			]
 		},

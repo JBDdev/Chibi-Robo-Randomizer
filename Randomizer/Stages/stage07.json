@@ -1178,7 +1178,7 @@
     },
     {
       "id": 41,
-      "object": "coin_c",
+      "object": "item_chibi_house_denti_2",
       "position": {
         "x": 37.5,
         "y": 97.0,
@@ -1199,9 +1199,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "opaque",
+        "interact",
+        "lift",
         "cull",
-        "interact"
+        "flash"
       ],
       "script": null
     },
@@ -6688,7 +6689,7 @@
     },
     {
       "id": 240,
-      "object": "item_frog",
+      "object": "living_happy_box",
       "position": {
         "x": 21.63,
         "y": 40.34,
@@ -6709,10 +6710,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash",
         "explode",
         "climb",
         "clamber",
@@ -6723,7 +6720,7 @@
     },
     {
       "id": 241,
-      "object": "item_frog",
+      "object": "living_happy_box",
       "position": {
         "x": -226.97,
         "y": 20.78,
@@ -6744,10 +6741,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash",
         "explode",
         "climb",
         "clamber",
@@ -6758,7 +6751,7 @@
     },
     {
       "id": 242,
-      "object": "item_frog",
+      "object": "living_happy_box",
       "position": {
         "x": 219.88,
         "y": 176.58,
@@ -6779,10 +6772,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash",
         "explode",
         "climb",
         "clamber",
@@ -6793,7 +6782,7 @@
     },
     {
       "id": 243,
-      "object": "item_frog",
+      "object": "living_happy_box",
       "position": {
         "x": -242.18,
         "y": 101.11,
@@ -6814,10 +6803,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash",
         "explode",
         "climb",
         "clamber",
@@ -6828,7 +6813,7 @@
     },
     {
       "id": 244,
-      "object": "item_frog",
+      "object": "living_happy_box",
       "position": {
         "x": 254.99,
         "y": 100.93,
@@ -6849,10 +6834,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash",
         "explode",
         "climb",
         "clamber",
@@ -6863,7 +6844,7 @@
     },
     {
       "id": 245,
-      "object": "item_frog",
+      "object": "living_happy_box",
       "position": {
         "x": -121.32,
         "y": 111.06,
@@ -6884,10 +6865,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash",
         "explode",
         "climb",
         "clamber",
@@ -6898,7 +6875,7 @@
     },
     {
       "id": 246,
-      "object": "item_frog",
+      "object": "living_happy_box",
       "position": {
         "x": -54.34,
         "y": 69.87,
@@ -6919,10 +6896,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash",
         "explode",
         "fall",
         "grab"
@@ -6931,7 +6904,7 @@
     },
     {
       "id": 247,
-      "object": "item_frog",
+      "object": "living_happy_box",
       "position": {
         "x": 248.94,
         "y": 216.86,
@@ -6952,10 +6925,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash",
         "explode",
         "climb",
         "clamber",
@@ -6966,7 +6935,7 @@
     },
     {
       "id": 248,
-      "object": "item_frog",
+      "object": "living_happy_box",
       "position": {
         "x": -228.64,
         "y": 160.13,
@@ -6987,10 +6956,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash",
         "explode",
         "climb",
         "clamber",
@@ -7001,7 +6966,7 @@
     },
     {
       "id": 249,
-      "object": "item_frog",
+      "object": "living_happy_box",
       "position": {
         "x": 261.32,
         "y": 80.03,
@@ -7022,10 +6987,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash",
         "explode",
         "climb",
         "clamber",
@@ -10269,7 +10230,7 @@
     },
     {
       "id": 368,
-      "object": "item_kami_kuzu",
+      "object": "item_deka_denchi",
       "position": {
         "x": 246.22,
         "y": 23.99,
@@ -10290,10 +10251,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 3342
     },
