@@ -3389,7 +3389,7 @@
     },
     {
       "id": 118,
-      "object": "item_chibi_house_denti_2",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 73.24,
         "y": 54.49,
@@ -3410,10 +3410,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
+        "flash",
         "cull",
-        "flash"
+        "lift",
+        "interact"
       ],
       "script": 3071
     },
@@ -3449,7 +3449,7 @@
     },
     {
       "id": 120,
-      "object": "item_cookie_kakera",
+      "object": "item_chibi_house_denti_2",
       "position": {
         "x": 222.72,
         "y": 79.6,
@@ -3470,10 +3470,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 3073
     },
