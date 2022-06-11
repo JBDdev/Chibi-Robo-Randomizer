@@ -1376,7 +1376,7 @@
     },
     {
       "id": 49,
-      "object": "item_deka_denchi",
+      "object": "coin_g",
       "position": {
         "x": -150.0,
         "y": -40.9,
@@ -1397,10 +1397,7 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "interact"
       ],
       "script": null
     },

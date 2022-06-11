@@ -248,7 +248,7 @@ namespace WindowsFormsApp1
             {
                 int nextCheck = r.Next(0, allLocations.Count() - 1);
                 statusDialog.Text += "\nFirst random roll: " + nextCheck;
-                if (allLocations[nextCheck].Prereqs.Contains("ladder") || allLocations[nextCheck].Prereqs.Contains("bridge"))
+                if (!validLocation(nextCheck, new string[] { "ladder", "bridge" }, allLocations))
                 {
                     
                 }
@@ -269,7 +269,7 @@ namespace WindowsFormsApp1
                 int nextCheck = r.Next(0, allLocations.Count() - 1);
                 //nextCheck = stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count();
                 statusDialog.Text += "\nSecond random roll: " + nextCheck;
-                if (occupiedChecks[nextCheck] == true || allLocations[nextCheck].Prereqs.Contains("ladder") || allLocations[nextCheck].Prereqs.Contains("bridge"))
+                if (occupiedChecks[nextCheck] == true || !validLocation(nextCheck, new string[] { "ladder", "bridge" }, allLocations))
                 {
 
                 }
@@ -296,6 +296,17 @@ namespace WindowsFormsApp1
             //Shuffle any key items that would otherwise cause locks for the above
 
             return spoilerLog;
+        }
+
+        //Determines if a location is a valid position for an object given the prerequisites
+        private bool validLocation(int location, string[] prerequisites, List<ItemLocation> allChecks)
+        {
+            foreach (string p in prerequisites) 
+            {
+                if (allChecks[location].Prereqs.Contains(p))
+                    return false;
+            }
+            return true;
         }
 
         //Inserts objectName at given location, assuming location is pulled from allLocations
