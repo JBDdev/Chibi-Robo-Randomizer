@@ -1022,12 +1022,213 @@
 		{
 			"name": "basement",
 			"checks": [
+
 				{
-					"x": 0.0,
+					"x": 108.15,
+					"y": 2.99,
+					"z": -37.12,
+					"id": 6,
+					"name": "item_deka_denchi",
+					"prereqs": [],
+					"description": "Basement Giga-Batter"
+				},
+				{
+					"x": 105.5,
+					"y": 2.99,
+					"z": -98.21,
+					"id": 12,
+					"name": "item_chibi_house_denti_2",
+					"prereqs": [ "blaster", "copter" ],
+					"description": "Basement Giga-Charger"
+				},
+				{
+					"x": -107.7,
+					"y": 3.59,
+					"z": 112.55,
+					"id": 14,
+					"name": "souko_wine_bottle",
+					"prereqs": [],
+					"description": "Basement Wine Bottle A"
+				},
+				{
+					"x": -42.46,
+					"y": 3.59,
+					"z": 79.56,
+					"id": 15,
+					"name": "souko_wine_bottle",
+					"prereqs": [],
+					"description": "Basement Wine Bottle B"
+				},
+				{
+					"x": -89.29,
 					"y": 0.0,
-					"z": 0.0,
-					"id": 0,
-					"name": "testName"
+					"z": -51.66,
+					"id": 56,
+					"name": "item_kami_kuzu",
+					"prereqs": [],
+					"description": "Basement Wastepaper below Dresser"
+				},
+				{
+					"x": -29.36,
+					"y": 0.0,
+					"z": 75.61,
+					"id": 57,
+					"name": "item_kami_kuzu",
+					"prereqs": [],
+					"description": "Basement Wastepaper below Stairs"
+				},
+				{
+					"x": -36.18,
+					"y": 79.08,
+					"z": 109.49,
+					"id": 58,
+					"name": "item_kami_kuzu",
+					"prereqs": [],
+					"description": "Basement Wastepaper on Stairs"
+				},
+				{
+					"x": -47.82,
+					"y": 95.2,
+					"z": -93.88,
+					"id": 59,
+					"name": "item_kami_kuzu",
+					"prereqs": [ "blaster", "copter" ],
+					"description": "Basement Wastepaper on Shelf"
+				},
+				{
+					"x": -60.8,
+					"y": 4.19,
+					"z": 92.06,
+					"id": 98,
+					"name": "souko_wine_bottle_b",
+					"prereqs": [],
+					"description": "Basement Broken Bottle Bottom"
+				},
+				{
+					"x": -100.83,
+					"y": 3.9,
+					"z": 102.04,
+					"id": 99,
+					"name": "souko_wine_bottle_a",
+					"prereqs": [],
+					"description": "Basement Broken Bottle Top"
+				},
+				{
+					"x": -140.78,
+					"y": 88.83,
+					"z": -16.49,
+					"id": 144,
+					"name": "item_kayaku",
+					"prereqs": [ "blaster" ],
+					"description": "Basement Gunpowder"
+				},
+				{
+					"x": 102.14,
+					"y": 91.99,
+					"z": 135.74,
+					"id": 151,
+					"name": "item_frog_ring",
+					"prereqs": [ "blaster", "copter" ],
+					"description": "Basement Frog Ring"
+				},
+				{
+					"x": -65.33,
+					"y": 99.3,
+					"z": -95.11,
+					"id": 210,
+					"name": "item_akikan",
+					"prereqs": [ "blaster", "copter" ],
+					"description": "Basement Purple Can"
+				},
+				{
+					"x": -110.26,
+					"y": 59.7,
+					"z": -12.69,
+					"id": 211,
+					"name": "item_candy_gomi",
+					"prereqs": [ "blaster" ],
+					"description": "Basement Cabinet Trash A"
+				},
+				{
+					"x": -21.81,
+					"y": 60.6,
+					"z": 85.99,
+					"id": 212,
+					"name": "item_candy_gomi",
+					"prereqs": [ "blaster" ],
+					"description": "Basement Cabinet Trash B"
+				},
+				{
+					"x": -40.21,
+					"y": 160.03,
+					"z": -109.1,
+					"id": 213,
+					"name": "living_happy_box",
+					"prereqs": [ "blaster", "copter" ],
+					"description": "Basement Shelf Happy Block B"
+				},
+				{
+					"x": -54.9,
+					"y": 160.03,
+					"z": -108.97,
+					"id": 214,
+					"name": "living_happy_box",
+					"prereqs": [ "blaster", "copter" ],
+					"description": "Basement Shelf Happy Block A"
+				},
+				{
+					"x": 61.06,
+					"y": 163.0,
+					"z": -63.59,
+					"id": 215,
+					"name": "living_happy_box",
+					"prereqs": [ "blaster", "copter" ],
+					"description": "Basement Rafters Happy Block B"
+				},
+				{
+					"x": -121.82,
+					"y": 173.33,
+					"z": 60.21,
+					"id": 216,
+					"name": "living_happy_box",
+					"prereqs": [ "blaster", "copter" ],
+					"description": "Basement Rafters Happy Block A"
+				},
+				{
+					"x": -56.98,
+					"y": 99.87,
+					"z": 81.71,
+					"id": 217,
+					"name": "living_happy_box",
+					"prereqs": [],
+					"description": "Basement Stairs Happy Block"
+				},
+				{
+					"x": -92.1,
+					"y": 140.1,
+					"z": 120.42,
+					"id": 241,
+					"name": "coin_c",
+					"prereqs": [],
+					"description": "Basement Stairs 10M Coin Upper"
+				},
+				{
+					"x": 8.41,
+					"y": 40.0,
+					"z": 119.89,
+					"id": 242,
+					"name": "coin_c",
+					"prereqs": [],
+					"description": "Basement Stairs 10M Coin Lower"
+				},
+				{
+					"x": -88.16,
+					"y": 120.69,
+					"z": 28.84,
+					"id": 243,
+					"name": "coin_c",
+					"prereqs": [ "blaster", "copter" ],
+					"description": "Basement Swing 10M Coin"
 				}
 			]
 		},
