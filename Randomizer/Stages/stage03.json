@@ -1553,7 +1553,7 @@
     },
     {
       "id": 56,
-      "object": "item_kami_kuzu",
+      "object": "item_deka_denchi",
       "position": {
         "x": -89.29,
         "y": 0.0,
@@ -1574,10 +1574,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 1195
     },

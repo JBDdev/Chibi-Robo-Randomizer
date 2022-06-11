@@ -1294,7 +1294,7 @@
     },
     {
       "id": 45,
-      "object": "item_chibi_house_denti_2",
+      "object": "coin_c",
       "position": {
         "x": 174.87,
         "y": 96.39,
@@ -1315,10 +1315,9 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
+        "opaque",
         "cull",
-        "flash"
+        "interact"
       ],
       "script": null
     },
@@ -3390,7 +3389,7 @@
     },
     {
       "id": 118,
-      "object": "item_kami_kuzu",
+      "object": "item_chibi_house_denti_2",
       "position": {
         "x": 73.24,
         "y": 54.49,
@@ -3411,10 +3410,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 3071
     },
