@@ -9280,7 +9280,7 @@
     },
     {
       "id": 336,
-      "object": "item_army_photo",
+      "object": "item_deka_denchi",
       "position": {
         "x": 92.85,
         "y": 37.09,
@@ -9301,9 +9301,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 3985
     },

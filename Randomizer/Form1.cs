@@ -267,7 +267,7 @@ namespace WindowsFormsApp1
             {
                 
                 int nextCheck = r.Next(0, allLocations.Count() - 1);
-                //nextCheck = stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count();
+                //nextCheck = stageData.rooms[2].locations.Count() + stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count();
                 statusDialog.Text += "\nSecond random roll: " + nextCheck;
                 if (occupiedChecks[nextCheck] == true || !validLocation(nextCheck, new string[] { "ladder", "bridge" }, allLocations))
                 {
@@ -447,9 +447,47 @@ namespace WindowsFormsApp1
             }
 
             //Foyer
-            else if (location < stageData.rooms[3].locations.Count())
+            else if (location < stageData.rooms[3].locations.Count() + stageData.rooms[2].locations.Count() + stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count())
             {
+                relativeLocation = location - (stageData.rooms[2].locations.Count() + stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count());
 
+                //Getting the object from the exported kitchen and changing the name
+                token = foyerObj.SelectToken("objects[" + stageData.rooms[3].locations[relativeLocation].ID + "].object");
+                token.Replace(objectName);
+
+                //Setting the correct flags for the new object
+                int finalFlagIndex = foyerObj.SelectToken("objects[" + stageData.rooms[3].locations[relativeLocation].ID + "].flags").Children().Count() - 1;
+
+                List<JToken> oldFlags = new List<JToken>();
+
+                foreach (JToken flag in foyerObj.SelectToken("objects[" + stageData.rooms[3].locations[relativeLocation].ID + "].flags").Children())
+                {
+                    oldFlags.Add(flag);
+                }
+
+                for (int i = 1; i < oldFlags.Count; i++)
+                {
+                    oldFlags[i].Remove();
+                }
+
+                switch (objectName)
+                {
+                    case "coin_c":
+                    case "coin_s":
+                    case "coin_g":
+                    case "item_junk_a":
+                    case "item_junk_b":
+                    case "item_junk_c":
+                        foyerObj.SelectToken("objects[" + stageData.rooms[3].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("interact");
+                        break;
+                    default:
+                        foyerObj.SelectToken("objects[" + stageData.rooms[3].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("flash");
+                        foyerObj.SelectToken("objects[" + stageData.rooms[3].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("cull");
+                        foyerObj.SelectToken("objects[" + stageData.rooms[3].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("lift");
+                        foyerObj.SelectToken("objects[" + stageData.rooms[3].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("interact");
+                        break;
+                }
+                return;
             }
 
             //Basement

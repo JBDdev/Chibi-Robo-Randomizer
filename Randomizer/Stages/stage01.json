@@ -4267,7 +4267,7 @@
     },
     {
       "id": 155,
-      "object": "item_deka_denchi",
+      "object": "item_cookie_kakera",
       "position": {
         "x": 142.44,
         "y": 0.0,
@@ -4288,10 +4288,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
+        "flash",
         "cull",
-        "flash"
+        "lift",
+        "interact"
       ],
       "script": 2851
     },
