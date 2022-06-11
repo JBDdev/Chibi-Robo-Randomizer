@@ -1178,7 +1178,7 @@
     },
     {
       "id": 41,
-      "object": "item_chibi_house_denti_2",
+      "object": "coin_c",
       "position": {
         "x": 37.5,
         "y": 97.0,
@@ -1199,10 +1199,9 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
+        "opaque",
         "cull",
-        "flash"
+        "interact"
       ],
       "script": null
     },
@@ -3450,7 +3449,7 @@
     },
     {
       "id": 120,
-      "object": "item_cookie_kakera",
+      "object": "item_chibi_house_denti_2",
       "position": {
         "x": 222.72,
         "y": 79.6,
@@ -3471,10 +3470,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 3073
     },
@@ -10230,7 +10229,7 @@
     },
     {
       "id": 368,
-      "object": "item_deka_denchi",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 246.22,
         "y": 23.99,
@@ -10251,10 +10250,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
+        "flash",
         "cull",
-        "flash"
+        "lift",
+        "interact"
       ],
       "script": 3342
     },

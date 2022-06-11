@@ -91,7 +91,7 @@ namespace WindowsFormsApp1
         private void randomizeButton_Click(object sender, EventArgs e)
         {
 
-            if (true) 
+            if (validInput()) 
             {
 
                 //Actually pretty sick/goofy way of generating rando seed and making it a smaller number, should hold on to this and move it somewhere else later
@@ -125,6 +125,9 @@ namespace WindowsFormsApp1
                     JToken latestToken = foyerObj.SelectToken("objects[512]");
                     latestToken.AddAfterSelf(Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../openUpstairs.json")) as JObject);
                 }
+
+                statusDialog.Text += "\nFirst Location: " + newSpoilerLog["Giga-Charger"];
+                statusDialog.Text += "\nSecond Location: " + newSpoilerLog["Giga-Battery"];
 
                 reimportStages();
 
@@ -262,7 +265,9 @@ namespace WindowsFormsApp1
             //Shuffles Battery
             while (true)
             {
+                
                 int nextCheck = r.Next(0, allLocations.Count() - 1);
+                //nextCheck = stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count();
                 statusDialog.Text += "\nSecond random roll: " + nextCheck;
                 if (occupiedChecks[nextCheck] == true || allLocations[nextCheck].Prereqs.Contains("ladder") || allLocations[nextCheck].Prereqs.Contains("bridge"))
                 {
@@ -293,14 +298,15 @@ namespace WindowsFormsApp1
             return spoilerLog;
         }
 
-        //Returns description for the check
+        //Inserts objectName at given location, assuming location is pulled from allLocations
         private void insertItem(string objectName, int location) 
         {
             JToken token;
 
-            //Will be used in grabbing correct check from rooms that aren't the living room :?
-            int sumPreviousChecks = 0;
+            //Index of the item location relative to the room that it is in 
+            int relativeLocation = 0;
 
+            //Living Room
             if (location < stageData.rooms[0].locations.Count())
             {
                 //Getting the object from the exported living room and changing the name
@@ -341,34 +347,125 @@ namespace WindowsFormsApp1
                 }
                 return;
             }
-            else if (location < stageData.rooms[1].locations.Count())
+            //Kitchen
+            else if (location < stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count())
             {
-            
-            }
-            else if (location < stageData.rooms[2].locations.Count())
-            {
+                relativeLocation = location - stageData.rooms[0].locations.Count();
 
+                //Getting the object from the exported kitchen and changing the name
+                token = kitchenObj.SelectToken("objects[" + stageData.rooms[1].locations[relativeLocation].ID + "].object");
+                token.Replace(objectName);
+
+                //Setting the correct flags for the new object
+                int finalFlagIndex = kitchenObj.SelectToken("objects[" + stageData.rooms[1].locations[relativeLocation].ID + "].flags").Children().Count() - 1;
+
+                List<JToken> oldFlags = new List<JToken>();
+
+                foreach (JToken flag in kitchenObj.SelectToken("objects[" + stageData.rooms[1].locations[relativeLocation].ID + "].flags").Children())
+                {
+                    oldFlags.Add(flag);
+                }
+
+                for (int i = 1; i < oldFlags.Count; i++)
+                {
+                    oldFlags[i].Remove();
+                }
+
+                switch (objectName)
+                {
+                    case "coin_c":
+                    case "coin_s":
+                    case "coin_g":
+                    case "item_junk_a":
+                    case "item_junk_b":
+                    case "item_junk_c":
+                        kitchenObj.SelectToken("objects[" + stageData.rooms[1].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("interact");
+                        break;
+                    default:
+                        kitchenObj.SelectToken("objects[" + stageData.rooms[1].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("flash");
+                        kitchenObj.SelectToken("objects[" + stageData.rooms[1].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("cull");
+                        kitchenObj.SelectToken("objects[" + stageData.rooms[1].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("lift");
+                        kitchenObj.SelectToken("objects[" + stageData.rooms[1].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("interact");
+                        break;
+                }
+                return;
             }
+
+            //Drain
+            else if (location < stageData.rooms[2].locations.Count() + stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count())
+            {
+                relativeLocation = location - (stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count());
+
+                //Getting the object from the exported kitchen and changing the name
+                token = drainObj.SelectToken("objects[" + stageData.rooms[2].locations[relativeLocation].ID + "].object");
+                token.Replace(objectName);
+
+                //Setting the correct flags for the new object
+                int finalFlagIndex = drainObj.SelectToken("objects[" + stageData.rooms[2].locations[relativeLocation].ID + "].flags").Children().Count() - 1;
+
+                List<JToken> oldFlags = new List<JToken>();
+
+                foreach (JToken flag in drainObj.SelectToken("objects[" + stageData.rooms[2].locations[relativeLocation].ID + "].flags").Children())
+                {
+                    oldFlags.Add(flag);
+                }
+
+                for (int i = 1; i < oldFlags.Count; i++)
+                {
+                    oldFlags[i].Remove();
+                }
+
+                switch (objectName)
+                {
+                    case "coin_c":
+                    case "coin_s":
+                    case "coin_g":
+                    case "item_junk_a":
+                    case "item_junk_b":
+                    case "item_junk_c":
+                        drainObj.SelectToken("objects[" + stageData.rooms[2].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("interact");
+                        break;
+                    default:
+                        drainObj.SelectToken("objects[" + stageData.rooms[2].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("flash");
+                        drainObj.SelectToken("objects[" + stageData.rooms[2].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("cull");
+                        drainObj.SelectToken("objects[" + stageData.rooms[2].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("lift");
+                        drainObj.SelectToken("objects[" + stageData.rooms[2].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("interact");
+                        break;
+                }
+                return;
+            }
+
+            //Foyer
             else if (location < stageData.rooms[3].locations.Count())
             {
 
             }
+
+            //Basement
             else if (location < stageData.rooms[4].locations.Count())
             {
 
             }
+
+            //Backyard
             else if (location < stageData.rooms[5].locations.Count())
             {
 
             }
+
+            //Jenny's Room
             else if (location < stageData.rooms[6].locations.Count())
             {
 
             }
+
+            //Bedroom
             else 
             {
 
             }
+            
+            //Cut this return statement out later~!
             return;
         }
 

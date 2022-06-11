@@ -621,11 +621,265 @@
 			"name": "kitchen",
 			"checks": [
 				{
-					"x": 0.0,
+					"x": -60.84,
+					"y": 76.01,
+					"z": -180.18,
+					"id": 36,
+					"name": "item_mag_cup",
+					"prereqs": [],
+					"description": "Kitchen Mug Location"
+				},
+				{
+					"x": -60.84,
+					"y": 76.01,
+					"z": -180.18,
+					"id": 37,
+					"name": "item_spoon",
+					"prereqs": [ "ladder" ],
+					"description": "Kitchen Spoon Location"
+				},
+				{
+					"x": -304.46,
+					"y": -0.8,
+					"z": 245.32,
+					"id": 152,
+					"name": "item_kami_kuzu",
+					"prereqs": [],
+					"description": "Kitchen Wastepaper by Foyer Door"
+				},
+				{
+					"x": 219.24,
+					"y": -1.2,
+					"z": 24.06,
+					"id": 153,
+					"name": "item_kami_kuzu",
+					"prereqs": [],
+					"description": "Kitchen Wastepaper under Counter"
+				},
+				{
+					"x": 142.44,
 					"y": 0.0,
+					"z": -86.09,
+					"id": 155,
+					"name": "item_cookie_kakera",
+					"prereqs": [],
+					"description": "Kitchen Cookie Crumbs by Tao's Bowl'"
+				},
+				{
+					"x": 163.08,
+					"y": 119.6,
+					"z": -163.28,
+					"id": 156,
+					"name": "item_cookie_kakera",
+					"prereqs": [ "ladder" ],
+					"description": "Kitchen Cookie Crumbs by Spoon"
+				},
+				{
+					"x": 6.36,
+					"y": 69.8,
+					"z": 36.78,
+					"id": 158,
+					"name": "item_cookie_kakera",
+					"prereqs": [ "bridge", "copter" ],
+					"description": "Kitchen Cookie Crumbs on Kitchen Table"
+				},
+				{
+					"x": -251.1,
+					"y": 75.8,
+					"z": -50.3,
+					"id": 159,
+					"name": "item_cookie_kakera",
+					"prereqs": [],
+					"description": "Kitchen Cookie Crumbs next to Fridge on Counter"
+				},
+				{
+					"x": -40.0,
+					"y": 23.55,
+					"z": 71.0,
+					"id": 163,
+					"name": "living_happy_block",
+					"prereqs": [ "bridge", "blaster", "copter" ],
+					"description": "Kitchen Table Happy Block"
+				},
+				{
+					"x": -104.59,
+					"y": 100.1,
+					"z": 248.8,
+					"id": 167,
+					"name": "living_happy_block",
+					"prereqs": [ "blaster" ],
+					"description": "Kitchen Cabinet Happy Block"
+				},
+				{
+					"x": -216.94,
+					"y": 193.02,
+					"z": -153.97,
+					"id": 168,
+					"name": "living_happy_block",
+					"prereqs": [ "ladder" ],
+					"description": "Kitchen Happy Block above Bandage"
+				},
+				{
+					"x": 269.73,
+					"y": 82.11,
+					"z": 259.01,
+					"id": 170,
+					"name": "living_happy_block",
+					"prereqs": [ "bridge", "copter" ],
+					"description": "Kitchen Happy Block by Bridge-Only Chibi-Door"
+				},
+				{
+					"x": 328.65,
+					"y": 0.05,
+					"z": -33.22,
+					"id": 206,
+					"name": "item_leaf",
+					"prereqs": [],
+					"description": "Kitchen Twig A"
+				},
+				{
+					"x": 352.19,
+					"y": 0.05,
+					"z": -48.09,
+					"id": 207,
+					"name": "item_leaf",
+					"prereqs": [],
+					"description": "Kitchen Twig B"
+				},
+				{
+					"x": 358.63,
+					"y": 0.05,
+					"z": -35.65,
+					"id": 208,
+					"name": "item_leaf",
+					"prereqs": [],
+					"description": "Kitchen Twig C"
+				},
+				{
+					"x": 314.25,
+					"y": 41.1,
+					"z": -182.33,
+					"id": 227,
+					"name": "item_tug",
+					"prereqs": [],
+					"description": "Kitchen Dog Tags Location"
+				},
+				{
+					"x": -242.47,
+					"y": 169.1,
 					"z": 0.0,
-					"id": 0,
-					"name": "testName"
+					"id": 228,
+					"name": "item_houtai",
+					"prereqs": [ "ladder", "blaster", "copter" ],
+					"description": "Kitchen Bandage Location"
+				},
+				{
+					"x": -42.31,
+					"y": 72.99,
+					"z": 121.01,
+					"id": 240,
+					"name": "item_frog_ring",
+					"prereqs": [ "bridge", "copter" ],
+					"description": "Kitchen Frog Ring (Table)"
+				},
+				{
+					"x": -244.03,
+					"y": 79.3,
+					"z": 152.38,
+					"id": 304,
+					"name": "item_akikan",
+					"prereqs": [],
+					"description": "Kitchen Pink Soda Can"
+				},
+				{
+					"x": -258.19,
+					"y": 79.3,
+					"z": 156.69,
+					"id": 305,
+					"name": "item_akikan",
+					"prereqs": [],
+					"description": "Kitchen Purple Soda Can"
+				},
+				{
+					"x": -71.14,
+					"y": 70.79,
+					"z": 45.18,
+					"id": 306,
+					"name": "item_candy_gomi",
+					"prereqs": [ "bridge", "copter" ],
+					"description": "Kitchen Table Candy Wrapper A"
+				},
+				{
+					"x": -82.19,
+					"y": 70.79,
+					"z": 55.61,
+					"id": 307,
+					"name": "item_candy_gomi",
+					"prereqs": [ "bridge", "copter" ],
+					"description": "Kitchen Table Candy Wrapper B"
+				},
+				{
+					"x": -24.39,
+					"y": 70.3,
+					"z": 105.07,
+					"id": 308,
+					"name": "item_okasi_gomi_1",
+					"prereqs": [ "bridge", "copter" ],
+					"description": "Kitchen Table Candy Bag"
+				},
+				{
+					"x": 143.33,
+					"y": 120.2,
+					"z": -169.18,
+					"id": 309,
+					"name": "item_okasi_gomi_2",
+					"prereqs": [ "ladder" ],
+					"description": "Kitchen Cookie Box by Spoon A"
+				},
+				{
+					"x": 161.88,
+					"y": 120.2,
+					"z": -179.32,
+					"id": 310,
+					"name": "item_okasi_gomi_2",
+					"prereqs": [ "ladder" ],
+					"description": "Kitchen Cookie Box by Spoon B"
+				},
+				{
+					"x": -80.55,
+					"y": 217.1,
+					"z": -152.41,
+					"id": 358,
+					"name": "coin_c",
+					"prereqs": [ "ladder", "blaster", "copter" ],
+					"description": "Kitchen High Cupboard 10M Coin"
+				},
+				{
+					"x": -315.53,
+					"y": 86.29,
+					"z": -0.09,
+					"id": 359,
+					"name": "coin_c",
+					"prereqs": [],
+					"description": "Kitchen 10M Coin by Stove"
+				},
+				{
+					"x": 51.5,
+					"y": 86.29,
+					"z": -223.11,
+					"id": 360,
+					"name": "coin_c",
+					"prereqs": [],
+					"description": "Kitchen 10M Coin by Sink"
+				},
+				{
+					"x": 211.96,
+					"y": 86.29,
+					"z": -195.05,
+					"id": 361,
+					"name": "coin_c",
+					"prereqs": [],
+					"description": "Kitchen 10M behind Bottles"
 				}
 			]
 		},
@@ -633,11 +887,94 @@
 			"name": "drain",
 			"checks": [
 				{
-					"x": 0.0,
-					"y": 0.0,
-					"z": 0.0,
-					"id": 0,
-					"name": "Cheese"
+					"x": -150.0,
+					"y": -40.9,
+					"z": 1.0,
+					"id": 49,
+					"name": "coin_g",
+					"prereqs": ["copter"],
+					"description": "Sink Drain Middle Row 100M Coin C"
+				},
+				{
+					"x": -162.0,
+					"y": -40.9,
+					"z": 1.0,
+					"id": 50,
+					"name": "coin_g",
+					"prereqs": [ "copter" ],
+					"description": "Sink Drain Middle Row 100M Coin B"
+				},
+				{
+					"x": -174.0,
+					"y": -40.9,
+					"z": 1.0,
+					"id": 51,
+					"name": "coin_g",
+					"prereqs": [ "copter" ],
+					"description": "Sink Drain Middle Row 100M Coin A"
+				},
+				{
+					"x": -186.0,
+					"y": -40.9,
+					"z": 1.0,
+					"id": 52,
+					"name": "coin_c",
+					"prereqs": [ "copter" ],
+					"description": "Sink Drain Middle Row 10M Coin C"
+				},
+				{
+					"x": -198.0,
+					"y": -40.9,
+					"z": 1.0,
+					"id": 53,
+					"name": "coin_c",
+					"prereqs": [ "copter" ],
+					"description": "Sink Drain Middle Row 10M Coin B"
+				},
+				{
+					"x": -210.0,
+					"y": -40.9,
+					"z": 1.0,
+					"id": 54,
+					"name": "coin_c",
+					"prereqs": [ "copter" ],
+					"description": "Sink Drain Middle Row 10M Coin A"
+				},
+				{
+					"x": -300.0,
+					"y": -12.1,
+					"z": 1.0,
+					"id": 55,
+					"name": "coin_g",
+					"prereqs": [ "copter" ],
+					"description": "Sink Drain Top Row 100M Coin"
+				},
+				{
+					"x": -288.0,
+					"y": -12.1,
+					"z": 1.0,
+					"id": 56,
+					"name": "coin_c",
+					"prereqs": [ "copter" ],
+					"description": "Sink Drain Top Row 10M Coin B"
+				},
+				{
+					"x": -276.0,
+					"y": -12.1,
+					"z": 1.0,
+					"id": 57,
+					"name": "coin_c",
+					"prereqs": [ "copter" ],
+					"description": "Sink Drain Top Row 10M Coin A"
+				},
+				{
+					"x": -214.17,
+					"y": -90.29,
+					"z": 0.06,
+					"id": 62,
+					"name": "item_frog_ring",
+					"prereqs": [ "copter", "blaster" ],
+					"description": "Sink Drain Frog Ring"
 				}
 			]
 		},
