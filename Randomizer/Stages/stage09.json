@@ -3055,7 +3055,7 @@
     },
     {
       "id": 112,
-      "object": "item_deka_denchi",
+      "object": "npc_hock_ship_114",
       "position": {
         "x": 456.92,
         "y": -46.91,
@@ -3076,10 +3076,8 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
         "lift",
-        "cull",
-        "flash"
+        "interact"
       ],
       "script": 2142
     },

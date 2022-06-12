@@ -267,7 +267,7 @@ namespace WindowsFormsApp1
             {
                 
                 int nextCheck = r.Next(0, allLocations.Count() - 1);
-                //nextCheck = 4 + stageData.rooms[4].locations.Count() +  stageData.rooms[3].locations.Count() + stageData.rooms[2].locations.Count() + stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count();
+                //nextCheck = 4 + stageData.rooms[6].locations.Count() + stageData.rooms[5].locations.Count() + stageData.rooms[4].locations.Count() +  stageData.rooms[3].locations.Count() + stageData.rooms[2].locations.Count() + stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count();
                 statusDialog.Text += "\nSecond random roll: " + nextCheck;
                 if (occupiedChecks[nextCheck] == true || !validLocation(nextCheck, new string[] { "ladder", "bridge" }, allLocations))
                 {
@@ -303,7 +303,7 @@ namespace WindowsFormsApp1
         {
             foreach (string p in prerequisites) 
             {
-                if (allChecks[location].Prereqs.Contains(p))
+                if (allChecks[location].Prereqs.Contains(p) || allChecks[location].Prereqs.Contains("suitcase"))
                     return false;
             }
             return true;
@@ -346,7 +346,7 @@ namespace WindowsFormsApp1
                     case "coin_g":
                     case "item_junk_a":
                     case "item_junk_b":
-                    case "item_junk_c":                                
+                    case "item_junk_c":
                         livingRoomObj.SelectToken("objects[" + stageData.rooms[0].locations[location].ID + "].flags[0]").AddAfterSelf("interact");
                         break;
                     default:
@@ -579,13 +579,93 @@ namespace WindowsFormsApp1
             }
 
             //Jenny's Room
-            else if (location < stageData.rooms[6].locations.Count())
+            else if (location < stageData.rooms[6].locations.Count() + stageData.rooms[5].locations.Count() + stageData.rooms[4].locations.Count() + stageData.rooms[3].locations.Count() + stageData.rooms[2].locations.Count() + stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count())
             {
+                relativeLocation = location - (stageData.rooms[5].locations.Count() + stageData.rooms[4].locations.Count() + stageData.rooms[3].locations.Count() + stageData.rooms[2].locations.Count() + stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count());
 
+                //Getting the object from the exported basement and changing the name
+                token = jennyRoomObj.SelectToken("objects[" + stageData.rooms[6].locations[relativeLocation].ID + "].object");
+                token.Replace(objectName);
+
+                //Setting the correct flags for the new object
+                int finalFlagIndex = jennyRoomObj.SelectToken("objects[" + stageData.rooms[6].locations[relativeLocation].ID + "].flags").Children().Count() - 1;
+
+                List<JToken> oldFlags = new List<JToken>();
+
+                foreach (JToken flag in jennyRoomObj.SelectToken("objects[" + stageData.rooms[6].locations[relativeLocation].ID + "].flags").Children())
+                {
+                    oldFlags.Add(flag);
+                }
+
+                for (int i = 1; i < oldFlags.Count; i++)
+                {
+                    oldFlags[i].Remove();
+                }
+
+                switch (objectName)
+                {
+                    case "coin_c":
+                    case "coin_s":
+                    case "coin_g":
+                    case "item_junk_a":
+                    case "item_junk_b":
+                    case "item_junk_c":
+                        jennyRoomObj.SelectToken("objects[" + stageData.rooms[6].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("interact");
+                        break;
+                    default:
+                        jennyRoomObj.SelectToken("objects[" + stageData.rooms[6].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("flash");
+                        jennyRoomObj.SelectToken("objects[" + stageData.rooms[6].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("cull");
+                        jennyRoomObj.SelectToken("objects[" + stageData.rooms[6].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("lift");
+                        jennyRoomObj.SelectToken("objects[" + stageData.rooms[6].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("interact");
+                        break;
+                }
+                return;
             }
-
             //Bedroom
-            else 
+            else if (location < stageData.rooms[7].locations.Count() + stageData.rooms[6].locations.Count() + stageData.rooms[5].locations.Count() + stageData.rooms[4].locations.Count() + stageData.rooms[3].locations.Count() + stageData.rooms[2].locations.Count() + stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count()) 
+            {
+                relativeLocation = location - (stageData.rooms[6].locations.Count() + stageData.rooms[5].locations.Count() + stageData.rooms[4].locations.Count() + stageData.rooms[3].locations.Count() + stageData.rooms[2].locations.Count() + stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count());
+
+                //Getting the object from the exported basement and changing the name
+                token = bedroomObj.SelectToken("objects[" + stageData.rooms[7].locations[relativeLocation].ID + "].object");
+                token.Replace(objectName);
+
+                //Setting the correct flags for the new object
+                int finalFlagIndex = bedroomObj.SelectToken("objects[" + stageData.rooms[7].locations[relativeLocation].ID + "].flags").Children().Count() - 1;
+
+                List<JToken> oldFlags = new List<JToken>();
+
+                foreach (JToken flag in bedroomObj.SelectToken("objects[" + stageData.rooms[7].locations[relativeLocation].ID + "].flags").Children())
+                {
+                    oldFlags.Add(flag);
+                }
+
+                for (int i = 1; i < oldFlags.Count; i++)
+                {
+                    oldFlags[i].Remove();
+                }
+
+                switch (objectName)
+                {
+                    case "coin_c":
+                    case "coin_s":
+                    case "coin_g":
+                    case "item_junk_a":
+                    case "item_junk_b":
+                    case "item_junk_c":
+                        bedroomObj.SelectToken("objects[" + stageData.rooms[7].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("interact");
+                        break;
+                    default:
+                        bedroomObj.SelectToken("objects[" + stageData.rooms[7].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("flash");
+                        bedroomObj.SelectToken("objects[" + stageData.rooms[7].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("cull");
+                        bedroomObj.SelectToken("objects[" + stageData.rooms[7].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("lift");
+                        bedroomObj.SelectToken("objects[" + stageData.rooms[7].locations[relativeLocation].ID + "].flags[0]").AddAfterSelf("interact");
+                        break;
+                }
+                return;
+            }
+            //Shop
+            else
             {
 
             }

@@ -3449,7 +3449,7 @@
     },
     {
       "id": 120,
-      "object": "item_chibi_house_denti_2",
+      "object": "item_cookie_kakera",
       "position": {
         "x": 222.72,
         "y": 79.6,
@@ -3470,10 +3470,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
+        "flash",
         "cull",
-        "flash"
+        "lift",
+        "interact"
       ],
       "script": 3073
     },
@@ -6965,7 +6965,7 @@
     },
     {
       "id": 249,
-      "object": "living_happy_box",
+      "object": "item_chibi_house_denti_2",
       "position": {
         "x": 261.32,
         "y": 80.03,
@@ -6986,11 +6986,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "explode",
-        "climb",
-        "clamber",
-        "fall",
-        "grab"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": 3158
     },
