@@ -8393,7 +8393,7 @@
     },
     {
       "id": 304,
-      "object": "item_akikan",
+      "object": "item_deka_denchi",
       "position": {
         "x": -244.03,
         "y": 79.3,
@@ -8414,10 +8414,10 @@
       "variant": 1,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 3064
     },

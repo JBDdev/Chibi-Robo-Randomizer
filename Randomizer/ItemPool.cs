@@ -15,8 +15,13 @@ namespace WindowsFormsApp1
     }
     public class Item 
     {
-        public string name { get; set; }
+        [JsonProperty("objectName")]
+        public string objectName { get; set; }
+        [JsonProperty("itemName")]
+        public string itemName { get; set; }
+        [JsonProperty("numChecks")]
         public int numChecks { get; set; }
+        [JsonProperty("flags")]
         public string[] flags { get; set; }
     }
 

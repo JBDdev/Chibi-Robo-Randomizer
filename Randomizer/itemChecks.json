@@ -2065,6 +2065,101 @@
 					"description": "Bedroom 10M Coin on Shelf"
 				}
 			]
+		},
+		{
+			"name": "shop",
+			"checks": [
+				{
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"id": 3,
+					"name": "item_tane_a_92",
+					"prereqs": [ "shop" ],
+					"description": "Shop Pink Flower Seed"
+				},
+				{
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"id": 4,
+					"name": "item_tane_a_93",
+					"prereqs": [ "shop" ],
+					"description": "Shop Blue Flower Seed"
+				},
+				{
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"id": 5,
+					"name": "item_tane_a_94",
+					"prereqs": [ "shop" ],
+					"description": "Shop White Flower Seed"
+				},
+				{
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"id": 6,
+					"name": "item_tane_a_152",
+					"prereqs": [ "shop" ],
+					"description": "Shop Nectar Flower Seed"
+				},
+				{
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"id": 7,
+					"name": "item_chip_53",
+					"prereqs": [ "blaster", "shop" ],
+					"description": "Shop Charge Chip"
+				},
+				{
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"id": 9,
+					"name": "item_c_denchi",
+					"prereqs": [ "shop" ],
+					"description": "Shop Chibi-Battery"
+				},
+				{
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"id": 11,
+					"name": "item_chip_54",
+					"prereqs": [ "blaster", "shop" ],
+					"description": "Shop Range Chip"
+				},
+				{
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"id": 13,
+					"name": "item_hocyouki",
+					"prereqs": [ "shop", "radar", "divorce" ],
+					"description": "Shop Alien Ear Chip"
+				},
+				{
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"id": 14,
+					"name": "item_car_item",
+					"prereqs": ["shop"],
+					"description": "Shop Hot Rod"
+				},
+				{
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"id": 15,
+					"name": "item_nwing_item",
+					"prereqs": [ "shop" ],
+					"description": "Shop Space Scrambler"
+				}
+			]
 		}
 	]
 	

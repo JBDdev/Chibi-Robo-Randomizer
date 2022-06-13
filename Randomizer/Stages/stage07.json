@@ -6965,7 +6965,7 @@
     },
     {
       "id": 249,
-      "object": "item_chibi_house_denti_2",
+      "object": "living_happy_box",
       "position": {
         "x": 261.32,
         "y": 80.03,
@@ -6986,10 +6986,11 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "explode",
+        "climb",
+        "clamber",
+        "fall",
+        "grab"
       ],
       "script": 3158
     },
@@ -7221,7 +7222,7 @@
     },
     {
       "id": 258,
-      "object": "item_kami_kuzu",
+      "object": "item_chibi_house_denti_2",
       "position": {
         "x": -195.06,
         "y": 0.0,
@@ -7242,10 +7243,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 3220
     },

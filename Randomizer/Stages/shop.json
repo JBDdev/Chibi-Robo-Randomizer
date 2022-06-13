@@ -1,0 +1,134 @@
+[
+    {
+      "item": "timer_5",
+      "price": 5,
+      "limit": 1,
+      "requires": []
+    },
+    {
+      "item": "timer_10",
+      "price": 10,
+      "limit": 1,
+      "requires": []
+    },
+    {
+      "item": "timer_15",
+      "price": 15,
+      "limit": 1,
+      "requires": []
+    },
+    {
+      "item": "pink_flower_seed",
+      "price": 30,
+      "limit": 10,
+      "requires": []
+    },
+    {
+      "item": "blue_flower_seed",
+      "price": 30,
+      "limit": 10,
+      "requires": []
+    },
+    {
+      "item": "white_flower_seed",
+      "price": 30,
+      "limit": 10,
+      "requires": []
+    },
+    {
+      "item": "nectar_flower_seed",
+      "price": 777,
+      "limit": 1,
+      "requires": []
+    },
+    {
+      "item": "charge_chip",
+      "price": 860,
+      "limit": 1,
+      "requires": [
+        "chibi_blaster"
+      ]
+    },
+    {
+      "item": "trauma_suit",
+      "price": 911,
+      "limit": 1,
+      "requires": [
+        "flag(19)"
+      ]
+    },
+    {
+      "item": "chibi_battery",
+      "price": 980,
+      "limit": 1,
+      "requires": [
+        "trauma_suit"
+      ]
+    },
+    {
+      "item": "chibi_blaster",
+      "price": 1110,
+      "limit": 1,
+      "requires": []
+    },
+    {
+      "item": "range_chip",
+      "price": 1120,
+      "limit": 1,
+      "requires": [
+        "chibi_blaster"
+      ]
+    },
+    {
+      "item": "chibi_radar",
+      "price": 1730,
+      "limit": 1,
+      "requires": [
+        "flag(601)"
+      ]
+    },
+    {
+      "item": "alien_ear_chip",
+      "price": 2150,
+      "limit": 1,
+      "requires": [
+        "flag(474)"
+      ]
+    },
+    {
+      "item": "hot_rod",
+      "price": 2740,
+      "limit": 1,
+      "requires": []
+    },
+    {
+      "item": "space_scrambler",
+      "price": 2980,
+      "limit": 1,
+      "requires": []
+    },
+    {
+      "item": null,
+      "price": 0,
+      "limit": 0,
+      "requires": []
+    },
+    {
+      "item": null,
+      "price": 0,
+      "limit": 0,
+      "requires": []
+    },
+    {
+      "item": null,
+      "price": 0,
+      "limit": 0,
+      "requires": []
+    },
+    {
+      "item": null,
+      "price": 0,
+      "limit": 0,
+      "requires": []
+    }
+  ]

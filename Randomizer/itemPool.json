@@ -1,192 +1,242 @@
 {
 	"items": [
 		{
-			"name": "item_frog_ring",
+			"objectName": "item_frog_ring",
+			"itemName": "frog_ring",
 			"numChecks": 10,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_brush",
+			"objectName": "item_brush",
+			"itemName": "toothbrush",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_tyuusyaki",
+			"objectName": "item_tyuusyaki",
+			"itemName": "squirter",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_spoon",
+			"objectName": "item_spoon",
+			"itemName": "spoon",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_mag_cup",
+			"objectName": "item_mag_cup",
+			"itemName": "mug",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_chip_53",
+			"objectName": "item_chip_53",
+			"itemName": "charge_chip",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_chip_54",
+			"objectName": "item_chip_54",
+			"itemName": "range_chip",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_hocyouki",
+			"objectName": "item_hocyouki",
+			"itemName": "alien_ear_chip",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_c_denchi",
+			"objectName": "item_c_denchi",
+			"itemName": "chibi_battery",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_chibi_house_denti_2",
+			"objectName": "item_chibi_house_denti_2",
+			"itemName": "giga_charger",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_deka_denchi",
+			"objectName": "item_deka_denchi_full",
+			"itemName": "giga_battery_full",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_left_foot",
+			"objectName": "item_deka_denchi",
+			"itemName": "giga_battery",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_army_photo",
+			"objectName": "item_left_foot",
+			"itemName": "giga_robos_left_leg",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_t_block_6",
+			"objectName": "item_army_photo",
+			"itemName": "free_rangers_photo",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_t_block_4",
+			"objectName": "item_t_block_6",
+			"itemName": "red_block",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_t_block_3",
+			"objectName": "item_t_block_4",
+			"itemName": "green_block",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_kure_1",
+			"objectName": "item_t_block_3",
+			"itemName": "white_block",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_kure_3",
+			"objectName": "item_kure_1",
+			"itemName": "red_crayon",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_kure_4",
+			"objectName": "item_kure_3",
+			"itemName": "yellow_crayon",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_kure_5",
+			"objectName": "item_kure_4",
+			"itemName": "green_crayon",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_tug",
+			"objectName": "item_kure_5",
+			"itemName": "purple_crayon",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_houtai",
+			"objectName": "item_tug",
+			"itemName": "dog_tags",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_ticket",
+			"objectName": "item_houtai",
+			"itemName": "bandage",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_kayaku",
+			"objectName": "item_ticket",
+			"itemName": "ticket_stub",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_car_item",
+			"objectName": "item_kayaku",
+			"itemName": "gunpowder",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_nwing_item",
+			"objectName": "item_car_item",
+			"itemName": "hot_rod",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_frog",
+			"objectName": "item_nwing_item",
+			"itemName": "space_scrambler",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_rex_tooth",
+			"objectName": "item_frog",
+			"itemName": "passed_out_frog",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_goggle",
+			"objectName": "item_rex_tooth",
+			"itemName": "dinah_teeth",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_denchi_3",
+			"objectName": "item_goggle",
+			"itemName": "snorkel",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_denchi_2",
+			"objectName": "item_denchi_3",
+			"itemName": "a_a_battery",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "item_denchi_1",
+			"objectName": "item_denchi_2",
+			"itemName": "c_battery",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"name": "coin_c",
+			"objectName": "item_denchi_1",
+			"itemName": "d_battery",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"objectName": "item_papa_yubiwa",
+			"itemName": "dads_wedding_ring",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"objectName": "coin_c",
+			"itemName": "",
 			"numChecks": 30,
 			"flags": [ "interact" ]
 		},
 		{
-			"name": "coin_s",
+			"objectName": "coin_s",
+			"itemName": "",
 			"numChecks": 7,
 			"flags": [ "interact" ]
 		},
 		{
-			"name": "coin_g",
+			"objectName": "coin_g",
+			"itemName": "",
 			"numChecks": 4,
 			"flags": [ "interact" ]
 		},
 		{
-			"name": "item_junk_a",
+			"objectName": "item_junk_a",
+			"itemName": "",
 			"numChecks": 15,
 			"flags": [ "interact" ]
 		},
 		{
-			"name": "item_junk_b",
+			"objectName": "item_junk_b",
+			"itemName": "",
 			"numChecks": 15,
 			"flags": [ "interact" ]
 		},
 		{
-			"name": "item_junk_c",
+			"objectName": "item_junk_c",
+			"itemName": "",
 			"numChecks": 10,
 			"flags": [ "interact" ]
 		}

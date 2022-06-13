@@ -24,6 +24,7 @@ namespace WindowsFormsApp1
         JObject basementObj;
         JObject bedroomObj;
         JObject jennyRoomObj;
+        JObject shopObj;
 
         RootObject stageData;
         ItemPool itemPool;
@@ -90,7 +91,6 @@ namespace WindowsFormsApp1
 
         private void randomizeButton_Click(object sender, EventArgs e)
         {
-
             if (validInput()) 
             {
 
@@ -105,10 +105,6 @@ namespace WindowsFormsApp1
                 initializeStages();
 
                 //Any code that handles stage editing / randomization goes here!
-                //
-                //
-                //
-                //
 
                 stageData = Newtonsoft.Json.JsonConvert.DeserializeObject<RootObject>(File.ReadAllText("../../itemChecks.json"));
                 itemPool = Newtonsoft.Json.JsonConvert.DeserializeObject<ItemPool>(File.ReadAllText("../../itemPool.json"));
@@ -117,6 +113,9 @@ namespace WindowsFormsApp1
 
                 //Performs the randomization based on the settings
                 Dictionary<string, string> newSpoilerLog = shuffleItemsGlitchless();
+
+
+                //Add PJs to Shop????
 
 
                 //Edits for Open Upstairs setting
@@ -131,19 +130,22 @@ namespace WindowsFormsApp1
 
                 reimportStages();
 
-            }          
+            }
+
         }
 
         private void initializeStages() 
         {
-            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage07 -o " + @"D:\ChibiRando\Randomizer\Stages\stage07.json");
-            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage01 -o " + @"D:\ChibiRando\Randomizer\Stages\stage01.json");
-            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage11 -o " + @"D:\ChibiRando\Randomizer\Stages\stage11.json");
-            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage09 -o " + @"D:\ChibiRando\Randomizer\Stages\stage09.json");
-            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage03 -o " + @"D:\ChibiRando\Randomizer\Stages\stage03.json");
-            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage06 -o " + @"D:\ChibiRando\Randomizer\Stages\stage06.json");
-            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage04 -o " + @"D:\ChibiRando\Randomizer\Stages\stage04.json");
-            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage02 -o " + @"D:\ChibiRando\Randomizer\Stages\stage02.json");
+            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage07 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage07.json");
+            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage01 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage01.json");
+            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage11 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage11.json");
+            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage09 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage09.json");
+            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage03 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage03.json");
+            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage06 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage06.json");
+            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage04 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage04.json");
+            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage02 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage02.json");
+
+            runUnplugCommand("shop export --iso " + isoFilePath.Text + " -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\shop.json");
 
             livingRoomObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../Stages/stage07.json")) as JObject;
             kitchenObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../Stages/stage01.json")) as JObject;
@@ -154,13 +156,15 @@ namespace WindowsFormsApp1
             jennyRoomObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../Stages/stage04.json")) as JObject;
             foyerObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../Stages/stage02.json")) as JObject;
 
-            
+            string shopInput = File.ReadAllText("../../Stages/shop.json");
+            shopObj = Newtonsoft.Json.JsonConvert.DeserializeObject(@"{ 'items': " + shopInput + "}") as JObject;
+
         }
         private void runUnplugCommand(string command) 
         {
             var info = new ProcessStartInfo();
-
-            string fullCommand = @"D:\ChibiRando\Randomizer\unplug " + command;
+  
+            string fullCommand = Directory.GetCurrentDirectory() + @"\..\..\unplug.exe " + command;
 
             info.UseShellExecute = false;
             info.WorkingDirectory = @"C:\Windows\System32";
@@ -232,7 +236,6 @@ namespace WindowsFormsApp1
             Dictionary<string, string> spoilerLog = new Dictionary<string, string>();
 
 
-
             //Builds the list of checks and occupiedChecks counter
             for (int i = 0; i < stageData.rooms.Count; i++) 
             {
@@ -264,10 +267,9 @@ namespace WindowsFormsApp1
             
             //Shuffles Battery
             while (true)
-            {
-                
+            {                
                 int nextCheck = r.Next(0, allLocations.Count() - 1);
-                //nextCheck = 4 + stageData.rooms[6].locations.Count() + stageData.rooms[5].locations.Count() + stageData.rooms[4].locations.Count() +  stageData.rooms[3].locations.Count() + stageData.rooms[2].locations.Count() + stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count();
+                //nextCheck = stageData.rooms[7].locations.Count() + stageData.rooms[6].locations.Count() + stageData.rooms[5].locations.Count() + stageData.rooms[4].locations.Count() +  stageData.rooms[3].locations.Count() + stageData.rooms[2].locations.Count() + stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count();
                 statusDialog.Text += "\nSecond random roll: " + nextCheck;
                 if (occupiedChecks[nextCheck] == true || !validLocation(nextCheck, new string[] { "ladder", "bridge" }, allLocations))
                 {
@@ -664,10 +666,22 @@ namespace WindowsFormsApp1
                 }
                 return;
             }
-            //Shop
+            //Shop (aka hell)
             else
             {
+                relativeLocation = location - (stageData.rooms[7].locations.Count() + stageData.rooms[6].locations.Count() + stageData.rooms[5].locations.Count() + stageData.rooms[4].locations.Count() + stageData.rooms[3].locations.Count() + stageData.rooms[2].locations.Count() + stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count());
+                token = shopObj.SelectToken("items[" + stageData.rooms[8].locations[relativeLocation].ID + "].item");
 
+                //Shop checks take an item name rather than an object name. Using the supplied object name, we can get the item name of the matching object in itemPool.json
+                string itemName = "";
+                foreach (Item i in itemPool.Items) 
+                {
+                    if (i.objectName == objectName) 
+                    {
+                        itemName = i.itemName;
+                    }
+                }
+                token.Replace(itemName);
             }
             
             //Cut this return statement out later~!
@@ -685,14 +699,19 @@ namespace WindowsFormsApp1
             File.WriteAllText("../../Stages/stage09.json", backyardObj.ToString());
             File.WriteAllText("../../Stages/stage11.json", drainObj.ToString());
 
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage01 " + @"D:\ChibiRando\Randomizer\Stages\stage01.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage02.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage03 " + @"D:\ChibiRando\Randomizer\Stages\stage03.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage04 " + @"D:\ChibiRando\Randomizer\Stages\stage04.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage06 " + @"D:\ChibiRando\Randomizer\Stages\stage06.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage07 " + @"D:\ChibiRando\Randomizer\Stages\stage07.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage09 " + @"D:\ChibiRando\Randomizer\Stages\stage09.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage11 " + @"D:\ChibiRando\Randomizer\Stages\stage11.json");
+            string test = shopObj.ToString().Substring(14, shopObj.ToString().Length - 15);
+            //JSON formatting for the shop is borked so this is the reconversion into the form that Unplug is looking for
+            File.WriteAllText("../../Stages/shop.json", shopObj.ToString().Substring(14, shopObj.ToString().Length - 15));
+
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage01 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage01.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage02.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage03 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage03.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage04 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage04.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage06 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage06.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage07 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage07.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage09 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage09.json");
+            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage11 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage11.json");
+            runUnplugCommand("shop import --iso " + isoFilePath.Text + " " + Directory.GetCurrentDirectory() + @"\..\..\Stages\shop.json");
         }
 
         private void testCodeDump() 
