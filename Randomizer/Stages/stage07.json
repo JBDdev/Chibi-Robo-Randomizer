@@ -586,7 +586,7 @@
     },
     {
       "id": 20,
-      "object": "item_frog_ring",
+      "object": "item_left_foot",
       "position": {
         "x": -266.7,
         "y": 148.98,
@@ -607,10 +607,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2958
     },

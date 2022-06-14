@@ -125,8 +125,9 @@ namespace WindowsFormsApp1
                     latestToken.AddAfterSelf(Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../openUpstairs.json")) as JObject);
                 }
 
-                statusDialog.Text += "\nFirst Location: " + newSpoilerLog["Giga-Charger"];
-                statusDialog.Text += "\nSecond Location: " + newSpoilerLog["Giga-Battery"];
+                statusDialog.Text += "\nGiga-Charger: " + newSpoilerLog["Giga-Charger"];
+                statusDialog.Text += "\nGiga-Battery: " + newSpoilerLog["Giga-Battery"];
+                statusDialog.Text += "\nGiga-Robo's Left Leg: " + newSpoilerLog["Giga-Robo's Left Leg"];
 
                 reimportStages();
 
@@ -235,6 +236,9 @@ namespace WindowsFormsApp1
             //This will let us build the spoiler log later!
             Dictionary<string, string> spoilerLog = new Dictionary<string, string>();
 
+            ItemLocation chargerLocation;
+            ItemLocation batteryLocation;
+            ItemLocation legLocation;
 
             //Builds the list of checks and occupiedChecks counter
             for (int i = 0; i < stageData.rooms.Count; i++) 
@@ -250,17 +254,17 @@ namespace WindowsFormsApp1
             while(true)
             {
                 int nextCheck = r.Next(0, allLocations.Count() - 1);
-                statusDialog.Text += "\nFirst random roll: " + nextCheck;
+                
                 if (!validLocation(nextCheck, new string[] { "ladder", "bridge" }, allLocations))
                 {
                     
                 }
                 else
                 {
-                    
+                    chargerLocation = allLocations[nextCheck];
                     occupiedChecks[nextCheck] = true;
                     insertItem("item_chibi_house_denti_2", nextCheck);
-                    spoilerLog.Add("Giga-Charger", allLocations[nextCheck].Description);
+                    spoilerLog.Add("Giga-Charger", allLocations[nextCheck].Description);                   
                     break;
                 }
             }
@@ -269,14 +273,14 @@ namespace WindowsFormsApp1
             while (true)
             {                
                 int nextCheck = r.Next(0, allLocations.Count() - 1);
-                //nextCheck = stageData.rooms[7].locations.Count() + stageData.rooms[6].locations.Count() + stageData.rooms[5].locations.Count() + stageData.rooms[4].locations.Count() +  stageData.rooms[3].locations.Count() + stageData.rooms[2].locations.Count() + stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count();
-                statusDialog.Text += "\nSecond random roll: " + nextCheck;
+                
                 if (occupiedChecks[nextCheck] == true || !validLocation(nextCheck, new string[] { "ladder", "bridge" }, allLocations))
                 {
 
                 }
                 else 
                 {
+                    batteryLocation = allLocations[nextCheck];
                     //Swaps between charged / uncharged battery depending on the settings
                     if (batteryCharge.Checked)
                     {
@@ -294,6 +298,24 @@ namespace WindowsFormsApp1
             }
 
             //Shuffle Leg
+
+            while (true) 
+            {
+                int nextCheck = r.Next(0, allLocations.Count() - 1);
+                
+                if (occupiedChecks[nextCheck] == true || !validLocation(nextCheck, new string[] {}, allLocations))
+                {
+
+                }
+                else
+                {
+                    legLocation = allLocations[nextCheck];
+                    occupiedChecks[nextCheck] = true;
+                    insertItem("item_left_foot", nextCheck);
+                    spoilerLog.Add("Giga-Robo's Left Leg", allLocations[nextCheck].Description);
+                    break;
+                }
+            }
 
             //Shuffle any key items that would otherwise cause locks for the above
 
