@@ -3055,7 +3055,7 @@
     },
     {
       "id": 112,
-      "object": "npc_hock_ship_114",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 456.92,
         "y": -46.91,
@@ -3076,8 +3076,10 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2142
     },
@@ -3443,7 +3445,7 @@
     },
     {
       "id": 126,
-      "object": "item_frog_ring",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 627.9,
         "y": 35.0,
@@ -3464,10 +3466,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2176
     },
@@ -7877,7 +7879,7 @@
     },
     {
       "id": 292,
-      "object": "item_t_block_3",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 386.2,
         "y": 257.79,
@@ -7898,9 +7900,10 @@
       "variant": 0,
       "flags": [
         "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2372
     },

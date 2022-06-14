@@ -4435,7 +4435,7 @@
     },
     {
       "id": 163,
-      "object": "item_rex_tooth",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -310.89,
         "y": 1.4,
@@ -4456,8 +4456,10 @@
       "variant": 0,
       "flags": [
         "blastthru",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2162
     },
@@ -4746,7 +4748,7 @@
     },
     {
       "id": 174,
-      "object": "item_left_foot",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 143.92,
         "y": 5.0,
@@ -4767,8 +4769,10 @@
       "variant": 0,
       "flags": [
         "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2164
     },
@@ -5291,7 +5295,7 @@
     },
     {
       "id": 194,
-      "object": "item_ticket",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -4.06,
         "y": 87.57,
@@ -5312,9 +5316,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2183
     },
@@ -5809,7 +5814,7 @@
     },
     {
       "id": 213,
-      "object": "item_frog",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -113.75,
         "y": 0.0,
@@ -5830,7 +5835,10 @@
       "variant": 0,
       "flags": [
         "lift",
-        "interact"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": 2212
     },

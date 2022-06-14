@@ -169,7 +169,7 @@
     },
     {
       "id": 6,
-      "object": "item_deka_denchi",
+      "object": "item_spoon",
       "position": {
         "x": 108.15,
         "y": 2.99,
@@ -190,8 +190,10 @@
       "variant": 0,
       "flags": [
         "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 1144
     },
@@ -340,7 +342,7 @@
     },
     {
       "id": 12,
-      "object": "chibi_house_denti_1",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 105.5,
         "y": 2.99,
@@ -360,7 +362,11 @@
       "spawnFlag": null,
       "variant": 0,
       "flags": [
-        "interact"
+        "interact",
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": null
     },
@@ -3948,7 +3954,7 @@
     },
     {
       "id": 144,
-      "object": "item_kayaku",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -140.78,
         "y": 88.83,
@@ -3969,9 +3975,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 1238
     },
@@ -4138,7 +4145,7 @@
     },
     {
       "id": 151,
-      "object": "item_frog_ring",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 102.14,
         "y": 91.99,
@@ -4159,10 +4166,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 1320
     },
@@ -6666,7 +6673,7 @@
     },
     {
       "id": 243,
-      "object": "coin_c",
+      "object": "item_peets_kutu",
       "position": {
         "x": -88.16,
         "y": 120.69,
@@ -6687,7 +6694,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": null
     },

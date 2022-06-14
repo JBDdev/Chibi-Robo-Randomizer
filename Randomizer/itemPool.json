@@ -31,6 +31,12 @@
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
+			"objectName": "item_receipt",
+			"itemName": "toy_receipt",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
 			"objectName": "item_chip_53",
 			"itemName": "charge_chip",
 			"numChecks": 1,
@@ -171,6 +177,18 @@
 		{
 			"objectName": "item_rex_tooth",
 			"itemName": "dinah_teeth",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"objectName": "item_peets_kutu",
+			"itemName": "red_shoe",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"objectName": "npc_hock_ship_114",
+			"itemName": "the_scurvy_splinter",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},

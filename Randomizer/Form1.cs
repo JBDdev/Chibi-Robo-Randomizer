@@ -125,9 +125,10 @@ namespace WindowsFormsApp1
                     latestToken.AddAfterSelf(Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../openUpstairs.json")) as JObject);
                 }
 
-                statusDialog.Text += "\nGiga-Charger: " + newSpoilerLog["Giga-Charger"];
-                statusDialog.Text += "\nGiga-Battery: " + newSpoilerLog["Giga-Battery"];
-                statusDialog.Text += "\nGiga-Robo's Left Leg: " + newSpoilerLog["Giga-Robo's Left Leg"];
+                foreach (string key in newSpoilerLog.Keys) 
+                {
+                    statusDialog.Text += "\n" + key + ": " + newSpoilerLog[key];
+                }
 
                 reimportStages();
 
@@ -250,12 +251,31 @@ namespace WindowsFormsApp1
                 }                    
             }
 
+
+
+            //Clears all key item checks and replaces them with coin_c objects
+            foreach (ItemLocation location in allLocations) 
+            {
+                if (allLocations.IndexOf(location) > (allLocations.Count() - stageData.rooms[8].locations.Count()))
+                {
+                    break;
+                }
+                for (int i = 0; i < itemPool.Items.Count - 6; i++) 
+                {
+                    if (location.ObjectName == itemPool.Items[i].objectName) 
+                    {
+                        insertItem("item_kami_kuzu", allLocations.IndexOf(location));
+                        break;
+                    }
+                }
+            }
+
             //Shuffles Charger
             while(true)
             {
                 int nextCheck = r.Next(0, allLocations.Count() - 1);
                 
-                if (!validLocation(nextCheck, new string[] { "ladder", "bridge" }, allLocations))
+                if (!validLocation(nextCheck, new string[] { "ladder", "bridge", "divorce" }, allLocations))
                 {
                     
                 }
@@ -274,7 +294,7 @@ namespace WindowsFormsApp1
             {                
                 int nextCheck = r.Next(0, allLocations.Count() - 1);
                 
-                if (occupiedChecks[nextCheck] == true || !validLocation(nextCheck, new string[] { "ladder", "bridge" }, allLocations))
+                if (occupiedChecks[nextCheck] == true || !validLocation(nextCheck, new string[] { "ladder", "bridge", "divorce" }, allLocations))
                 {
 
                 }
@@ -317,9 +337,84 @@ namespace WindowsFormsApp1
                 }
             }
 
-            //Shuffle any key items that would otherwise cause locks for the above
+            //Shuffle Toothbrush
+            //Shuffling logic for this object will need to be tweaked as options for skipping sophie / randoing given objs are supported
+            while (true)
+            {
+                int nextCheck = r.Next(0, allLocations.Count() - 1);
+
+                if (occupiedChecks[nextCheck] == true || nextCheck > stageData.rooms[0].locations.Count || !validLocation(nextCheck, new string[] {"ladder", "bridge" }, allLocations))
+                {
+
+                }
+                else
+                {
+                    occupiedChecks[nextCheck] = true;
+                    insertItem("item_brush", nextCheck);
+                    spoilerLog.Add("Toothbrush", allLocations[nextCheck].Description);
+                    break;
+                }
+            }
+
+            spoilerLog.Add("Squirter", allLocations[shuffleItem("item_tyuusyaki", occupiedChecks, new string[] {"squirter", "frog suit"}, allLocations)].Description);
+
+            spoilerLog.Add("Spoon", allLocations[shuffleItem("item_spoon", occupiedChecks, new string[] {"spoon"}, allLocations)].Description);
+
+            spoilerLog.Add("Mug", allLocations[shuffleItem("item_mag_cup", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Toy Receipt", allLocations[shuffleItem("item_receipt", occupiedChecks, new string[] {"divorce"}, allLocations)].Description);
+
+            spoilerLog.Add("Charge Chip", allLocations[shuffleItem("item_chip_53", occupiedChecks, new string[] {"blaster", "charge chip"}, allLocations)].Description);
+
+            spoilerLog.Add("Range Chip", allLocations[shuffleItem("item_chip_54", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Red Shoe", allLocations[shuffleItem("item_peets_kutu", occupiedChecks, new string[] {"red shoe"}, allLocations)].Description);
+
+
+            //Checks that are Key Items but don't lock progression or check access
+
+
+            //Shuffle Alien Ear Chip
+            
+            //Shuffle Free Rangers Photo
+
+            //Shuffle Red Block
+
+            //Shuffle Green Block
+            
+            //Shuffle White Block
+
+            //Shuffle Red Crayon
+
+            //Shuffle Yellow Crayon
+
+            //Shuffle Green Crayon
+
+            //Shuffle Purple Crayon
+
+
 
             return spoilerLog;
+        }
+
+        private int shuffleItem(string objectName, List<bool> occupiedLocations, string[] prerequisites, List<ItemLocation> allChecks ) 
+        {
+            while (true)
+            {
+                int nextCheck = r.Next(0, allChecks.Count() - 1);
+
+                if (occupiedLocations[nextCheck] == true || !validLocation(nextCheck, new string[] { "squirter", "frog suit" }, allChecks))
+                {
+
+                }
+                else
+                {
+                    occupiedLocations[nextCheck] = true;
+                    insertItem(objectName, nextCheck);                    
+                    return nextCheck;
+                }
+            }
+            
         }
 
         //Determines if a location is a valid position for an object given the prerequisites

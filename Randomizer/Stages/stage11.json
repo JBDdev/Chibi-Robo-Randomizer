@@ -1430,7 +1430,7 @@
     },
     {
       "id": 51,
-      "object": "coin_g",
+      "object": "item_chip_53",
       "position": {
         "x": -174.0,
         "y": -40.9,
@@ -1451,7 +1451,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": null
     },
@@ -1729,7 +1732,7 @@
     },
     {
       "id": 62,
-      "object": "item_frog_ring",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -214.17,
         "y": -90.29,
@@ -1750,10 +1753,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 179
     }

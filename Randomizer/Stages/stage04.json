@@ -2926,7 +2926,7 @@
     },
     {
       "id": 104,
-      "object": "item_denchi_3",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 196.87,
         "y": 19.1,
@@ -2947,9 +2947,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 1791
     },
@@ -3452,7 +3453,7 @@
     },
     {
       "id": 122,
-      "object": "item_denchi_1",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 207.84,
         "y": 127.09,
@@ -3473,9 +3474,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 1806
     },
@@ -3505,7 +3507,7 @@
     },
     {
       "id": 124,
-      "object": "item_denchi_2",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 214.54,
         "y": 127.09,
@@ -3526,9 +3528,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 1808
     },
@@ -4309,7 +4312,7 @@
     },
     {
       "id": 153,
-      "object": "item_kami_kuzu",
+      "object": "item_mag_cup",
       "position": {
         "x": -200.88,
         "y": 0.0,
@@ -4330,10 +4333,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 1856
     },
@@ -5077,7 +5080,7 @@
     },
     {
       "id": 181,
-      "object": "item_peets_kutu",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 225.0,
         "y": 59.83,
@@ -5098,9 +5101,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 1943
     },
@@ -6342,7 +6346,7 @@
     },
     {
       "id": 226,
-      "object": "item_frog_ring",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 181.07,
         "y": 73.3,
@@ -6363,10 +6367,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2011
     },
@@ -6624,7 +6628,7 @@
     },
     {
       "id": 236,
-      "object": "item_tyuusyaki",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 33.49,
         "y": 40.18,
@@ -6645,9 +6649,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2040
     },
@@ -7357,7 +7362,7 @@
     },
     {
       "id": 263,
-      "object": "item_goggle",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 249.91,
         "y": 124.64,
@@ -7378,9 +7383,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2042
     },
@@ -8015,7 +8021,7 @@
     },
     {
       "id": 286,
-      "object": "item_cookie_kakera",
+      "object": "item_tyuusyaki",
       "position": {
         "x": -101.56,
         "y": 0.0,
@@ -8036,10 +8042,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2062
     },
@@ -8165,7 +8171,7 @@
     },
     {
       "id": 291,
-      "object": "item_candy_gomi",
+      "object": "item_chip_54",
       "position": {
         "x": -12.21,
         "y": 1.2,
@@ -8186,10 +8192,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2067
     },
@@ -8608,7 +8614,7 @@
     },
     {
       "id": 306,
-      "object": "item_kure_1",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 14.59,
         "y": 42.6,
@@ -8629,16 +8635,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2082
     },
     {
       "id": 307,
-      "object": "item_kure_3",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -234.02,
         "y": 16.58,
@@ -8659,16 +8665,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2083
     },
     {
       "id": 308,
-      "object": "item_kure_4",
+      "object": "item_receipt",
       "position": {
         "x": -9.17,
         "y": 1.0,
@@ -8689,16 +8695,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2084
     },
     {
       "id": 309,
-      "object": "item_kure_5",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -259.56,
         "y": 99.84,
@@ -8719,10 +8725,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2085
     },
@@ -10230,7 +10236,7 @@
     },
     {
       "id": 364,
-      "object": "item_t_block_4",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 175.03,
         "y": 195.19,
@@ -10251,8 +10257,10 @@
       "variant": 0,
       "flags": [
         "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2129
     },

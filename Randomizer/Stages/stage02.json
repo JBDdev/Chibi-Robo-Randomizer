@@ -9280,7 +9280,7 @@
     },
     {
       "id": 336,
-      "object": "item_army_photo",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 92.85,
         "y": 37.09,
@@ -9301,9 +9301,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 3985
     },
@@ -10520,7 +10521,7 @@
     },
     {
       "id": 382,
-      "object": "item_frog_ring",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -180.84,
         "y": 343.8,
@@ -10541,10 +10542,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 4123
     },
@@ -10605,7 +10606,7 @@
     },
     {
       "id": 385,
-      "object": "item_t_block_6",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -184.28,
         "y": 96.0,
@@ -10626,9 +10627,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 4125
     },

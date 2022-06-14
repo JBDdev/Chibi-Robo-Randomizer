@@ -556,7 +556,7 @@
     },
     {
       "id": 19,
-      "object": "item_frog_ring",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -231.42,
         "y": 24.27,
@@ -577,10 +577,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2957
     },
@@ -616,7 +616,7 @@
     },
     {
       "id": 21,
-      "object": "item_frog_ring",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -252.52,
         "y": 27.92,
@@ -637,10 +637,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2961
     },
@@ -1033,7 +1033,7 @@
     },
     {
       "id": 36,
-      "object": "coin_c",
+      "object": "item_brush",
       "position": {
         "x": -47.9,
         "y": 40.08,
@@ -1054,9 +1054,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "opaque",
+        "interact",
+        "lift",
         "cull",
-        "interact"
+        "flash"
       ],
       "script": null
     },
@@ -3809,7 +3810,7 @@
     },
     {
       "id": 133,
-      "object": "item_brush",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 46.27,
         "y": 1.0,
@@ -3830,9 +3831,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 3081
     },
@@ -8437,7 +8439,7 @@
     },
     {
       "id": 302,
-      "object": "item_receipt",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 151.02,
         "y": 40.46,
@@ -8458,9 +8460,10 @@
       "variant": 0,
       "flags": [
         "flash",
-        "lowpri",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 3286
     },

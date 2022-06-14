@@ -1042,7 +1042,7 @@
     },
     {
       "id": 36,
-      "object": "item_mag_cup",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -60.84,
         "y": 76.01,
@@ -1063,15 +1063,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2729
     },
     {
       "id": 37,
-      "object": "item_spoon",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 119.16,
         "y": 114.47,
@@ -1092,9 +1093,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2750
     },
@@ -6294,7 +6296,7 @@
     },
     {
       "id": 227,
-      "object": "item_tug",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 314.25,
         "y": 41.1,
@@ -6315,16 +6317,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "pushthru",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2966
     },
     {
       "id": 228,
-      "object": "item_houtai",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -242.47,
         "y": 169.1,
@@ -6345,9 +6347,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2969
     },
@@ -6651,7 +6654,7 @@
     },
     {
       "id": 240,
-      "object": "item_frog_ring",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -42.31,
         "y": 72.99,
@@ -6672,10 +6675,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 3005
     },

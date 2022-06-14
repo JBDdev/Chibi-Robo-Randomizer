@@ -279,8 +279,8 @@
 					"z": -362.21,
 					"id": 246,
 					"name": "living_happy_box",
-					"prereqs": [],
-					"description": "Living Room Above Chibi-House Happy Block"
+					"prereqs": [ "ladder", "copter" ],
+					"description": "Living Room Happy Block above Chibi-House "
 				},
 				{
 					"x": 248.94,
@@ -1381,7 +1381,7 @@
 					"z": 40.98,
 					"id": 104,
 					"name": "item_denchi_3",
-					"prereqs": [ "ladder" ],
+					"prereqs": [ "ladder", "red shoe" ],
 					"description": "Jennys Room AA Battery'"
 				},
 				{
