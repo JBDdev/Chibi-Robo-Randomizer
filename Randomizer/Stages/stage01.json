@@ -8379,7 +8379,7 @@
     },
     {
       "id": 304,
-      "object": "item_deka_denchi_full",
+      "object": "item_deka_denchi",
       "position": {
         "x": -244.03,
         "y": 79.3,
@@ -8469,7 +8469,7 @@
     },
     {
       "id": 307,
-      "object": "item_kure_5",
+      "object": "item_kure_4",
       "position": {
         "x": -82.19,
         "y": 70.79,

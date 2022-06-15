@@ -24,7 +24,7 @@
       "requires": []
     },
     {
-      "item": "a_a_battery",
+      "item": "snorkel",
       "price": 30,
       "limit": 10,
       "requires": []
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "item": "red_block",
+      "item": "free_rangers_photo",
       "price": 2150,
       "limit": 1,
       "requires": [
@@ -96,7 +96,7 @@
       ]
     },
     {
-      "item": "c_battery",
+      "item": "a_a_battery",
       "price": 2740,
       "limit": 1,
       "requires": []

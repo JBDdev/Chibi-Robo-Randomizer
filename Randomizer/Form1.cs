@@ -151,7 +151,7 @@ namespace WindowsFormsApp1
 
                 reimportStages();
 
-                statusDialog.Text += "ISO Rebuilding Complete";
+                statusDialog.Text += "\nISO Rebuilding Complete :)";
             }
         }
 
@@ -314,7 +314,7 @@ namespace WindowsFormsApp1
                 }
             }
             
-            //Shuffles Battery
+            //Shuffles Battery(s)
             while (true)
             {                
                 int nextCheck = r.Next(0, allLocations.Count() - 1);
@@ -326,17 +326,8 @@ namespace WindowsFormsApp1
                 else 
                 {
                     batteryLocation = allLocations[nextCheck];
-                    //Swaps between charged / uncharged battery depending on the settings
-                    if (batteryCharge.Checked)
-                    {
-                        insertItem("item_deka_denchi_full", nextCheck);
-                        spoilerLog.Add("Giga-Battery", allLocations[nextCheck].Description);
-                    }
-                    else
-                    {
-                        insertItem("item_deka_denchi", nextCheck);
-                        spoilerLog.Add("Giga-Battery", allLocations[nextCheck].Description);
-                    }
+                    insertItem("item_deka_denchi", nextCheck);
+                    spoilerLog.Add("Giga-Battery", allLocations[nextCheck].Description);
                     occupiedChecks[nextCheck] = true;
                     break;
                 }       
@@ -388,6 +379,11 @@ namespace WindowsFormsApp1
             if (batteryLocation.Prereqs.Contains("red shoe") || chargerLocation.Prereqs.Contains("red shoe")) 
             {
                 spoilerLog.Add("Red Shoe", allLocations[shuffleItem("item_peets_kutu", occupiedChecks, new string[] { "red shoe", "ladder", "bridge" }, allLocations)].Description);
+            }
+
+            if (batteryCharge.Checked) 
+            {
+                spoilerLog.Add("Charged Giga-Battery", allLocations[shuffleItem("item_deka_denchi_full", occupiedChecks, new string[] { }, allLocations)].Description);
             }
 
             #endregion

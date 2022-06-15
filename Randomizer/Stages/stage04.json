@@ -3502,7 +3502,7 @@
     },
     {
       "id": 124,
-      "object": "item_denchi_1",
+      "object": "item_denchi_2",
       "position": {
         "x": 214.54,
         "y": 127.09,
@@ -4307,7 +4307,7 @@
     },
     {
       "id": 153,
-      "object": "item_mag_cup",
+      "object": "item_deka_denchi_full",
       "position": {
         "x": -200.88,
         "y": 0.0,
@@ -6329,7 +6329,7 @@
     },
     {
       "id": 226,
-      "object": "item_kure_4",
+      "object": "item_kure_3",
       "position": {
         "x": 181.07,
         "y": 73.3,
@@ -8142,7 +8142,7 @@
     },
     {
       "id": 291,
-      "object": "item_hocyouki",
+      "object": "item_chip_54",
       "position": {
         "x": -12.21,
         "y": 1.2,
@@ -8202,7 +8202,7 @@
     },
     {
       "id": 293,
-      "object": "item_kayaku",
+      "object": "item_ticket",
       "position": {
         "x": -3.17,
         "y": 77.0,
@@ -8322,7 +8322,7 @@
     },
     {
       "id": 297,
-      "object": "item_okasi_gomi_1",
+      "object": "coin_g",
       "position": {
         "x": -89.44,
         "y": 0.0,
@@ -8343,9 +8343,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
-        "lift",
         "interact"
       ],
       "script": 2073
@@ -8466,7 +8463,7 @@
     },
     {
       "id": 302,
-      "object": "item_rex_tooth",
+      "object": "item_frog",
       "position": {
         "x": -74.23,
         "y": 3.49,
@@ -8579,7 +8576,7 @@
     },
     {
       "id": 306,
-      "object": "item_papa_yubiwa",
+      "object": "item_denchi_1",
       "position": {
         "x": 14.59,
         "y": 42.6,
@@ -8636,7 +8633,7 @@
     },
     {
       "id": 308,
-      "object": "item_receipt",
+      "object": "item_mag_cup",
       "position": {
         "x": -9.17,
         "y": 1.0,
@@ -10422,7 +10419,7 @@
     },
     {
       "id": 372,
-      "object": "item_t_block_4",
+      "object": "item_t_block_6",
       "position": {
         "x": -120.77,
         "y": 100.59,

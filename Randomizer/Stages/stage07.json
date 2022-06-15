@@ -3298,7 +3298,7 @@
     },
     {
       "id": 115,
-      "object": "item_tug",
+      "object": "item_kure_5",
       "position": {
         "x": 84.53,
         "y": 0.0,
@@ -3385,7 +3385,7 @@
     },
     {
       "id": 118,
-      "object": "item_ticket",
+      "object": "item_houtai",
       "position": {
         "x": 73.24,
         "y": 54.49,
@@ -6884,7 +6884,7 @@
     },
     {
       "id": 247,
-      "object": "item_frog_ring",
+      "object": "item_papa_yubiwa",
       "position": {
         "x": 248.94,
         "y": 216.86,
@@ -9412,7 +9412,7 @@
     },
     {
       "id": 338,
-      "object": "npc_hock_ship_114",
+      "object": "item_nwing_item",
       "position": {
         "x": -43.46,
         "y": 33.59,
@@ -12117,7 +12117,7 @@
     },
     {
       "id": 437,
-      "object": "item_t_block_3",
+      "object": "item_t_block_4",
       "position": {
         "x": 215.29,
         "y": 25.59,
@@ -12147,7 +12147,7 @@
     },
     {
       "id": 438,
-      "object": "item_kure_3",
+      "object": "item_kure_1",
       "position": {
         "x": -90.19,
         "y": 1.5,

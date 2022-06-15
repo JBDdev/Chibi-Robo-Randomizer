@@ -1436,7 +1436,7 @@
     },
     {
       "id": 51,
-      "object": "item_chip_54",
+      "object": "item_receipt",
       "position": {
         "x": -174.0,
         "y": -40.9,
@@ -1753,7 +1753,7 @@
     },
     {
       "id": 62,
-      "object": "coin_c",
+      "object": "item_left_foot",
       "position": {
         "x": -214.17,
         "y": -90.29,
@@ -1774,7 +1774,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": 179
     }

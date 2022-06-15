@@ -4435,7 +4435,7 @@
     },
     {
       "id": 163,
-      "object": "coin_g",
+      "object": "coin_s",
       "position": {
         "x": -310.89,
         "y": 1.4,
@@ -7712,7 +7712,7 @@
     },
     {
       "id": 281,
-      "object": "item_houtai",
+      "object": "item_tug",
       "position": {
         "x": 64.01,
         "y": 0.0,
@@ -8069,7 +8069,7 @@
     },
     {
       "id": 293,
-      "object": "item_nwing_item",
+      "object": "item_car_item",
       "position": {
         "x": 63.97,
         "y": 60.86,
@@ -8681,7 +8681,7 @@
     },
     {
       "id": 316,
-      "object": "item_car_item",
+      "object": "item_kayaku",
       "position": {
         "x": -4.44,
         "y": 146.6,
@@ -10180,7 +10180,7 @@
     },
     {
       "id": 371,
-      "object": "item_kure_1",
+      "object": "item_t_block_3",
       "position": {
         "x": 86.9,
         "y": 0.0,

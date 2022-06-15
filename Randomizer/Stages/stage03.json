@@ -342,7 +342,7 @@
     },
     {
       "id": 12,
-      "object": "item_left_foot",
+      "object": "item_frog_ring",
       "position": {
         "x": 105.5,
         "y": 2.99,
@@ -3948,7 +3948,7 @@
     },
     {
       "id": 144,
-      "object": "item_frog",
+      "object": "npc_hock_ship_114",
       "position": {
         "x": -140.78,
         "y": 88.83,
@@ -5774,7 +5774,7 @@
     },
     {
       "id": 211,
-      "object": "coin_s",
+      "object": "coin_c",
       "position": {
         "x": -110.26,
         "y": 59.7,
@@ -6670,7 +6670,7 @@
     },
     {
       "id": 243,
-      "object": "item_army_photo",
+      "object": "item_c_denchi",
       "position": {
         "x": -88.16,
         "y": 120.69,
