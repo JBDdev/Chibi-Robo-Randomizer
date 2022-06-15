@@ -18,13 +18,13 @@
       "requires": []
     },
     {
-      "item": "pink_flower_seed",
+      "item": "green_crayon",
       "price": 30,
       "limit": 10,
       "requires": []
     },
     {
-      "item": "a_a_battery",
+      "item": "blue_flower_seed",
       "price": 30,
       "limit": 10,
       "requires": []
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "item": "red_block",
+      "item": "alien_ear_chip",
       "price": 2150,
       "limit": 1,
       "requires": [
@@ -96,7 +96,7 @@
       ]
     },
     {
-      "item": "c_battery",
+      "item": "giga_charger",
       "price": 2740,
       "limit": 1,
       "requires": []

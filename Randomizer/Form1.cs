@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        Process cmd;
+        
         JObject livingRoomObj;
         JObject kitchenObj;
         JObject drainObj;
@@ -73,8 +73,6 @@ namespace WindowsFormsApp1
             {
                 seed.Text += (char)r.Next(33, 126);
             }
-
-            cmd = new Process();
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -164,24 +162,31 @@ namespace WindowsFormsApp1
         }
         private void runUnplugCommand(string command) 
         {
-            var info = new ProcessStartInfo();
-  
-            string fullCommand = Directory.GetCurrentDirectory() + @"\..\..\unplug.exe " + command;
+            using (Process cmd = new Process())
+            {
+                var info = new ProcessStartInfo();
 
-            info.UseShellExecute = false;
-            info.WorkingDirectory = @"C:\Windows\System32";
+                string fullCommand = Directory.GetCurrentDirectory() + @"\..\..\unplug.exe " + command;
 
-            info.FileName = "cmd.exe";
-            info.Verb = "runas";
-            info.Arguments = "/C " + fullCommand;
-            info.WindowStyle = ProcessWindowStyle.Minimized;
-            info.RedirectStandardOutput = true;
-            cmd.StartInfo = info;
-            cmd.Start();
-            cmd.WaitForExit();
-            //statusDialog.Text += "\nRunning command: " + fullCommand;
+                info.UseShellExecute = false;
+                info.WorkingDirectory = @"C:\Windows\System32";
 
-            statusDialog.Text += "\n" + cmd.StandardOutput.ReadToEnd();
+                info.FileName = "cmd.exe";
+                info.Verb = "runas";
+                info.Arguments = "/C " + fullCommand;
+                info.WindowStyle = ProcessWindowStyle.Minimized;
+                info.RedirectStandardOutput = true;
+                cmd.StartInfo = info;
+                cmd.Start();
+
+                //statusDialog.Text += "\nRunning command: " + fullCommand;
+                
+                StreamReader sr = cmd.StandardOutput;
+                string test = sr.ReadToEnd();
+                statusDialog.Text += "\n" + sr.ReadToEnd();
+                cmd.WaitForExit();
+            }
+           
         }
         private bool validInput()
         {
@@ -252,7 +257,6 @@ namespace WindowsFormsApp1
             }
 
 
-
             //Clears all key item checks and replaces them with coin_c objects
             foreach (ItemLocation location in allLocations) 
             {
@@ -270,8 +274,9 @@ namespace WindowsFormsApp1
                 }
             }
 
+            #region Key Item Important Checks
             //Shuffles Charger
-            while(true)
+            while (true)
             {
                 int nextCheck = r.Next(0, allLocations.Count() - 1);
                 
@@ -365,8 +370,10 @@ namespace WindowsFormsApp1
                 spoilerLog.Add("Red Shoe", allLocations[shuffleItem("item_peets_kutu", occupiedChecks, new string[] { "red shoe", "ladder", "bridge" }, allLocations)].Description);
             }
 
-            //Checks that are Key Items but don't lock progression or check access
+            #endregion
 
+            //Checks that are Key Items but don't lock progression or check access
+            #region Key Item (Misc.) Checks
             spoilerLog.Add("Mug", allLocations[shuffleItem("item_mag_cup", occupiedChecks, new string[] { }, allLocations)].Description);
 
             spoilerLog.Add("Toy Receipt", allLocations[shuffleItem("item_receipt", occupiedChecks, new string[] { "divorce" }, allLocations)].Description);
@@ -427,9 +434,9 @@ namespace WindowsFormsApp1
             {
                 spoilerLog.Add("Frog Ring " + (i+1), allLocations[shuffleItem("item_frog_ring", occupiedChecks, new string[] { }, allLocations)].Description);
             }
+            #endregion
 
             //Shuffle Leg
-
             while (true)
             {
                 int nextCheck = r.Next(0, allLocations.Count() - 1);
@@ -448,8 +455,7 @@ namespace WindowsFormsApp1
                 }
             }
 
-
-            //Shuffle Junk Checks
+            #region Junk Items
 
             for (int i = 0; i < 30; i++) 
             {
@@ -465,10 +471,13 @@ namespace WindowsFormsApp1
             {
                 spoilerLog.Add("100M Coin " + (i + 1), allLocations[shuffleItem("coin_g", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
             }
+            #endregion
 
             return spoilerLog;
         }
 
+
+        //Randomizes the location of the given item
         private int shuffleItem(string objectName, List<bool> occupiedLocations, string[] prerequisites, List<ItemLocation> allChecks ) 
         {
             while (true)
@@ -489,6 +498,7 @@ namespace WindowsFormsApp1
             
         }
 
+
         //Determines if a location is a valid position for an object given the prerequisites
         private bool validLocation(int location, string[] prerequisites, List<ItemLocation> allChecks)
         {
@@ -499,6 +509,7 @@ namespace WindowsFormsApp1
             }
             return true;
         }
+
 
         //Inserts objectName at given location, assuming location is pulled from allLocations
         private void insertItem(string objectName, int location) 
@@ -877,6 +888,7 @@ namespace WindowsFormsApp1
             return;
         }
 
+        //Reimports the JSON stage and shop data into the ISO
         private void reimportStages() 
         {
             File.WriteAllText("../../Stages/stage01.json", kitchenObj.ToString());
@@ -903,66 +915,5 @@ namespace WindowsFormsApp1
             runUnplugCommand("shop import --iso " + isoFilePath.Text + " " + Directory.GetCurrentDirectory() + @"\..\..\Stages\shop.json");
         }
 
-        private void testCodeDump() 
-        {
- 
-            //This is some code to pick a random check from the living room and put a frog in its place
-            RootObject test = Newtonsoft.Json.JsonConvert.DeserializeObject<RootObject>(File.ReadAllText("../../itemChecks.json"));
-
-            Random r = new Random();
-            int testLocation = r.Next(0, test.rooms[0].locations.Count() - 1);
-
-
-            JToken test1 = livingRoomObj.SelectToken("objects[" + test.rooms[0].locations[testLocation].ID + "].object");
-            test1.Replace("item_frog");
-
-            File.WriteAllText("../../Stages/stage07.json", livingRoomObj.ToString());
-
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage07 " + @"D:\ChibiRando\Randomizer\Stages\stage07.json");
-
-
-
-
-            //Rewriting foyer + code for adding in upstairs early
-            JToken test2 = foyerObj.SelectToken("objects[336].object");
-            test2.Replace("item_tamagotti");
-            
-
-            File.WriteAllText("../../Stages/stage02.json", foyerObj.ToString());
-
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + @"D:\ChibiRando\Randomizer\Stages\stage02.json");
-
-
-            //Replacing the living room happy blocks with frogs
-
-            string[] flags = { "flash", "spawn", "cull", "lift", "interact" };
-            foreach (ItemLocation loc in test.rooms[0].locations)
-            {
-                if (loc.ID < 240 || loc.ID > 249)
-                    continue;
-                livingRoomObj.SelectToken("objects[" + loc.ID + "].object").Replace("item_frog");
-
-                int finalFlagIndex = livingRoomObj.SelectToken("objects[" + loc.ID + "].flags").Children().Count() - 1;
-
-                List<JToken> oldFlags = new List<JToken>();
-
-                foreach (JToken flag in livingRoomObj.SelectToken("objects[" + loc.ID + "].flags").Children())
-                {
-                    oldFlags.Add(flag);
-                }
-
-                for (int i = 1; i < oldFlags.Count; i++)
-                {
-                    oldFlags[i].Remove();
-                }
-
-                livingRoomObj.SelectToken("objects[" + loc.ID + "].flags[0]").AddAfterSelf("flash");
-                livingRoomObj.SelectToken("objects[" + loc.ID + "].flags[0]").AddAfterSelf("cull");
-                livingRoomObj.SelectToken("objects[" + loc.ID + "].flags[0]").AddAfterSelf("lift");
-                livingRoomObj.SelectToken("objects[" + loc.ID + "].flags[0]").AddAfterSelf("interact");
-
-            }
-
-        }
     }
 }

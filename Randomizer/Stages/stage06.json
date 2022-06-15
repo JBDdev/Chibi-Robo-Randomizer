@@ -4435,7 +4435,7 @@
     },
     {
       "id": 163,
-      "object": "coin_g",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -310.89,
         "y": 1.4,
@@ -4456,7 +4456,10 @@
       "variant": 0,
       "flags": [
         "blastthru",
-        "interact"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": 2162
     },
@@ -4745,7 +4748,7 @@
     },
     {
       "id": 174,
-      "object": "item_kami_kuzu",
+      "object": "item_chip_54",
       "position": {
         "x": 143.92,
         "y": 5.0,
@@ -5292,7 +5295,7 @@
     },
     {
       "id": 194,
-      "object": "item_kami_kuzu",
+      "object": "item_frog_ring",
       "position": {
         "x": -4.06,
         "y": 87.57,
@@ -5811,7 +5814,7 @@
     },
     {
       "id": 213,
-      "object": "item_kami_kuzu",
+      "object": "coin_c",
       "position": {
         "x": -113.75,
         "y": 0.0,
@@ -5832,10 +5835,7 @@
       "variant": 0,
       "flags": [
         "lift",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "interact"
       ],
       "script": 2212
     },
@@ -7712,7 +7712,7 @@
     },
     {
       "id": 281,
-      "object": "item_houtai",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 64.01,
         "y": 0.0,
@@ -7733,10 +7733,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
+        "flash",
         "cull",
-        "flash"
+        "lift",
+        "interact"
       ],
       "script": 2306
     },
@@ -7832,7 +7832,7 @@
     },
     {
       "id": 285,
-      "object": "item_kami_kuzu",
+      "object": "item_frog_ring",
       "position": {
         "x": 108.8,
         "y": 55.0,
@@ -7853,10 +7853,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2310
     },
@@ -7922,7 +7922,7 @@
     },
     {
       "id": 288,
-      "object": "coin_c",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 195.16,
         "y": 219.0,
@@ -7943,6 +7943,9 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "flash",
+        "cull",
+        "lift",
         "interact"
       ],
       "script": 2313
@@ -8039,7 +8042,7 @@
     },
     {
       "id": 292,
-      "object": "item_candy_gomi",
+      "object": "item_kayaku",
       "position": {
         "x": -54.0,
         "y": 72.69,
@@ -8060,16 +8063,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2317
     },
     {
       "id": 293,
-      "object": "item_nwing_item",
+      "object": "item_okasi_gomi_1",
       "position": {
         "x": 63.97,
         "y": 60.86,
@@ -8090,10 +8093,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
+        "flash",
         "cull",
-        "flash"
+        "lift",
+        "interact"
       ],
       "script": 2318
     },
@@ -8619,7 +8622,7 @@
     },
     {
       "id": 314,
-      "object": "living_happy_box",
+      "object": "item_t_block_6",
       "position": {
         "x": -3.85,
         "y": 71.17,
@@ -8640,11 +8643,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "explode",
-        "climb",
-        "clamber",
-        "fall",
-        "grab"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": 2319
     },
@@ -8681,7 +8683,7 @@
     },
     {
       "id": 316,
-      "object": "item_car_item",
+      "object": "living_happy_box",
       "position": {
         "x": -4.44,
         "y": 146.6,
@@ -8702,10 +8704,11 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "explode",
+        "climb",
+        "clamber",
+        "fall",
+        "grab"
       ],
       "script": 2322
     },
@@ -10120,7 +10123,7 @@
     },
     {
       "id": 369,
-      "object": "item_kami_kuzu",
+      "object": "item_rex_tooth",
       "position": {
         "x": 127.26,
         "y": 40.0,
@@ -10180,7 +10183,7 @@
     },
     {
       "id": 371,
-      "object": "item_kure_1",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 86.9,
         "y": 0.0,

@@ -754,7 +754,7 @@
     },
     {
       "id": 27,
-      "object": "item_kami_kuzu",
+      "object": "coin_s",
       "position": {
         "x": 49.6,
         "y": 269.89,
@@ -775,10 +775,7 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "interact"
       ],
       "script": null
     },
@@ -9282,7 +9279,7 @@
     },
     {
       "id": 336,
-      "object": "item_kami_kuzu",
+      "object": "item_frog_ring",
       "position": {
         "x": 92.85,
         "y": 37.09,

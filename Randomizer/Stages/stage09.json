@@ -2880,7 +2880,7 @@
     },
     {
       "id": 106,
-      "object": "coin_c",
+      "object": "item_car_item",
       "position": {
         "x": 278.43,
         "y": 11.9,
@@ -2901,7 +2901,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": 2132
     },
@@ -3355,7 +3358,7 @@
     },
     {
       "id": 123,
-      "object": "item_kusa",
+      "object": "item_receipt",
       "position": {
         "x": 541.26,
         "y": 0.2,
@@ -3376,9 +3379,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2169
     },
@@ -3413,7 +3417,7 @@
     },
     {
       "id": 125,
-      "object": "coin_c",
+      "object": "item_kusa",
       "position": {
         "x": 562.89,
         "y": 0.2,
@@ -3434,13 +3438,15 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "cull",
+        "lift",
         "interact"
       ],
       "script": 2175
     },
     {
       "id": 126,
-      "object": "item_kami_kuzu",
+      "object": "item_frog_ring",
       "position": {
         "x": 627.9,
         "y": 35.0,
@@ -7407,11 +7413,41 @@
     },
     {
       "id": 275,
-      "object": "living_happy_box",
+      "object": "item_frog_ring",
       "position": {
         "x": 300.41,
         "y": 257.94,
         "z": -69.94
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "data": 0,
+      "spawnFlag": null,
+      "variant": 0,
+      "flags": [
+        "spawn",
+        "interact",
+        "lift",
+        "cull",
+        "flash"
+      ],
+      "script": 2368
+    },
+    {
+      "id": 276,
+      "object": "living_happy_box",
+      "position": {
+        "x": 382.31,
+        "y": 257.94,
+        "z": -587.37
       },
       "rotation": {
         "x": 0,
@@ -7433,36 +7469,6 @@
         "clamber",
         "fall",
         "grab"
-      ],
-      "script": 2368
-    },
-    {
-      "id": 276,
-      "object": "item_c_denchi",
-      "position": {
-        "x": 382.31,
-        "y": 257.94,
-        "z": -587.37
-      },
-      "rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "scale": {
-        "x": 1.0,
-        "y": 1.0,
-        "z": 1.0
-      },
-      "data": 0,
-      "spawnFlag": null,
-      "variant": 0,
-      "flags": [
-        "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
       ],
       "script": 2369
     },
@@ -7499,7 +7505,7 @@
     },
     {
       "id": 278,
-      "object": "item_goggle",
+      "object": "item_t_block_4",
       "position": {
         "x": 315.48,
         "y": 257.94,
