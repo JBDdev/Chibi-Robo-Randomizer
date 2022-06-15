@@ -35,7 +35,7 @@
             this.destinationPath = new System.Windows.Forms.TextBox();
             this.settingsLabel = new System.Windows.Forms.Label();
             this.logicSettings = new System.Windows.Forms.ComboBox();
-            this.openDownstairs = new System.Windows.Forms.CheckBox();
+            this.freePJ = new System.Windows.Forms.CheckBox();
             this.openUpstairs = new System.Windows.Forms.CheckBox();
             this.seedLabel = new System.Windows.Forms.Label();
             this.seed = new System.Windows.Forms.TextBox();
@@ -122,16 +122,16 @@
             this.logicSettings.Size = new System.Drawing.Size(121, 28);
             this.logicSettings.TabIndex = 8;
             // 
-            // openDownstairs
+            // freePJ
             // 
-            this.openDownstairs.AutoSize = true;
-            this.openDownstairs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.openDownstairs.Location = new System.Drawing.Point(267, 159);
-            this.openDownstairs.Name = "openDownstairs";
-            this.openDownstairs.Size = new System.Drawing.Size(150, 24);
-            this.openDownstairs.TabIndex = 10;
-            this.openDownstairs.Text = "Open Downstairs";
-            this.openDownstairs.UseVisualStyleBackColor = true;
+            this.freePJ.AutoSize = true;
+            this.freePJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.freePJ.Location = new System.Drawing.Point(326, 160);
+            this.freePJ.Name = "freePJ";
+            this.freePJ.Size = new System.Drawing.Size(91, 24);
+            this.freePJ.TabIndex = 10;
+            this.freePJ.Text = "Free PJs";
+            this.freePJ.UseVisualStyleBackColor = true;
             // 
             // openUpstairs
             // 
@@ -207,7 +207,7 @@
             this.Controls.Add(this.seed);
             this.Controls.Add(this.seedLabel);
             this.Controls.Add(this.openUpstairs);
-            this.Controls.Add(this.openDownstairs);
+            this.Controls.Add(this.freePJ);
             this.Controls.Add(this.logicSettings);
             this.Controls.Add(this.settingsLabel);
             this.Controls.Add(this.destinationPath);
@@ -232,7 +232,7 @@
         private System.Windows.Forms.TextBox destinationPath;
         private System.Windows.Forms.Label settingsLabel;
         private System.Windows.Forms.ComboBox logicSettings;
-        private System.Windows.Forms.CheckBox openDownstairs;
+        private System.Windows.Forms.CheckBox freePJ;
         private System.Windows.Forms.CheckBox openUpstairs;
         private System.Windows.Forms.Label seedLabel;
         private System.Windows.Forms.TextBox seed;

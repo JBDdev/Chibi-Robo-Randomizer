@@ -131,12 +131,26 @@ namespace WindowsFormsApp1
                     latestToken.AddAfterSelf(Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../openUpstairs.json")) as JObject);
                 }
 
-                foreach (string key in newSpoilerLog.Keys)
+                using (StreamWriter logOutput = new StreamWriter(File.OpenWrite(destinationPath.Text + "\\Spoiler Log.txt")))
                 {
-                    statusDialog.Text += "\n" + key + ": " + newSpoilerLog[key];
+                    logOutput.WriteLine("******");
+                    logOutput.WriteLine("Seed: " + seed.Text);
+                    logOutput.WriteLine("Mode: " + logicSettings.Text);
+                    logOutput.WriteLine("Open Upstairs: " + openUpstairs.Checked);
+                    logOutput.WriteLine("Charged Battery: " + batteryCharge.Checked);
+                    logOutput.WriteLine("Free PJs: " + freePJ.Checked);
+                    logOutput.WriteLine("******\n");
+                    logOutput.WriteLine("Locations: \n");
+
+                    foreach (string key in newSpoilerLog.Keys)
+                    {
+                        logOutput.WriteLine(key + ": " + newSpoilerLog[key]);
+                    }
                 }
 
                 reimportStages();
+
+                statusDialog.Text += "ISO Rebuilding Complete";
 
             }
 
@@ -191,7 +205,7 @@ namespace WindowsFormsApp1
                 
                 StreamReader sr = cmd.StandardOutput;
                 string test = sr.ReadToEnd();
-                statusDialog.Text += "\n" + sr.ReadToEnd();
+                //statusDialog.Text += "\n" + sr.ReadToEnd();
                 cmd.WaitForExit();
             }
            
