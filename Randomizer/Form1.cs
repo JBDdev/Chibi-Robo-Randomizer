@@ -157,6 +157,16 @@ namespace WindowsFormsApp1
 
         private void initializeStages() 
         {
+            List<string> oldFiles = new List<string>();
+            foreach (string f in Directory.GetFiles(Directory.GetCurrentDirectory() + @"\..\..\Stages\")) 
+            {
+                oldFiles.Add(f);
+            }
+            foreach (string f in oldFiles) 
+            {
+                File.Delete(f);
+            }
+
             runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage07 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage07.json");
             runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage01 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage01.json");
             runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage11 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage11.json");
@@ -166,7 +176,7 @@ namespace WindowsFormsApp1
             runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage04 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage04.json");
             runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage02 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage02.json");
 
-            runUnplugCommand("shop export --iso " + newIsoPath + " -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\shop.json");
+            runUnplugCommand("shop export --iso \"" + newIsoPath + "\" -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\shop.json");
 
             livingRoomObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../Stages/stage07.json")) as JObject;
             kitchenObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../Stages/stage01.json")) as JObject;

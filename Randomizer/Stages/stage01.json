@@ -4209,7 +4209,7 @@
     },
     {
       "id": 153,
-      "object": "coin_c",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 219.24,
         "y": -1.2,
@@ -4230,6 +4230,9 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "flash",
+        "cull",
+        "lift",
         "interact"
       ],
       "script": 2849
@@ -4648,7 +4651,7 @@
     },
     {
       "id": 168,
-      "object": "coin_s",
+      "object": "living_happy_box",
       "position": {
         "x": -216.94,
         "y": 193.02,
@@ -4669,7 +4672,11 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact"
+        "explode",
+        "climb",
+        "clamber",
+        "fall",
+        "grab"
       ],
       "script": 2866
     },
@@ -5719,7 +5726,7 @@
     },
     {
       "id": 207,
-      "object": "coin_g",
+      "object": "item_spoon",
       "position": {
         "x": 352.19,
         "y": 0.05,
@@ -5740,13 +5747,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": 2899
     },
     {
       "id": 208,
-      "object": "item_frog_ring",
+      "object": "coin_c",
       "position": {
         "x": 358.63,
         "y": 0.05,
@@ -5767,10 +5777,7 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "interact"
       ],
       "script": 2900
     },
@@ -6640,7 +6647,7 @@
     },
     {
       "id": 240,
-      "object": "coin_s",
+      "object": "coin_g",
       "position": {
         "x": -42.31,
         "y": 72.99,
@@ -8379,7 +8386,7 @@
     },
     {
       "id": 304,
-      "object": "item_deka_denchi",
+      "object": "item_akikan",
       "position": {
         "x": -244.03,
         "y": 79.3,
@@ -8400,10 +8407,10 @@
       "variant": 1,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
+        "flash",
         "cull",
-        "flash"
+        "lift",
+        "interact"
       ],
       "script": 3064
     },
@@ -8469,7 +8476,7 @@
     },
     {
       "id": 307,
-      "object": "item_kure_4",
+      "object": "item_candy_gomi",
       "position": {
         "x": -82.19,
         "y": 70.79,
@@ -8490,16 +8497,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
+        "flash",
         "cull",
-        "flash"
+        "lift",
+        "interact"
       ],
       "script": 3071
     },
     {
       "id": 308,
-      "object": "item_frog_ring",
+      "object": "item_okasi_gomi_1",
       "position": {
         "x": -24.39,
         "y": 70.3,
@@ -8520,16 +8527,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
+        "flash",
         "cull",
-        "flash"
+        "lift",
+        "interact"
       ],
       "script": 3072
     },
     {
       "id": 309,
-      "object": "item_okasi_gomi_2",
+      "object": "item_houtai",
       "position": {
         "x": 143.33,
         "y": 120.2,
@@ -8550,16 +8557,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 3073
     },
     {
       "id": 310,
-      "object": "item_okasi_gomi_2",
+      "object": "coin_c",
       "position": {
         "x": 161.88,
         "y": 120.2,
@@ -8580,9 +8587,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
-        "lift",
         "interact"
       ],
       "script": 3074
@@ -9905,7 +9909,7 @@
     },
     {
       "id": 359,
-      "object": "item_kami_kuzu",
+      "object": "item_ticket",
       "position": {
         "x": -315.53,
         "y": 86.29,
@@ -9935,7 +9939,7 @@
     },
     {
       "id": 360,
-      "object": "item_frog_ring",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 51.5,
         "y": 86.29,

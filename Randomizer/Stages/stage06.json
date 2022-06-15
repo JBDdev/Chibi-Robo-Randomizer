@@ -4435,7 +4435,7 @@
     },
     {
       "id": 163,
-      "object": "coin_s",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -310.89,
         "y": 1.4,
@@ -4456,7 +4456,10 @@
       "variant": 0,
       "flags": [
         "blastthru",
-        "interact"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": 2162
     },
@@ -5292,7 +5295,7 @@
     },
     {
       "id": 194,
-      "object": "item_kami_kuzu",
+      "object": "coin_c",
       "position": {
         "x": -4.06,
         "y": 87.57,
@@ -5313,10 +5316,7 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "interact"
       ],
       "script": 2183
     },
@@ -5811,7 +5811,7 @@
     },
     {
       "id": 213,
-      "object": "item_kami_kuzu",
+      "object": "coin_c",
       "position": {
         "x": -113.75,
         "y": 0.0,
@@ -5832,10 +5832,7 @@
       "variant": 0,
       "flags": [
         "lift",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "interact"
       ],
       "script": 2212
     },
@@ -7712,7 +7709,7 @@
     },
     {
       "id": 281,
-      "object": "item_tug",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 64.01,
         "y": 0.0,
@@ -7733,10 +7730,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
+        "flash",
         "cull",
-        "flash"
+        "lift",
+        "interact"
       ],
       "script": 2306
     },
@@ -7862,7 +7859,7 @@
     },
     {
       "id": 286,
-      "object": "item_kami_kuzu",
+      "object": "coin_c",
       "position": {
         "x": 109.17,
         "y": 38.7,
@@ -7883,9 +7880,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
-        "lift",
         "interact"
       ],
       "script": 2311
@@ -7922,7 +7916,7 @@
     },
     {
       "id": 288,
-      "object": "coin_c",
+      "object": "item_frog_ring",
       "position": {
         "x": 195.16,
         "y": 219.0,
@@ -7943,7 +7937,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": 2313
     },
@@ -7979,7 +7976,7 @@
     },
     {
       "id": 290,
-      "object": "item_candy_gomi",
+      "object": "coin_c",
       "position": {
         "x": 41.01,
         "y": 61.59,
@@ -8000,9 +7997,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
-        "lift",
         "interact"
       ],
       "script": 2315
@@ -8069,7 +8063,7 @@
     },
     {
       "id": 293,
-      "object": "item_car_item",
+      "object": "item_okasi_gomi_1",
       "position": {
         "x": 63.97,
         "y": 60.86,
@@ -8090,10 +8084,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
+        "flash",
         "cull",
-        "flash"
+        "lift",
+        "interact"
       ],
       "script": 2318
     },
@@ -8681,7 +8675,7 @@
     },
     {
       "id": 316,
-      "object": "item_kayaku",
+      "object": "living_happy_box",
       "position": {
         "x": -4.44,
         "y": 146.6,
@@ -8702,10 +8696,11 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "explode",
+        "climb",
+        "clamber",
+        "fall",
+        "grab"
       ],
       "script": 2322
     },
@@ -10150,7 +10145,7 @@
     },
     {
       "id": 370,
-      "object": "item_kami_kuzu",
+      "object": "item_denchi_1",
       "position": {
         "x": 33.03,
         "y": 220.1,
@@ -10180,7 +10175,7 @@
     },
     {
       "id": 371,
-      "object": "item_t_block_3",
+      "object": "coin_c",
       "position": {
         "x": 86.9,
         "y": 0.0,
@@ -10201,16 +10196,13 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "interact"
       ],
       "script": null
     },
     {
       "id": 372,
-      "object": "item_kami_kuzu",
+      "object": "coin_s",
       "position": {
         "x": 48.32,
         "y": 73.3,
@@ -10231,10 +10223,7 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "interact"
       ],
       "script": null
     },

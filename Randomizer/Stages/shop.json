@@ -18,13 +18,13 @@
       "requires": []
     },
     {
-      "item": "green_crayon",
+      "item": "pink_flower_seed",
       "price": 30,
       "limit": 10,
       "requires": []
     },
     {
-      "item": "snorkel",
+      "item": "free_rangers_photo",
       "price": 30,
       "limit": 10,
       "requires": []
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "item": "chibi_battery",
+      "item": "mug",
       "price": 980,
       "limit": 1,
       "requires": [
@@ -72,7 +72,7 @@
       "requires": []
     },
     {
-      "item": "range_chip",
+      "item": "frog_ring",
       "price": 1120,
       "limit": 1,
       "requires": [
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "item": "free_rangers_photo",
+      "item": "alien_ear_chip",
       "price": 2150,
       "limit": 1,
       "requires": [
@@ -96,7 +96,7 @@
       ]
     },
     {
-      "item": "a_a_battery",
+      "item": "hot_rod",
       "price": 2740,
       "limit": 1,
       "requires": []
