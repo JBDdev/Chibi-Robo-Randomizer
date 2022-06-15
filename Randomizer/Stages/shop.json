@@ -18,31 +18,31 @@
       "requires": []
     },
     {
-      "item": "pink_flower_seed",
+      "item": "giga_battery",
       "price": 30,
       "limit": 10,
       "requires": []
     },
     {
-      "item": "free_rangers_photo",
+      "item": null,
       "price": 30,
       "limit": 10,
       "requires": []
     },
     {
-      "item": "white_flower_seed",
+      "item": null,
       "price": 30,
       "limit": 10,
       "requires": []
     },
     {
-      "item": "nectar_flower_seed",
+      "item": null,
       "price": 777,
       "limit": 1,
       "requires": []
     },
     {
-      "item": "charge_chip",
+      "item": null,
       "price": 860,
       "limit": 1,
       "requires": [
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "item": "mug",
+      "item": null,
       "price": 980,
       "limit": 1,
       "requires": [
@@ -72,7 +72,7 @@
       "requires": []
     },
     {
-      "item": "frog_ring",
+      "item": null,
       "price": 1120,
       "limit": 1,
       "requires": [
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "item": "alien_ear_chip",
+      "item": null,
       "price": 2150,
       "limit": 1,
       "requires": [
@@ -96,13 +96,13 @@
       ]
     },
     {
-      "item": "hot_rod",
+      "item": "alien_ear_chip",
       "price": 2740,
       "limit": 1,
       "requires": []
     },
     {
-      "item": "space_scrambler",
+      "item": null,
       "price": 2980,
       "limit": 1,
       "requires": []

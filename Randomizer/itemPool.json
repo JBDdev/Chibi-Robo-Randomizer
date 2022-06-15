@@ -257,6 +257,60 @@
 			"itemName": "",
 			"numChecks": 10,
 			"flags": [ "interact" ]
+		},
+		{
+			"objectName": "item_kami_kuzu",
+			"itemName": "wastepaper",
+			"numChecks": 0,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"objectName": "item_candy_gomi",
+			"itemName": "candy_wrapper",
+			"numChecks": 0,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"objectName": "item_okasi_gomi_1",
+			"itemName": "candy_bag",
+			"numChecks": 0,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"objectName": "item_okasi_gomi_2",
+			"itemName": "cookie_box",
+			"numChecks": 0,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"objectName": "item_t_block_1",
+			"itemName": "blue_block",
+			"numChecks": 0,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"objectName": "item_akikan",
+			"itemName": "empty_can",
+			"numChecks": 0,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"objectName": "item_kusa",
+			"itemName": "weeds",
+			"numChecks": 0,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"objectName": "item_t_block_5",
+			"itemName": "yellow_block",
+			"numChecks": 0,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"objectName": "item_t_block_2",
+			"itemName": "purple_block",
+			"numChecks": 0,
+			"flags": [ "flash", "cull", "lift", "interact" ]
 		}
 	]
 }

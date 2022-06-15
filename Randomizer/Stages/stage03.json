@@ -169,7 +169,7 @@
     },
     {
       "id": 6,
-      "object": "item_kami_kuzu",
+      "object": "coin_g",
       "position": {
         "x": 108.15,
         "y": 2.99,
@@ -190,10 +190,7 @@
       "variant": 0,
       "flags": [
         "flash",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "interact"
       ],
       "script": 1144
     },
@@ -342,7 +339,7 @@
     },
     {
       "id": 12,
-      "object": "item_frog",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 105.5,
         "y": 2.99,
@@ -401,7 +398,7 @@
     },
     {
       "id": 14,
-      "object": "item_kayaku",
+      "object": "souko_wine_bottle",
       "position": {
         "x": -107.7,
         "y": 3.59,
@@ -422,16 +419,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
+        "flash",
         "cull",
-        "flash"
+        "lift",
+        "interact"
       ],
       "script": 1150
     },
     {
       "id": 15,
-      "object": "coin_c",
+      "object": "souko_wine_bottle",
       "position": {
         "x": -42.46,
         "y": 3.59,
@@ -452,6 +449,9 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "flash",
+        "cull",
+        "lift",
         "interact"
       ],
       "script": 1151
@@ -1556,7 +1556,7 @@
     },
     {
       "id": 56,
-      "object": "item_kami_kuzu",
+      "object": "item_ticket",
       "position": {
         "x": -89.29,
         "y": 0.0,
@@ -1577,16 +1577,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 1195
     },
     {
       "id": 57,
-      "object": "item_kami_kuzu",
+      "object": "coin_c",
       "position": {
         "x": -29.36,
         "y": 0.0,
@@ -1607,9 +1607,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
-        "lift",
         "interact"
       ],
       "script": 1196
@@ -1637,16 +1634,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 1197
     },
     {
       "id": 59,
-      "object": "coin_c",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -47.82,
         "y": 95.2,
@@ -1667,7 +1664,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": 1198
     },
@@ -3948,7 +3948,7 @@
     },
     {
       "id": 144,
-      "object": "item_tug",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -140.78,
         "y": 88.83,
@@ -4139,7 +4139,7 @@
     },
     {
       "id": 151,
-      "object": "item_kami_kuzu",
+      "object": "coin_c",
       "position": {
         "x": 102.14,
         "y": 91.99,
@@ -4160,10 +4160,7 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "interact"
       ],
       "script": 1320
     },
@@ -5744,7 +5741,7 @@
     },
     {
       "id": 210,
-      "object": "item_akikan",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -65.33,
         "y": 99.3,
@@ -5765,16 +5762,16 @@
       "variant": 2,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 1368
     },
     {
       "id": 211,
-      "object": "item_candy_gomi",
+      "object": "coin_g",
       "position": {
         "x": -110.26,
         "y": 59.7,
@@ -5795,16 +5792,13 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
-        "lift",
         "interact"
       ],
       "script": 1369
     },
     {
       "id": 212,
-      "object": "item_candy_gomi",
+      "object": "coin_c",
       "position": {
         "x": -21.81,
         "y": 60.6,
@@ -5825,9 +5819,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
-        "lift",
         "interact"
       ],
       "script": 1370
@@ -5896,7 +5887,7 @@
     },
     {
       "id": 215,
-      "object": "item_rex_tooth",
+      "object": "living_happy_box",
       "position": {
         "x": 61.06,
         "y": 163.0,
@@ -5917,16 +5908,17 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "explode",
+        "climb",
+        "clamber",
+        "fall",
+        "grab"
       ],
       "script": 1374
     },
     {
       "id": 216,
-      "object": "coin_s",
+      "object": "living_happy_box",
       "position": {
         "x": -121.82,
         "y": 173.33,
@@ -5947,7 +5939,11 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact"
+        "explode",
+        "climb",
+        "clamber",
+        "fall",
+        "grab"
       ],
       "script": 1375
     },
@@ -6608,7 +6604,7 @@
     },
     {
       "id": 241,
-      "object": "item_kami_kuzu",
+      "object": "coin_c",
       "position": {
         "x": -92.1,
         "y": 140.1,
@@ -6629,16 +6625,13 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "interact"
       ],
       "script": null
     },
     {
       "id": 242,
-      "object": "item_t_block_6",
+      "object": "coin_s",
       "position": {
         "x": 8.41,
         "y": 40.0,
@@ -6659,16 +6652,13 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "interact"
       ],
       "script": null
     },
     {
       "id": 243,
-      "object": "item_frog_ring",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -88.16,
         "y": 120.69,

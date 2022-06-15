@@ -2880,7 +2880,7 @@
     },
     {
       "id": 106,
-      "object": "coin_c",
+      "object": "leaf",
       "position": {
         "x": 278.43,
         "y": 11.9,
@@ -2901,6 +2901,9 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "flash",
+        "cull",
+        "lift",
         "interact"
       ],
       "script": 2132
@@ -2937,7 +2940,7 @@
     },
     {
       "id": 108,
-      "object": "coin_c",
+      "object": "item_frog_ring",
       "position": {
         "x": 623.65,
         "y": 0.2,
@@ -2958,13 +2961,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": 2134
     },
     {
       "id": 109,
-      "object": "coin_c",
+      "object": "leaf",
       "position": {
         "x": 346.09,
         "y": 8.29,
@@ -2985,6 +2991,9 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "flash",
+        "cull",
+        "lift",
         "interact"
       ],
       "script": 2135
@@ -3046,7 +3055,7 @@
     },
     {
       "id": 112,
-      "object": "item_deka_denchi",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 456.92,
         "y": -46.91,
@@ -3349,7 +3358,7 @@
     },
     {
       "id": 123,
-      "object": "item_kusa",
+      "object": "item_kure_3",
       "position": {
         "x": 541.26,
         "y": 0.2,
@@ -3370,15 +3379,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "cull",
+        "interact",
         "lift",
-        "interact"
+        "cull",
+        "flash"
       ],
       "script": 2169
     },
     {
       "id": 124,
-      "object": "coin_c",
+      "object": "item_kusa",
       "position": {
         "x": 547.27,
         "y": 0.2,
@@ -3399,13 +3409,15 @@
       "variant": 0,
       "flags": [
         "spawn",
+        "cull",
+        "lift",
         "interact"
       ],
       "script": 2174
     },
     {
       "id": 125,
-      "object": "item_hocyouki",
+      "object": "item_kusa",
       "position": {
         "x": 562.89,
         "y": 0.2,
@@ -3426,16 +3438,15 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
         "cull",
-        "flash"
+        "lift",
+        "interact"
       ],
       "script": 2175
     },
     {
       "id": 126,
-      "object": "item_kami_kuzu",
+      "object": "coin_c",
       "position": {
         "x": 627.9,
         "y": 35.0,
@@ -3456,10 +3467,7 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "interact"
       ],
       "script": 2176
     },
@@ -7371,7 +7379,7 @@
     },
     {
       "id": 274,
-      "object": "item_chip_54",
+      "object": "living_happy_box",
       "position": {
         "x": 285.66,
         "y": 257.94,
@@ -7392,10 +7400,11 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "explode",
+        "climb",
+        "clamber",
+        "fall",
+        "grab"
       ],
       "script": 2366
     },
@@ -7432,7 +7441,7 @@
     },
     {
       "id": 276,
-      "object": "living_happy_box",
+      "object": "item_frog_ring",
       "position": {
         "x": 382.31,
         "y": 257.94,
@@ -7453,17 +7462,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "explode",
-        "climb",
-        "clamber",
-        "fall",
-        "grab"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": 2369
     },
     {
       "id": 277,
-      "object": "item_kure_3",
+      "object": "item_car_item",
       "position": {
         "x": 536.38,
         "y": 242.63,

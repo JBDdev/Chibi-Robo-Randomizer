@@ -1376,7 +1376,7 @@
     },
     {
       "id": 49,
-      "object": "item_kami_kuzu",
+      "object": "item_spoon",
       "position": {
         "x": -150.0,
         "y": -40.9,
@@ -1406,7 +1406,7 @@
     },
     {
       "id": 50,
-      "object": "item_kami_kuzu",
+      "object": "coin_c",
       "position": {
         "x": -162.0,
         "y": -40.9,
@@ -1427,10 +1427,7 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
-        "cull",
-        "flash"
+        "interact"
       ],
       "script": null
     },
@@ -1520,7 +1517,7 @@
     },
     {
       "id": 54,
-      "object": "coin_c",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -210.0,
         "y": -40.9,
@@ -1541,7 +1538,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": null
     },
@@ -1607,7 +1607,7 @@
     },
     {
       "id": 57,
-      "object": "item_denchi_2",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -276.0,
         "y": -12.1,

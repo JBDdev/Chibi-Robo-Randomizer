@@ -132,7 +132,7 @@ namespace WindowsFormsApp1
                     latestToken.AddAfterSelf(Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../openUpstairs.json")) as JObject);
                 }
 
-                using (StreamWriter logOutput = new StreamWriter(File.OpenWrite(destinationPath.Text + "\\Spoiler Log.txt")))
+                using (StreamWriter logOutput = new StreamWriter(File.OpenWrite(destinationPath.Text + "\\Spoiler Log " + randoSeed + ".txt")))
                 {
                     logOutput.WriteLine("******");
                     logOutput.WriteLine("Seed: " + seed.Text);
@@ -303,6 +303,35 @@ namespace WindowsFormsApp1
                     }
                 }
             }
+            //Flattens out shop checks with null values
+            shopObj.SelectToken("items[3].item").Replace(null);
+            shopObj.SelectToken("items[4].item").Replace(null);
+            shopObj.SelectToken("items[5].item").Replace(null);
+            shopObj.SelectToken("items[6].item").Replace(null);
+            shopObj.SelectToken("items[7].item").Replace(null);
+            shopObj.SelectToken("items[9].item").Replace(null);
+            shopObj.SelectToken("items[11].item").Replace(null);
+            shopObj.SelectToken("items[13].item").Replace(null);
+            shopObj.SelectToken("items[14].item").Replace(null);
+            shopObj.SelectToken("items[15].item").Replace(null);
+
+            #region Junk Items
+
+            for (int i = 0; i < 30; i++)
+            {
+                spoilerLog.Add("10M Coin " + (i + 1), allLocations[shuffleItem("coin_c", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
+            }
+
+            for (int i = 0; i < 7; i++)
+            {
+                spoilerLog.Add("50M Coin " + (i + 1), allLocations[shuffleItem("coin_s", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
+            }
+
+            for (int i = 0; i < 4; i++)
+            {
+                spoilerLog.Add("100M Coin " + (i + 1), allLocations[shuffleItem("coin_g", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
+            }
+            #endregion
 
             #region Key Item Important Checks
             //Shuffles Charger
@@ -458,7 +487,7 @@ namespace WindowsFormsApp1
 
             for (int i = 0; i < 10; i++) 
             {
-                spoilerLog.Add("Frog Ring " + (i+1), allLocations[shuffleItem("item_frog_ring", occupiedChecks, new string[] { }, allLocations)].Description);
+                spoilerLog.Add("Frog Ring " + (i+1), allLocations[shuffleItem("item_frog_ring", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
             }
             #endregion
 
@@ -481,23 +510,7 @@ namespace WindowsFormsApp1
                 }
             }
 
-            #region Junk Items
-
-            for (int i = 0; i < 30; i++) 
-            {
-                spoilerLog.Add("10M Coin " + (i + 1), allLocations[shuffleItem("coin_c", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
-            }
-
-            for (int i = 0; i < 7; i++)
-            {
-                spoilerLog.Add("50M Coin " + (i + 1), allLocations[shuffleItem("coin_s", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
-            }
-
-            for (int i = 0; i < 4; i++)
-            {
-                spoilerLog.Add("100M Coin " + (i + 1), allLocations[shuffleItem("coin_g", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
-            }
-            #endregion
+            
 
             return spoilerLog;
         }
