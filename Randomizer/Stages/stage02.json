@@ -754,7 +754,7 @@
     },
     {
       "id": 27,
-      "object": "coin_c",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 49.6,
         "y": 269.89,
@@ -775,8 +775,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "opaque",
-        "interact"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": null
     },

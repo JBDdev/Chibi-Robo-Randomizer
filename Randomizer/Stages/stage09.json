@@ -2880,7 +2880,7 @@
     },
     {
       "id": 106,
-      "object": "leaf",
+      "object": "coin_c",
       "position": {
         "x": 278.43,
         "y": 11.9,
@@ -2901,9 +2901,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
-        "lift",
         "interact"
       ],
       "script": 2132
@@ -3416,7 +3413,7 @@
     },
     {
       "id": 125,
-      "object": "item_kusa",
+      "object": "coin_c",
       "position": {
         "x": 562.89,
         "y": 0.2,
@@ -3437,8 +3434,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "cull",
-        "lift",
         "interact"
       ],
       "script": 2175
@@ -7443,7 +7438,7 @@
     },
     {
       "id": 276,
-      "object": "living_happy_box",
+      "object": "item_c_denchi",
       "position": {
         "x": 382.31,
         "y": 257.94,
@@ -7464,11 +7459,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "explode",
-        "climb",
-        "clamber",
-        "fall",
-        "grab"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": 2369
     },
@@ -7505,7 +7499,7 @@
     },
     {
       "id": 278,
-      "object": "living_happy_box",
+      "object": "item_goggle",
       "position": {
         "x": 315.48,
         "y": 257.94,
@@ -7526,11 +7520,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "explode",
-        "climb",
-        "clamber",
-        "fall",
-        "grab"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": 2371
     },

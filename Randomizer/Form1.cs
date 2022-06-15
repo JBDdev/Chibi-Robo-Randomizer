@@ -260,7 +260,7 @@ namespace WindowsFormsApp1
                 {
                     break;
                 }
-                for (int i = 0; i < itemPool.Items.Count - 6; i++) 
+                for (int i = 0; i < itemPool.Items.Count - 3; i++) 
                 {
                     if (location.ObjectName == itemPool.Items[i].objectName) 
                     {
@@ -317,26 +317,6 @@ namespace WindowsFormsApp1
                 }       
             }
 
-            //Shuffle Leg
-
-            while (true) 
-            {
-                int nextCheck = r.Next(0, allLocations.Count() - 1);
-                
-                if (occupiedChecks[nextCheck] == true || !validLocation(nextCheck, new string[] {}, allLocations))
-                {
-
-                }
-                else
-                {
-                    legLocation = allLocations[nextCheck];
-                    occupiedChecks[nextCheck] = true;
-                    insertItem("item_left_foot", nextCheck);
-                    spoilerLog.Add("Giga-Robo's Left Leg", allLocations[nextCheck].Description);
-                    break;
-                }
-            }
-
             //Shuffle Toothbrush
             //Shuffling logic for this object will need to be tweaked as options for skipping sophie / randoing given objs are supported
             while (true)
@@ -356,43 +336,135 @@ namespace WindowsFormsApp1
                 }
             }
 
-            spoilerLog.Add("Squirter", allLocations[shuffleItem("item_tyuusyaki", occupiedChecks, new string[] {"squirter", "frog suit"}, allLocations)].Description);
+            if (batteryLocation.Prereqs.Contains("squirter") || batteryLocation.Prereqs.Contains("frog suit") || chargerLocation.Prereqs.Contains("squirter") || chargerLocation.Prereqs.Contains("frog suit"))
+            {
+                spoilerLog.Add("Squirter", allLocations[shuffleItem("item_tyuusyaki", occupiedChecks, new string[] { "squirter", "frog suit", "ladder", "bridge" }, allLocations)].Description);
+            }
+            else 
+            {
+                spoilerLog.Add("Squirter", allLocations[shuffleItem("item_tyuusyaki", occupiedChecks, new string[] { "squirter", "frog suit" }, allLocations)].Description);
+            
+            }
 
-            spoilerLog.Add("Spoon", allLocations[shuffleItem("item_spoon", occupiedChecks, new string[] {"spoon"}, allLocations)].Description);
+            if (batteryLocation.Prereqs.Contains("spoon") || chargerLocation.Prereqs.Contains("spoon"))
+            {
+                spoilerLog.Add("Spoon", allLocations[shuffleItem("item_spoon", occupiedChecks, new string[] { "spoon", "ladder", "bridge" }, allLocations)].Description);
+            }
+            else 
+            {
+                spoilerLog.Add("Spoon", allLocations[shuffleItem("item_spoon", occupiedChecks, new string[] { "spoon" }, allLocations)].Description);
+            }
 
-            spoilerLog.Add("Mug", allLocations[shuffleItem("item_mag_cup", occupiedChecks, new string[] { }, allLocations)].Description);
+            if (batteryLocation.Prereqs.Contains("charge chip") || chargerLocation.Prereqs.Contains("charge chip")) 
+            {
+                spoilerLog.Add("Charge Chip", allLocations[shuffleItem("item_chip_53", occupiedChecks, new string[] { "blaster", "charge chip", "ladder", "bridge" }, allLocations)].Description);
+            }
 
-            spoilerLog.Add("Toy Receipt", allLocations[shuffleItem("item_receipt", occupiedChecks, new string[] {"divorce"}, allLocations)].Description);
-
-            spoilerLog.Add("Charge Chip", allLocations[shuffleItem("item_chip_53", occupiedChecks, new string[] {"blaster", "charge chip"}, allLocations)].Description);
-
-            spoilerLog.Add("Range Chip", allLocations[shuffleItem("item_chip_54", occupiedChecks, new string[] { }, allLocations)].Description);
-
-            spoilerLog.Add("Red Shoe", allLocations[shuffleItem("item_peets_kutu", occupiedChecks, new string[] {"red shoe"}, allLocations)].Description);
-
+            if (batteryLocation.Prereqs.Contains("red shoe") || chargerLocation.Prereqs.Contains("red shoe")) 
+            {
+                spoilerLog.Add("Red Shoe", allLocations[shuffleItem("item_peets_kutu", occupiedChecks, new string[] { "red shoe", "ladder", "bridge" }, allLocations)].Description);
+            }
 
             //Checks that are Key Items but don't lock progression or check access
 
+            spoilerLog.Add("Mug", allLocations[shuffleItem("item_mag_cup", occupiedChecks, new string[] { }, allLocations)].Description);
 
-            //Shuffle Alien Ear Chip
-            
-            //Shuffle Free Rangers Photo
+            spoilerLog.Add("Toy Receipt", allLocations[shuffleItem("item_receipt", occupiedChecks, new string[] { "divorce" }, allLocations)].Description);
 
-            //Shuffle Red Block
+            spoilerLog.Add("Range Chip", allLocations[shuffleItem("item_chip_54", occupiedChecks, new string[] { }, allLocations)].Description);
 
-            //Shuffle Green Block
-            
-            //Shuffle White Block
+            spoilerLog.Add("Alien Ear Chip", allLocations[shuffleItem("item_hocyouki", occupiedChecks, new string[] { }, allLocations)].Description);
 
-            //Shuffle Red Crayon
+            spoilerLog.Add("Chibi-Battery", allLocations[shuffleItem("item_c_denchi", occupiedChecks, new string[] { }, allLocations)].Description);
 
-            //Shuffle Yellow Crayon
+            spoilerLog.Add("Free Rangers Photo", allLocations[shuffleItem("item_army_photo", occupiedChecks, new string[] { }, allLocations)].Description);
 
-            //Shuffle Green Crayon
+            spoilerLog.Add("Red Block", allLocations[shuffleItem("item_t_block_6", occupiedChecks, new string[] { }, allLocations)].Description);
 
-            //Shuffle Purple Crayon
+            spoilerLog.Add("Green Block", allLocations[shuffleItem("item_t_block_4", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("White Block", allLocations[shuffleItem("item_t_block_3", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Red Crayon", allLocations[shuffleItem("item_kure_1", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Yellow Crayon", allLocations[shuffleItem("item_kure_3", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Green Crayon", allLocations[shuffleItem("item_kure_4", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Purple Crayon", allLocations[shuffleItem("item_kure_5", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Dog Tags", allLocations[shuffleItem("item_tug", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Bandage", allLocations[shuffleItem("item_houtai", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Ticket Stub", allLocations[shuffleItem("item_ticket", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Gunpowder", allLocations[shuffleItem("item_kayaku", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Hot Rod", allLocations[shuffleItem("item_car_item", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Space Scrambler", allLocations[shuffleItem("item_nwing_item", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Scurvy Splinter", allLocations[shuffleItem("npc_hock_ship_114", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Passed-Out Frog", allLocations[shuffleItem("item_frog", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Dinahs Teeth", allLocations[shuffleItem("item_rex_tooth", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Snorkel", allLocations[shuffleItem("item_goggle", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("AA Battery", allLocations[shuffleItem("item_denchi_3", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("C Battery", allLocations[shuffleItem("item_denchi_2", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("D Battery", allLocations[shuffleItem("item_denchi_1", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Wedding Ring", allLocations[shuffleItem("item_papa_yubiwa", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            // 10 Frog Rings
+
+            for (int i = 0; i < 10; i++) 
+            {
+                spoilerLog.Add("Frog Ring " + (i+1), allLocations[shuffleItem("item_frog_ring", occupiedChecks, new string[] { }, allLocations)].Description);
+            }
+
+            //Shuffle Leg
+
+            while (true)
+            {
+                int nextCheck = r.Next(0, allLocations.Count() - 1);
+
+                if (occupiedChecks[nextCheck] == true || !validLocation(nextCheck, new string[] { }, allLocations))
+                {
+
+                }
+                else
+                {
+                    legLocation = allLocations[nextCheck];
+                    occupiedChecks[nextCheck] = true;
+                    insertItem("item_left_foot", nextCheck);
+                    spoilerLog.Add("Giga-Robo's Left Leg", allLocations[nextCheck].Description);
+                    break;
+                }
+            }
 
 
+            //Shuffle Junk Checks
+
+            for (int i = 0; i < 30; i++) 
+            {
+                spoilerLog.Add("10M Coin " + (i + 1), allLocations[shuffleItem("coin_c", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
+            }
+
+            for (int i = 0; i < 7; i++)
+            {
+                spoilerLog.Add("50M Coin " + (i + 1), allLocations[shuffleItem("coin_s", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
+            }
+
+            for (int i = 0; i < 4; i++)
+            {
+                spoilerLog.Add("100M Coin " + (i + 1), allLocations[shuffleItem("coin_g", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
+            }
 
             return spoilerLog;
         }
@@ -403,7 +475,7 @@ namespace WindowsFormsApp1
             {
                 int nextCheck = r.Next(0, allChecks.Count() - 1);
 
-                if (occupiedLocations[nextCheck] == true || !validLocation(nextCheck, new string[] { "squirter", "frog suit" }, allChecks))
+                if (occupiedLocations[nextCheck] == true || !validLocation(nextCheck, prerequisites, allChecks))
                 {
 
                 }

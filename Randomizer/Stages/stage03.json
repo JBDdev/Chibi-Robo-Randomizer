@@ -342,7 +342,7 @@
     },
     {
       "id": 12,
-      "object": "item_kami_kuzu",
+      "object": "item_left_foot",
       "position": {
         "x": 105.5,
         "y": 2.99,
@@ -401,7 +401,7 @@
     },
     {
       "id": 14,
-      "object": "souko_wine_bottle",
+      "object": "coin_g",
       "position": {
         "x": -107.7,
         "y": 3.59,
@@ -422,9 +422,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
-        "lift",
         "interact"
       ],
       "script": 1150
@@ -1589,7 +1586,7 @@
     },
     {
       "id": 57,
-      "object": "item_kami_kuzu",
+      "object": "coin_c",
       "position": {
         "x": -29.36,
         "y": 0.0,
@@ -1610,9 +1607,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
-        "lift",
         "interact"
       ],
       "script": 1196
@@ -3954,7 +3948,7 @@
     },
     {
       "id": 144,
-      "object": "item_kami_kuzu",
+      "object": "item_frog",
       "position": {
         "x": -140.78,
         "y": 88.83,
@@ -5780,7 +5774,7 @@
     },
     {
       "id": 211,
-      "object": "item_candy_gomi",
+      "object": "coin_s",
       "position": {
         "x": -110.26,
         "y": 59.7,
@@ -5801,9 +5795,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
-        "lift",
         "interact"
       ],
       "script": 1369
@@ -6619,7 +6610,7 @@
     },
     {
       "id": 241,
-      "object": "coin_c",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -92.1,
         "y": 140.1,
@@ -6640,13 +6631,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": null
     },
     {
       "id": 242,
-      "object": "coin_c",
+      "object": "item_kami_kuzu",
       "position": {
         "x": 8.41,
         "y": 40.0,
@@ -6667,13 +6661,16 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": null
     },
     {
       "id": 243,
-      "object": "item_peets_kutu",
+      "object": "item_army_photo",
       "position": {
         "x": -88.16,
         "y": 120.69,

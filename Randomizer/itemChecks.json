@@ -378,7 +378,7 @@
 					"z": -47.83,
 					"id": 302,
 					"name": "item_receipt",
-					"prereqs": [ "divorce", "copter" ],
+					"prereqs": [ "ladder", "copter" ],
 					"description": "Living Room Toy Receipt"
 				},
 				{
@@ -1445,7 +1445,7 @@
 					"id": 124,
 					"name": "item_denchi_2",
 					"prereqs": [ "ladder", "red shoe", "blaster", "copter" ],
-					"description": "Jenny's Room C Battery'"
+					"description": "Jennys Room C Battery"
 				},
 				{
 					"x": -200.88,
