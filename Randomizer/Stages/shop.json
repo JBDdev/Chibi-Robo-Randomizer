@@ -18,7 +18,7 @@
       "requires": []
     },
     {
-      "item": "giga_battery",
+      "item": "a_a_battery",
       "price": 30,
       "limit": 10,
       "requires": []
@@ -96,7 +96,7 @@
       ]
     },
     {
-      "item": "alien_ear_chip",
+      "item": null,
       "price": 2740,
       "limit": 1,
       "requires": []

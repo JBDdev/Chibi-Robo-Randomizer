@@ -509,9 +509,7 @@ namespace WindowsFormsApp1
                     break;
                 }
             }
-
             
-
             return spoilerLog;
         }
 
