@@ -92,10 +92,6 @@ namespace WindowsFormsApp1
         {
             if (validInput())
             {
-
-
-
-
                 //Takes each character of the string and casts it to an int, then adds each together to create a integer representation of the seed
                 int randoSeed = 0;
 
@@ -120,9 +116,14 @@ namespace WindowsFormsApp1
                 //Performs the randomization based on the settings
                 Dictionary<string, string> newSpoilerLog = shuffleItemsGlitchless();
 
-
-                //Add PJs to Shop????
-
+                //Add PJs to Shop if enabled
+                if (freePJ.Checked) 
+                {
+                    JToken unusedShopItem = shopObj.SelectToken("items[16]");
+                    unusedShopItem.SelectToken("item").Replace("pajamas");
+                    unusedShopItem.SelectToken("price").Replace(10);
+                    unusedShopItem.SelectToken("limit").Replace(1);
+                }
 
                 //Edits for Open Upstairs setting
                 if (openUpstairs.Checked)
@@ -151,9 +152,7 @@ namespace WindowsFormsApp1
                 reimportStages();
 
                 statusDialog.Text += "ISO Rebuilding Complete";
-
             }
-
         }
 
         private void initializeStages() 
@@ -207,8 +206,7 @@ namespace WindowsFormsApp1
                 string test = sr.ReadToEnd();
                 //statusDialog.Text += "\n" + sr.ReadToEnd();
                 cmd.WaitForExit();
-            }
-           
+            }           
         }
         private bool validInput()
         {

@@ -108,9 +108,9 @@
       "requires": []
     },
     {
-      "item": null,
-      "price": 0,
-      "limit": 0,
+      "item": "pajamas",
+      "price": 10,
+      "limit": 1,
       "requires": []
     },
     {
