@@ -169,7 +169,7 @@
     },
     {
       "id": 6,
-      "object": "item_hocyouki",
+      "object": "item_spoon",
       "position": {
         "x": 108.15,
         "y": 2.99,
@@ -342,7 +342,7 @@
     },
     {
       "id": 12,
-      "object": "coin_c",
+      "object": "item_left_foot",
       "position": {
         "x": 105.5,
         "y": 2.99,
@@ -363,7 +363,10 @@
       "variant": 0,
       "flags": [
         "interact",
-        "interact"
+        "interact",
+        "lift",
+        "cull",
+        "flash"
       ],
       "script": null
     },
@@ -398,7 +401,7 @@
     },
     {
       "id": 14,
-      "object": "souko_wine_bottle",
+      "object": "coin_g",
       "position": {
         "x": -107.7,
         "y": 3.59,
@@ -419,9 +422,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
-        "lift",
         "interact"
       ],
       "script": 1150
@@ -1586,7 +1586,7 @@
     },
     {
       "id": 57,
-      "object": "coin_g",
+      "object": "coin_c",
       "position": {
         "x": -29.36,
         "y": 0.0,
@@ -1613,7 +1613,7 @@
     },
     {
       "id": 58,
-      "object": "item_papa_yubiwa",
+      "object": "item_kami_kuzu",
       "position": {
         "x": -36.18,
         "y": 79.08,
@@ -1634,10 +1634,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
+        "flash",
         "cull",
-        "flash"
+        "lift",
+        "interact"
       ],
       "script": 1197
     },
@@ -2680,7 +2680,7 @@
     },
     {
       "id": 98,
-      "object": "item_deka_denchi",
+      "object": "souko_wine_bottle_b",
       "position": {
         "x": -60.8,
         "y": 4.19,
@@ -2701,10 +2701,10 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
+        "flash",
         "cull",
-        "flash"
+        "lift",
+        "interact"
       ],
       "script": 1201
     },
@@ -3948,7 +3948,7 @@
     },
     {
       "id": 144,
-      "object": "item_kami_kuzu",
+      "object": "item_frog",
       "position": {
         "x": -140.78,
         "y": 88.83,
@@ -5744,7 +5744,7 @@
     },
     {
       "id": 210,
-      "object": "item_frog_ring",
+      "object": "item_akikan",
       "position": {
         "x": -65.33,
         "y": 99.3,
@@ -5765,16 +5765,16 @@
       "variant": 2,
       "flags": [
         "spawn",
-        "interact",
-        "lift",
+        "flash",
         "cull",
-        "flash"
+        "lift",
+        "interact"
       ],
       "script": 1368
     },
     {
       "id": 211,
-      "object": "item_candy_gomi",
+      "object": "coin_s",
       "position": {
         "x": -110.26,
         "y": 59.7,
@@ -5795,9 +5795,6 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "flash",
-        "cull",
-        "lift",
         "interact"
       ],
       "script": 1369
@@ -5834,7 +5831,7 @@
     },
     {
       "id": 213,
-      "object": "coin_c",
+      "object": "living_happy_box",
       "position": {
         "x": -40.21,
         "y": 160.03,
@@ -5855,7 +5852,11 @@
       "variant": 0,
       "flags": [
         "spawn",
-        "interact"
+        "explode",
+        "climb",
+        "clamber",
+        "fall",
+        "grab"
       ],
       "script": 1371
     },
@@ -6669,7 +6670,7 @@
     },
     {
       "id": 243,
-      "object": "item_kami_kuzu",
+      "object": "item_army_photo",
       "position": {
         "x": -88.16,
         "y": 120.69,

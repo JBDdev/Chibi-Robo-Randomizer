@@ -29,6 +29,7 @@ namespace WindowsFormsApp1
         RootObject stageData;
         ItemPool itemPool;
         Random r;
+        string newIsoPath;
 
         public Form1()
         {
@@ -89,16 +90,23 @@ namespace WindowsFormsApp1
 
         private void randomizeButton_Click(object sender, EventArgs e)
         {
-            if (validInput()) 
+            if (validInput())
             {
 
-                //Actually pretty sick/goofy way of generating rando seed and making it a smaller number, should hold on to this and move it somewhere else later
+
+
+
+                //Takes each character of the string and casts it to an int, then adds each together to create a integer representation of the seed
                 int randoSeed = 0;
 
-                foreach (char c in seed.Text) 
+                foreach (char c in seed.Text)
                 {
                     randoSeed += (int)c;
                 }
+
+                newIsoPath = destinationPath.Text + "\\chibiRando_" + randoSeed + ".iso";
+                
+                File.Copy(isoFilePath.Text, newIsoPath, true);
 
                 initializeStages();
 
@@ -123,7 +131,7 @@ namespace WindowsFormsApp1
                     latestToken.AddAfterSelf(Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../openUpstairs.json")) as JObject);
                 }
 
-                foreach (string key in newSpoilerLog.Keys) 
+                foreach (string key in newSpoilerLog.Keys)
                 {
                     statusDialog.Text += "\n" + key + ": " + newSpoilerLog[key];
                 }
@@ -136,16 +144,16 @@ namespace WindowsFormsApp1
 
         private void initializeStages() 
         {
-            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage07 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage07.json");
-            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage01 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage01.json");
-            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage11 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage11.json");
-            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage09 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage09.json");
-            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage03 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage03.json");
-            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage06 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage06.json");
-            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage04 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage04.json");
-            runUnplugCommand("stage export --iso " + isoFilePath.Text + " stage02 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage02.json");
+            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage07 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage07.json");
+            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage01 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage01.json");
+            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage11 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage11.json");
+            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage09 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage09.json");
+            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage03 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage03.json");
+            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage06 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage06.json");
+            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage04 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage04.json");
+            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage02 -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage02.json");
 
-            runUnplugCommand("shop export --iso " + isoFilePath.Text + " -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\shop.json");
+            runUnplugCommand("shop export --iso " + newIsoPath + " -o " + Directory.GetCurrentDirectory() + @"\..\..\Stages\shop.json");
 
             livingRoomObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../Stages/stage07.json")) as JObject;
             kitchenObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("../../Stages/stage01.json")) as JObject;
@@ -904,15 +912,15 @@ namespace WindowsFormsApp1
             //JSON formatting for the shop is borked so this is the reconversion into the form that Unplug is looking for
             File.WriteAllText("../../Stages/shop.json", shopObj.ToString().Substring(14, shopObj.ToString().Length - 15));
 
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage01 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage01.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage02 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage02.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage03 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage03.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage04 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage04.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage06 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage06.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage07 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage07.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage09 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage09.json");
-            runUnplugCommand("stage import --iso " + isoFilePath.Text + " stage11 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage11.json");
-            runUnplugCommand("shop import --iso " + isoFilePath.Text + " " + Directory.GetCurrentDirectory() + @"\..\..\Stages\shop.json");
+            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage01 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage01.json");
+            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage02 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage02.json");
+            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage03 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage03.json");
+            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage04 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage04.json");
+            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage06 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage06.json");
+            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage07 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage07.json");
+            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage09 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage09.json");
+            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage11 " + Directory.GetCurrentDirectory() + @"\..\..\Stages\stage11.json");
+            runUnplugCommand("shop import --iso \"" + newIsoPath + "\" " + Directory.GetCurrentDirectory() + @"\..\..\Stages\shop.json");
         }
 
     }

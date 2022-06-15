@@ -24,7 +24,7 @@
       "requires": []
     },
     {
-      "item": "blue_flower_seed",
+      "item": "a_a_battery",
       "price": 30,
       "limit": 10,
       "requires": []
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "item": "alien_ear_chip",
+      "item": "red_block",
       "price": 2150,
       "limit": 1,
       "requires": [
@@ -96,7 +96,7 @@
       ]
     },
     {
-      "item": "giga_charger",
+      "item": "c_battery",
       "price": 2740,
       "limit": 1,
       "requires": []
