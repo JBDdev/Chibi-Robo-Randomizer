@@ -184,16 +184,16 @@ namespace WindowsFormsApp1
             }
 
             //statusDialog.Text += "stage export --iso \"" + newIsoPath + "\" stage07 -o " + Directory.GetCurrentDirectory() + @"stage07.json";
-            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage07 -o " + Directory.GetCurrentDirectory() + @"\stage07.json");
-            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage01 -o " + Directory.GetCurrentDirectory() + @"\stage01.json");
-            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage11 -o " + Directory.GetCurrentDirectory() + @"\stage11.json");
-            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage09 -o " + Directory.GetCurrentDirectory() + @"\stage09.json");
-            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage03 -o " + Directory.GetCurrentDirectory() + @"\stage03.json");
-            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage06 -o " + Directory.GetCurrentDirectory() + @"\stage06.json");
-            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage04 -o " + Directory.GetCurrentDirectory() + @"\stage04.json");
-            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage02 -o " + Directory.GetCurrentDirectory() + @"\stage02.json");
+            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage07 -o \"" + Directory.GetCurrentDirectory() + @"\stage07.json" + "\"");
+            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage01 -o \"" + Directory.GetCurrentDirectory() + @"\stage01.json" + "\"");
+            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage11 -o \"" + Directory.GetCurrentDirectory() + @"\stage11.json" + "\"");
+            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage09 -o \"" + Directory.GetCurrentDirectory() + @"\stage09.json" + "\"");
+            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage03 -o \"" + Directory.GetCurrentDirectory() + @"\stage03.json" + "\"");
+            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage06 -o \"" + Directory.GetCurrentDirectory() + @"\stage06.json" + "\"");
+            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage04 -o \"" + Directory.GetCurrentDirectory() + @"\stage04.json" + "\"");
+            runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage02 -o \"" + Directory.GetCurrentDirectory() + @"\stage02.json" + "\"");
 
-            runUnplugCommand("shop export --iso \"" + newIsoPath + "\" -o " + Directory.GetCurrentDirectory() + @"\shop.json");
+            runUnplugCommand("shop export --iso \"" + newIsoPath + "\" -o \"" + Directory.GetCurrentDirectory() + @"\shop.json" + "\"");
 
             livingRoomObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("stage07.json")) as JObject;
             kitchenObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("stage01.json")) as JObject;
@@ -211,23 +211,40 @@ namespace WindowsFormsApp1
         {
             using (Process cmd = new Process())
             {
-                var info = new ProcessStartInfo();
+                ////CD to swap to 
+
+                //ProcessStartInfo cdCommandInfo = new ProcessStartInfo();
+
+                //cdCommandInfo.UseShellExecute = false;
+                //cdCommandInfo.WorkingDirectory = @"C:\Windows\System32";
+
+                //cdCommandInfo.FileName = "cmd.exe";
+                //cdCommandInfo.Verb = "runas";
+                //cdCommandInfo.Arguments = "/C cd \"" + Directory.GetCurrentDirectory() + "\""; ;
+                //cdCommandInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                //cdCommandInfo.RedirectStandardOutput = true;
+                //cmd.StartInfo = cdCommandInfo;
+                //cmd.Start();
+
+
+                ProcessStartInfo unplugCommandInfo = new ProcessStartInfo();
                 
                 //string fullCommand = Directory.GetCurrentDirectory() + "" + command;
-                string fullCommand = Directory.GetCurrentDirectory() + @"\..\..\unplug.exe " + command;
+                string fullCommand = "" + Directory.GetCurrentDirectory() + "\\unplug.exe " + command;
 
-                info.UseShellExecute = false;
-                info.WorkingDirectory = @"C:\Windows\System32";
+                unplugCommandInfo.UseShellExecute = false;
+                unplugCommandInfo.WorkingDirectory = @"C:\Windows\System32";
 
-                info.FileName = "cmd.exe";
-                info.Verb = "runas";
-                info.Arguments = "/C " + fullCommand;
-                info.WindowStyle = ProcessWindowStyle.Minimized;
-                info.RedirectStandardOutput = true;
-                cmd.StartInfo = info;
+                unplugCommandInfo.FileName = "cmd.exe";
+                unplugCommandInfo.Verb = "runas";
+                unplugCommandInfo.Arguments = "/C " + fullCommand;
+                unplugCommandInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                unplugCommandInfo.RedirectStandardOutput = true;
+                cmd.StartInfo = unplugCommandInfo;
                 cmd.Start();
 
-                //statusDialog.Text += "\nRunning command: " + fullCommand;
+                //statusDialog.Text += "\nFull Command: " + fullCommand;
+                //statusDialog.Text += "\nArguments put into CMD: " + unplugCommandInfo.Arguments;
                 
                 StreamReader sr = cmd.StandardOutput;
                 string test = sr.ReadToEnd();
@@ -958,15 +975,15 @@ namespace WindowsFormsApp1
             //JSON formatting for the shop is borked so this is the reconversion into the form that Unplug is looking for
             File.WriteAllText("shop.json", shopObj.ToString().Substring(14, shopObj.ToString().Length - 15));
 
-            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage01 " + Directory.GetCurrentDirectory() + @"\stage01.json");
-            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage02 " + Directory.GetCurrentDirectory() + @"\stage02.json");
-            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage03 " + Directory.GetCurrentDirectory() + @"\stage03.json");
-            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage04 " + Directory.GetCurrentDirectory() + @"\stage04.json");
-            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage06 " + Directory.GetCurrentDirectory() + @"\stage06.json");
-            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage07 " + Directory.GetCurrentDirectory() + @"\stage07.json");
-            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage09 " + Directory.GetCurrentDirectory() + @"\stage09.json");
-            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage11 " + Directory.GetCurrentDirectory() + @"\stage11.json");
-            runUnplugCommand("shop import --iso \"" + newIsoPath + "\" " + Directory.GetCurrentDirectory() + @"\shop.json");
+            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage01 \"" + Directory.GetCurrentDirectory() + @"\stage01.json" + "\"");
+            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage02 \"" + Directory.GetCurrentDirectory() + @"\stage02.json" + "\"");
+            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage03 \"" + Directory.GetCurrentDirectory() + @"\stage03.json" + "\"");
+            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage04 \"" + Directory.GetCurrentDirectory() + @"\stage04.json" + "\"");
+            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage06 \"" + Directory.GetCurrentDirectory() + @"\stage06.json" + "\"");
+            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage07 \"" + Directory.GetCurrentDirectory() + @"\stage07.json" + "\"");
+            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage09 \"" + Directory.GetCurrentDirectory() + @"\stage09.json" + "\"");
+            runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage11 \"" + Directory.GetCurrentDirectory() + @"\stage11.json" + "\"");
+            runUnplugCommand("shop import --iso \"" + newIsoPath + "\" \"" + Directory.GetCurrentDirectory() + @"\shop.json" + "\"");
 
             List<string> oldFiles = new List<string>();
             foreach (string f in Directory.GetFiles(Directory.GetCurrentDirectory()))
