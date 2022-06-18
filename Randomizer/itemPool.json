@@ -311,6 +311,12 @@
 			"itemName": "purple_block",
 			"numChecks": 0,
 			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"objectName": "living_happy_block",
+			"itemName": "",
+			"numChecks": 31,
+			"flags": [ "flash", "cull", "lift", "interact" ]
 		}
 	]
 }

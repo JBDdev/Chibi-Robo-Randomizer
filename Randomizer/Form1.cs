@@ -605,7 +605,6 @@ namespace WindowsFormsApp1
             
         }
 
-
         //Determines if a location is a valid position for an object given the prerequisites
         private bool validLocation(int location, string[] prerequisites, List<ItemLocation> allChecks)
         {
