@@ -373,15 +373,6 @@
 					"description": "Living Room Lamp 50M Coin"
 				},
 				{
-					"x": 151.02,
-					"y": 40.46,
-					"z": -47.83,
-					"id": 302,
-					"name": "item_receipt",
-					"prereqs": [ "ladder", "copter" ],
-					"description": "Living Room Toy Receipt"
-				},
-				{
 					"x": 90.95,
 					"y": 0.0,
 					"z": 74.65,
@@ -1202,24 +1193,6 @@
 					"name": "living_happy_box",
 					"prereqs": [],
 					"description": "Basement Stairs Happy Block"
-				},
-				{
-					"x": -92.1,
-					"y": 140.1,
-					"z": 120.42,
-					"id": 241,
-					"name": "coin_c",
-					"prereqs": [],
-					"description": "Basement Stairs 10M Coin Upper"
-				},
-				{
-					"x": 8.41,
-					"y": 40.0,
-					"z": 119.89,
-					"id": 242,
-					"name": "coin_c",
-					"prereqs": [],
-					"description": "Basement Stairs 10M Coin Lower"
 				},
 				{
 					"x": -88.16,

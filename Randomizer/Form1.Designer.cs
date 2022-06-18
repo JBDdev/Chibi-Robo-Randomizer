@@ -42,6 +42,9 @@
             this.statusDialog = new System.Windows.Forms.RichTextBox();
             this.randomizeButton = new System.Windows.Forms.Button();
             this.batteryCharge = new System.Windows.Forms.CheckBox();
+            this.openDownstairs = new System.Windows.Forms.CheckBox();
+            this.passwordRando = new System.Windows.Forms.CheckBox();
+            this.chibiVision = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // isoFilePath
@@ -126,7 +129,7 @@
             // 
             this.freePJ.AutoSize = true;
             this.freePJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.freePJ.Location = new System.Drawing.Point(326, 160);
+            this.freePJ.Location = new System.Drawing.Point(273, 161);
             this.freePJ.Name = "freePJ";
             this.freePJ.Size = new System.Drawing.Size(91, 24);
             this.freePJ.TabIndex = 10;
@@ -188,12 +191,45 @@
             // 
             this.batteryCharge.AutoSize = true;
             this.batteryCharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.batteryCharge.Location = new System.Drawing.Point(423, 190);
+            this.batteryCharge.Location = new System.Drawing.Point(273, 190);
             this.batteryCharge.Name = "batteryCharge";
             this.batteryCharge.Size = new System.Drawing.Size(144, 24);
             this.batteryCharge.TabIndex = 16;
             this.batteryCharge.Text = "Charged Battery";
             this.batteryCharge.UseVisualStyleBackColor = true;
+            // 
+            // openDownstairs
+            // 
+            this.openDownstairs.AutoSize = true;
+            this.openDownstairs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openDownstairs.Location = new System.Drawing.Point(423, 190);
+            this.openDownstairs.Name = "openDownstairs";
+            this.openDownstairs.Size = new System.Drawing.Size(150, 24);
+            this.openDownstairs.TabIndex = 17;
+            this.openDownstairs.Text = "Open Downstairs";
+            this.openDownstairs.UseVisualStyleBackColor = true;
+            // 
+            // passwordRando
+            // 
+            this.passwordRando.AutoSize = true;
+            this.passwordRando.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordRando.Location = new System.Drawing.Point(423, 220);
+            this.passwordRando.Name = "passwordRando";
+            this.passwordRando.Size = new System.Drawing.Size(182, 24);
+            this.passwordRando.TabIndex = 18;
+            this.passwordRando.Text = "Randomize Password";
+            this.passwordRando.UseVisualStyleBackColor = true;
+            // 
+            // chibiVision
+            // 
+            this.chibiVision.AutoSize = true;
+            this.chibiVision.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chibiVision.Location = new System.Drawing.Point(273, 220);
+            this.chibiVision.Name = "chibiVision";
+            this.chibiVision.Size = new System.Drawing.Size(137, 24);
+            this.chibiVision.TabIndex = 19;
+            this.chibiVision.Text = "Chibi-Vision Off";
+            this.chibiVision.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -201,6 +237,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(625, 450);
+            this.Controls.Add(this.chibiVision);
+            this.Controls.Add(this.passwordRando);
+            this.Controls.Add(this.openDownstairs);
             this.Controls.Add(this.batteryCharge);
             this.Controls.Add(this.randomizeButton);
             this.Controls.Add(this.statusDialog);
@@ -239,6 +278,9 @@
         private System.Windows.Forms.RichTextBox statusDialog;
         private System.Windows.Forms.Button randomizeButton;
         private System.Windows.Forms.CheckBox batteryCharge;
+        private System.Windows.Forms.CheckBox openDownstairs;
+        private System.Windows.Forms.CheckBox passwordRando;
+        private System.Windows.Forms.CheckBox chibiVision;
     }
 }
 
