@@ -425,38 +425,74 @@ namespace WindowsFormsApp1
             while (true)
             {
                 int nextCheck = r.Next(0, allLocations.Count() - 1);
-                
-                if (!validLocation(nextCheck, new string[] { "ladder", "bridge", "divorce" }, allLocations))
+                if (openUpstairs.Checked)
                 {
-                    
-                }
-                else
-                {
-                    chargerLocation = allLocations[nextCheck];
-                    occupiedChecks[nextCheck] = true;
-                    insertItem("item_chibi_house_denti_2", nextCheck);
-                    spoilerLog.Add("Giga-Charger", allLocations[nextCheck].Description);                   
-                    break;
-                }
-            }
-            
-            //Shuffles Battery(s)
-            while (true)
-            {                
-                int nextCheck = r.Next(0, allLocations.Count() - 1);
-                
-                if (occupiedChecks[nextCheck] == true || !validLocation(nextCheck, new string[] { "ladder", "bridge", "divorce" }, allLocations))
-                {
+                    if (!validLocation(nextCheck, new string[] { "divorce" }, allLocations))
+                    {
 
+                    }
+                    else
+                    {
+                        chargerLocation = allLocations[nextCheck];
+                        occupiedChecks[nextCheck] = true;
+                        insertItem("item_chibi_house_denti_2", nextCheck);
+                        spoilerLog.Add("Giga-Charger", allLocations[nextCheck].Description);
+                        break;
+                    }
                 }
                 else 
                 {
-                    batteryLocation = allLocations[nextCheck];
-                    insertItem("item_deka_denchi", nextCheck);
-                    spoilerLog.Add("Giga-Battery", allLocations[nextCheck].Description);
-                    occupiedChecks[nextCheck] = true;
-                    break;
-                }       
+                    if (!validLocation(nextCheck, new string[] { "ladder", "bridge", "divorce" }, allLocations))
+                    {
+
+                    }
+                    else
+                    {
+                        chargerLocation = allLocations[nextCheck];
+                        occupiedChecks[nextCheck] = true;
+                        insertItem("item_chibi_house_denti_2", nextCheck);
+                        spoilerLog.Add("Giga-Charger", allLocations[nextCheck].Description);
+                        break;
+                    }
+                }
+            }
+            
+            //Shuffles Uncharged Battery
+            while (true)
+            {                
+                int nextCheck = r.Next(0, allLocations.Count() - 1);
+
+                if (openUpstairs.Checked)
+                {
+                    if (occupiedChecks[nextCheck] == true || !validLocation(nextCheck, new string[] { "divorce" }, allLocations))
+                    {
+
+                    }
+                    else
+                    {
+                        batteryLocation = allLocations[nextCheck];
+                        insertItem("item_deka_denchi", nextCheck);
+                        spoilerLog.Add("Giga-Battery", allLocations[nextCheck].Description);
+                        occupiedChecks[nextCheck] = true;
+                        break;
+                    }
+                }
+                else 
+                {
+                    if (occupiedChecks[nextCheck] == true || !validLocation(nextCheck, new string[] { "ladder", "bridge", "divorce" }, allLocations))
+                    {
+
+                    }
+                    else
+                    {
+                        batteryLocation = allLocations[nextCheck];
+                        insertItem("item_deka_denchi", nextCheck);
+                        spoilerLog.Add("Giga-Battery", allLocations[nextCheck].Description);
+                        occupiedChecks[nextCheck] = true;
+                        break;
+                    }
+                }
+                      
             }
 
             //Shuffle Toothbrush
