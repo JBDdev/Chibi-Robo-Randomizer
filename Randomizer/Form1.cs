@@ -26,11 +26,13 @@ namespace WindowsFormsApp1
         JObject bedroomObj;
         JObject jennyRoomObj;
         JObject shopObj;
+        JObject globals;
 
         RootObject stageData;
         ItemPool itemPool;
         Random r;
         string newIsoPath;
+        int newPassword;
 
         public Form1()
         {
@@ -104,6 +106,8 @@ namespace WindowsFormsApp1
                     randoSeed += (int)c;
                 }
 
+                newPassword = 200667;
+
                 newIsoPath = destinationPath.Text + "\\chibiRando_" + randoSeed + ".iso";
                 
                 File.Copy(isoFilePath.Text, newIsoPath, true);
@@ -127,6 +131,26 @@ namespace WindowsFormsApp1
                 //Performs the randomization based on the settings
                 Dictionary<string, string> newSpoilerLog = shuffleItemsGlitchless();
 
+                //Settings involving edits to globals
+
+                //Turns off Chibi Vision for all objects if enabled
+                if (chibiVision.Checked) 
+                {
+                    for (int i = 0; i < 159; i++)
+                    {
+                        globals.SelectToken("items[" + i + "].flags.chibiVision").Replace(false);
+                    }
+                }
+
+                //Randomizes foot passcode, if enabled
+                if (passwordRando.Checked) 
+                {
+                    newPassword = r.Next(100000, 999999);
+                    globals.SelectToken("stats[12].name").Replace("Password: " + newPassword);
+                    globals.SelectToken("items[124].description").Replace("The number \"" + newPassword + "\" is engraved\non the inside.");
+                }
+
+
                 //Add PJs to Shop if enabled
                 if (freePJ.Checked) 
                 {
@@ -135,6 +159,7 @@ namespace WindowsFormsApp1
                     unusedShopItem.SelectToken("price").Replace(10);
                     unusedShopItem.SelectToken("limit").Replace(1);
                 }
+
 
                 //Edits for Open Downstairs
                 if (freePJ.Checked)
@@ -145,6 +170,7 @@ namespace WindowsFormsApp1
                     unusedShopItem.SelectToken("limit").Replace(1);
                 }
 
+
                 //Edits for Open Upstairs setting
                 if (openUpstairs.Checked)
                 {
@@ -154,9 +180,7 @@ namespace WindowsFormsApp1
                     StreamReader readOpenUpstairs = new StreamReader(openUpstairsStream);
                     latestToken.AddAfterSelf(Newtonsoft.Json.JsonConvert.DeserializeObject(readOpenUpstairs.ReadToEnd()) as JObject);
                 }
-
-
-                
+              
 
                 //Spoiler log output
                 using (StreamWriter logOutput = new StreamWriter(File.OpenWrite(destinationPath.Text + "\\Spoiler Log " + randoSeed + ".txt")))
@@ -164,9 +188,13 @@ namespace WindowsFormsApp1
                     logOutput.WriteLine("******");
                     logOutput.WriteLine("Seed: " + seed.Text);
                     logOutput.WriteLine("Mode: " + logicSettings.Text);
+                    logOutput.WriteLine("Password:  " + newPassword);
                     logOutput.WriteLine("Open Upstairs: " + openUpstairs.Checked);
                     logOutput.WriteLine("Charged Battery: " + batteryCharge.Checked);
                     logOutput.WriteLine("Free PJs: " + freePJ.Checked);
+                    logOutput.WriteLine("Open Downstairs: " + openDownstairs.Checked);
+                    logOutput.WriteLine("Randomize Password: " + passwordRando.Checked);
+                    logOutput.WriteLine("Chibi-Vision Off: " + chibiVision.Checked);
                     logOutput.WriteLine("******\n");
                     logOutput.WriteLine("Locations: \n");
 
@@ -207,7 +235,11 @@ namespace WindowsFormsApp1
             runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage04 -o \"" + Directory.GetCurrentDirectory() + @"\stage04.json" + "\"");
             runUnplugCommand("stage export --iso \"" + newIsoPath + "\" stage02 -o \"" + Directory.GetCurrentDirectory() + @"\stage02.json" + "\"");
 
+            runUnplugCommand("globals export --iso \"" + newIsoPath + "\" -o \"" + Directory.GetCurrentDirectory() + @"\globals.json");
+
             runUnplugCommand("shop export --iso \"" + newIsoPath + "\" -o \"" + Directory.GetCurrentDirectory() + @"\shop.json" + "\"");
+
+            globals = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("globals.json")) as JObject;
 
             livingRoomObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("stage07.json")) as JObject;
             kitchenObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("stage01.json")) as JObject;
@@ -220,6 +252,8 @@ namespace WindowsFormsApp1
 
             string shopInput = File.ReadAllText("shop.json");
             shopObj = Newtonsoft.Json.JsonConvert.DeserializeObject(@"{ 'items': " + shopInput + "}") as JObject;
+
+
         }
         private void runUnplugCommand(string command) 
         {
@@ -380,9 +414,9 @@ namespace WindowsFormsApp1
                 spoilerLog.Add("100M Coin " + (i + 1), allLocations[shuffleItem("coin_g", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
             }
 
-            for (int i = 0; i < 31; i++) 
+            for (int i = 0; i < 15; i++) 
             {
-                spoilerLog.Add("Happy Block " + (i + 1), allLocations[shuffleItem("living_happy_block", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
+                spoilerLog.Add("Happy Block " + (i + 1), allLocations[shuffleItem("living_happy_box", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
             }
             #endregion
 
@@ -1005,6 +1039,7 @@ namespace WindowsFormsApp1
             File.WriteAllText("stage07.json", livingRoomObj.ToString());
             File.WriteAllText("stage09.json", backyardObj.ToString());
             File.WriteAllText("stage11.json", drainObj.ToString());
+            File.WriteAllText("globals.json", globals.ToString());
 
             string test = shopObj.ToString().Substring(14, shopObj.ToString().Length - 15);
             //JSON formatting for the shop is borked so this is the reconversion into the form that Unplug is looking for
@@ -1018,6 +1053,7 @@ namespace WindowsFormsApp1
             runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage07 \"" + Directory.GetCurrentDirectory() + @"\stage07.json" + "\"");
             runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage09 \"" + Directory.GetCurrentDirectory() + @"\stage09.json" + "\"");
             runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage11 \"" + Directory.GetCurrentDirectory() + @"\stage11.json" + "\"");
+            runUnplugCommand("globals import --iso \"" + newIsoPath + "\" \"" + Directory.GetCurrentDirectory() + @"\globals.json" + "\"");
             runUnplugCommand("shop import --iso \"" + newIsoPath + "\" \"" + Directory.GetCurrentDirectory() + @"\shop.json" + "\"");
 
             List<string> oldFiles = new List<string>();
