@@ -66,7 +66,7 @@
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(304, 26);
             this.title.TabIndex = 2;
-            this.title.Text = "Chibi-Robo Randomizer v1.0a";
+            this.title.Text = "Chibi-Robo Randomizer v1.1a";
             // 
             // openISO
             // 
@@ -255,7 +255,7 @@
             this.Controls.Add(this.title);
             this.Controls.Add(this.isoFilePath);
             this.Name = "Form1";
-            this.Text = "Chibi-Robo Randomizer v1.0a";
+            this.Text = "Chibi-Robo Randomizer v1.1a";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
