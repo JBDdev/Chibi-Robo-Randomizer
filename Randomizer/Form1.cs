@@ -91,6 +91,7 @@ namespace WindowsFormsApp1
 
         }
 
+        //This is where the magic happens!
         private void randomizeButton_Click(object sender, EventArgs e)
         {
             if (validInput())
@@ -135,6 +136,15 @@ namespace WindowsFormsApp1
                     unusedShopItem.SelectToken("limit").Replace(1);
                 }
 
+                //Edits for Open Downstairs
+                if (freePJ.Checked)
+                {
+                    JToken unusedShopItem = shopObj.SelectToken("items[17]");
+                    unusedShopItem.SelectToken("item").Replace("drake_redcrest_suit");
+                    unusedShopItem.SelectToken("price").Replace(10);
+                    unusedShopItem.SelectToken("limit").Replace(1);
+                }
+
                 //Edits for Open Upstairs setting
                 if (openUpstairs.Checked)
                 {
@@ -145,6 +155,10 @@ namespace WindowsFormsApp1
                     latestToken.AddAfterSelf(Newtonsoft.Json.JsonConvert.DeserializeObject(readOpenUpstairs.ReadToEnd()) as JObject);
                 }
 
+
+                
+
+                //Spoiler log output
                 using (StreamWriter logOutput = new StreamWriter(File.OpenWrite(destinationPath.Text + "\\Spoiler Log " + randoSeed + ".txt")))
                 {
                     logOutput.WriteLine("******");
@@ -351,7 +365,7 @@ namespace WindowsFormsApp1
 
             #region Junk Items
 
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < 28; i++)
             {
                 spoilerLog.Add("10M Coin " + (i + 1), allLocations[shuffleItem("coin_c", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
             }
@@ -408,22 +422,29 @@ namespace WindowsFormsApp1
 
             //Shuffle Toothbrush
             //Shuffling logic for this object will need to be tweaked as options for skipping sophie / randoing given objs are supported
-            while (true)
+            if (openDownstairs.Checked)
             {
-                int nextCheck = r.Next(0, allLocations.Count() - 1);
-
-                if (occupiedChecks[nextCheck] == true || nextCheck > stageData.rooms[0].locations.Count || !validLocation(nextCheck, new string[] {"ladder", "bridge" }, allLocations))
-                {
-
-                }
-                else
-                {
-                    occupiedChecks[nextCheck] = true;
-                    insertItem("item_brush", nextCheck);
-                    spoilerLog.Add("Toothbrush", allLocations[nextCheck].Description);
-                    break;
-                }
+                spoilerLog.Add("Toothbrush", allLocations[shuffleItem("item_brush", occupiedChecks, new string[] { "toothbrush" }, allLocations)].Description);
             }
+            else
+            {
+                while (true)
+                {
+                    int nextCheck = r.Next(0, allLocations.Count() - 1);
+
+                    if (occupiedChecks[nextCheck] == true || nextCheck > stageData.rooms[0].locations.Count || !validLocation(nextCheck, new string[] { "ladder", "bridge", "toothbrush" }, allLocations))
+                    {
+
+                    }
+                    else
+                    {
+                        occupiedChecks[nextCheck] = true;
+                        insertItem("item_brush", nextCheck);
+                        spoilerLog.Add("Toothbrush", allLocations[nextCheck].Description);
+                        break;
+                    }
+                }
+            }            
 
             if (batteryLocation.Prereqs.Contains("squirter") || batteryLocation.Prereqs.Contains("frog suit") || chargerLocation.Prereqs.Contains("squirter") || chargerLocation.Prereqs.Contains("frog suit"))
             {
@@ -433,6 +454,15 @@ namespace WindowsFormsApp1
             {
                 spoilerLog.Add("Squirter", allLocations[shuffleItem("item_tyuusyaki", occupiedChecks, new string[] { "squirter", "frog suit" }, allLocations)].Description);
             
+            }
+
+            if (batteryLocation.Prereqs.Contains("mug") || chargerLocation.Prereqs.Contains("mug"))
+            {
+                spoilerLog.Add("Mug", allLocations[shuffleItem("item_mag_cup", occupiedChecks, new string[] {"ladder", "bridge", "mug" }, allLocations)].Description);
+            }
+            else 
+            {
+                spoilerLog.Add("Mug", allLocations[shuffleItem("item_mag_cup", occupiedChecks, new string[] { "mug" }, allLocations)].Description);
             }
 
             if (batteryLocation.Prereqs.Contains("spoon") || chargerLocation.Prereqs.Contains("spoon"))
@@ -465,7 +495,6 @@ namespace WindowsFormsApp1
 
             //Checks that are Key Items but don't lock progression or check access
             #region Key Item (Misc.) Checks
-            spoilerLog.Add("Mug", allLocations[shuffleItem("item_mag_cup", occupiedChecks, new string[] { }, allLocations)].Description);
 
             spoilerLog.Add("Toy Receipt", allLocations[shuffleItem("item_receipt", occupiedChecks, new string[] { "divorce" }, allLocations)].Description);
 
