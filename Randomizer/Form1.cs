@@ -320,8 +320,8 @@ namespace WindowsFormsApp1
             //This will let us build the spoiler log later!
             Dictionary<string, string> spoilerLog = new Dictionary<string, string>();
 
-            ItemLocation chargerLocation;
-            ItemLocation batteryLocation;
+            ItemLocation chargerLocation = null;
+            ItemLocation batteryLocation = null;
             ItemLocation legLocation;
 
             //Builds the list of checks and occupiedChecks counter
@@ -342,7 +342,7 @@ namespace WindowsFormsApp1
                 {
                     break;
                 }
-                for (int i = 0; i < itemPool.Items.Count - 3; i++) 
+                for (int i = 0; i < itemPool.Items.Count - 8; i++) 
                 {
                     if (location.ObjectName == itemPool.Items[i].objectName) 
                     {
@@ -378,6 +378,11 @@ namespace WindowsFormsApp1
             for (int i = 0; i < 4; i++)
             {
                 spoilerLog.Add("100M Coin " + (i + 1), allLocations[shuffleItem("coin_g", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
+            }
+
+            for (int i = 0; i < 31; i++) 
+            {
+                spoilerLog.Add("Happy Block " + (i + 1), allLocations[shuffleItem("living_happy_block", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
             }
             #endregion
 
