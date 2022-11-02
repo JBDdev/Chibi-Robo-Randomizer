@@ -31,7 +31,6 @@ Chibi-Robo Randomizer is a Windows application that randomizes the locations of 
   
 ## KNOWN ISSUES
 
-- Giga-Charger / Battery cannot spawn upstairs if Open Upstairs is enabled
 - Some smaller key items (like upgrade chips) can't be picked up in all locations if they are too close to the ground.
 - The program will crash if any part of the file path where the program is extracted contains a space
 - Randomization for the Copter, Blaster, and Radar are planned but not supported
