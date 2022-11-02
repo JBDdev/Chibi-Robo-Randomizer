@@ -21,7 +21,7 @@ Chibi-Robo Randomizer is a Windows application that randomizes the locations of 
 - Charged Battery
   - Checking this will shuffle a fully-charged battery as a bonus item into the game (in addition to the default uncharged battery, which is needed to unlock scrap)
 - Open Downstairs
-  - (NOT IMPLEMENTED) Checking this will enable the entrances to the Foyer and Kitchen immediately from the start of the game without having to move Sophie from the Kitchen door. This will impact item shuffling logic.
+  - (NOT FULLY IMPLEMENTED) Checking this will enable the entrances to the Foyer and Kitchen immediately from the start of the game without having to move Sophie from the Kitchen door. This will impact item shuffling logic. (For now, this will just add the Drake Redcrest Suit to the shop for 10 moolah)
 - Chibi-Vision Off
   - Checking this will remove the item tag for key items that can be seen while Chibi-Vision is active, making it more difficult to sweep for key items immediately after visiting a room for the first time
 - Randomize Password
