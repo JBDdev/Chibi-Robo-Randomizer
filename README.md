@@ -17,9 +17,15 @@ Chibi-Robo Randomizer is a Windows application that randomizes the locations of 
 - Free PJs
   - Checking this box will add the Pajamas as a bonus item to the Chibi-Shop for 10 Moolah, which can allow for more convenient access to areas / locations blocked by day/night-specific events.
 - Open Upsatirs
-  - Checking this box will insert a stack of books onto the 2nd stair in the Foyer, allowing immediate access upstairs without the need for the ladder.
+  - Checking this box will insert a stack of books onto the 2nd stair in the Foyer, allowing immediate access upstairs without the need for the ladder. This will impact item shuffling logic.
 - Charged Battery
   - Checking this will shuffle a fully-charged battery as a bonus item into the game (in addition to the default uncharged battery, which is needed to unlock scrap)
+- Open Downstairs
+  - (NOT IMPLEMENTED) Checking this will enable the entrances to the Foyer and Kitchen immediately from the start of the game without having to move Sophie from the Kitchen door. This will impact item shuffling logic.
+- Chibi-Vision Off
+  - Checking this will remove the item tag for key items that can be seen while Chibi-Vision is active, making it more difficult to sweep for key items immediately after visiting a room for the first time
+- Randomize Password
+  - Checking this will randomize the password required to turn on Giga-Robo to finish the game. This will require finding the engagement ring and reading the newly generated password from its item description, which will also be updated with the new random password. 
 - Randomize
   -Click this button once finished with the above controls and the randomizer will create a new ISO at the file path you have specified with the Browse button!
   
