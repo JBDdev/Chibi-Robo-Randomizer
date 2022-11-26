@@ -11,6 +11,7 @@ using System.Diagnostics;
 using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace WindowsFormsApp1
 {
@@ -358,6 +359,9 @@ namespace WindowsFormsApp1
             ItemLocation batteryLocation = null;
             ItemLocation legLocation;
 
+            Stopwatch stopwatch = new Stopwatch();
+
+
             //Builds the list of checks and occupiedChecks counter
             for (int i = 0; i < stageData.rooms.Count; i++) 
             {
@@ -399,6 +403,7 @@ namespace WindowsFormsApp1
             shopObj.SelectToken("items[14].item").Replace(null);
             shopObj.SelectToken("items[15].item").Replace(null);
 
+            stopwatch.Start();
             #region Junk Items
 
             for (int i = 0; i < 28; i++)
@@ -670,7 +675,12 @@ namespace WindowsFormsApp1
                     break;
                 }
             }
-            
+
+            stopwatch.Stop();
+            if(stopwatch.ElapsedMilliseconds <= 0)
+                statusDialog.Text += "\nShuffling completed in " + stopwatch.Elapsed + ".";
+            else
+                statusDialog.Text += "\nShuffling completed in " + stopwatch.ElapsedMilliseconds + "ms.";
             return spoilerLog;
         }
 
