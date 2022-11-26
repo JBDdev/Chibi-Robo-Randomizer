@@ -199,7 +199,7 @@
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
-			"objectName": "cb_cannon_lv2",
+			"objectName": "cb_cannon_lv_2",
 			"itemName": "chibi_blaster",
 			"numChecks": 1,
 			"flags": [ "flash", "cull", "lift", "interact" ]

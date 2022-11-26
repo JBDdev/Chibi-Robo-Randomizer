@@ -392,7 +392,9 @@ namespace WindowsFormsApp1
             shopObj.SelectToken("items[6].item").Replace(null);
             shopObj.SelectToken("items[7].item").Replace(null);
             shopObj.SelectToken("items[9].item").Replace(null);
+            shopObj.SelectToken("items[10].item").Replace(null);
             shopObj.SelectToken("items[11].item").Replace(null);
+            shopObj.SelectToken("items[12].item").Replace(null);
             shopObj.SelectToken("items[13].item").Replace(null);
             shopObj.SelectToken("items[14].item").Replace(null);
             shopObj.SelectToken("items[15].item").Replace(null);
@@ -530,6 +532,25 @@ namespace WindowsFormsApp1
                 spoilerLog.Add("Squirter", allLocations[shuffleItem("item_tyuusyaki", occupiedChecks, new string[] { "squirter", "frog suit" }, allLocations)].Description);
             
             }
+
+            if (batteryLocation.Prereqs.Contains("blaster") || chargerLocation.Prereqs.Contains("blaster"))
+            {
+                spoilerLog.Add("Chibi-Blaster", allLocations[shuffleItem("cb_cannon_lv_2", occupiedChecks, new string[] { "ladder", "bridge", "blaster" }, allLocations)].Description);
+            }
+            else 
+            {
+                spoilerLog.Add("Chibi-Blaster", allLocations[shuffleItem("cb_cannon_lv_2", occupiedChecks, new string[] { "blaster" }, allLocations)].Description);
+            }
+
+            if (batteryLocation.Prereqs.Contains("radar") || chargerLocation.Prereqs.Contains("radar"))
+            {
+                spoilerLog.Add("Chibi-Radar", allLocations[shuffleItem("cb_radar", occupiedChecks, new string[] { "ladder", "bridge", "radar" }, allLocations)].Description);
+            }
+            else
+            {
+                spoilerLog.Add("Chibi-Radar", allLocations[shuffleItem("cb_radar", occupiedChecks, new string[] { "radar" }, allLocations)].Description);
+            }
+
 
             if (batteryLocation.Prereqs.Contains("mug") || chargerLocation.Prereqs.Contains("mug"))
             {
