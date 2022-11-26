@@ -677,10 +677,7 @@ namespace WindowsFormsApp1
             }
 
             stopwatch.Stop();
-            if(stopwatch.ElapsedMilliseconds <= 0)
-                statusDialog.Text += "\nShuffling completed in " + stopwatch.Elapsed + ".";
-            else
-                statusDialog.Text += "\nShuffling completed in " + stopwatch.ElapsedMilliseconds + "ms.";
+            statusDialog.Text += "\nShuffling completed in " + stopwatch.Elapsed + ".";
             return spoilerLog;
         }
 
