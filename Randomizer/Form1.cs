@@ -999,6 +999,7 @@ namespace WindowsFormsApp1
                 }
                 return;
             }
+            
             //Bedroom
             else if (location < stageData.rooms[7].locations.Count() + stageData.rooms[6].locations.Count() + stageData.rooms[5].locations.Count() + stageData.rooms[4].locations.Count() + stageData.rooms[3].locations.Count() + stageData.rooms[2].locations.Count() + stageData.rooms[1].locations.Count() + stageData.rooms[0].locations.Count()) 
             {
@@ -1042,6 +1043,7 @@ namespace WindowsFormsApp1
                 }
                 return;
             }
+            
             //Shop (aka hell)
             else
             {

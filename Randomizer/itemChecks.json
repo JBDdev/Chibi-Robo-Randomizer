@@ -2100,6 +2100,15 @@
 					"x": 0,
 					"y": 0,
 					"z": 0,
+					"id": 10,
+					"name": "cb_cannon_lv2",
+					"prereqs": [ "shop" ],
+					"description": "Shop Chibi-Blaster"
+				},
+				{
+					"x": 0,
+					"y": 0,
+					"z": 0,
 					"id": 11,
 					"name": "item_chip_54",
 					"prereqs": [ "blaster", "shop" ],
@@ -2109,9 +2118,18 @@
 					"x": 0,
 					"y": 0,
 					"z": 0,
+					"id": 12,
+					"name": "cb_radar",
+					"prereqs": [ "shop", "divorce" ],
+					"description": "Shop Chibi-Radar"
+				},
+				{
+					"x": 0,
+					"y": 0,
+					"z": 0,
 					"id": 13,
 					"name": "item_hocyouki",
-					"prereqs": [ "shop", "radar", "divorce" ],
+					"prereqs": [ "shop", "radar" ],
 					"description": "Shop Alien Ear Chip"
 				},
 				{
@@ -2120,7 +2138,7 @@
 					"z": 0,
 					"id": 14,
 					"name": "item_car_item",
-					"prereqs": ["shop"],
+					"prereqs": [ "shop" ],
 					"description": "Shop Hot Rod"
 				},
 				{

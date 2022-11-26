@@ -193,6 +193,18 @@
 			"flags": [ "flash", "cull", "lift", "interact" ]
 		},
 		{
+			"objectName": "cb_radar",
+			"itemName": "chibi_radar",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
+			"objectName": "cb_cannon_lv2",
+			"itemName": "chibi_blaster",
+			"numChecks": 1,
+			"flags": [ "flash", "cull", "lift", "interact" ]
+		},
+		{
 			"objectName": "item_goggle",
 			"itemName": "snorkel",
 			"numChecks": 1,
