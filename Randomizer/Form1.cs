@@ -403,6 +403,7 @@ namespace WindowsFormsApp1
             shopObj.SelectToken("items[14].item").Replace(null);
             shopObj.SelectToken("items[15].item").Replace(null);
 
+            #region Old Implementation
             stopwatch.Start();
             #region Junk Items
 
@@ -677,6 +678,51 @@ namespace WindowsFormsApp1
             }
 
             stopwatch.Stop();
+            #endregion
+
+            #region New Implementation
+            //Things to keep track of:
+            //locked prereqs
+            //what we have already shuffled
+            //key items per room (rooms represented by ints thru stageData.rooms)
+
+            List<string> lockedPrereqs = new List<string>();
+            Dictionary<string, bool> shuffledKeyItems = new Dictionary<string, bool>();
+
+            #region Data Init
+            //NOTE: ladder / bridge removed if ( (charger && battery) && (blaster || toothbrush) )
+            lockedPrereqs.AddRange(new string[] { "ladder", "bridge", "blaster", "mug", "squirter", "divorce", "spoon", "radar", "red shoe", "charge chip" });
+
+            shuffledKeyItems.Add("item_brush", false);
+            shuffledKeyItems.Add("item_tyuusyaki", false);
+            shuffledKeyItems.Add("item_spoon", false);
+            shuffledKeyItems.Add("item_mag_cup", false);
+            shuffledKeyItems.Add("item_receipt", false);
+            shuffledKeyItems.Add("item_chip_53", false);
+            shuffledKeyItems.Add("item_chibi_house_denti_2", false);
+            shuffledKeyItems.Add("item_deka_denchi", false);
+            shuffledKeyItems.Add("item_left_foot", false);
+            shuffledKeyItems.Add("item_peets_kutu", );
+            shuffledKeyItems.Add("cb_radar", false);
+            shuffledKeyItems.Add("cb_cannon_lv_2", false);
+            shuffledKeyItems.Add("item_papa_yubiwa", false);
+
+            #endregion 
+
+            
+
+            //Pick a random key item to shuffle first
+
+            //Shuffle it somewhere logical
+            ///Reroll chance increased by num key items in that room already
+            ///Reroll chance decreased by num prereqs for the check(?)
+
+            //Update shuffledKeyItems
+            //Update lockedPrereqs depending on what got shuffled
+
+
+            #endregion
+
             statusDialog.Text += "\nShuffling completed in " + stopwatch.Elapsed + ".";
             return spoilerLog;
         }
