@@ -978,7 +978,7 @@
 					"z": -197.93,
 					"id": 27,
 					"name": "coin_c",
-					"prereqs": [ "copter", "ladder" ],
+					"prereqs": [ "copter", "ladder", "mug" ],
 					"description": "Foyer Top of Stairs 10M Coin"
 				},
 				{
@@ -987,7 +987,7 @@
 					"z": 108.93,
 					"id": 336,
 					"name": "item_army_photo",
-					"prereqs": [],
+					"prereqs": ["mug"],
 					"description": "Foyer Free Rangers Photo"
 				},
 				{
@@ -996,7 +996,7 @@
 					"z": 292.63,
 					"id": 382,
 					"name": "item_frog_ring",
-					"prereqs": [ "copter", "ladder", "blaster" ],
+					"prereqs": [ "copter", "ladder", "blaster", "mug" ],
 					"description": "Foyer Waterfall Frog Ring"
 				},
 				{
@@ -1005,7 +1005,7 @@
 					"z": -123.93,
 					"id": 385,
 					"name": "item_t_block_6",
-					"prereqs": [ "copter", "ladder" ],
+					"prereqs": [ "copter", "ladder", "mug" ],
 					"description": "Foyer Red Block"
 				}
 			]
