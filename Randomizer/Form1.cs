@@ -374,7 +374,7 @@ namespace WindowsFormsApp1
 
 
             //Clears all key item checks and replaces them with coin_c objects
-            /*
+            
             foreach (ItemLocation location in allLocations) 
             {
                 if (allLocations.IndexOf(location) > (allLocations.Count() - stageData.rooms[8].locations.Count()))
@@ -390,7 +390,7 @@ namespace WindowsFormsApp1
                     }
                 }
             }
-            */
+            
             //Flattens out shop checks with null values
             shopObj.SelectToken("items[3].item").Replace(null);
             shopObj.SelectToken("items[4].item").Replace(null);
@@ -687,29 +687,232 @@ namespace WindowsFormsApp1
 
 
             #region New Implementation
+            stopwatch.Start();
+            #region Junk Items
+
+            for (int i = 0; i < 28; i++)
+            {
+                spoilerLog.Add("10M Coin " + (i + 1), allLocations[shuffleItem("coin_c", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
+            }
+
+            for (int i = 0; i < 7; i++)
+            {
+                spoilerLog.Add("50M Coin " + (i + 1), allLocations[shuffleItem("coin_s", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
+            }
+
+            for (int i = 0; i < 4; i++)
+            {
+                spoilerLog.Add("100M Coin " + (i + 1), allLocations[shuffleItem("coin_g", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
+            }
+
+            for (int i = 0; i < 15; i++)
+            {
+                spoilerLog.Add("Happy Block " + (i + 1), allLocations[shuffleItem("living_happy_box", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
+            }
+            #endregion
+
             //Things to keep track of:
             //locked prereqs
             //what we have already shuffled
             //key items per room (rooms represented by ints thru stageData.rooms)
-
+            #region Key Items
             List<string> lockedPrereqs = new List<string>();
             Dictionary<string, bool> shuffledKeyItems = new Dictionary<string, bool>();
             string[] keyItems = { "item_brush", "item_tyuusyaki", "item_spoon", "item_mag_cup", "item_receipt", "item_chip_53", "item_chibi_house_denti_2", "item_deka_denchi", "item_left_foot", "item_peets_kutu", "cb_radar", "cb_cannon_lv_2", "item_papa_yubiwa" };
             int[] checksPerRoom = new int[stageData.rooms.Count];
+            
             bool inProgress = true;
 
             #region Data Init
             //NOTE: ladder / bridge removed if ( (charger && battery) && (blaster || toothbrush) )
             lockedPrereqs.AddRange(new string[] { "ladder", "bridge", "blaster", "mug", "squirter", "divorce", "spoon", "radar", "red shoe", "charge chip" });
-            
+            foreach (int i in checksPerRoom)
+                checksPerRoom[i] = 0;
+
             foreach (string s in keyItems) 
             {
                 shuffledKeyItems.Add(s, false);
             }
-            
+
             #endregion
 
-           
+            //Shuffle Battery and Charger First (for closed upstairs only?)
+            if (openUpstairs.Checked == false) 
+            {
+                // Shuffle Charger
+                //
+                //
+                int newLocation = shuffleItem(keyItems[6], occupiedChecks, lockedPrereqs.ToArray(), allLocations, checksPerRoom);
+
+                spoilerLog.Add(keyItems[6], allLocations[newLocation].Description);
+
+                //Track where the item was shuffled to
+                switch (newLocation)
+                {
+                    case int i when i < stageData.rooms[0].locations.Count:
+                        checksPerRoom[0]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count:
+                        checksPerRoom[1]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count:
+                        checksPerRoom[2]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count:
+                        checksPerRoom[3]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count:
+                        checksPerRoom[4]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count:
+                        checksPerRoom[5]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count:
+                        checksPerRoom[6]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count + stageData.rooms[7].locations.Count:
+                        checksPerRoom[7]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count + stageData.rooms[7].locations.Count + stageData.rooms[8].locations.Count:
+                        checksPerRoom[8]++;
+                        break;
+                }
+
+                //Update ShuffledKeyItems
+                shuffledKeyItems[keyItems[6]] = true;
+
+                // Shuffle Battery (uncharged)
+                //
+                //
+                newLocation = shuffleItem(keyItems[7], occupiedChecks, lockedPrereqs.ToArray(), allLocations, checksPerRoom);
+
+                spoilerLog.Add(keyItems[7], allLocations[newLocation].Description);
+
+                //Track where the item was shuffled to
+                switch (newLocation)
+                {
+                    case int i when i < stageData.rooms[0].locations.Count:
+                        checksPerRoom[0]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count:
+                        checksPerRoom[1]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count:
+                        checksPerRoom[2]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count:
+                        checksPerRoom[3]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count:
+                        checksPerRoom[4]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count:
+                        checksPerRoom[5]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count:
+                        checksPerRoom[6]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count + stageData.rooms[7].locations.Count:
+                        checksPerRoom[7]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count + stageData.rooms[7].locations.Count + stageData.rooms[8].locations.Count:
+                        checksPerRoom[8]++;
+                        break;
+                }
+
+                //Update ShuffledKeyItems
+                shuffledKeyItems[keyItems[7]] = true;
+
+                //Shuffle either toothbrush or blaster
+
+                if (r.Next(0, 2) == 0)
+                {
+                    //Shuffle toothbrush
+                    newLocation = shuffleItem(keyItems[0], occupiedChecks, lockedPrereqs.ToArray(), allLocations, checksPerRoom);
+
+                    spoilerLog.Add(keyItems[0], allLocations[newLocation].Description);
+
+                    //Track where the item was shuffled to
+                    switch (newLocation)
+                    {
+                        case int i when i < stageData.rooms[0].locations.Count:
+                            checksPerRoom[0]++;
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count:
+                            checksPerRoom[1]++;
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count:
+                            checksPerRoom[2]++;
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count:
+                            checksPerRoom[3]++;
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count:
+                            checksPerRoom[4]++;
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count:
+                            checksPerRoom[5]++;
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count:
+                            checksPerRoom[6]++;
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count + stageData.rooms[7].locations.Count:
+                            checksPerRoom[7]++;
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count + stageData.rooms[7].locations.Count + stageData.rooms[8].locations.Count:
+                            checksPerRoom[8]++;
+                            break;
+                    }
+
+                    //Update ShuffledKeyItems
+                    shuffledKeyItems[keyItems[0]] = true;
+                }
+                else 
+                {
+                    //Shuffle blaster
+                    newLocation = shuffleItem(keyItems[11], occupiedChecks, lockedPrereqs.ToArray(), allLocations, checksPerRoom);
+
+                    spoilerLog.Add(keyItems[11], allLocations[newLocation].Description);
+
+                    //Track where the item was shuffled to
+                    switch (newLocation)
+                    {
+                        case int i when i < stageData.rooms[0].locations.Count:
+                            checksPerRoom[0]++;
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count:
+                            checksPerRoom[1]++;
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count:
+                            checksPerRoom[2]++;
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count:
+                            checksPerRoom[3]++;
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count:
+                            checksPerRoom[4]++;
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count:
+                            checksPerRoom[5]++;
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count:
+                            checksPerRoom[6]++;
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count + stageData.rooms[7].locations.Count:
+                            checksPerRoom[7]++;
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count + stageData.rooms[7].locations.Count + stageData.rooms[8].locations.Count:
+                            checksPerRoom[8]++;
+                            break;
+                    }
+
+                    //Update ShuffledKeyItems
+                    shuffledKeyItems[keyItems[11]] = true;
+                }
+
+                lockedPrereqs.Remove("ladder");
+                lockedPrereqs.Remove("bridge");
+            }
 
             while (inProgress) 
             {
@@ -727,21 +930,35 @@ namespace WindowsFormsApp1
                 spoilerLog.Add(keyItems[nextKeyItem], allLocations[newLocation].Description);
 
                 //Track where the item was shuffled to
-                for (int i = 0; i < stageData.rooms.Count; i++) 
+                switch (newLocation)
                 {
-                    int previousChecks = 0;
-                    int j = 0;
-                    while(j < 0)
-                    {
-                        previousChecks += stageData.rooms[j].locations.Count;
-                        j++;
-                    }
-
-                    if (newLocation >= previousChecks && newLocation < previousChecks + stageData.rooms[i].locations.Count)
-                    {
-                        checksPerRoom[i]++;
+                    case int i when i < stageData.rooms[0].locations.Count:
+                        checksPerRoom[0]++;
                         break;
-                    }
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count:
+                        checksPerRoom[1]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count:
+                        checksPerRoom[2]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count:
+                        checksPerRoom[3]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count:
+                        checksPerRoom[4]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count:
+                        checksPerRoom[5]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count:
+                        checksPerRoom[6]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count + stageData.rooms[7].locations.Count:
+                        checksPerRoom[7]++;
+                        break;
+                    case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count + stageData.rooms[7].locations.Count + stageData.rooms[8].locations.Count:
+                        checksPerRoom[8]++;
+                        break;
                 }
 
                 //Remove any prereqs that are lifted from this change
@@ -800,10 +1017,78 @@ namespace WindowsFormsApp1
                     }
                 }
             }
+            #endregion
+
+            #region Unique Items (non-progression)
+            spoilerLog.Add("Range Chip", allLocations[shuffleItem("item_chip_54", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Alien Ear Chip", allLocations[shuffleItem("item_hocyouki", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Chibi-Battery", allLocations[shuffleItem("item_c_denchi", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Free Rangers Photo", allLocations[shuffleItem("item_army_photo", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Red Block", allLocations[shuffleItem("item_t_block_6", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Green Block", allLocations[shuffleItem("item_t_block_4", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("White Block", allLocations[shuffleItem("item_t_block_3", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Red Crayon", allLocations[shuffleItem("item_kure_1", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Yellow Crayon", allLocations[shuffleItem("item_kure_3", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Green Crayon", allLocations[shuffleItem("item_kure_4", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Purple Crayon", allLocations[shuffleItem("item_kure_5", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Dog Tags", allLocations[shuffleItem("item_tug", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Bandage", allLocations[shuffleItem("item_houtai", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Ticket Stub", allLocations[shuffleItem("item_ticket", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Gunpowder", allLocations[shuffleItem("item_kayaku", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Hot Rod", allLocations[shuffleItem("item_car_item", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Space Scrambler", allLocations[shuffleItem("item_nwing_item", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Scurvy Splinter", allLocations[shuffleItem("npc_hock_ship_114", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Passed-Out Frog", allLocations[shuffleItem("item_frog", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Dinahs Teeth", allLocations[shuffleItem("item_rex_tooth", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("Snorkel", allLocations[shuffleItem("item_goggle", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("AA Battery", allLocations[shuffleItem("item_denchi_3", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("C Battery", allLocations[shuffleItem("item_denchi_2", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            spoilerLog.Add("D Battery", allLocations[shuffleItem("item_denchi_1", occupiedChecks, new string[] { }, allLocations)].Description);
+
+            for (int i = 0; i < 10; i++)
+            {
+                spoilerLog.Add("Frog Ring " + (i + 1), allLocations[shuffleItem("item_frog_ring", occupiedChecks, new string[] { "shop" }, allLocations)].Description);
+            }
+            #endregion
+
+            stopwatch.Stop();
+            statusDialog.Text += "\nKey Items per Room";
+            statusDialog.Text += "\nLiving Room: " + checksPerRoom[0];
+            statusDialog.Text += "\nKitchen: " + checksPerRoom[1];
+            statusDialog.Text += "\nDrain: " + checksPerRoom[2];
+            statusDialog.Text += "\nFoyer: " + checksPerRoom[3];
+            statusDialog.Text += "\nBasement: " + checksPerRoom[4];
+            statusDialog.Text += "\nBackyard: " + checksPerRoom[5];
+            statusDialog.Text += "\nJenny's Room: " + checksPerRoom[6];
+            statusDialog.Text += "\nBedroom: " + checksPerRoom[7];
+            statusDialog.Text += "\nShop: " + checksPerRoom[8];
 
             #endregion
 
-            //statusDialog.Text += "\nShuffling completed in " + stopwatch.Elapsed + ".";
+            statusDialog.Text += "\nShuffling completed in " + stopwatch.Elapsed + ".";
             return spoilerLog;
         }
 
@@ -845,26 +1130,39 @@ namespace WindowsFormsApp1
                 else
                 {
                     int rerollChance = 0;
-
+                    int chancePerKeyItem = 33;
                     //Figure out which room nextCheck is in
-                    for (int i = 0; i < stageData.rooms.Count; i++)
+                    switch (nextCheck)
                     {
-                        int previousChecks = 0;
-                        int j = 0;
-                        while (j < 0)
-                        {
-                            previousChecks += stageData.rooms[j].locations.Count;
-                            j++;
-                        }
-
-                        if (nextCheck >= previousChecks && nextCheck < previousChecks + stageData.rooms[i].locations.Count)
-                        {
-                            //Increase the chance to reroll by 25% for every key item in that given room
-                            rerollChance += 25 * itemsPerRoom[i];
+                        case int i when i < stageData.rooms[0].locations.Count:
+                            rerollChance += chancePerKeyItem * itemsPerRoom[0];
                             break;
-                        }
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count:
+                            rerollChance += chancePerKeyItem * itemsPerRoom[1];
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count:
+                            rerollChance += chancePerKeyItem * itemsPerRoom[2];
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count:
+                            rerollChance += chancePerKeyItem * itemsPerRoom[3];
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count:
+                            rerollChance += chancePerKeyItem * itemsPerRoom[4];
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count:
+                            rerollChance += chancePerKeyItem * itemsPerRoom[5];
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count:
+                            rerollChance += chancePerKeyItem * itemsPerRoom[6];
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count + stageData.rooms[7].locations.Count:
+                            rerollChance += chancePerKeyItem * itemsPerRoom[7];
+                            break;
+                        case int i when i < stageData.rooms[0].locations.Count + stageData.rooms[1].locations.Count + stageData.rooms[2].locations.Count + stageData.rooms[3].locations.Count + stageData.rooms[4].locations.Count + stageData.rooms[5].locations.Count + stageData.rooms[6].locations.Count + stageData.rooms[7].locations.Count + stageData.rooms[8].locations.Count:
+                            rerollChance += chancePerKeyItem * itemsPerRoom[8];
+                            break;
                     }
-
+                    /*
                     //Get the num of prereqs of that location
                     int totalPrereqs = 0;
                     foreach (string p in allChecks[nextCheck].Prereqs) 
@@ -875,16 +1173,20 @@ namespace WindowsFormsApp1
                     if (allChecks[nextCheck].Prereqs.Contains("ladder") && allChecks[nextCheck].Prereqs.Contains("bridge"))
                         totalPrereqs--;
 
-                    //Decrease chance to reroll by 25% for every prereq that locks that check
-                    rerollChance -= 25 * totalPrereqs;
-
+                    //Decrease chance to reroll by 15% for every prereq that locks that check
+                    //rerollChance -= 15 * totalPrereqs;
+                    */
                     statusDialog.Text += "\nReroll chance: " + rerollChance;
                     //Roll a random number from 0 - 100
                     int randomNumber = r.Next(0, 100) + 1;
 
-                    if (randomNumber < rerollChance)
+                    if (randomNumber < rerollChance) 
+                    {
+                        statusDialog.Text += " - rerolled!";
                         continue;
+                    }
 
+                    statusDialog.Text += " - didn't reroll!";
                     occupiedLocations[nextCheck] = true;
                     insertItem(objectName, nextCheck);
                     return nextCheck;
