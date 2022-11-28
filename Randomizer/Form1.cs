@@ -908,6 +908,8 @@ namespace WindowsFormsApp1
 
                     //Update ShuffledKeyItems
                     shuffledKeyItems[keyItems[11]] = true;
+
+                    lockedPrereqs.Remove("blaster");
                 }
 
                 lockedPrereqs.Remove("ladder");
