@@ -374,6 +374,7 @@ namespace WindowsFormsApp1
 
 
             //Clears all key item checks and replaces them with coin_c objects
+            /*
             foreach (ItemLocation location in allLocations) 
             {
                 if (allLocations.IndexOf(location) > (allLocations.Count() - stageData.rooms[8].locations.Count()))
@@ -389,6 +390,7 @@ namespace WindowsFormsApp1
                     }
                 }
             }
+            */
             //Flattens out shop checks with null values
             shopObj.SelectToken("items[3].item").Replace(null);
             shopObj.SelectToken("items[4].item").Replace(null);
@@ -403,7 +405,9 @@ namespace WindowsFormsApp1
             shopObj.SelectToken("items[14].item").Replace(null);
             shopObj.SelectToken("items[15].item").Replace(null);
 
+
             #region Old Implementation
+            /*
             stopwatch.Start();
             #region Junk Items
 
@@ -678,7 +682,9 @@ namespace WindowsFormsApp1
             }
 
             stopwatch.Stop();
+            */
             #endregion
+
 
             #region New Implementation
             //Things to keep track of:
@@ -688,42 +694,116 @@ namespace WindowsFormsApp1
 
             List<string> lockedPrereqs = new List<string>();
             Dictionary<string, bool> shuffledKeyItems = new Dictionary<string, bool>();
+            string[] keyItems = { "item_brush", "item_tyuusyaki", "item_spoon", "item_mag_cup", "item_receipt", "item_chip_53", "item_chibi_house_denti_2", "item_deka_denchi", "item_left_foot", "item_peets_kutu", "cb_radar", "cb_cannon_lv_2", "item_papa_yubiwa" };
+            int[] checksPerRoom = new int[stageData.rooms.Count];
+            bool inProgress = true;
 
             #region Data Init
             //NOTE: ladder / bridge removed if ( (charger && battery) && (blaster || toothbrush) )
             lockedPrereqs.AddRange(new string[] { "ladder", "bridge", "blaster", "mug", "squirter", "divorce", "spoon", "radar", "red shoe", "charge chip" });
-
-            shuffledKeyItems.Add("item_brush", false);
-            shuffledKeyItems.Add("item_tyuusyaki", false);
-            shuffledKeyItems.Add("item_spoon", false);
-            shuffledKeyItems.Add("item_mag_cup", false);
-            shuffledKeyItems.Add("item_receipt", false);
-            shuffledKeyItems.Add("item_chip_53", false);
-            shuffledKeyItems.Add("item_chibi_house_denti_2", false);
-            shuffledKeyItems.Add("item_deka_denchi", false);
-            shuffledKeyItems.Add("item_left_foot", false);
-            shuffledKeyItems.Add("item_peets_kutu", );
-            shuffledKeyItems.Add("cb_radar", false);
-            shuffledKeyItems.Add("cb_cannon_lv_2", false);
-            shuffledKeyItems.Add("item_papa_yubiwa", false);
-
-            #endregion 
-
             
+            foreach (string s in keyItems) 
+            {
+                shuffledKeyItems.Add(s, false);
+            }
+            
+            #endregion
 
-            //Pick a random key item to shuffle first
+           
 
-            //Shuffle it somewhere logical
-            ///Reroll chance increased by num key items in that room already
-            ///Reroll chance decreased by num prereqs for the check(?)
+            while (inProgress) 
+            {
+                int nextKeyItem = r.Next(0, 13);
+                //Reset the loop if the item has been shuffled already
+                if (shuffledKeyItems[keyItems[nextKeyItem]] == true)
+                {
+                    continue;
+                }
 
-            //Update shuffledKeyItems
-            //Update lockedPrereqs depending on what got shuffled
+                //Attempt to shuffle the item
 
+                int newLocation = shuffleItem(keyItems[nextKeyItem], occupiedChecks, lockedPrereqs.ToArray(), allLocations, checksPerRoom);
+
+                spoilerLog.Add(keyItems[nextKeyItem], allLocations[newLocation].Description);
+
+                //Track where the item was shuffled to
+                for (int i = 0; i < stageData.rooms.Count; i++) 
+                {
+                    int previousChecks = 0;
+                    int j = 0;
+                    while(j < 0)
+                    {
+                        previousChecks += stageData.rooms[j].locations.Count;
+                        j++;
+                    }
+
+                    if (newLocation >= previousChecks && newLocation < previousChecks + stageData.rooms[i].locations.Count)
+                    {
+                        checksPerRoom[i]++;
+                        break;
+                    }
+                }
+
+                //Remove any prereqs that are lifted from this change
+
+                switch (keyItems[nextKeyItem]) 
+                {
+                    case "item_deka_denchi":
+                    case "item_chibi_house_denti_2":
+                        //If we have both charger & battery and one of toothbrush or blaster
+                        if ((shuffledKeyItems["item_deka_denchi"] && shuffledKeyItems["item_chibi_house_denti_2"]) && (shuffledKeyItems["item_brush"] || shuffledKeyItems["cb_cannon_lv_2"]))
+                        {
+                            lockedPrereqs.Remove("ladder");
+                            lockedPrereqs.Remove("bridge");
+                        }
+                        break;
+                    case "item_tyuusyaki":
+                        lockedPrereqs.Remove("squirter");
+                        break;
+                    case "item_brush":
+                        break;
+                    case "item_spoon":
+                        lockedPrereqs.Remove("spoon");
+                        break;
+                    case "item_mag_cup":
+                        lockedPrereqs.Remove("mug");
+                        break;
+                    case "item_receipt":
+                        lockedPrereqs.Remove("divorce");
+                        break;
+                    case "item_chip_53":
+                        lockedPrereqs.Remove("charge chip");
+                        break;
+                    case "item_peets_kutu":
+                        lockedPrereqs.Remove("red shoe");
+                        break;
+                    case "cb_cannon_lv_2":
+                        lockedPrereqs.Remove("blaster");
+                        break;
+                    case "cb_radar":
+                        lockedPrereqs.Remove("radar");
+                        break;
+                }
+
+                //Update ShuffledKeyItems
+                shuffledKeyItems[keyItems[nextKeyItem]] = true;
+
+
+                //Really hacky way of determining if we've shuffled everything.
+                foreach (string key in shuffledKeyItems.Keys) 
+                {
+                    inProgress = false;
+                    if (shuffledKeyItems[key] == false) 
+                    {
+                        inProgress = true;
+                        break;
+                    }
+                }
+            }
 
             #endregion
 
-            statusDialog.Text += "\nShuffling completed in " + stopwatch.Elapsed + ".";
+            //statusDialog.Text += "\nShuffling completed in " + stopwatch.Elapsed + ".";
             return spoilerLog;
         }
 
@@ -747,6 +827,70 @@ namespace WindowsFormsApp1
                 }
             }
             
+        }
+        //Overload that implements reroll probabilities
+        private int shuffleItem(string objectName, List<bool> occupiedLocations, string[] prerequisites, List<ItemLocation> allChecks, int[] itemsPerRoom )
+        {
+            ///Reroll chance increased by num key items in that room already
+            ///Reroll chance decreased by num prereqs for the check(?)
+            
+            while (true)
+            {
+                int nextCheck = r.Next(0, allChecks.Count() - 1);
+
+                if (occupiedLocations[nextCheck] == true || !validLocation(nextCheck, prerequisites, allChecks))
+                {
+
+                }
+                else
+                {
+                    int rerollChance = 0;
+
+                    //Figure out which room nextCheck is in
+                    for (int i = 0; i < stageData.rooms.Count; i++)
+                    {
+                        int previousChecks = 0;
+                        int j = 0;
+                        while (j < 0)
+                        {
+                            previousChecks += stageData.rooms[j].locations.Count;
+                            j++;
+                        }
+
+                        if (nextCheck >= previousChecks && nextCheck < previousChecks + stageData.rooms[i].locations.Count)
+                        {
+                            //Increase the chance to reroll by 25% for every key item in that given room
+                            rerollChance += 25 * itemsPerRoom[i];
+                            break;
+                        }
+                    }
+
+                    //Get the num of prereqs of that location
+                    int totalPrereqs = 0;
+                    foreach (string p in allChecks[nextCheck].Prereqs) 
+                    {
+                        totalPrereqs++;
+                    }
+                    //Prevents ladder and bridge from being different prereqs (for now)
+                    if (allChecks[nextCheck].Prereqs.Contains("ladder") && allChecks[nextCheck].Prereqs.Contains("bridge"))
+                        totalPrereqs--;
+
+                    //Decrease chance to reroll by 25% for every prereq that locks that check
+                    rerollChance -= 25 * totalPrereqs;
+
+                    statusDialog.Text += "\nReroll chance: " + rerollChance;
+                    //Roll a random number from 0 - 100
+                    int randomNumber = r.Next(0, 100) + 1;
+
+                    if (randomNumber < rerollChance)
+                        continue;
+
+                    occupiedLocations[nextCheck] = true;
+                    insertItem(objectName, nextCheck);
+                    return nextCheck;
+                }
+            }
+
         }
 
         //Determines if a location is a valid position for an object given the prerequisites
