@@ -239,6 +239,12 @@ namespace WindowsFormsApp1
 
             runUnplugCommand("shop export --iso \"" + newIsoPath + "\" -o \"" + Directory.GetCurrentDirectory() + @"\shop.json" + "\"");
 
+            runUnplugCommand("script disassemble --iso \"" + newIsoPath + "\" stage02 -o \"" + Directory.GetCurrentDirectory() + @"\stage02.us");
+            runUnplugCommand("script disassemble --iso \"" + newIsoPath + "\" stage05 -o \"" + Directory.GetCurrentDirectory() + @"\stage05.us");
+            runUnplugCommand("script disassemble --iso \"" + newIsoPath + "\" stage06 -o \"" + Directory.GetCurrentDirectory() + @"\stage06.us");
+            runUnplugCommand("script disassemble --iso \"" + newIsoPath + "\" stage07 -o \"" + Directory.GetCurrentDirectory() + @"\stage07.us");
+            runUnplugCommand("script disassemble --iso \"" + newIsoPath + "\" stage09 -o \"" + Directory.GetCurrentDirectory() + @"\stage09.us");
+
             globals = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("globals.json")) as JObject;
 
             livingRoomObj = Newtonsoft.Json.JsonConvert.DeserializeObject(File.ReadAllText("stage07.json")) as JObject;
@@ -774,6 +780,13 @@ namespace WindowsFormsApp1
             runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage11 \"" + Directory.GetCurrentDirectory() + @"\stage11.json" + "\"");
             runUnplugCommand("globals import --iso \"" + newIsoPath + "\" \"" + Directory.GetCurrentDirectory() + @"\globals.json" + "\"");
             runUnplugCommand("shop import --iso \"" + newIsoPath + "\" \"" + Directory.GetCurrentDirectory() + @"\shop.json" + "\"");
+
+            statusDialog.Text += Directory.GetCurrentDirectory();
+            runUnplugCommand("script assemble --iso \"" + newIsoPath + "\" " + Directory.GetCurrentDirectory() + @"\stage02.us");
+            runUnplugCommand("script assemble --iso \"" + newIsoPath + "\" " + Directory.GetCurrentDirectory() + @"\stage05.us");
+            runUnplugCommand("script assemble --iso \"" + newIsoPath + "\" " + Directory.GetCurrentDirectory() + @"\stage06.us");
+            runUnplugCommand("script assemble --iso \"" + newIsoPath + "\" " + Directory.GetCurrentDirectory() + @"\stage07.us");
+            runUnplugCommand("script assemble --iso \"" + newIsoPath + "\" " + Directory.GetCurrentDirectory() + @"\stage09.us");
 
             List<string> oldFiles = new List<string>();
             foreach (string f in Directory.GetFiles(Directory.GetCurrentDirectory()))
