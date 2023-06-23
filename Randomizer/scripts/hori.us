@@ -1,0 +1,179 @@
+	.stage	"hori"
+
+
+loc_17:
+	.db	"npc/bb_0.dat"
+
+
+loc_1:
+	.db	"npc/mama_1.dat"
+
+
+loc_2:
+	.db	"sfx_ending.ssm"
+
+
+loc_3:
+	.db	"sfx_gicco.ssm"
+
+
+loc_4:
+	.db	"sfx_sanpoo.ssm"
+
+
+	.startup  *evt_startup
+evt_startup:
+	call	20017.d, 101.d, 1.d
+	read	@sfx, 0.w, *loc_2
+	read	@sfx, 0.w, *loc_3
+	read	@sfx, 0.w, *loc_4
+	set	battery(1.d), mul(200.w, 100.w)
+	set	battery(0.d), battery(1.d)
+	call	1.d, 0.d, 20.w, 3.d, 2.d
+	anim	20002.d, 0.w
+	call	20002.d, 1.d, 1.d
+	call	1.d, 1.d, 2.w, 180.w, 1.d
+	call	20003.d, 1.d, 1.d
+	read	@anim, 20002.d, *loc_1
+	wait	@read, 20002.d
+	anim	20002.d, 1045.d
+	attach	24.d, *sub_5
+	pos	20000.d, 2170.w, 0.w, 380.w
+	return
+
+
+sub_5:
+	while	1.d, else *loc_9
+	wait	@time, 1.w
+	if	and(pad(1.d), 256.d), else *loc_8
+	anim	24.d, 1.w
+	wait	@anim, 24.d, -1.d
+	anim	24.d, 0.w
+loc_8:
+	goto	*sub_5
+loc_9:
+	return
+
+
+	.interact  1.d, *evt_house_r_chibi_h_main_1
+evt_house_r_chibi_h_main_1:
+	printf	"EVT_HOUSE_R_CHIBI_H_MAIN\n>>>\n"
+	lib	2.w
+	printf	"<<<\n"
+	return
+
+
+	.interact  21.d, *evt_house_r_chibi_h_warp_21
+evt_house_r_chibi_h_warp_21:
+	lib	2.w
+	return
+
+
+	.interact  6.d, *evt_living_hat_6
+evt_living_hat_6:
+	msg	"ママに",
+		wait(254.b)
+	camera	@pos, -5861.d, 30896.w, 43299.d, 3.d, 0.w
+	camera	@unk227, -6394.d, 12512.w, -2280.d, 3.d, 0.w
+	camera	@unk229, 16.w, 3.d, 0.w
+	camera	@distance, 491.w, 3.d, 0.w
+	pos	6.d, 0.w, 4500.w, 0.w
+	call	20002.d, 100.d, 6.d, 5.w, 0.w, 4.w, 0.w, 0.w, 0.w
+	wait	@time, 100.w
+	camera	@unk230
+	return
+
+
+	.interact  7.d, *evt_npc_mama_7
+evt_npc_mama_7:
+	camera	@pos, -5861.d, 30896.w, 43299.d, 3.d, 0.w
+	camera	@unk227, -6394.d, 12512.w, -2280.d, 3.d, 0.w
+	camera	@unk229, 16.w, 3.d, 0.w
+	camera	@distance, 491.w, 3.d, 0.w
+	msg	"ジェニーに",
+		wait(254.b)
+	call	20002.d, 100.d, 0.w
+	call	20003.d, 100.d, 0.w
+	pos	6.d, 2000.w, 4500.w, 0.w
+	call	20003.d, 100.d, 6.d, 5.w, 0.w, 3.w, 0.w, 0.w, 4.w
+	pos	20012.d, 0.w, 4000.w, 0.w
+	call	20003.d, 100.d, 20012.d, 5.w, 0.w, 3.w, 0.w, 0.w, 4.w
+	msg	"に",
+		wait(254.b)
+	wait	@time, 100.w
+	camera	@unk230
+	return
+
+
+	.interact  5.d, *evt_npc_jenny_5
+evt_npc_jenny_5:
+	msg	"いらない",
+		wait(254.b)
+	pos	6.d, -6000.d, 0.w, -3350.d
+	call	20003.d, 100.d, 0.w
+	return
+
+
+	.interact  4.d, *evt_npc_keath_4
+evt_npc_keath_4:
+	call	1.d, 3.d, 0.d
+	pushbp
+	setsp	result
+	printf	"m_power=%d\n"
+	popbp
+	set	var(0.d), result
+	call	1.d, 3.d, 1.d
+	pushbp
+	setsp	result
+	printf	"m_power=%d\n"
+	popbp
+	set	var(1.d), result
+	call	1.d, 1.d, 0.w, 0.w
+	camera	@pos, 3664.w, 10076.w, 22874.w, 3.d, 0.w
+	camera	@unk227, -1943.d, 113.w, 1163.w, 3.d, 0.w
+	camera	@unk229, 18.w, 3.d, 0.w
+	camera	@distance, 245.w, 3.d, 0.w
+	anim	20008.d, 4.d
+	wait	@anim, 20008.d, -1.d
+	anim	20008.d, 5.d
+	wait	@anim, 20008.d, -1.d
+	anim	20008.d, 6.d
+	wait	@anim, 20008.d, -1.d
+	wait	@time, 100.w
+	anim	20008.d, 13.d
+	wait	@anim, 20008.d, -1.d
+	anim	20008.d, 14.d
+	wait	@anim, 20008.d, -1.d
+	anim	20008.d, 15.d
+	wait	@anim, 20008.d, -1.d
+	call	1.d, 1.d, var(0.d), var(1.d), 1.d
+	camera	@unk230
+	return
+
+
+	.interact  23.d, *evt_npc_bb_23
+evt_npc_bb_23:
+	read	@anim, 20012.d, *loc_17
+	wait	@read, 20012.d
+	read	@anim, 20012.d, 0.d
+	return
+
+
+loc_19:
+	.db	"npc/deca_robo_1.dat"
+
+
+	.interact  26.d, *evt_npc_deca_robo_26
+evt_npc_deca_robo_26:
+	camera	@pos, 9302.w, 6295.w, 19958.w, 3.d, 0.w
+	camera	@unk227, -817.d, 999.w, 2751.w, 3.d, 0.w
+	camera	@unk229, 44.w, 3.d, 0.w
+	camera	@distance, 206.w, 3.d, 0.w
+	read	@anim, 26.w, *loc_19
+	wait	@read, 26.w
+	anim	26.w, 1027.d
+	wait	@anim, 26.w, 40.w
+	sfx	1572874.d, 1.d
+	wait	@anim, 26.w, -1.d
+	anim	26.w, 1007.d
+	return

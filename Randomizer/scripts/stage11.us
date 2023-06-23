@@ -1,0 +1,862 @@
+	.stage	"stage11"
+
+
+	.startup  *evt_startup
+evt_startup:
+	lib	375.w
+	call	-100.d, 0.d, 7500.w, 15000.w, 4000.w
+	camera	@unk232, -2.d
+	if	not(flag(35.d)), else *loc_40
+	lib	74.w
+loc_40:
+	set	flag(160.d), 0.w
+	set	flag(161.d), 0.w
+	set	flag(162.d), 0.w
+	set	flag(163.d), 0.w
+	set	flag(164.d), 0.w
+	if	not(flag(395.d)), else *loc_39
+	run	*sub_3
+loc_39:
+	run	*sub_4
+	run	*sub_5
+	run	*sub_6
+	run	*sub_9
+	run	*sub_23
+	run	*sub_24
+	attach	6.d, *sub_82
+	sfx	-65435.d, 4.d, 0.w, 180.w
+	run	*sub_36
+	return
+
+
+	.dead	*evt_dead
+evt_dead:
+	call	-32.d
+	detach	10001.d
+	detach	10002.d
+	wait	@time, 1.w
+	lib	303.w
+	if	result, else *loc_107
+	attach	1.d, *sub_42
+	return
+loc_107:
+	lib	0.w
+	return
+
+
+sub_4:
+	set	flag(1100.d), 0.w
+	set	flag(1101.d), 0.w
+	set	flag(1102.d), 0.w
+	set	flag(1103.d), 0.w
+	set	flag(1104.d), 0.w
+	set	flag(1105.d), 0.w
+	set	flag(1106.d), 0.w
+	set	flag(1107.d), 0.w
+	set	flag(1108.d), 0.w
+	set	flag(1109.d), 0.w
+	set	flag(1110.d), 0.w
+	set	flag(1111.d), 0.w
+	set	flag(1112.d), 0.w
+	set	flag(1113.d), 0.w
+	set	flag(1114.d), 0.w
+	set	flag(1115.d), 0.w
+	set	flag(1116.d), 0.w
+	set	flag(1117.d), 0.w
+	set	flag(1118.d), 0.w
+	set	flag(1119.d), 0.w
+	return
+
+
+sub_5:
+	return
+
+
+sub_23:
+	born	10000.d, 1.d, 2603.w, 5788.w, -77.d, 0.w, 3000.w, 100.w, 3000.w, *sub_41
+	printf	"配水管出口\n"
+	born	10001.d, 1.d, 0.w, -100000.d, 0.w, 0.w, 1.w, 1.w, 1.w, 0.w
+	printf	"ウォーターハザード\n"
+	born	10002.d, 1.d, 0.w, -100000.d, 0.w, 0.w, 1.w, 1.w, 1.w, 0.w
+	printf	"ウォーターパーティクル生成\n"
+	return
+
+
+sub_41:
+	call	-32.d
+	sfx	-65435.d, 2.d, 100.w
+	detach	10001.d
+	wait	@time, 100.w
+	camera	@unk232, -1.d
+	wait	@time, 1.w
+	warp	1.d, 1.w
+	return
+
+
+sub_24:
+	attach	10001.d, *sub_97
+	attach	10002.d, *sub_86
+	if	eq(time(0.d), 0.d), else *loc_35
+	printf	"昼\n"
+	anim	6.d, 0.w
+	endif	*loc_26
+loc_35:
+	printf	"夜\n"
+	anim	6.d, 1.w
+loc_26:
+	if	or(eq(flag(1126.d), 1.w), eq(item(114.d), 1.w)), else *loc_34
+	disp	10.d, 0.d
+loc_34:
+	if	eq(flag(1670.d), 1.w), else *loc_33
+	disp	19.d, 0.d
+loc_33:
+	if	eq(flag(1612.d), 1.d), else *loc_32
+	disp	62.d, 0.d
+loc_32:
+	if	or(eq(flag(1062.d), 0.d), eq(flag(15.d), 1.w)), else *loc_31
+	disp	15.d, 0.d
+loc_31:
+	return
+
+
+sub_6:
+	run	*sub_7
+	return
+
+
+sub_7:
+	run	*sub_8
+	return
+
+
+sub_8:
+	return
+
+
+sub_9:
+	run	*sub_10
+	run	*sub_17
+	return
+
+
+sub_10:
+	case	eq(map(1.d), 1.d), else *loc_16
+	if	eq(flag(1122.d), 1.w), else *loc_15
+	pos	20000.d, 2318.w, 3204.w, -245.d
+	dir	20000.d, 270.w
+	endif	*loc_13
+loc_15:
+	pos	20000.d, 2323.w, 1620.w, -1498.d
+	dir	20000.d, 0.w
+loc_13:
+	break	*loc_14
+loc_16:
+	pos	20000.d, -8012.d, -1200.d, -29.d
+	dir	20000.d, 268.w
+	break	*loc_14
+loc_14:
+	return
+
+
+sub_17:
+	if	and(eq(time(0.d), 0.d), eq(flag(1577.d), 1.w)), else *loc_20
+	ptcl	63.d, @lead, 18.d, 0.w, 0.w, 0.w, 7.w
+	wait	@time, 1.w
+	anim	20001.d, 37.d
+	anim	18.d, 1.w
+	endif	*loc_19
+loc_20:
+	elif	and(eq(time(0.d), 0.d), eq(var(77.d), 25.d)), else *loc_22
+	ptcl	63.d, @lead, 18.d, 0.w, 0.w, 0.w, 7.w
+	wait	@time, 1.w
+	anim	20001.d, 37.d
+	anim	18.d, 1.w
+	endif	*loc_19
+loc_22:
+	kill	20001.d
+	kill	18.d
+loc_19:
+	call	11.d, 1.d, 1.d, -23143.d, -13070.d
+	call	13.d, 1.d, 1.d, -31201.d, -26244.d
+	call	14.d, 1.d, 1.d, -32082.d, -14512.d
+	attach	1.d, *sub_42
+	return
+
+
+sub_42:
+	set	var(31.d), 0.w
+loc_53:
+	while	1.w, else *loc_45
+	call	11.d, 2.d, 31.d
+	if	var(31.d), else *loc_46
+	set	var(31.d), 0.w
+	timer	0.w, *sub_54
+	break	*loc_45
+loc_46:
+	call	12.d, 2.d, 31.d
+	if	var(31.d), else *loc_48
+	set	var(31.d), 1.w
+	timer	0.w, *sub_54
+	break	*loc_45
+loc_48:
+	call	13.d, 2.d, 31.d
+	if	var(31.d), else *loc_50
+	set	var(31.d), 2.w
+	timer	0.w, *sub_54
+	break	*loc_45
+loc_50:
+	call	14.d, 2.d, 31.d
+	if	var(31.d), else *loc_52
+	set	var(31.d), 3.w
+	timer	0.w, *sub_54
+	break	*loc_45
+loc_52:
+	wait	@time, 1.w
+	goto	*loc_53
+loc_45:
+	return
+
+
+sub_54:
+	call	20000.d, 400.d
+	if	eq(result, 0.w), else *loc_64
+	case	eq(var(31.d), 0.w), else *loc_58
+	ptcl	5.d, @obj, 11.d, 0.w, 1000.w, 0.w, 100.w, 100.w, 100.w, 0.w
+	call	11.d, 3.d
+	break	*loc_57
+loc_58:
+	case	eq(var(31.d), 1.w), else *loc_60
+	ptcl	5.d, @obj, 12.d, 0.w, 1000.w, 0.w, 100.w, 100.w, 100.w, 0.w
+	call	12.d, 3.d
+	break	*loc_57
+loc_60:
+	case	eq(var(31.d), 2.w), else *loc_62
+	ptcl	5.d, @obj, 13.d, 0.w, 1000.w, 0.w, 100.w, 100.w, 100.w, 0.w
+	call	13.d, 3.d
+	break	*loc_57
+loc_62:
+	case	eq(var(31.d), 3.w), else *loc_57
+	ptcl	5.d, @obj, 14.d, 0.w, 1000.w, 0.w, 100.w, 100.w, 100.w, 0.w
+	call	14.d, 3.d
+	break	*loc_57
+loc_57:
+	sfx	720900.d, 1.d
+	attach	1.d, *sub_42
+	call	-32.d
+	printf	"成功だけど失敗\n"
+	return
+loc_64:
+	set	var(32.d), 0.w
+	call	11.d, 4.d, 32.d
+	if	eq(var(32.d), 0.w), else *loc_74
+	case	eq(var(31.d), 0.w), else *loc_68
+	ptcl	5.d, @obj, 11.d, 0.w, 1000.w, 0.w, 100.w, 100.w, 100.w, 0.w
+	call	11.d, 3.d
+	break	*loc_67
+loc_68:
+	case	eq(var(31.d), 1.w), else *loc_70
+	ptcl	5.d, @obj, 12.d, 0.w, 1000.w, 0.w, 100.w, 100.w, 100.w, 0.w
+	call	12.d, 3.d
+	break	*loc_67
+loc_70:
+	case	eq(var(31.d), 2.w), else *loc_72
+	ptcl	5.d, @obj, 13.d, 0.w, 1000.w, 0.w, 100.w, 100.w, 100.w, 0.w
+	call	13.d, 3.d
+	break	*loc_67
+loc_72:
+	case	eq(var(31.d), 3.w), else *loc_67
+	ptcl	5.d, @obj, 14.d, 0.w, 1000.w, 0.w, 100.w, 100.w, 100.w, 0.w
+	call	14.d, 3.d
+	break	*loc_67
+loc_67:
+	sfx	720900.d, 1.d
+	attach	1.d, *sub_42
+	call	-32.d
+	printf	"成功だけど失敗\n"
+	return
+loc_74:
+	sfx	720897.d, 1.d
+	set	battery(0.d), sub(battery(0.d), 1000.w)
+	if	le(battery(0.d), 0.w), else *loc_76
+	set	battery(0.d), 1.w
+	ptcl	5.d, @obj, 20000.d, 0.w, 1000.w, 0.w, 100.w, 100.w, 100.w, 0.w
+	anim	20000.d, 53.d
+	wait	@anim, 20000.d, -1.d
+	anim	20000.d, 54.d
+	wait	@anim, 20000.d, -1.d
+	anim	20000.d, 55.d
+	wait	@anim, 20000.d, -1.d
+	anim	20000.d, 1.d
+	set	battery(0.d), 0.w
+	call	-32.d
+	return
+loc_76:
+	ptcl	5.d, @obj, 20000.d, 0.w, 1000.w, 0.w, 100.w, 100.w, 100.w, 0.w
+	anim	20000.d, 53.d
+	wait	@anim, 20000.d, -1.d
+	anim	20000.d, 54.d
+	wait	@anim, 20000.d, -1.d
+loc_81:
+	while	1.d, else *loc_79
+	if	or(or(and(pad(1.d), 256.d), and(pad(1.d), 512.d)), gt(pad(5.d), 30.w)), else *loc_80
+	ptcl	5.d, @unk210
+	break	*loc_79
+loc_80:
+	wait	@time, 1.w
+	goto	*loc_81
+loc_79:
+	anim	20000.d, 55.d
+	wait	@anim, 20000.d, -1.d
+	anim	20000.d, 1.d
+	attach	1.d, *sub_42
+	call	-32.d
+	return
+
+
+sub_36:
+	if	not(flag(31.d)), else *loc_38
+	lib	13.w
+loc_38:
+	set	flag(31.d), 0.d
+	return
+
+
+sub_150:
+	if	eq(use, 21.d), else *loc_152
+	anim	20000.d, 2223.d
+	wait	@anim, 20000.d, -1.d
+	return
+loc_152:
+	elif	and(ne(use, 16.d), eq(flag(395.d), 0.w)), else *loc_155
+	lib	109.w
+	run	*sub_154
+	return
+loc_155:
+	ptcl	55.d, @pos, var(986.d), var(987.d), var(988.d), 200.w, 500.w, 200.w, 0.w
+	pushbp
+	setsp	bp(0.b)
+	lib	101.w
+	popbp
+	return
+
+
+sub_169:
+	pushbp
+	setsp	4.d
+	run	*sub_150
+	popbp
+	if	ge(var(1091.d), 60.w), else *loc_171
+	set	var(1091.d), add(var(1091.d), 2.w)
+	pushbp
+	setsp	var(1091.d)
+	printf	"ポイントライトの明るさ %d\n"
+	popbp
+loc_171:
+	return
+
+
+sub_147:
+	pushbp
+	setsp	4.d
+	run	*sub_150
+	popbp
+	if	ge(var(1091.d), 60.w), else *loc_149
+	set	var(1091.d), add(var(1091.d), 2.w)
+	pushbp
+	setsp	var(1091.d)
+	printf	"ポイントライトの明るさ %d\n"
+	popbp
+loc_149:
+	return
+
+
+	.interact  20.d, *evt_yogore_h_s_20
+evt_yogore_h_s_20:
+	run	*sub_147
+	return
+
+
+	.interact  21.d, *evt_yogore_h_s_21
+evt_yogore_h_s_21:
+	run	*sub_147
+	return
+
+
+	.interact  22.d, *evt_yogore_h_s_22
+evt_yogore_h_s_22:
+	run	*sub_147
+	return
+
+
+	.interact  23.d, *evt_yogore_h_s_23
+evt_yogore_h_s_23:
+	run	*sub_147
+	return
+
+
+	.interact  24.d, *evt_yogore_h_s_24
+evt_yogore_h_s_24:
+	run	*sub_147
+	return
+
+
+	.interact  25.d, *evt_yogore_h_s_25
+evt_yogore_h_s_25:
+	run	*sub_147
+	return
+
+
+	.interact  26.d, *evt_yogore_h_s_26
+evt_yogore_h_s_26:
+	run	*sub_147
+	return
+
+
+	.interact  27.d, *evt_yogore_h_s_27
+evt_yogore_h_s_27:
+	run	*sub_147
+	return
+
+
+	.interact  28.d, *evt_yogore_h_s_28
+evt_yogore_h_s_28:
+	run	*sub_147
+	return
+
+
+	.interact  29.d, *evt_yogore_h_s_29
+evt_yogore_h_s_29:
+	run	*sub_147
+	return
+
+
+	.interact  30.d, *evt_yogore_h_s_30
+evt_yogore_h_s_30:
+	run	*sub_147
+	return
+
+
+	.interact  31.d, *evt_yogore_h_s_31
+evt_yogore_h_s_31:
+	run	*sub_147
+	return
+
+
+	.interact  32.d, *evt_yogore_h_s_32
+evt_yogore_h_s_32:
+	run	*sub_147
+	return
+
+
+	.interact  33.d, *evt_yogore_h_k_33
+evt_yogore_h_k_33:
+	run	*sub_169
+	return
+
+
+	.interact  34.d, *evt_yogore_h_k_34
+evt_yogore_h_k_34:
+	run	*sub_169
+	return
+
+
+	.interact  35.d, *evt_yogore_h_k_35
+evt_yogore_h_k_35:
+	run	*sub_169
+	return
+
+
+	.interact  36.d, *evt_yogore_h_k_36
+evt_yogore_h_k_36:
+	run	*sub_169
+	return
+
+
+	.interact  37.d, *evt_yogore_h_k_37
+evt_yogore_h_k_37:
+	run	*sub_169
+	return
+
+
+	.interact  38.d, *evt_yogore_h_k_38
+evt_yogore_h_k_38:
+	run	*sub_169
+	return
+
+
+	.interact  39.d, *evt_yogore_h_k_39
+evt_yogore_h_k_39:
+	run	*sub_169
+	return
+
+
+	.interact  40.d, *evt_yogore_h_k_40
+evt_yogore_h_k_40:
+	run	*sub_169
+	return
+
+
+sub_3:
+	call	-26.d, 20.d, 40.d
+	call	-26.d, 21.d, 40.d
+	call	-26.d, 22.d, 40.d
+	call	-26.d, 23.d, 40.d
+	call	-26.d, 24.d, 40.d
+	call	-26.d, 25.d, 40.d
+	call	-26.d, 26.d, 40.d
+	call	-26.d, 27.d, 40.d
+	call	-26.d, 28.d, 40.d
+	call	-26.d, 29.d, 40.d
+	call	-26.d, 30.d, 40.d
+	call	-26.d, 31.d, 40.d
+	call	-26.d, 32.d, 40.d
+	call	-26.d, 33.d, 40.d
+	call	-26.d, 34.d, 40.d
+	call	-26.d, 35.d, 40.d
+	call	-26.d, 36.d, 40.d
+	call	-26.d, 37.d, 40.d
+	call	-26.d, 38.d, 40.d
+	call	-26.d, 39.d, 40.d
+	call	-26.d, 40.d, 40.d
+	return
+
+
+sub_154:
+	call	-27.d, 20.d, 40.d
+	call	-27.d, 21.d, 40.d
+	call	-27.d, 22.d, 40.d
+	call	-27.d, 23.d, 40.d
+	call	-27.d, 24.d, 40.d
+	call	-27.d, 25.d, 40.d
+	call	-27.d, 26.d, 40.d
+	call	-27.d, 27.d, 40.d
+	call	-27.d, 28.d, 40.d
+	call	-27.d, 29.d, 40.d
+	call	-27.d, 30.d, 40.d
+	call	-27.d, 31.d, 40.d
+	call	-27.d, 32.d, 40.d
+	call	-27.d, 33.d, 40.d
+	call	-27.d, 34.d, 40.d
+	call	-27.d, 35.d, 40.d
+	call	-27.d, 36.d, 40.d
+	call	-27.d, 37.d, 40.d
+	call	-27.d, 38.d, 40.d
+	call	-27.d, 39.d, 40.d
+	call	-27.d, 40.d, 40.d
+	return
+
+
+	.interact  19.d, *evt_haisui_room_1_c_19
+evt_haisui_room_1_c_19:
+	if	or(eq(hit, 2000.d), eq(hit, 2001.d)), else *loc_145
+	printf	"ポッパーで壊れました(隠し穴)\n"
+	set	flag(1670.d), 1.w
+	ptcl	101.d, @pos, -20835.d, -8460.d, -368.d, 170.w, 200.w, 170.w, 0.w
+	pushbp
+	setsp	1.w
+	lib	259.w
+	popbp
+	ptcl	101.d, @pos, -20835.d, -8460.d, -368.d, 100.w, 200.w, 100.w, 0.w
+	anim	19.d, 1.w
+	sfx	295.d, 1.d
+	wait	@anim, 19.d, -1.d
+	disp	19.d, 0.d
+	ptcl	101.d, @unk210
+loc_145:
+	return
+
+
+sub_82:
+	set	var(1091.d), 0.w
+	light	1.w, @color, 0.w, 0.w, 0.w
+	light	1.w, @pos, 0.w, 0.w, 0.w
+	light	2.w, @color, 255.w, 255.w, 255.w
+loc_84:
+	while	1.w, else *loc_85
+	set	var(882.d), obj(@pos_x, 20000.d)
+	set	var(883.d), obj(@pos_y, 20000.d)
+	light	1.w, @color, var(1091.d), var(1091.d), var(1091.d)
+	light	1.w, @pos, var(882.d), add(var(883.d), 1000.w), 20000.w
+	light	2.w, @pos, var(882.d), add(var(883.d), 1000.w), 20000.w
+	light	2.w, @unk227, var(882.d), var(883.d), -20000.d
+	wait	@time, 1.w
+	goto	*loc_84
+loc_85:
+	return
+
+
+	.interact  15.d, *evt_item_papa_yubiwa_15
+evt_item_papa_yubiwa_15:
+	set	flag(15.d), 1.w
+	lib	12.w
+	pushbp
+	setsp	124.d
+	lib	77.w
+	popbp
+	lib	38.w
+	sfx	138.d, 1.d
+	wait	@sfx, 138.d
+	lib	254.w
+	lib	22.w
+	lib	96.w
+	lib	39.w
+	return
+
+
+	.interact  62.d, *evt_item_frog_ring_62
+evt_item_frog_ring_62:
+	pushbp
+	setsp	0.d
+	lib	77.w
+	popbp
+	set	var(71.d), add(var(71.d), 1.w)
+	set	var(147.d), add(var(147.d), 1.w)
+	return
+
+
+sub_101:
+	set	pad(7.d), *loc_104
+	return
+
+
+loc_104:
+	.dw	288.w, 352.w, 0.w
+
+
+sub_86:
+	while	1.w, else *loc_96
+	set	var(843.d), obj(@pos_x, 20000.d)
+	set	var(844.d), obj(@pos_y, 20000.d)
+	set	var(845.d), obj(@pos_z, 20000.d)
+	set	var(847.d), obj(@anim, 20000.d)
+	if	or(or(or(eq(var(847.d), 4.d), eq(var(847.d), 2200.d)), eq(var(847.d), 2073.d)), eq(var(847.d), 13.d)), else *loc_95
+	if	and(and(and(ge(var(843.d), -3536.d), le(var(843.d), 724.w)), ge(var(844.d), -1300.d)), le(var(844.d), 10.w)), else *loc_92
+	anim	61.d, 1.w
+	set	var(843.d), obj(@pos_x, 20000.d)
+	set	var(844.d), obj(@pos_y, 20000.d)
+	set	var(845.d), obj(@pos_z, 20000.d)
+	pos	61.d, var(843.d), -1040.d, var(845.d)
+	set	var(846.d), obj(@dir, 20000.d)
+	dir	61.d, var(846.d)
+	endif	*loc_90
+loc_92:
+	elif	le(var(844.d), -12700.d), else *loc_94
+	anim	61.d, 1.w
+	set	var(843.d), obj(@pos_x, 20000.d)
+	set	var(844.d), obj(@pos_y, 20000.d)
+	set	var(845.d), obj(@pos_z, 20000.d)
+	pos	61.d, var(843.d), -13000.d, var(845.d)
+	set	var(846.d), obj(@dir, 20000.d)
+	dir	61.d, var(846.d)
+	endif	*loc_90
+loc_94:
+	anim	61.d, 0.w
+loc_90:
+	endif	*loc_91
+loc_95:
+	anim	61.d, 0.w
+loc_91:
+	wait	@time, 1.w
+	goto	*sub_86
+loc_96:
+	return
+
+
+sub_97:
+	while	1.w, else *loc_103
+	set	var(848.d), obj(@pos_x, 20000.d)
+	set	var(849.d), obj(@pos_y, 20000.d)
+	set	var(850.d), obj(@pos_z, 20000.d)
+	set	var(851.d), obj(@dir, 20000.d)
+	set	var(852.d), obj(@anim, 20000.d)
+	if	or(and(and(and(ge(var(848.d), -3536.d), le(var(848.d), 724.w)), ge(var(849.d), -1300.d)), le(var(849.d), 10.w)), le(var(849.d), -12700.d)), else *loc_102
+	if	or(or(or(eq(var(852.d), 4.d), eq(var(852.d), 2200.d)), eq(var(852.d), 2073.d)), eq(var(852.d), 13.d)), else *loc_102
+	run	*sub_101
+	wait	@time, 10.w
+loc_102:
+	wait	@time, 1.w
+	goto	*sub_97
+loc_103:
+	return
+
+
+loc_132:
+	.dw	20000.w, 11.w
+
+
+loc_133:
+	.dw	20000.w, 12.w
+
+
+loc_134:
+	.dw	20000.w, 13.w
+
+
+loc_135:
+	.dw	20000.w, 14.w
+
+
+	.pose	*evt_pose
+evt_pose:
+	call	-32.d
+	pushbp
+	setsp	41.d
+	setsp	47.d
+	setsp	46.d
+	setsp	45.d
+	setsp	44.d
+	setsp	43.d
+	setsp	42.d
+	lib	104.w
+	popbp
+	if	eq(result, 0.d), else *loc_110
+	return
+loc_110:
+	set	var(29.d), 0.w
+	set	var(1.d), 4000.d
+	if	and(eq(obj(@unk235, 11.d), 1.d), eq(flag(1100.d), 0.w)), else *loc_131
+	set	var(2.d), obj(@distance, *loc_132)
+	set	var(3.d), obj(@dir_to, *loc_132)
+	pushbp
+	setsp	11.d
+	lib	91.w
+	popbp
+loc_131:
+	if	and(eq(obj(@unk235, 12.d), 1.d), eq(flag(1101.d), 0.w)), else *loc_130
+	set	var(2.d), obj(@distance, *loc_133)
+	set	var(3.d), obj(@dir_to, *loc_133)
+	pushbp
+	setsp	12.d
+	lib	91.w
+	popbp
+loc_130:
+	if	and(eq(obj(@unk235, 13.d), 1.d), eq(flag(1102.d), 0.w)), else *loc_129
+	set	var(2.d), obj(@distance, *loc_134)
+	set	var(3.d), obj(@dir_to, *loc_134)
+	pushbp
+	setsp	13.d
+	lib	91.w
+	popbp
+loc_129:
+	if	and(eq(obj(@unk235, 14.d), 1.d), eq(flag(1103.d), 0.w)), else *loc_128
+	set	var(2.d), obj(@distance, *loc_135)
+	set	var(3.d), obj(@dir_to, *loc_135)
+	pushbp
+	setsp	14.d
+	lib	91.w
+	popbp
+loc_128:
+	if	eq(cur_suit, 7.d), else *loc_127
+	set	var(29.d), 0.w
+loc_127:
+	set	flag(45.d), 1.d
+	case	eq(var(29.d), 11.d), else *loc_120
+	set	flag(1100.d), 1.w
+	pushbp
+	setsp	11.d
+	run	*sub_118
+	popbp
+	pushbp
+	setsp	0.d
+	lib	86.w
+	popbp
+	pushbp
+	setsp	11.d
+	run	*sub_119
+	popbp
+	break	*loc_117
+loc_120:
+	case	eq(var(29.d), 12.d), else *loc_122
+	set	flag(1101.d), 1.w
+	pushbp
+	setsp	12.d
+	run	*sub_118
+	popbp
+	pushbp
+	setsp	0.d
+	lib	86.w
+	popbp
+	pushbp
+	setsp	12.d
+	run	*sub_119
+	popbp
+	break	*loc_117
+loc_122:
+	case	eq(var(29.d), 13.d), else *loc_124
+	set	flag(1102.d), 1.w
+	pushbp
+	setsp	13.d
+	run	*sub_118
+	popbp
+	pushbp
+	setsp	0.d
+	lib	86.w
+	popbp
+	pushbp
+	setsp	13.d
+	run	*sub_119
+	popbp
+	break	*loc_117
+loc_124:
+	case	eq(var(29.d), 14.d), else *loc_126
+	set	flag(1103.d), 1.w
+	pushbp
+	setsp	14.d
+	run	*sub_118
+	popbp
+	pushbp
+	setsp	0.d
+	lib	86.w
+	popbp
+	pushbp
+	setsp	14.d
+	run	*sub_119
+	popbp
+	break	*loc_117
+loc_126:
+	pushbp
+	setsp	0.d
+	lib	86.w
+	popbp
+	return
+loc_117:
+	return
+
+
+sub_118:
+	mdir	sp(0.b), @obj, 20000.d, 30.w, 1.d
+	call	-27.d, sp(0.b), 57.d
+	call	sp(0.b), 1.w, 0.d, 0.w, 0.w
+	return
+
+
+sub_119:
+	anim	sp(0.b), 6.d
+	wait	@anim, sp(0.b), -1.d
+	ptcl	5.d, @obj, sp(0.b), 0.w, 1300.w, 0.w, 200.w, 200.w, 200.w, 0.w
+	return
+
+
+	.time_cycle  *evt_time_cycle
+evt_time_cycle:
+	call	-32.d
+	detach	10001.d
+	detach	10002.d
+	wait	@time, 1.w
+	call	11.d, 1.d, 0.d, -23143.d, -13070.d
+	call	12.d, 1.d, 0.d, -23143.d, -13070.d
+	call	13.d, 1.d, 0.d, -31201.d, -26244.d
+	call	14.d, 1.d, 0.d, -32082.d, -14512.d
+	lib	73.w
+	if	eq(time(0.d), 1.d), else *loc_139
+	printf	"夜です\n"
+	endif	*loc_138
+loc_139:
+	elif	eq(time(0.d), 0.d), else *loc_141
+	printf	"昼です\n"
+	endif	*loc_138
+loc_141:
+	printf	"昼夜ステータスがないよ\n"
+loc_138:
+	lib	121.w
+	return

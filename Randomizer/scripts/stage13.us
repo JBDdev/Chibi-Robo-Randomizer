@@ -1,0 +1,921 @@
+	.stage	"stage13"
+
+
+	.startup  *evt_startup
+evt_startup:
+	call	20000.d, 801.d
+	scrn	@hud, 0.d, 2.d
+	lib	156.w
+	scrn	@hud, 1.d, 2.d
+	if	not(flag(35.d)), else *loc_161
+	lib	74.w
+loc_161:
+	set	flag(160.d), 0.w
+	set	flag(161.d), 0.w
+	set	flag(162.d), 0.w
+	set	flag(163.d), 0.w
+	set	flag(164.d), 0.w
+	set	var(168.d), 0.w
+	run	*sub_2
+	run	*sub_3
+	run	*sub_6
+	run	*sub_9
+	run	*sub_10
+	run	*sub_11
+	run	*sub_158
+	return
+
+
+sub_2:
+	return
+
+
+sub_3:
+	anim	1.d, 0.w
+	run	*sub_4
+	return
+
+
+sub_4:
+	run	*sub_5
+	return
+
+
+sub_5:
+	return
+
+
+sub_6:
+	run	*sub_7
+	run	*sub_8
+	return
+
+
+sub_7:
+	call	20000.d, 701.d
+	pos	20000.d, 0.w, 0.w, 1102.w
+	dir	20000.d, 180.w
+	return
+
+
+sub_8:
+	return
+
+
+sub_9:
+	camera	@pos, 2.w, 6327.w, 5705.w, 3.d, 0.w
+	camera	@unk227, 6.w, 1183.w, 864.w, 3.d, 0.w
+	camera	@unk229, 18.w, 3.d, 0.w
+	camera	@distance, 70.w, 3.d, 0.w
+	camera	@pos, -53.d, 5320.w, 11893.w, 1.d, 1000.w
+	camera	@unk227, 12.w, 1519.w, 824.w, 1.d, 1000.w
+	camera	@unk229, 18.w, 1.d, 1000.w
+	camera	@distance, 117.w, 1.d, 1000.w
+	return
+
+
+sub_10:
+	return
+
+
+sub_158:
+	if	not(flag(31.d)), else *loc_160
+	lib	13.w
+loc_160:
+	set	flag(31.d), 0.d
+	return
+
+
+sub_11:
+	run	*sub_12
+	lib	14.w
+	call	20000.d, 700.d
+	scrn	@hud, 0.d, 3.d
+	scrn	@hud, 1.d, 3.d
+	call	20000.d, 800.d
+	lib	155.w
+	warp	map(1.d), 1.w
+	return
+
+
+sub_12:
+	wait	@time, 200.w
+	win	@unk209
+	win	@pos, 320.w, 115.w
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Thank you for purchasing Chibi-Robo,\n",
+		"a member of the Citrusoft Robotics family.\n",
+		"We appreciate your support.",
+		wait(254.b)
+loc_20:
+	while	1.d, else *loc_15
+	run	*sub_21
+	if	eq(result, -1.d), else *loc_19
+	break	*loc_15
+loc_19:
+	goto	*loc_20
+loc_15:
+	run	*sub_16
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"We hope that you enjoy the Chibi-Robo\n",
+		"experience (tm) for many years to come.\n",
+		"Welcome to the family!",
+		wait(254.b)
+	lib	53.w
+	lib	88.w
+	return
+
+
+sub_84:
+	select	def(1.b, 168.d),
+		speed(0.b),
+		center(0.b),
+		"Chapter 1: Chibi-Robo and You\n",
+		"Chapter 2: Chibi-Robo Rankings\n",
+		"Chapter 3: Bonus Batteries\n",
+		"Chapter 4: Chibi-Gear\n",
+		"Chapter 5: Chibi-Tools\n",
+		"Chapter 6: Changing Suits\n",
+		"Chapter 7: Utilibots\n",
+		"Chapter 8: More Utilibots\n",
+		"Exit",
+		wait(254.b)
+	return
+
+
+sub_21:
+	win	@pos, 320.w, 120.w
+	if	ge(var(728.d), 5.w), else *loc_85
+	run	*sub_84
+	set	var(168.d), result
+	case	eq(result, 0.w), else *loc_28
+	run	*sub_24
+	set	result, 1.w
+	return
+loc_28:
+	case	eq(result, 1.w), else *loc_33
+	run	*sub_30
+	set	result, 1.w
+	return
+loc_33:
+	case	eq(result, 2.w), else *loc_38
+	run	*sub_35
+	set	result, 1.w
+	return
+loc_38:
+	case	eq(result, 3.w), else *loc_43
+	run	*sub_40
+	set	result, 1.w
+	return
+loc_43:
+	case	eq(result, 4.w), else *loc_48
+	run	*sub_45
+	set	result, 1.w
+	return
+loc_48:
+	case	eq(result, 5.w), else *loc_53
+	run	*sub_50
+	set	result, 1.w
+	return
+loc_53:
+	case	eq(result, 6.w), else *loc_58
+	run	*sub_55
+	set	result, 1.w
+	return
+loc_58:
+	case	eq(result, 7.w), else *loc_81
+	set	var(168.d), 0.w
+	break	*loc_60
+loc_81:
+	case	eq(result, 8.w), else *loc_83
+	set	result, -1.d
+	return
+loc_83:
+	set	result, -1.d
+	return
+loc_60:
+	sfx	655360.d, 1.d
+	anim	1.d, 7.w
+loc_62:
+	select	def(1.b, 168.d),
+		speed(0.b),
+		center(0.b),
+		"Ladder Utilibots\n",
+		"Warp Utilibots\n",
+		"Bridge Utilibots\n",
+		"Back",
+		wait(254.b)
+	set	var(168.d), result
+	case	eq(result, 0.w), else *loc_66
+	run	*sub_63
+	goto	*loc_62
+loc_66:
+	case	eq(result, 1.w), else *loc_71
+	run	*sub_68
+	goto	*loc_62
+loc_71:
+	case	eq(result, 2.w), else *loc_76
+	run	*sub_73
+	goto	*loc_62
+loc_76:
+	case	eq(result, 3.w), else *loc_80
+	set	var(168.d), 7.w
+	sfx	655360.d, 1.d
+	anim	1.d, 14.w, 0.w
+	break	*loc_78
+loc_80:
+	set	var(168.d), 7.w
+	sfx	655360.d, 1.d
+	anim	1.d, 14.w, 0.w
+	set	result, 0.w
+	return
+loc_78:
+	endif	*loc_79
+loc_85:
+	elif	ge(var(728.d), 4.w), else *loc_114
+	run	*sub_84
+	set	var(168.d), result
+	case	eq(result, 0.w), else *loc_88
+	run	*sub_24
+	set	result, 1.w
+	return
+loc_88:
+	case	eq(result, 1.w), else *loc_90
+	run	*sub_30
+	set	result, 1.w
+	return
+loc_90:
+	case	eq(result, 2.w), else *loc_92
+	run	*sub_35
+	set	result, 1.w
+	return
+loc_92:
+	case	eq(result, 3.w), else *loc_94
+	run	*sub_40
+	set	result, 1.w
+	return
+loc_94:
+	case	eq(result, 4.w), else *loc_96
+	run	*sub_45
+	set	result, 1.w
+	return
+loc_96:
+	case	eq(result, 5.w), else *loc_98
+	run	*sub_50
+	set	result, 1.w
+	return
+loc_98:
+	case	eq(result, 6.w), else *loc_100
+	run	*sub_55
+	set	result, 1.w
+	return
+loc_100:
+	case	eq(result, 7.w), else *loc_111
+	set	var(168.d), 0.w
+	break	*loc_102
+loc_111:
+	case	eq(result, 8.w), else *loc_113
+	set	result, -1.d
+	return
+loc_113:
+	set	result, -1.d
+	return
+loc_102:
+	sfx	655360.d, 1.d
+	anim	1.d, 7.w
+loc_104:
+	select	def(1.b, 168.d),
+		speed(0.b),
+		center(0.b),
+		"Ladder Utilibots\n",
+		"Warp Utilibots\n",
+		"Back",
+		wait(254.b)
+	set	var(168.d), result
+	case	eq(result, 0.w), else *loc_105
+	run	*sub_63
+	goto	*loc_104
+loc_105:
+	case	eq(result, 1.w), else *loc_107
+	run	*sub_68
+	goto	*loc_104
+loc_107:
+	case	eq(result, 2.w), else *loc_110
+	set	var(168.d), 7.w
+	sfx	655360.d, 1.d
+	anim	1.d, 14.w, 0.w
+	break	*loc_109
+loc_110:
+	set	var(168.d), 7.w
+	sfx	655360.d, 1.d
+	anim	1.d, 14.w, 0.w
+	set	result, 0.w
+	return
+loc_109:
+	endif	*loc_79
+loc_114:
+	elif	ge(var(728.d), 1.w), else *loc_141
+	run	*sub_84
+	set	var(168.d), result
+	case	eq(result, 0.w), else *loc_117
+	run	*sub_24
+	set	result, 1.w
+	return
+loc_117:
+	case	eq(result, 1.w), else *loc_119
+	run	*sub_30
+	set	result, 1.w
+	return
+loc_119:
+	case	eq(result, 2.w), else *loc_121
+	run	*sub_35
+	set	result, 1.w
+	return
+loc_121:
+	case	eq(result, 3.w), else *loc_123
+	run	*sub_40
+	set	result, 1.w
+	return
+loc_123:
+	case	eq(result, 4.w), else *loc_125
+	run	*sub_45
+	set	result, 1.w
+	return
+loc_125:
+	case	eq(result, 5.w), else *loc_127
+	run	*sub_50
+	set	result, 1.w
+	return
+loc_127:
+	case	eq(result, 6.w), else *loc_129
+	run	*sub_55
+	set	result, 1.w
+	return
+loc_129:
+	case	eq(result, 7.w), else *loc_138
+	set	var(168.d), 0.w
+	break	*loc_131
+loc_138:
+	case	eq(result, 8.w), else *loc_140
+	set	result, -1.d
+	return
+loc_140:
+	set	result, -1.d
+	return
+loc_131:
+	sfx	655360.d, 1.d
+	anim	1.d, 7.w
+loc_133:
+	select	def(1.b, 168.d),
+		speed(0.b),
+		center(0.b),
+		"Ladder Utilibots\n",
+		"Back",
+		wait(254.b)
+	set	var(168.d), result
+	case	eq(result, 0.w), else *loc_134
+	run	*sub_63
+	goto	*loc_133
+loc_134:
+	case	eq(result, 1.w), else *loc_137
+	set	var(168.d), 7.w
+	sfx	655360.d, 1.d
+	anim	1.d, 14.w, 0.w
+	break	*loc_136
+loc_137:
+	set	var(168.d), 7.w
+	sfx	655360.d, 1.d
+	anim	1.d, 14.w, 0.w
+	set	result, 0.w
+	return
+loc_136:
+	endif	*loc_79
+loc_141:
+	select	def(1.b, 168.d),
+		speed(0.b),
+		center(0.b),
+		"Chapter 1: Chibi-Robo and You\n",
+		"Chapter 2: Chibi-Robo Rankings\n",
+		"Chapter 3: Bonus Batteries\n",
+		"Chapter 4: Chibi-Gear\n",
+		"Chapter 5: Chibi-Tools\n",
+		"Chapter 6: Changing Suits\n",
+		"Chapter 7: Utilibots\n",
+		"Exit",
+		wait(254.b)
+	set	var(168.d), result
+	case	eq(result, 0.w), else *loc_143
+	run	*sub_24
+	set	result, 1.w
+	return
+loc_143:
+	case	eq(result, 1.w), else *loc_145
+	run	*sub_30
+	set	result, 1.w
+	return
+loc_145:
+	case	eq(result, 2.w), else *loc_147
+	run	*sub_35
+	set	result, 1.w
+	return
+loc_147:
+	case	eq(result, 3.w), else *loc_149
+	run	*sub_40
+	set	result, 1.w
+	return
+loc_149:
+	case	eq(result, 4.w), else *loc_151
+	run	*sub_45
+	set	result, 1.w
+	return
+loc_151:
+	case	eq(result, 5.w), else *loc_153
+	run	*sub_50
+	set	result, 1.w
+	return
+loc_153:
+	case	eq(result, 6.w), else *loc_155
+	run	*sub_55
+	set	result, 1.w
+	return
+loc_155:
+	case	eq(result, 7.w), else *loc_157
+	set	result, -1.d
+	return
+loc_157:
+	set	result, -1.d
+	return
+loc_79:
+	return
+
+
+sub_26:
+	msg	voice(0.b),
+		"Studying hard, Chibi-Robo?\n",
+		"Glad to see it!",
+		wait(255.b)
+	return
+
+
+sub_24:
+	sfx	655360.d, 1.d
+	anim	1.d, 1.w
+	msg	speed(0.b),
+		center(0.b),
+		"Chapter 1: Chibi-Robo and You",
+		wait(254.b)
+	win	@pos, 320.w, 120.w
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Chibi-Robo is your own, personal $buddy bot.$",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"You'll never have to worry about little Chibi.\n",
+		"He's perfectly content to wander about, working\n",
+		"to make your life the picture of perfection!",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"If you ever want to know what Chibi-Robo is\n",
+		"carrying or you want to know how to control\n",
+		"him, just press START to open the Pause menu.\n",
+		"From here, you can learn everything you want\n",
+		"to know about operating your Chibi-Robo.",
+		wait(254.b)
+	if	eq(flag(436.d), 0.d), else *loc_27
+	set	flag(436.d), 1.d
+	pushbp
+	setsp	2.w
+	lib	164.w
+	popbp
+	run	*sub_26
+loc_27:
+	sfx	655360.d, 1.d
+	anim	1.d, 8.w, 0.w
+	return
+
+
+sub_30:
+	sfx	655360.d, 1.d
+	anim	1.d, 2.w
+	msg	speed(0.b),
+		"Chapter 2: Chibi-Robo Rankings",
+		wait(254.b)
+	win	@pos, 320.w, 120.w
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Competition inspires all to greatness.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"As a result, Citrusoft has instituted a ranking\n",
+		"system. Any Chibi-Robo that reaches the top\n",
+		"ranking is upgraded, free of charge, to Super\n",
+		"Chibi-Robo status. Encourage your Chibi!",
+		wait(254.b)
+	if	eq(flag(437.d), 0.d), else *loc_32
+	set	flag(437.d), 1.d
+	pushbp
+	setsp	2.w
+	lib	164.w
+	popbp
+	run	*sub_26
+loc_32:
+	sfx	655360.d, 1.d
+	anim	1.d, 9.w, 0.w
+	return
+
+
+sub_35:
+	sfx	655360.d, 1.d
+	anim	1.d, 3.w
+	msg	speed(0.b),
+		center(0.b),
+		"Chapter 3: Bonus Batteries",
+		wait(254.b)
+	win	@pos, 320.w, 120.w
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"As Chibi-Robo earns Happy Points to increase\n",
+		"his rank, Citrusoft will deliver a bonus battery\n",
+		"to boost Chibi-Robo's battery capacity.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Just another sign of Citrusoft's commitment\n",
+		"to consumer satisfaction! No need to thank us!",
+		wait(254.b)
+	if	eq(flag(438.d), 0.d), else *loc_37
+	set	flag(438.d), 1.d
+	pushbp
+	setsp	2.w
+	lib	164.w
+	popbp
+	run	*sub_26
+loc_37:
+	sfx	655360.d, 1.d
+	anim	1.d, 10.w, 0.w
+	return
+
+
+sub_40:
+	sfx	655360.d, 1.d
+	anim	1.d, 4.w
+	msg	speed(0.b),
+		center(0.b),
+		"Chapter 4: Chibi-Gear",
+		wait(254.b)
+	win	@pos, 320.w, 120.w
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Left to his own devices, Chibi-Robo will seek\n",
+		"out Moolah and purchase Chibi-Gear using his\n",
+		"personalized Chibi-PC (stored inside of the\n",
+		"patented Chibi-House).",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"There are three kinds of Chibi-Gear.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Chibi-Copter\n",
+		"Using the Chibi-Copter, Chibi-Robo can glide\n",
+		"safely to the ground from high areas or fly\n",
+		"horizontally for short distances (using ",
+		icon(5.b),
+		").",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Chibi-Radar\n",
+		"This handy radar detects useful things nearby.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Chibi-Blaster\n",
+		"This arm cannon fires a blast of sonic energy.",
+		wait(254.b)
+	if	eq(flag(439.d), 0.d), else *loc_42
+	set	flag(439.d), 1.d
+	pushbp
+	setsp	5.w
+	lib	164.w
+	popbp
+	run	*sub_26
+loc_42:
+	sfx	655360.d, 1.d
+	anim	1.d, 11.w, 0.w
+	return
+
+
+sub_45:
+	sfx	655360.d, 1.d
+	anim	1.d, 5.w
+	msg	speed(0.b),
+		center(0.b),
+		"Chapter 5: Chibi-Tools",
+		wait(254.b)
+	win	@pos, 320.w, 120.w
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Chibi-Robo is an inventive and resourceful little\n",
+		"fellow. He can carry around certain objects he\n",
+		"finds around your house and use them as tools.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"By using these tools, Chibi-Robo will find all\n",
+		"sorts of ways to serve you, so please, try not\n",
+		"to be too hard on him if he takes something\n",
+		"without asking.",
+		wait(254.b)
+	if	eq(flag(440.d), 0.d), else *loc_47
+	set	flag(440.d), 1.d
+	pushbp
+	setsp	2.w
+	lib	164.w
+	popbp
+	run	*sub_26
+loc_47:
+	sfx	655360.d, 1.d
+	anim	1.d, 12.w, 0.w
+	return
+
+
+sub_50:
+	sfx	655360.d, 1.d
+	anim	1.d, 6.w
+	msg	speed(0.b),
+		center(0.b),
+		"Chapter 6: Changing Suits",
+		wait(254.b)
+	win	@pos, 320.w, 120.w
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Chibi-Robo can fashion unique\n",
+		"and stylish outfits, suitable for\n",
+		"every occasion.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Press ",
+		icon(10.b),
+		" while Chibi-Robo is wearing a special\n",
+		"suit to make Chibi strike an exciting pose. But\n",
+		"you have to pretend you're not looking. Chibi is\n",
+		"slightly bashful, and we feel that this is the\n",
+		"best solution.",
+		wait(254.b)
+	if	eq(flag(441.d), 0.d), else *loc_52
+	set	flag(441.d), 1.d
+	pushbp
+	setsp	2.w
+	lib	164.w
+	popbp
+	run	*sub_26
+loc_52:
+	sfx	655360.d, 1.d
+	anim	1.d, 13.w, 0.w
+	return
+
+
+sub_55:
+	sfx	655360.d, 1.d
+	anim	1.d, 7.w
+	msg	speed(0.b),
+		center(0.b),
+		"Chapter 7: Utilibots",
+		wait(254.b)
+	win	@pos, 320.w, 120.w
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Chibi-Robo is very eco-conscious, and so one\n",
+		"of his primary functions is to collect Scrap from\n",
+		"around your house and recycle it into Utilibots.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"While you will not see the Scrap being recycled\n",
+		"into Utilibots, please be assured that they are\n",
+		"constructed in an environmentally friendly\n",
+		"manner, entirely out of recycled products inside\n",
+		"of the Recyclotron in the Chibi-House.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"There are three kinds of Utilibot.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Ladder\n",
+		"These help Chibi-Robo reach high places.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Warp\n",
+		"These carry Chibi-Robo to far-off places.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Bridge\n",
+		"These help Chibi-Robo cross large gaps.",
+		wait(254.b)
+	if	eq(flag(442.d), 0.d), else *loc_57
+	set	flag(442.d), 1.d
+	pushbp
+	setsp	6.w
+	lib	164.w
+	popbp
+	run	*sub_26
+loc_57:
+	sfx	655360.d, 1.d
+	anim	1.d, 14.w, 0.w
+	return
+
+
+sub_63:
+	msg	speed(0.b),
+		center(0.b),
+		"Ladder Utilibots",
+		wait(254.b)
+	win	@pos, 320.w, 120.w
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Chibi-Robo can use Ladder Utilibots to reach\n",
+		"high places.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Chibi-Robo can push or pull the Ladder Utilibot\n",
+		"to anywhere he needs it.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"To activate the Ladder Utilibot, Chibi-Robo\n",
+		"simply inserts his plug into a socket to extend a\n",
+		"ladder. Press ",
+		icon(6.b),
+		" to stop.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"If Chibi-Robo overextends the ladder,\n",
+		"Chibi-Robo can simply reinsert the plug and\n",
+		"tilt ",
+		icon(0.b),
+		" down to lower the ladder into position.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Once every ten days, Telly returns the Ladder\n",
+		"Utilibot to its starting position. This way,\n",
+		"Chibi-Robo never loses track of his Utilibots.",
+		wait(254.b)
+	if	eq(flag(543.d), 0.d), else *loc_65
+	set	flag(543.d), 1.d
+	pushbp
+	setsp	6.w
+	lib	164.w
+	popbp
+	run	*sub_26
+loc_65:
+	return
+
+
+sub_73:
+	msg	speed(0.b),
+		center(0.b),
+		"Bridge Utilibots",
+		wait(254.b)
+	win	@pos, 320.w, 120.w
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Bridge Utilibots help Chibi-Robo to\n",
+		"cross large gaps.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Chibi-Robo can push or pull the Bridge Utilibot\n",
+		"to anywhere he needs it.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"To activate the Bridge Utilibot, Chibi-Robo\n",
+		"simply inserts his plug into a socket to extend\n",
+		"a bridge. Press ",
+		icon(6.b),
+		" to stop.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"If Chibi-Robo overextends the bridge, Chibi-\n",
+		"Robo can simply reinsert the plug and tilt ",
+		icon(0.b),
+		"\n",
+		"to shorten the bridge until it's in position.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Once every ten days, Telly returns the Bridge\n",
+		"Utilibot to its starting position. This way,\n",
+		"Chibi-Robo never loses track of his Utilibots.",
+		wait(254.b)
+	if	eq(flag(544.d), 0.d), else *loc_75
+	set	flag(544.d), 1.d
+	pushbp
+	setsp	6.w
+	lib	164.w
+	popbp
+	run	*sub_26
+loc_75:
+	return
+
+
+sub_68:
+	msg	speed(0.b),
+		center(0.b),
+		"Warp Utilibots",
+		wait(254.b)
+	win	@pos, 320.w, 120.w
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"Warp Utilibots carry Chibi-Robo to far-off\n",
+		"places in the blink of an eye.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"To activate the Warp Utilibot, Chibi-Robo simply\n",
+		"inserts his plug into a socket. The Warp Utilibot\n",
+		"will transport him to another Warp instantly.",
+		wait(254.b)
+	msg	speed(0.b),
+		size(20.b),
+		center(0.b),
+		"During the warp, Chibi-Robo may spin severely\n",
+		"and uncontrollably. If his battery is running low,\n",
+		"this may cause operational difficulties for Chibi.",
+		wait(254.b)
+	if	eq(flag(545.d), 0.d), else *loc_70
+	set	flag(545.d), 1.d
+	pushbp
+	setsp	6.w
+	lib	164.w
+	popbp
+	run	*sub_26
+loc_70:
+	return
+
+
+sub_16:
+	if	and(and(and(and(and(and(and(and(and(and(eq(flag(436.d), 1.d), eq(flag(437.d), 1.d)), eq(flag(438.d), 1.d)), eq(flag(439.d), 1.d)), eq(flag(440.d), 1.d)), eq(flag(441.d), 1.d)), eq(flag(442.d), 1.d)), eq(flag(543.d), 1.d)), eq(flag(544.d), 1.d)), eq(flag(545.d), 1.d)), eq(flag(443.d), 0.d)), else *loc_18
+	set	flag(443.d), 1.d
+	pushbp
+	setsp	30.w
+	lib	164.w
+	popbp
+	msg	voice(0.b),
+		"I'm impressed that you're\n",
+		"studying so hard!",
+		wait(255.b)
+loc_18:
+	return

@@ -1,0 +1,455 @@
+	.stage	"stage19"
+
+
+loc_7:
+	.db	"npc/tao_1.dat"
+
+
+loc_8:
+	.db	"npc/mama_1.dat"
+
+
+loc_9:
+	.db	"npc/papa_1.dat"
+
+
+loc_10:
+	.db	"npc/jenny_2.dat"
+
+
+loc_11:
+	.db	"npc/tonpy_1.dat"
+
+
+loc_20:
+	.dw	20000.w, 20005.w
+
+
+	.startup  *evt_startup
+evt_startup:
+	scrn	@fade, 0.w, 0.w, 0.w, 0.w, 0.w, 0.w, 0.w, 255.w, 0.w
+	lib	156.w
+	call	20000.d, 801.d
+	set	exp, 0.d
+	set	battery(1.d), 8000.d
+	set	battery(0.d), battery(1.d)
+	set	var(701.d), 0.d
+	set	var(705.d), 0.d
+	set	atc(1.d), 0.w
+	set	atc(2.d), 0.w
+	set	atc(3.d), 0.w
+	if	not(flag(35.d)), else *loc_6
+	lib	74.w
+loc_6:
+	run	*sub_2
+	anim1	20008.d, 5.d
+	anim1	20007.d, 1.d
+	call	4.d, 7.d, 0.d
+	anim1	4.d, 0.w
+	disp	5.d, 1.d
+	read	@anim, 20002.d, *loc_8
+	wait	@read, 20002.d
+	read	@anim, 20001.d, *loc_9
+	wait	@read, 20001.d
+	read	@anim, 20003.d, *loc_10
+	wait	@read, 20003.d
+	read	@anim, 20004.d, *loc_7
+	wait	@read, 20004.d
+	read	@anim, 20005.d, *loc_11
+	wait	@read, 20005.d
+	anim1	20003.d, 4.d
+	anim1	20002.d, 1022.d
+	anim1	20001.d, 6.d
+	anim1	20004.d, 1015.d
+	anim1	20005.d, 1.d
+	call	20001.d, 1.d, 1.d
+	call	20003.d, 1.d, 1.d
+	call	20002.d, 1.d, 1.d
+	call	20004.d, 1.d, 1.d
+	born	10000.d, 1.d, 6108.w, 0.w, 5020.w, 0.w, 100000.d, 2000.w, 100000.d, *sub_12
+	born	10001.d, 3.d, 6092.w, 3000.w, 1390.w, 0.w, 100000.d, 6000.w, 100.w, 0.w
+	born	10002.d, 3.d, 6092.w, 3000.w, 10200.w, 0.w, 100000.d, 6000.w, 100.w, 0.w
+	born	10003.d, 3.d, 13724.w, 3000.w, 5735.w, 90.w, 100000.d, 6000.w, 100.w, 0.w
+	born	10004.d, 3.d, -1383.d, 3000.w, 5735.w, 90.w, 100000.d, 6000.w, 100.w, 0.w
+	set	var(0.d), mul(div(1600.w, 10.w), 4.w)
+	set	var(1.d), mul(div(-720.d, 10.w), 4.w)
+	set	var(2.d), mul(div(720.w, 10.w), 4.w)
+	set	var(3.d), mul(div(1015.w, 10.w), 4.w)
+	set	var(4.d), mul(div(-1015.d, 10.w), 4.w)
+	ptcl	12.d, @obj, 6.d, var(1.d), var(0.d), var(1.d), 65.w, 65.w, 65.w, 0.w
+	ptcl	12.d, @obj, 6.d, 0.w, var(0.d), var(4.d), 65.w, 65.w, 65.w, 0.w
+	ptcl	12.d, @obj, 6.d, var(2.d), var(0.d), var(1.d), 65.w, 65.w, 65.w, 0.w
+	ptcl	12.d, @obj, 6.d, var(3.d), var(0.d), 0.w, 65.w, 65.w, 65.w, 0.w
+	ptcl	12.d, @obj, 6.d, var(2.d), var(0.d), var(2.d), 65.w, 65.w, 65.w, 0.w
+	ptcl	12.d, @obj, 6.d, 0.w, var(0.d), var(3.d), 65.w, 65.w, 65.w, 0.w
+	ptcl	12.d, @obj, 6.d, var(1.d), var(0.d), var(2.d), 65.w, 65.w, 65.w, 0.w
+	ptcl	12.d, @obj, 6.d, var(4.d), var(0.d), 0.w, 65.w, 65.w, 65.w, 0.w
+	attach	7.d, *sub_13
+	pushbp
+	setsp	0.d
+	lib	37.w
+	popbp
+	run	*sub_3
+	return
+
+
+	.dead	*evt_dead
+evt_dead:
+	lib	243.w
+	if	result, else *loc_28
+	return
+loc_28:
+	lib	0.w
+	return
+
+
+	.pose	*evt_pose
+evt_pose:
+	return
+
+
+	.time_cycle  *evt_time_cycle
+evt_time_cycle:
+	return
+
+
+sub_3:
+	if	not(flag(31.d)), else *loc_5
+	scrn	@fade, 0.w, 0.w, 0.w, 255.w, 0.w, 0.w, 0.w, 0.w, 100.w
+	wait	@fade
+loc_5:
+	set	flag(31.d), 0.d
+	return
+
+
+sub_2:
+	camera	@unk211, 1.w, 4.w, 3.d, 0.w
+	camera	@unk230
+	return
+
+
+sub_12:
+	pos	20000.d, 6042.w, 5990.w, 2706.w
+	return
+
+
+	.interact  6.d, *evt_living_cake_6
+evt_living_cake_6:
+	color	-2.d, @modulate, 80.w, 80.w, 80.w, 30.w
+	color	6.d, @modulate, 255.w, 255.w, 255.w, 30.w
+	lib	155.w
+	lib	138.w
+	select	size(25.b),
+		"～はじめまして　ちびロボ！～\v",
+		size(22.b),
+		"やめる"
+	case	eq(result, 0.w), else *loc_59
+	run	*sub_36
+	call	20000.d, 800.d
+	set	item(24.d), 0.w
+	set	item(25.d), 0.w
+	set	item(26.d), 0.w
+	set	item(32.d), 0.w
+	set	item(16.d), 0.w
+	set	item(21.d), 0.w
+	set	item(22.d), 0.w
+	set	atc(1.d), 0.w
+	set	atc(2.d), 0.w
+	set	atc(3.d), 0.w
+	sfx	65542.d, 2.d, 100.w
+	lib	139.w
+	lib	14.w
+	warp	14.d, 1.w
+	break	*loc_58
+loc_59:
+	break	*loc_58
+loc_58:
+	color	-2.d, @modulate, 255.w, 255.w, 255.w, 30.w
+	lib	139.w
+	return
+
+
+	.interact  2.d, *evt_npc_keath_2
+evt_npc_keath_2:
+	color	-2.d, @modulate, 80.w, 80.w, 80.w, 20.w
+	color	20008.d, @modulate, 255.w, 255.w, 255.w, 20.w
+	lib	155.w
+	lib	138.w
+	select	size(25.b),
+		"～夜のサンダースン家～\v",
+		size(22.b),
+		"やめる"
+	case	eq(result, 0.w), else *loc_37
+	run	*sub_36
+	call	20000.d, 800.d
+	if	ne(time(0.d), 1.d), else *loc_35
+	set	time(0.d), 1.d
+	lib	155.w
+	set	time(1.d), 0.d
+loc_35:
+	set	flag(0.d), 1.w
+	set	var(112.d), 40.d
+	set	var(75.d), 1.d
+	set	flag(1.d), 0.w
+	set	flag(350.d), 0.w
+	set	item(24.d), 0.w
+	set	item(25.d), 1.w
+	set	item(26.d), 1.w
+	set	item(32.d), 1.w
+	set	item(16.d), 0.w
+	set	item(21.d), 1.w
+	set	item(22.d), 1.w
+	set	atc(1.d), 1.w
+	set	atc(2.d), 1.w
+	set	atc(3.d), 1.w
+	set	flag(458.d), 1.d
+	set	flag(457.d), 1.d
+	sfx	65542.d, 2.d, 100.w
+	lib	139.w
+	lib	14.w
+	warp	7.d, 1.w
+	break	*loc_34
+loc_37:
+	break	*loc_34
+loc_34:
+	color	-2.d, @modulate, 255.w, 255.w, 255.w, 30.w
+	lib	139.w
+	return
+
+
+	.interact  3.d, *evt_npc_deca_robo_3
+evt_npc_deca_robo_3:
+	color	-2.d, @modulate, 80.w, 80.w, 80.w, 20.w
+	color	20007.d, @modulate, 255.w, 255.w, 255.w, 20.w
+	lib	155.w
+	lib	138.w
+	select	size(25.b),
+		"～でかいロボット～\v",
+		size(22.b),
+		"やめる"
+	case	eq(result, 0.w), else *loc_43
+	run	*sub_36
+	call	20000.d, 800.d
+	if	ne(time(0.d), 1.d), else *loc_42
+	set	time(0.d), 1.d
+	lib	155.w
+	set	time(1.d), 0.d
+loc_42:
+	set	flag(0.d), 1.w
+	set	flag(315.d), 1.w
+	set	var(112.d), 40.d
+	set	var(75.d), 1.d
+	set	flag(1.d), 1.w
+	set	flag(315.d), 1.w
+	set	flag(350.d), 1.w
+	set	var(112.d), 40.d
+	set	var(75.d), 1.d
+	set	flag(476.d), 1.w
+	set	flag(420.d), 1.w
+	set	flag(433.d), 1.w
+	set	flag(358.d), 1.w
+	set	flag(357.d), 1.w
+	set	flag(350.d), 1.d
+	set	flag(39.d), 1.w
+	set	flag(348.d), 1.d
+	set	flag(332.d), 0.d
+	set	flag(2.d), 0.d
+	set	flag(445.d), 0.d
+	set	item(24.d), 1.w
+	set	item(25.d), 1.w
+	set	item(26.d), 1.w
+	set	item(32.d), 1.w
+	set	item(16.d), 1.w
+	set	item(21.d), 1.w
+	set	item(22.d), 1.w
+	set	atc(1.d), 1.w
+	set	atc(2.d), 1.w
+	set	atc(3.d), 1.w
+	sfx	65542.d, 2.d, 100.w
+	lib	14.w
+	warp	3.d, 1.w
+	break	*loc_41
+loc_43:
+	break	*loc_41
+loc_41:
+	color	-2.d, @modulate, 255.w, 255.w, 255.w, 30.w
+	lib	139.w
+	return
+
+
+	.interact  4.d, *evt_npc_spider_2_4
+evt_npc_spider_2_4:
+	color	-2.d, @modulate, 80.w, 80.w, 80.w, 20.w
+	color	4.d, @modulate, 255.w, 255.w, 255.w, 20.w
+	lib	155.w
+	lib	138.w
+	select	size(25.b),
+		"～なんの足音？～\v",
+		size(22.b),
+		"やめる"
+	case	eq(result, 0.w), else *loc_49
+	run	*sub_36
+	call	20000.d, 800.d
+	set	var(0.d), rand(1.w)
+	if	eq(var(0.d), 1.w), else *loc_48
+	set	time(0.d), 1.d
+	lib	155.w
+	set	time(1.d), 0.d
+loc_48:
+	set	flag(0.d), 1.w
+	set	flag(315.d), 1.w
+	set	flag(350.d), 1.d
+	set	flag(1.d), 1.w
+	set	var(75.d), 10.d
+	set	flag(358.d), 1.w
+	set	flag(357.d), 1.w
+	set	flag(39.d), 1.w
+	set	flag(44.d), 1.w
+	set	flag(348.d), 1.d
+	set	flag(332.d), 1.d
+	set	flag(2.d), 1.d
+	set	flag(344.d), 1.d
+	set	flag(445.d), 1.d
+	set	flag(29.d), 1.d
+	set	flag(333.d), 0.d
+	set	flag(334.d), 0.d
+	set	flag(458.d), 1.d
+	set	flag(457.d), 1.d
+	set	item(24.d), 1.w
+	set	item(25.d), 1.w
+	set	item(26.d), 1.w
+	set	item(32.d), 1.w
+	set	item(16.d), 1.w
+	set	item(21.d), 1.w
+	set	item(22.d), 1.w
+	set	atc(1.d), 1.w
+	set	atc(2.d), 1.w
+	set	atc(3.d), 1.w
+	sfx	65542.d, 2.d, 100.w
+	lib	14.w
+	sfx	-65531.d, 2.d, 100.w
+	warp	5.d, 1.w
+	break	*loc_47
+loc_49:
+	break	*loc_47
+loc_47:
+	color	-2.d, @modulate, 255.w, 255.w, 255.w, 30.w
+	lib	139.w
+	return
+
+
+	.interact  5.d, *evt_backyard_tree_b_5
+evt_backyard_tree_b_5:
+	color	-2.d, @modulate, 80.w, 80.w, 80.w, 20.w
+	color	5.d, @modulate, 255.w, 255.w, 255.w, 20.w
+	lib	138.w
+	select	size(25.b),
+		"～うら庭で・・・～\v",
+		size(22.b),
+		"やめる"
+	case	eq(result, 0.w), else *loc_55
+	run	*sub_36
+	call	20000.d, 800.d
+	if	ne(time(0.d), 1.d), else *loc_54
+	set	time(0.d), 1.d
+	lib	155.w
+	set	time(1.d), 0.d
+loc_54:
+	set	flag(31.d), 1.d
+	set	item(24.d), 0.w
+	set	item(25.d), 0.w
+	set	item(26.d), 0.w
+	set	item(32.d), 0.w
+	set	item(16.d), 0.w
+	set	item(21.d), 0.w
+	set	item(22.d), 0.w
+	set	atc(1.d), 0.w
+	set	atc(2.d), 0.w
+	set	atc(3.d), 0.w
+	sfx	65542.d, 2.d, 100.w
+	lib	14.w
+	warp	9.d, 1.w
+	break	*loc_53
+loc_55:
+	break	*loc_53
+loc_53:
+	color	-2.d, @modulate, 255.w, 255.w, 255.w, 30.w
+	lib	139.w
+	return
+
+
+sub_36:
+	color	-2.d, @modulate, 255.w, 255.w, 255.w, 30.w
+	detach	7.d
+	detach	8.d
+	sfx	65542.d, 1.d
+	anim	20002.d, 1036.d
+	anim2	20001.d, 1025.d, 60.w, 100.w
+	anim	20003.d, 1046.d
+	anim	20004.d, 1016.d
+	call	20005.d, 1.d, 0.d
+	mdir	20005.d, @cam, 50.w, 1.d
+	wait	@dir, 20005.d
+	camera	@unk229, 8.w, 2.d, 100.w
+	mdir	20000.d, @cam, 30.w, -1.d
+	wait	@time, 20.w
+	anim	20000.d, 94.d
+	wait	@dir, 20000.d
+	lib	130.w
+	wait	@time, 30.w
+	anim	20000.d, 17.d
+	wait	@time, 23.w
+	anim	20000.d, 94.d
+	wait	@time, 100.w
+	return
+
+
+sub_21:
+	while	1.w, else *loc_25
+	set	var(882.d), obj(@pos_x, 20000.d)
+	set	var(883.d), obj(@pos_y, 20005.d)
+	set	var(884.d), obj(@pos_z, 20000.d)
+	set	var(887.d), obj(@distance, *loc_20)
+	if	ge(var(887.d), 1450.w), else *loc_24
+	set	var(882.d), obj(@pos_x, 20000.d)
+	set	var(883.d), obj(@pos_y, 20005.d)
+	set	var(884.d), obj(@pos_z, 20000.d)
+	moveto	20005.d, var(882.d), var(883.d), var(884.d), 100.w, -1.d, -1.d
+loc_24:
+	wait	@time, 1.w
+	goto	*sub_21
+loc_25:
+	return
+
+
+sub_13:
+	while	1.w, else *loc_19
+	set	var(887.d), obj(@distance, *loc_20)
+	if	le(var(887.d), 1650.w), else *loc_17
+	detach	8.d
+	wait	@time, 1.w
+	set	var(882.d), obj(@pos_x, 20005.d)
+	set	var(883.d), obj(@pos_y, 20005.d)
+	set	var(884.d), obj(@pos_z, 20005.d)
+	moveto	20005.d, var(882.d), var(883.d), var(884.d), 100.w, -1.d, -1.d
+	set	flag(1012.d), 0.w
+	endif	*loc_16
+loc_17:
+	if	eq(flag(1012.d), 0.w), else *loc_16
+	attach	8.d, *sub_21
+	set	flag(1012.d), 1.w
+loc_16:
+	wait	@time, 1.w
+	goto	*sub_13
+loc_19:
+	return
+
+
+	.interact  13.d, *evt_npc_tonpy_13
+evt_npc_tonpy_13:
+	lib	38.w
+	msg	voice(0.b),
+		"お好きなのを　選んでください！",
+		wait(254.b)
+	lib	39.w
+	return

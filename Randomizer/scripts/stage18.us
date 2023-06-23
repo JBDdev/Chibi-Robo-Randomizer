@@ -1,0 +1,1837 @@
+	.stage	"stage18"
+
+
+loc_72:
+	.db	"npc/mama_0.dat"
+
+
+loc_44:
+	.db	"npc/mama_3.dat"
+
+
+loc_45:
+	.db	"npc/papa_3.dat"
+
+
+loc_46:
+	.db	"npc/hock_1.dat"
+
+
+loc_47:
+	.db	"sfx_hock.ssm"
+
+
+loc_48:
+	.db	"npc/tonpy_0.dat"
+
+
+	.prologue  *evt_prologue
+evt_prologue:
+	if	and(eq(flag(566.d), 1.w), eq(flag(567.d), 0.w)), else *loc_3
+	kill	123.d
+	kill	14.d
+	kill	15.d
+	kill	16.d
+	kill	60.d
+	printf	"ホック回想\n"
+	endif	*loc_2
+loc_3:
+	kill	20009.d
+	printf	"ホックkill\n"
+loc_2:
+	return
+
+
+	.startup  *evt_startup
+evt_startup:
+	lib	375.w
+	if	eq(map(1.d), 16.d), else *loc_43
+	scrn	@fade, 255.w, 255.w, 255.w, 0.w, 255.w, 255.w, 255.w, 255.w, 0.w
+	scrn	@wipe, 0.d, 0.d, 320.w, 240.w, 0.w, 0.w, 255.w, 255.w, 255.w, 255.w, 0.w, 0.w, 255.w, 255.w, 255.w, 0.w, 0.w
+	endif	*loc_6
+loc_43:
+	scrn	@fade, 0.w, 0.w, 0.w, 0.w, 0.w, 0.w, 0.w, 255.w, 0.w
+loc_6:
+	if	or(eq(time(0.d), 0.d), eq(time(0.d), 1.d)), else *loc_9
+	if	and(eq(flag(566.d), 1.w), eq(flag(567.d), 0.w)), else *loc_42
+	printf	"ホックイベントなので【セピア】\n"
+	pushbp
+	setsp	0.w
+	lib	189.w
+	popbp
+	endif	*loc_9
+loc_42:
+	pushbp
+	setsp	0.w
+	lib	190.w
+	popbp
+	printf	"タイムマシンで来た【ホワイトアウト】\n"
+	color	-2.d, @blend, 255.w, 255.w, 255.w, 0.w
+	color	-2.d, @modulate, 255.w, 255.w, 255.w, 0.w
+loc_9:
+	if	flag(-2.d), else *loc_37
+	lib	170.w
+	run	*sub_36
+	endif	*loc_11
+loc_37:
+	if	flag(35.d), else *loc_39
+	lib	42.w
+	endif	*loc_11
+loc_39:
+	run	*sub_40
+loc_11:
+	set	flag(468.d), 1.d
+	if	flag(35.d), else *loc_31
+	set	flag(35.d), 0.w
+	set	flag(31.d), 1.w
+	wait	@cam
+	lib	99.w
+	endif	*loc_13
+loc_31:
+	run	*sub_32
+loc_13:
+	born	10000.d, 0.d, -19073.d, 691.w, 12554.w, 58.w, 600.w, 300.w, 160.w, *sub_49
+	born	10001.d, 2.d, -22678.d, 2899.w, 10230.w, 58.w, 4800.w, 4000.w, 500.w, 0.w
+	born	10002.d, 2.d, -9292.d, 3.w, -301.d, 307.w, 2400.w, 4000.w, 6000.w, 0.w
+	wait	@time, 1.w
+	if	eq(flag(1163.d), 0.w), else *loc_30
+	disp	10000.d, 0.d
+loc_30:
+	run	*sub_24
+	if	not(flag(31.d)), else *loc_17
+	lib	202.w
+	if	flag(-2.d), else *loc_18
+	color	-2.d, @blend, 0.w, 0.w, 0.w, 0.w
+	color	-2.d, @modulate, 255.w, 255.w, 255.w, 0.w
+	pushbp
+	setsp	0.w
+	lib	189.w
+	popbp
+	sfx	-65493.d, 1.d
+	sfx	-65493.d, 4.d, 0.w, 128.w
+	lib	55.w
+	endif	*loc_17
+loc_18:
+	run	*sub_23
+	if	eq(flag(575.d), 0.w), else *loc_21
+	run	*sub_20
+	endif	*loc_17
+loc_21:
+	run	*sub_22
+loc_17:
+	set	flag(31.d), 0.d
+	call	20005.d, 1.d, 1.d
+	return
+
+
+	.dead	*evt_dead
+evt_dead:
+	lib	243.w
+	if	result, else *loc_56
+	return
+loc_56:
+	lib	0.w
+	return
+
+
+sub_24:
+	read	@anim, 20005.d, *loc_48
+	wait	@read, 20005.d
+	anim	20014.d, 4.d
+	anim	20013.d, 4.d
+	anim	22.d, 2.w
+	call	-27.d, 22.d, 57.d
+	anim	21.d, 2.w
+	call	-27.d, 21.d, 57.d
+	disp	20001.d, 1.d
+	disp	20002.d, 1.d
+	disp	120.d, 1.d
+	pos	20001.d, -18024.d, 0.w, add(-3911.d, 11000.w)
+	pos	120.d, -18024.d, 3000.w, -3911.d
+	anim	20001.d, add(77.d, mul(8.d, 65536.d))
+	call	20001.d, 8.d, 0.d
+	anim	120.d, 2.d
+	anim	20002.d, 63.d
+	anim	121.d, 6.w
+	anim	60.d, 2.w
+	if	eq(flag(1163.d), 0.w), else *loc_29
+	anim	123.d, 54.d
+	pos	123.d, -18017.d, -8.d, 13272.w
+	dir	123.d, 328.w
+	endif	*loc_26
+loc_29:
+	call	-27.d, 124.d, 40.d
+	anim	123.d, 29.d
+	sfx	589855.d, 1.d
+	pos	123.d, -26975.d, 0.w, 24552.w
+	dir	123.d, 336.w
+	disp	125.d, 1.d
+loc_26:
+	if	eq(flag(14.d), 1.w), else *loc_28
+	disp	117.d, 0.d
+loc_28:
+	return
+
+
+	.interact  46.d, *evt_plug_start_46
+evt_plug_start_46:
+	pushbp
+	setsp	46.d
+	lib	1.w
+	popbp
+	return
+
+
+	.interact  47.d, *evt_plug_start_47
+evt_plug_start_47:
+	pushbp
+	setsp	47.d
+	lib	1.w
+	popbp
+	return
+
+
+	.pose	*evt_pose
+evt_pose:
+	pushbp
+	setsp	57.d
+	setsp	56.d
+	setsp	55.d
+	setsp	54.d
+	setsp	53.d
+	setsp	52.d
+	setsp	51.d
+	lib	104.w
+	popbp
+	if	eq(result, 0.d), else *loc_59
+	return
+loc_59:
+	return
+
+
+	.time_cycle  *evt_time_cycle
+evt_time_cycle:
+	return
+
+
+sub_40:
+	pos	20000.d, 19942.w, 0.w, 7916.w
+	dir	20000.d, 70.w
+	call	20005.d, 1.d, 0.d
+	pos	20005.d, 21395.w, 1000.w, 9835.w
+	dir	20005.d, 237.w
+	camera	@pos, 23763.w, 4718.w, -5813.d, 3.d, 0.w
+	camera	@unk227, 22650.w, 4633.w, -5619.d, 3.d, 0.w
+	camera	@unk229, 51.w, 3.d, 0.w
+	camera	@distance, 11.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	break	*loc_41
+loc_41:
+	return
+
+
+sub_36:
+	disp	116.d, 1.d
+	pos	116.d, 22969.w, 700.w, 8764.w
+	scale	116.d, 130.w, 130.w, 130.w
+	anim	116.d, 1.w
+	disp	20005.d, 1.d
+	pos	20005.d, 20765.w, 1000.w, 8688.w
+	anim	20005.d, 1.d
+	call	20005.d, 1.d, 1.d
+	return
+
+
+sub_49:
+	lib	38.w
+	msg	"Password: 2455",
+		wait(254.b)
+	set	flag(9.d), 1.w
+	lib	39.w
+	return
+
+
+	.interact  117.d, *evt_item_kairozu_117
+evt_item_kairozu_117:
+	pushbp
+	setsp	110.d
+	lib	77.w
+	popbp
+	wait	@time, 1.w
+	lib	67.w
+	set	flag(14.d), 1.w
+	return
+
+
+	.interact  123.d, *evt_npc_tao_s_123
+evt_npc_tao_s_123:
+	lib	38.w
+	if	eq(flag(1163.d), 0.w), else *loc_108
+	camera	@unk236, 3.w
+	lib	14.w
+	camera	@pos, -12548.d, 2257.w, 12809.w, 3.d, 0.w
+	camera	@unk227, -18176.d, 444.w, 13741.w, 3.d, 0.w
+	camera	@unk229, 32.w, 3.d, 0.w
+	camera	@distance, 59.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	lib	13.w
+	if	eq(cur_suit, 3.d), else *loc_106
+	msg	voice(27.b),
+		"I'm staaaaaaaaarving!",
+		wait(255.b)
+	pushbp
+	setsp	item_name(14.d)
+	msg	voice(27.b),
+		"I'm not moving! Not 'til I get a bone! Man,\n",
+		"I oughta go on strike. This is ridiculous.",
+		wait(255.b)
+	popbp
+	endif	*loc_104
+loc_106:
+	sfx	349.d, 1.d
+	run	*sub_107
+loc_104:
+	camera	@pos, -12548.d, 2257.w, 12809.w, 1.d, 150.w
+	camera	@unk227, -17657.d, 1126.w, 15716.w, 1.d, 150.w
+	camera	@unk229, 32.w, 1.d, 150.w
+	camera	@distance, 59.w, 1.d, 150.w
+	wait	@cam
+	wait	@time, 80.w
+	lib	14.w
+	camera	@unk237, 3.w
+	lib	13.w
+	endif	*loc_105
+loc_108:
+	if	eq(cur_suit, 3.d), else *loc_110
+	msg	voice(27.b),
+		"Oh, sweet bone goodness, yay!",
+		wait(255.b)
+	msg	voice(27.b),
+		speed(7.b),
+		"But...",
+		wait(255.b)
+	msg	voice(27.b),
+		"I have to go slow, or it'll lose its flavor...",
+		wait(255.b)
+	endif	*loc_105
+loc_110:
+	sfx	350.d, 1.d
+	msg	"Woof!",
+		wait(255.b)
+loc_105:
+	lib	39.w
+	return
+
+
+sub_107:
+	msg	"Whimper.",
+		wait(255.b)
+	return
+
+
+	.interact  124.d, *evt_living_tao_dish_124
+evt_living_tao_dish_124:
+	if	ge(item(14.d), 1.w), else *loc_117
+	menu	2.d
+	case	eq(result, 14.d), else *loc_116
+	call	20000.d, 701.d
+	set	var(683.d), 0.w
+	set	var(682.d), 0.w
+	set	flag(1163.d), 1.w
+	disp	10000.d, 1.d
+	lib	38.w
+	pushbp
+	setsp	14.d
+	lib	65.w
+	popbp
+	wait	@time, 1.w
+	lib	75.w
+	wait	@time, 1.w
+	camera	@pos, -23927.d, 3298.w, 25058.w, 3.d, 0.w
+	camera	@unk227, -28789.d, -474.d, 26863.w, 3.d, 0.w
+	camera	@unk229, 30.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	disp	125.d, 1.d
+	pushbp
+	setsp	100.w
+	setsp	10.w
+	setsp	6.d
+	setsp	0.w
+	setsp	125.d
+	lib	290.w
+	popbp
+	scrn	@shake, 0.w, 15.w, 0.w, 0.w, 0.w, 0.w, 50.w
+	sfx	589854.d, 1.d
+	wait	@time, 100.w
+	lib	14.w
+	pos	20000.d, -26364.d, 0.w, 25496.w
+	camera	@pos, -20949.d, 1194.w, 18134.w, 3.d, 0.w
+	camera	@unk227, -17774.d, 594.w, 11512.w, 3.d, 0.w
+	camera	@unk229, 45.w, 3.d, 0.w
+	camera	@distance, 73.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	lib	13.w
+	wait	@time, 100.w
+	anim	123.d, 60.d
+	wait	@time, 123.d
+	anim	123.d, 61.d
+	wait	@time, 123.d
+	moveto	123.d, -26975.d, 0.w, 24552.w, 600.w, 2.d, 336.w
+	camera	@pos, -21027.d, 1194.w, 19444.w, 2.d, 600.w
+	camera	@unk227, -19301.d, 594.w, 12319.w, 2.d, 600.w
+	camera	@unk229, 45.w, 2.d, 600.w
+	camera	@distance, 73.w, 2.d, 600.w
+	wait	@time, 200.w
+	camera	@pos, -22580.d, 3577.w, 24863.w, 3.d, 0.w
+	camera	@unk227, -28964.d, 191.w, 26299.w, 3.d, 0.w
+	camera	@unk229, 45.w, 3.d, 0.w
+	camera	@distance, 73.w, 3.d, 0.w
+	attach	20000.d, *sub_118
+	wait	@time, 1.w
+	wait	@cam
+	wait	@move, 123.d
+	anim	123.d, 46.d
+	wait	@time, 63.w
+	sfx	589856.d, 1.d
+	wait	@time, 111.w
+	sfx	589856.d, 1.d
+	wait	@anim, 123.d, -1.d
+	anim	123.d, 28.d
+	wait	@anim, 123.d, -1.d
+	anim	123.d, 29.d
+	sfx	589855.d, 1.d
+	call	-27.d, 124.d, 40.d
+	pushbp
+	setsp	30.w
+	lib	64.w
+	popbp
+	call	20000.d, 700.d
+	camera	@unk230
+	pushbp
+	setsp	1.d
+	setsp	1.d
+	setsp	0.w
+	lib	145.w
+	popbp
+	pushbp
+	setsp	120.w
+	lib	63.w
+	popbp
+	break	*loc_114
+loc_116:
+	printf	"意外な展開(骨)\n"
+	break	*loc_114
+loc_114:
+	endif	*loc_115
+loc_117:
+	camera	@unk236, 3.w
+	lib	14.w
+	camera	@pos, -21227.d, 502.w, 16734.w, 3.d, 0.w
+	camera	@unk227, -16950.d, 879.w, 11976.w, 3.d, 0.w
+	camera	@unk229, 62.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	pushbp
+	setsp	1.d
+	setsp	1.d
+	setsp	0.w
+	lib	144.w
+	popbp
+	wait	@time, 1.w
+	wait	@cam
+	camera	@pos, -20029.d, 553.w, 17571.w, 2.d, 3000.w
+	camera	@unk227, -17899.d, 879.w, 11535.w, 2.d, 3000.w
+	lib	13.w
+	wait	@time, 100.w
+	sfx	349.d, 1.d
+	run	*sub_107
+	lib	14.w
+	camera	@pos, -20029.d, 553.w, 17571.w, 2.d, 0.w
+	camera	@unk227, -17899.d, 879.w, 11535.w, 2.d, 0.w
+	wait	@time, 1.w
+	camera	@unk237, 3.w
+	pushbp
+	setsp	1.d
+	setsp	1.d
+	setsp	0.w
+	lib	145.w
+	popbp
+	lib	13.w
+loc_115:
+	return
+
+
+sub_118:
+	pos	20000.d, -26364.d, 0.w, 25496.w
+	moveto	20000.d, -25743.d, 0.w, 26500.w, 100.w, 3.d, -2.d
+	wait	@time, 20.w
+	wait	@cam
+	wait	@move, 20000.d
+	mdir	20000.d, @dir, 248.w, 60.w, -1.d
+	wait	@dir, 20000.d
+	anim	20000.d, 17.d
+	return
+
+
+sub_23:
+	disp	20000.d, 0.d
+	disp	20005.d, 0.d
+	scale	121.d, 0.w, 0.w, 0.w
+	camera	@pos, 2421.w, 23520.w, -1275.d, 3.d, 0.w
+	camera	@unk227, 7032.w, 20282.w, 925.w, 3.d, 0.w
+	camera	@unk229, 26.w, 3.d, 0.w
+	camera	@distance, 60.w, 3.d, 0.w
+	sfx	-65482.d, 1.d
+	wait	@time, 1.w
+	wait	@cam
+	pushbp
+	setsp	0.d
+	setsp	1.d
+	setsp	0.w
+	lib	144.w
+	popbp
+	camera	@pos, 506.w, 23697.w, 15565.w, 2.d, 4000.w
+	camera	@unk227, 5407.w, 20283.w, 14154.w, 2.d, 4000.w
+	wait	@time, 70.w
+	call	-26.d, 121.d, 53.d
+	scale	121.d, 100.w, 100.w, 100.w
+	anim2	121.d, 9.d, 30.w, 10.w
+	wait	@time, 1.w
+	call	-27.d, 121.d, 53.d
+	pushbp
+	setsp	20.w
+	lib	189.w
+	popbp
+	color	-2.d, @blend, 0.w, 0.w, 0.w, 100.w
+	wait	@time, 530.w
+	camera	@pos, 18037.w, -1923.d, 8729.w, 3.d, 0.w
+	camera	@unk227, 21280.w, 3074.w, 8737.w, 3.d, 0.w
+	camera	@unk229, 33.w, 3.d, 0.w
+	camera	@distance, 59.w, 3.d, 0.w
+	scale	121.d, 80.w, 80.w, 80.w
+	anim2	121.d, 9.d, 220.w, 40.w
+	wait	@time, 1.w
+	wait	@cam
+	camera	@pos, 15855.w, 1080.w, 8776.w, 2.d, 700.w
+	camera	@unk227, 21537.w, 1101.w, 8735.w, 2.d, 700.w
+	camera	@unk229, 33.w, 2.d, 700.w
+	camera	@distance, 56.w, 2.d, 700.w
+	wait	@time, 500.w
+	ptcl	153.d, @pos, 23006.w, 0.w, 8704.w, 100.w, 100.w, 100.w, 0.w
+	wait	@time, 214.w
+	sfx	589834.d, 1.d
+	wait	@cam
+	ptcl	153.d, @unk210
+	wait	@anim, 121.d, -1.d
+	call	20000.d, 701.d
+	disp	20000.d, 1.d
+	disp	20005.d, 1.d
+	disp	116.d, 1.d
+	pos	116.d, 23169.w, 1200.w, 8764.w
+	scale	116.d, 130.w, 130.w, 130.w
+	anim	116.d, 1.w
+	call	20005.d, 1.d, 0.d
+	pos	20000.d, 22994.w, 600.w, 8455.w
+	dir	20000.d, 270.w
+	anim	20000.d, 17.d
+	pos	20005.d, 22994.w, 1300.w, 8966.w
+	dir	20005.d, 270.w
+	wait	@time, 100.w
+	anim	121.d, 5.d
+	sfx	589835.d, 1.d
+	wait	@time, 140.w
+	moveto	20000.d, 22994.w, 200.w, 8455.w, 70.w, -1.d, 270.w
+	moveto	20005.d, 22993.w, 1000.w, 8966.w, 70.w, -1.d, 270.w
+	moveto	116.d, 23169.w, 700.w, 8764.w, 70.w, -1.d, 270.w
+	camera	@pos, 15778.w, 2758.w, 8781.w, 2.d, 50.w
+	camera	@unk227, 21294.w, 1303.w, 8709.w, 2.d, 50.w
+	camera	@unk229, 33.w, 2.d, 50.w
+	camera	@distance, 57.w, 2.d, 50.w
+	wait	@anim, 121.d, -1.d
+	wait	@time, 1.w
+	wait	@cam
+	return
+
+
+sub_50:
+	wait	@time, 20.w
+	call	20000.d, 200.d, 205.d, 30.w
+	return
+
+
+sub_20:
+	camera	@pos, 19529.w, 1549.w, 8740.w, 2.d, 300.w
+	camera	@unk227, 25088.w, 265.w, 8668.w, 2.d, 300.w
+	camera	@unk229, 33.w, 2.d, 300.w
+	camera	@distance, 57.w, 2.d, 300.w
+	wait	@time, 1.w
+	wait	@cam
+	msg	voice(0.b),
+		anim(0.b, 20005.w, 1013.d),
+		speed(13.b),
+		"It looks like we've stopped.",
+		anim(0.b, 20005.w, 1.d),
+		wait(255.b)
+	attach	20000.d, *sub_50
+	mdir	20005.d, @dir, 190.w, 50.w, 1020.d
+	wait	@dir, 20005.d
+	msg	voice(0.b),
+		anim(0.b, 20005.w, 1020.d),
+		speed(13.b),
+		"Let's get out, Chibi-Robo.",
+		anim(0.b, 20005.w, 1.d),
+		wait(255.b)
+	mdir	20005.d, @dir, 270.w, 50.w, 1.d
+	call	20000.d, 201.d
+	wait	@dir, 20005.d
+	camera	@pos, 16501.w, 297.w, 6944.w, 2.d, 500.w
+	camera	@unk227, 21979.w, 633.w, 8498.w, 2.d, 500.w
+	camera	@unk229, 26.w, 2.d, 500.w
+	camera	@distance, 57.w, 2.d, 500.w
+	moveto	20005.d, 20765.w, 1000.w, 8688.w, 200.w, 1011.d, -2.d
+	wait	@time, 70.w
+	moveto	20000.d, 22156.w, 150.w, 8688.w, 100.w, 3.d, -2.d
+	wait	@move, 20000.d
+	moveto	20000.d, 20891.w, 0.w, 7765.w, 100.w, 3.d, -2.d
+	wait	@time, 70.w
+	camera	@pos, 23009.w, 568.w, 8425.w, 3.d, 0.w
+	camera	@unk227, 16722.w, 1270.w, 7937.w, 3.d, 0.w
+	camera	@unk229, 36.w, 3.d, 0.w
+	camera	@distance, 63.w, 3.d, 0.w
+	sfx	-65493.d, 1.d
+	sfx	-65493.d, 4.d, 0.w, 128.w
+	pos	116.d, 22969.w, 10000.w, 8764.w
+	disp	121.d, 0.d
+	wait	@time, 1.w
+	wait	@cam
+	wait	@move, 20000.d
+	mdir	20000.d, @dir, 270.w, 30.w, 3.d
+	wait	@dir, 20000.d
+	anim	20000.d, 17.d
+	mdir	20005.d, @dir, 270.w, 100.w, 1.d
+	wait	@dir, 20005.d
+	wait	@cam
+	wait	@time, 100.w
+	camera	@pos, -29044.d, 9604.w, 5070.w, 3.d, 0.w
+	camera	@unk227, -27979.d, 9630.w, 4683.w, 3.d, 0.w
+	camera	@unk229, 43.w, 3.d, 0.w
+	camera	@distance, 11.w, 3.d, 0.w
+	disp	121.d, 1.d
+	pos	116.d, 22969.w, 700.w, 8764.w
+	wait	@time, 1.w
+	wait	@cam
+	camera	@pos, -28301.d, 9604.w, 6295.w, 2.d, 2000.w
+	camera	@unk227, -27257.d, 9630.w, 5855.w, 2.d, 2000.w
+	msg	voice(3.b),
+		size(28.b),
+		speed(7.b),
+		"Ow ow ow ow!",
+		sfx(589851.d, 1.b),
+		wait(254.b)
+	msg	voice(3.b),
+		size(28.b),
+		speed(7.b),
+		"Uncle! Uncle! Uncle!",
+		sfx(589851.d, 1.b),
+		wait(254.b)
+	camera	@pos, -11661.d, 12855.w, 10750.w, 3.d, 0.w
+	camera	@unk227, -12061.d, 12501.w, 9751.w, 3.d, 0.w
+	camera	@unk229, 43.w, 3.d, 0.w
+	camera	@distance, 11.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	msg	voice(4.b),
+		size(28.b),
+		"Go, Giga-Robo! Go!",
+		wait(5.b)
+	msg	voice(4.b),
+		size(28.b),
+		"Give up? Huh?",
+		wait(254.b)
+	camera	@pos, -24030.d, 8629.w, -2596.d, 3.d, 0.w
+	camera	@unk227, -23421.d, 8876.w, -1673.d, 3.d, 0.w
+	camera	@unk229, 36.w, 3.d, 0.w
+	camera	@distance, 11.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	msg	voice(3.b),
+		size(28.b),
+		"NEVER!",
+		wait(254.b)
+	pushbp
+	setsp	actor_name(20007.d)
+	msg	voice(3.b),
+		size(26.b),
+		"You can't use Giga-Robo! That's cheating!",
+		sfx(589850.d, 1.b),
+		wait(254.b)
+	popbp
+	camera	@pos, 16383.w, 665.w, 8395.w, 3.d, 0.w
+	camera	@unk227, 22071.w, 952.w, 8687.w, 3.d, 0.w
+	camera	@unk229, 11.w, 3.d, 0.w
+	camera	@distance, 57.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	msg	voice(0.b),
+		anim(0.b, 20005.w, 1024.d),
+		speed(12.b),
+		"Are we in the past?!",
+		anim(0.b, 20005.w, -1.d),
+		anim(0.b, 20005.w, 1.d),
+		wait(255.b)
+	camera	@pos, 18548.w, 1219.w, 10063.w, 3.d, 0.w
+	camera	@unk227, 23332.w, 626.w, 7017.w, 3.d, 0.w
+	camera	@unk229, 32.w, 3.d, 0.w
+	camera	@distance, 57.w, 3.d, 0.w
+	dir	20005.d, 160.w
+	anim	20005.d, 1007.d
+	dir	20000.d, 300.w
+	wait	@time, 1.w
+	wait	@cam
+	attach	20000.d, *sub_50
+	msg	voice(0.b),
+		size(28.b),
+		"That's impossible!!!",
+		wait(255.b)
+	msg	voice(0.b),
+		anim(0.b, 20005.w, 1014.d),
+		size(28.b),
+		speed(5.b),
+		"Ch-Chi-Chibi-Robo!",
+		anim(0.b, 20005.w, 1012.d),
+		wait(255.b)
+	msg	voice(0.b),
+		anim(0.b, 20005.w, 1012.d),
+		size(28.b),
+		"How could this be?!",
+		wait(255.b)
+	msg	voice(0.b),
+		anim(0.b, 20005.w, 1007.d),
+		"But everything's sepia, so\n",
+		"we MUST be in the past!",
+		wait(255.b)
+	msg	voice(0.b),
+		anim(0.b, 20005.w, 1012.d),
+		"Those aliens created something extraordinary!",
+		wait(255.b)
+	msg	voice(0.b),
+		size(28.b),
+		"Impossible! Shocking!",
+		wait(255.b)
+	msg	voice(0.b),
+		anim(0.b, 20005.w, 1007.d),
+		"Well, since we're here, we might\n",
+		"as well do a little exploring.",
+		wait(255.b)
+	anim	20005.d, 1.d
+	call	20000.d, 201.d
+	set	flag(575.d), 1.w
+	pushbp
+	setsp	30.w
+	lib	64.w
+	popbp
+	call	20000.d, 700.d
+	camera	@unk230
+	pushbp
+	setsp	1.d
+	setsp	1.d
+	setsp	0.w
+	lib	145.w
+	popbp
+	pushbp
+	setsp	120.w
+	lib	63.w
+	popbp
+	return
+
+
+sub_22:
+	camera	@pos, 17895.w, 2363.w, 6329.w, 3.d, 0.w
+	camera	@unk227, 22605.w, 607.w, 9030.w, 3.d, 0.w
+	camera	@unk229, 24.w, 3.d, 0.w
+	camera	@distance, 57.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	camera	@pos, 15664.w, 3168.w, 5049.w, 2.d, 200.w
+	camera	@unk227, 20363.w, 1412.w, 7769.w, 2.d, 200.w
+	camera	@unk229, 30.w, 2.d, 300.w
+	move	20005.d, 2000.w, 150.w, 1011.d, -2.d
+	wait	@time, 70.w
+	moveto	20000.d, 20993.w, 0.w, 8438.w, 100.w, 3.d, -2.d
+	wait	@move, 20000.d
+	anim	20000.d, 17.d
+	anim	20005.d, 1.d
+	wait	@cam
+	call	20000.d, 201.d
+	pushbp
+	setsp	30.w
+	lib	64.w
+	popbp
+	call	20000.d, 700.d
+	camera	@unk230
+	pushbp
+	setsp	1.d
+	setsp	1.d
+	setsp	0.w
+	lib	145.w
+	popbp
+	sfx	-65493.d, 1.d
+	sfx	-65493.d, 4.d, 0.w, 128.w
+	pushbp
+	setsp	120.w
+	lib	63.w
+	popbp
+	return
+
+
+	.interact  116.d, *evt_fx_warpzone_116
+evt_fx_warpzone_116:
+	lib	38.w
+	msg	size(28.b),
+		voice(0.b),
+		anim(0.b, 20005.w, 1002.d),
+		"Huh?!",
+		anim(0.b, 20005.w, 1.d),
+		wait(255.b)
+	mdir	20000.d, @obj, 20005.d, 100.w, 3.d
+	wait	@dir, 20000.d
+	anim	20000.d, 17.d
+	msg	voice(0.b),
+		anim(0.b, 20005.w, 1012.d),
+		"Are you going home, Chibi-Robo?!",
+		anim(0.b, 20005.w, 1.d),
+		wait(255.b)
+	lib	306.w
+	case	eq(result, 0.w), else *loc_93
+	set	flag(468.d), 0.d
+	camera	@pos, 17080.w, 1829.w, 8647.w, 1.d, 300.w
+	camera	@unk227, 19348.w, 1454.w, 8697.w, 1.d, 300.w
+	camera	@unk229, 38.w, 1.d, 300.w
+	camera	@distance, 22.w, 1.d, 300.w
+	call	20000.d, 701.d
+	call	20005.d, 1.d, 0.d
+	mdir	20000.d, @dir, 90.w, 60.w, 3.d
+	wait	@dir, 20000.d
+	moveto	20000.d, 22994.w, 150.w, 8455.w, 100.w, 3.d, -2.d
+	wait	@move, 20000.d
+	mdir	20000.d, @dir, 270.w, 100.w, 3.d
+	wait	@time, 10.w
+	moveto	20005.d, 21500.w, 1000.w, 8966.w, 50.w, 1011.d, -2.d
+	wait	@move, 20005.d
+	moveto	20005.d, 22994.w, 1000.w, 8966.w, 100.w, 1011.d, -2.d
+	wait	@move, 20005.d
+	mdir	20005.d, @dir, 270.w, 100.w, 1011.d
+	wait	@dir, 20000.d
+	anim	20000.d, 17.d
+	anim	20005.d, 1013.d
+	wait	@dir, 20005.d
+	wait	@time, 10.w
+	anim	121.d, 7.d
+	wait	@time, 20.w
+	sfx	589836.d, 1.d
+	wait	@anim, 121.d, -1.d
+	sfx	-65480.d, 1.d
+	wait	@time, 100.w
+	call	20000.d, 700.d
+	disp	20000.d, 0.d
+	disp	20005.d, 0.d
+	camera	@pos, 15694.w, 3736.w, 8622.w, 2.d, 500.w
+	camera	@unk227, 21694.w, 862.w, 8761.w, 2.d, 500.w
+	camera	@unk229, 168.w, 2.d, 500.w
+	camera	@distance, 66.w, 2.d, 500.w
+	wait	@time, 100.w
+	pushbp
+	setsp	1.w
+	lib	259.w
+	popbp
+	scrn	@shake, 100.w, 100.w, 100.w, 0.w, 0.w, 0.w, 400.w
+	wait	@time, 100.w
+	ptcl	152.d, @lead, 121.d, 0.w, 0.w
+	anim2	121.d, 8.d, 0.w, 80.w
+	pushbp
+	setsp	3.w
+	lib	259.w
+	popbp
+	scrn	@shake, 0.w, 200.w, 0.w, 0.w, 0.w, 0.w, 130.w
+	pushbp
+	setsp	100.w
+	lib	186.w
+	popbp
+	wait	@time, 100.w
+	warp	16.d, 1.w
+	return
+loc_93:
+	case	eq(result, 1.w), else *loc_96
+	msg	voice(0.b),
+		anim(0.b, 20005.w, 1002.d),
+		"Yeah, there's still so much snooping to do!",
+		anim(0.b, 20005.w, 1.d),
+		wait(255.b)
+	call	20000.d, 701.d
+	moveto	20000.d, 20993.w, 0.w, 8438.w, 100.w, 3.d, -2.d
+	wait	@move, 20000.d
+	anim	20000.d, 17.d
+	camera	@unk230
+	lib	39.w
+	call	20000.d, 700.d
+	break	*loc_95
+loc_96:
+	break	*loc_95
+loc_95:
+	return
+
+
+	.interact  1.d, *evt_npc_mama_1
+evt_npc_mama_1:
+	if	or(eq(hit, 2000.d), eq(hit, 2001.d)), else *loc_63
+	return
+loc_63:
+	camera	@unk236, 3.w
+	lib	38.w
+	read	@anim, 20002.d, *loc_72
+	if	eq(flag(1198.d), 0.w), else *loc_71
+	sfx	-65493.d, 4.d, 500.w, 0.w
+	set	flag(1198.d), 1.w
+	lib	14.w
+	camera	@pos, -17277.d, 9265.w, 2433.w, 3.d, 0.w
+	camera	@unk227, -11564.d, 12690.w, -534.d, 3.d, 0.w
+	camera	@unk229, 53.w, 3.d, 0.w
+	camera	@distance, 72.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	lib	13.w
+	msg	voice(4.b),
+		"Hmm?",
+		wait(255.b)
+	pushbp
+	setsp	0.d
+	setsp	90.w
+	setsp	1.d
+	setsp	1032.d
+	setsp	20002.d
+	lib	47.w
+	popbp
+	pushbp
+	setsp	0.w
+	setsp	0.d
+	lib	112.w
+	popbp
+	pushbp
+	setsp	120.w
+	lib	63.w
+	popbp
+	msg	voice(4.b),
+		anim(0.b, 20002.w, 1033.d),
+		"What's this?",
+		anim(0.b, 20002.w, 1032.d),
+		wait(255.b)
+	camera	@pos, -9320.d, 6087.w, -87.d, 3.d, 0.w
+	camera	@unk227, -3125.d, 4462.w, -309.d, 3.d, 0.w
+	camera	@unk229, 62.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	msg	voice(4.b),
+		anim(0.b, 20002.w, 1033.d),
+		"Who are you?",
+		anim(0.b, 20002.w, 1032.d),
+		wait(255.b)
+	camera	@pos, -9320.d, 5452.w, -87.d, 2.d, 400.w
+	camera	@unk227, -3125.d, 3828.w, -309.d, 2.d, 400.w
+	camera	@unk229, 62.w, 2.d, 400.w
+	camera	@distance, 64.w, 2.d, 400.w
+	wait	@time, 50.w
+	msg	voice(4.b),
+		speed(8.b),
+		size(28.b),
+		shake(19.b, 2.b, 2.b),
+		anim(0.b, 20002.w, 1033.d),
+		"Hmm...",
+		anim(0.b, 20002.w, 1032.d),
+		wait(255.b)
+	wait	@cam
+	camera	@pos, -9320.d, 6087.w, -87.d, 2.d, 400.w
+	camera	@unk227, -3125.d, 4462.w, -309.d, 2.d, 400.w
+	camera	@unk229, 62.w, 2.d, 400.w
+	camera	@distance, 64.w, 2.d, 400.w
+	msg	voice(4.b),
+		speed(8.b),
+		anim(0.b, 20002.w, 1033.d),
+		"You remind me of someone...",
+		anim(0.b, 20002.w, 1032.d),
+		wait(255.b)
+	wait	@time, 1.w
+	wait	@cam
+	msg	voice(4.b),
+		speed(8.b),
+		anim(0.b, 20002.w, 1033.d),
+		"Let me think.",
+		anim(0.b, 20002.w, 1032.d),
+		wait(255.b)
+	mdir	20002.d, @dir, 270.w, 500.w, 1032.d
+	wait	@time, 20.w
+	lib	14.w
+	camera	@pos, -30726.d, 14716.w, 6071.w, 3.d, 0.w
+	camera	@unk227, -25165.d, 12913.w, 3445.w, 3.d, 0.w
+	camera	@unk229, 35.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	call	-26.d, 20002.d, 53.d
+	anim	20002.d, 1014.d
+	call	-27.d, 20002.d, 53.d
+	dir	20002.d, 270.w
+	wait	@time, 1.w
+	wait	@cam
+	lib	13.w
+	camera	@unk229, 6.w, 2.d, 300.w
+	msg	voice(4.b),
+		speed(8.b),
+		size(28.b),
+		shake(19.b, 2.b, 2.b),
+		"Hmm...",
+		wait(255.b)
+	wait	@cam
+	camera	@pos, -12360.d, 10171.w, -6461.d, 3.d, 0.w
+	camera	@unk227, -15626.d, 10075.w, -947.d, 3.d, 0.w
+	camera	@unk229, 30.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	camera	@unk229, 25.w, 2.d, 300.w
+	msg	voice(4.b),
+		speed(8.b),
+		"Not him...",
+		wait(255.b)
+	if	eq(flag(1163.d), 0.w), else *loc_70
+	camera	@pos, -14304.d, 5462.w, 7287.w, 3.d, 0.w
+	camera	@unk227, -17027.d, 1805.w, 11791.w, 3.d, 0.w
+	camera	@unk229, 33.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	camera	@unk229, 27.w, 2.d, 300.w
+	endif	*loc_66
+loc_70:
+	camera	@pos, -23183.d, 5389.w, 18074.w, 3.d, 0.w
+	camera	@unk227, -25692.d, 2388.w, 22517.w, 3.d, 0.w
+	camera	@unk229, 37.w, 3.d, 0.w
+	camera	@distance, 59.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	camera	@unk229, 29.w, 2.d, 300.w
+loc_66:
+	msg	voice(4.b),
+		speed(8.b),
+		"Not Tao...obviously.",
+		wait(255.b)
+	camera	@pos, -12948.d, 12066.w, 3641.w, 3.d, 0.w
+	camera	@unk227, -16265.d, 9922.w, -1406.d, 3.d, 0.w
+	camera	@unk229, 33.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	camera	@unk229, 30.w, 2.d, 300.w
+	pushbp
+	setsp	actor_name(20007.d)
+	msg	voice(4.b),
+		speed(8.b),
+		"Wait a second! Giga-Ro--",
+		wait(5.b)
+	popbp
+	scrn	@fade, 0.w, 0.w, 0.w, 0.w, 255.w, 255.w, 255.w, 255.w, 10.w
+	wait	@fade
+	camera	@pos, -12596.d, 12048.w, 4502.w, 3.d, 0.w
+	camera	@unk227, -15891.d, 10282.w, -702.d, 3.d, 0.w
+	camera	@unk229, 21.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	scrn	@fade, 255.w, 255.w, 255.w, 255.w, 0.w, 0.w, 0.w, 0.w, 10.w
+	scrn	@shake, 0.w, 100.w, 0.w, 0.w, 0.w, 0.w, 50.w
+	sfx	-65494.d, 1.d
+	msg	voice(4.b),
+		size(28.b),
+		"Gi--",
+		wait(2.b)
+	scrn	@shake, 0.w, 150.w, 0.w, 0.w, 0.w, 0.w, 100.w
+	pushbp
+	setsp	actor_name(20007.d)
+	msg	voice(4.b),
+		size(28.b),
+		"Giga-Robo?!!",
+		wait(255.b)
+	popbp
+	scrn	@fade, 0.w, 0.w, 0.w, 0.w, 255.w, 255.w, 255.w, 255.w, 5.w
+	wait	@fade
+	camera	@pos, -19011.d, 10223.w, 1044.w, 3.d, 0.w
+	camera	@unk227, -13657.d, 10376.w, -2473.d, 3.d, 0.w
+	camera	@unk229, 56.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	sfx	-65473.d, 1.d
+	scrn	@fade, 255.w, 255.w, 255.w, 255.w, 0.w, 0.w, 0.w, 0.w, 5.w
+	msg	voice(4.b),
+		size(28.b),
+		speed(0.b),
+		"NO!",
+		wait(1.b)
+	scrn	@fade, 0.w, 0.w, 0.w, 0.w, 255.w, 255.w, 255.w, 255.w, 5.w
+	wait	@fade
+	camera	@pos, -11082.d, 12444.w, -6473.d, 3.d, 0.w
+	camera	@unk227, -14831.d, 10085.w, -1841.d, 3.d, 0.w
+	camera	@unk229, 26.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	scrn	@fade, 255.w, 255.w, 255.w, 255.w, 0.w, 0.w, 0.w, 0.w, 5.w
+	msg	voice(4.b),
+		size(28.b),
+		speed(0.b),
+		"It couldn't be!",
+		wait(1.b)
+	scrn	@fade, 0.w, 0.w, 0.w, 0.w, 255.w, 255.w, 255.w, 255.w, 5.w
+	wait	@fade
+	camera	@pos, -9425.d, 13602.w, 6551.w, 3.d, 0.w
+	camera	@unk227, -13013.d, 11225.w, 1802.w, 3.d, 0.w
+	camera	@unk229, 18.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	scrn	@fade, 255.w, 255.w, 255.w, 255.w, 0.w, 0.w, 0.w, 0.w, 5.w
+	msg	voice(4.b),
+		size(28.b),
+		speed(0.b),
+		"Of course!",
+		wait(1.b)
+	scrn	@fade, 0.w, 0.w, 0.w, 0.w, 255.w, 255.w, 255.w, 255.w, 5.w
+	wait	@fade
+	camera	@pos, -19011.d, 10223.w, 1044.w, 3.d, 0.w
+	camera	@unk227, -13657.d, 10376.w, -2473.d, 3.d, 0.w
+	camera	@unk229, 56.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	sfx	-65474.d, 1.d
+	scrn	@fade, 255.w, 255.w, 255.w, 255.w, 0.w, 0.w, 0.w, 0.w, 5.w
+	msg	voice(4.b),
+		size(28.b),
+		speed(0.b),
+		"COULD it be?!",
+		wait(1.b)
+	scrn	@fade, 0.w, 0.w, 0.w, 0.w, 255.w, 255.w, 255.w, 255.w, 5.w
+	wait	@fade
+	camera	@pos, -11082.d, 12444.w, -6473.d, 3.d, 0.w
+	camera	@unk227, -14831.d, 10085.w, -1841.d, 3.d, 0.w
+	camera	@unk229, 26.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	scrn	@fade, 255.w, 255.w, 255.w, 255.w, 0.w, 0.w, 0.w, 0.w, 5.w
+	msg	voice(4.b),
+		size(28.b),
+		speed(0.b),
+		"Lies, lies, lies!!",
+		wait(1.b)
+	scrn	@fade, 0.w, 0.w, 0.w, 0.w, 255.w, 255.w, 255.w, 255.w, 5.w
+	wait	@fade
+	camera	@pos, -9425.d, 14013.w, 6551.w, 3.d, 0.w
+	camera	@unk227, -13013.d, 11636.w, 1802.w, 3.d, 0.w
+	camera	@unk229, 20.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	sfx	-65475.d, 1.d
+	scrn	@fade, 255.w, 255.w, 255.w, 255.w, 0.w, 0.w, 0.w, 0.w, 5.w
+	camera	@unk229, 6.w, 2.d, 300.w
+	msg	voice(4.b),
+		size(28.b),
+		shake(19.b, 2.b, 2.b),
+		"I don't believe it!",
+		wait(1.b),
+		wait(255.b)
+	scrn	@fade, 0.w, 0.w, 0.w, 0.w, 255.w, 255.w, 255.w, 255.w, 10.w
+	wait	@fade
+	camera	@pos, -10298.d, 10720.w, 4751.w, 3.d, 0.w
+	camera	@unk227, -14575.d, 10050.w, 26.w, 3.d, 0.w
+	camera	@unk229, 16.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	sfx	-65517.d, 1.d
+	sfx	-65517.d, 4.d, 0.w, 128.w
+	camera	@unk229, 15.w, 2.d, 1000.w
+	scrn	@fade, 255.w, 255.w, 255.w, 255.w, 0.w, 0.w, 0.w, 0.w, 10.w
+	pushbp
+	setsp	actor_name(20007.d)
+	msg	voice(4.b),
+		size(28.b),
+		shake(19.b, 2.b, 2.b),
+		"Giga-Robo has...a son?!",
+		wait(255.b)
+	popbp
+	msg	voice(4.b),
+		size(28.b),
+		shake(19.b, 2.b, 2.b),
+		"But he's-- When did he have the time?",
+		wait(255.b)
+	camera	@pos, -32312.d, 7736.w, 6339.w, 3.d, 0.w
+	camera	@unk227, -26318.d, 8774.w, 4320.w, 3.d, 0.w
+	camera	@unk229, 31.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	scrn	@fade, 255.w, 255.w, 255.w, 255.w, 0.w, 0.w, 0.w, 0.w, 10.w
+	call	20002.d, 1.d, 3.d, 15.w, 3.w
+	msg	voice(4.b),
+		size(28.b),
+		"Hey!",
+		wait(2.b)
+	pushbp
+	setsp	actor_name(20001.d)
+	msg	voice(4.b),
+		size(28.b),
+		"Look, look!",
+		wait(255.b)
+	popbp
+	camera	@pos, -24152.d, 9967.w, -1902.d, 3.d, 0.w
+	camera	@unk227, -23345.d, 10024.w, -1108.d, 3.d, 0.w
+	camera	@unk229, 40.w, 3.d, 0.w
+	camera	@distance, 11.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	msg	voice(3.b),
+		size(28.b),
+		speed(7.b),
+		"Ow ow ow ow!",
+		sfx(589851.d, 1.b),
+		wait(254.b)
+	msg	voice(3.b),
+		size(28.b),
+		speed(7.b),
+		"Uncle! Uncle! Uncle!",
+		sfx(589850.d, 1.b),
+		wait(254.b)
+	camera	@pos, -32312.d, 7736.w, 6339.w, 3.d, 0.w
+	camera	@unk227, -26318.d, 8774.w, 4320.w, 3.d, 0.w
+	camera	@unk229, 31.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	lib	349.w
+	call	20002.d, 1.d, 0.d, 0.w, 0.w
+	msg	voice(4.b),
+		size(28.b),
+		"Pay attention!",
+		wait(2.b)
+	msg	voice(4.b),
+		size(28.b),
+		"Forget about the match!\n",
+		"You need to see this!",
+		wait(255.b)
+	camera	@pos, -12628.d, 10585.w, -1073.d, 3.d, 0.w
+	camera	@unk227, -18856.d, 9228.w, -1742.d, 3.d, 0.w
+	camera	@unk229, 49.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	msg	voice(4.b),
+		speed(5.b),
+		"Gosh...",
+		wait(255.b)
+	msg	voice(4.b),
+		speed(5.b),
+		"I hope our future child is cuter. Still,\n",
+		"everybody loves their own, right?",
+		wait(255.b)
+	camera	@pos, -17115.d, 9920.w, 1619.w, 3.d, 0.w
+	camera	@unk227, -12355.d, 11190.w, -2478.d, 3.d, 0.w
+	camera	@unk229, 48.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	pushbp
+	setsp	actor_name(20063.d)
+	setsp	actor_name(20007.d)
+	msg	voice(4.b),
+		"It was nice to meet you, Baby-Robo!",
+		wait(255.b)
+	popbp
+	msg	voice(4.b),
+		shake(19.b, 2.b, 2.b),
+		"I don't know what your tangled story is,\n",
+		"or how you got here on those tiny legs.",
+		wait(255.b)
+	camera	@pos, -12628.d, 10585.w, -1073.d, 3.d, 0.w
+	camera	@unk227, -18856.d, 9228.w, -1742.d, 3.d, 0.w
+	camera	@unk229, 49.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	msg	voice(4.b),
+		"But it was nice of you to stop by.",
+		wait(255.b)
+	pushbp
+	setsp	actor_name(20002.d)
+	msg	voice(4.b),
+		"I'm sure your mother is worried,\n",
+		"so you'd better go home now.",
+		wait(255.b)
+	popbp
+	lib	14.w
+	dir	20002.d, 90.w
+	wait	@time, 1.w
+	call	-26.d, 20002.d, 53.d
+	anim	20002.d, 1032.d
+	call	-27.d, 20002.d, 53.d
+	pushbp
+	setsp	0.w
+	setsp	0.d
+	lib	112.w
+	popbp
+	lib	13.w
+	msg	voice(4.b),
+		anim(0.b, 20002.w, 1033.d),
+		"Please visit again when we have our own baby!",
+		anim(0.b, 20002.w, 1032.d),
+		wait(255.b)
+	if	eq(flag(1163.d), 0.w), else *loc_69
+	pushbp
+	setsp	actor_name(20004.d)
+	msg	voice(4.b),
+		anim(0.b, 20002.w, 1033.d),
+		"Oh, and please be nice to Tao.",
+		anim(0.b, 20002.w, 1032.d),
+		wait(255.b)
+	popbp
+	camera	@pos, -21227.d, 502.w, 16734.w, 3.d, 0.w
+	camera	@unk227, -16950.d, 879.w, 11976.w, 3.d, 0.w
+	camera	@unk229, 62.w, 3.d, 0.w
+	camera	@distance, 64.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	camera	@pos, -20029.d, 553.w, 17571.w, 2.d, 3000.w
+	camera	@unk227, -17899.d, 879.w, 11535.w, 2.d, 3000.w
+	pushbp
+	setsp	item_name(14.d)
+	msg	voice(4.b),
+		anim(0.b, 20002.w, 1033.d),
+		"He's grumpy right now because\n",
+		"he wants a dog bone.",
+		anim(0.b, 20002.w, 1032.d),
+		wait(255.b)
+	popbp
+	msg	voice(4.b),
+		anim(0.b, 20002.w, 1033.d),
+		"But one bone per day is all we can afford.",
+		anim(0.b, 20002.w, 1032.d),
+		wait(255.b)
+	msg	voice(4.b),
+		anim(0.b, 20002.w, 1033.d),
+		"He'll have to be patient, though,\n",
+		"especially when the baby gets here.",
+		anim(0.b, 20002.w, 1032.d),
+		wait(255.b)
+	pushbp
+	setsp	actor_name(20004.d)
+	msg	voice(4.b),
+		anim(0.b, 20002.w, 1033.d),
+		"But Tao's a growing puppy, so he needs his food!",
+		anim(0.b, 20002.w, 1032.d),
+		wait(255.b)
+	popbp
+	lib	14.w
+	pushbp
+	setsp	0.w
+	setsp	0.d
+	lib	112.w
+	popbp
+	lib	13.w
+	msg	voice(4.b),
+		anim(0.b, 20002.w, 1033.d),
+		"Well, I'm sorry if I'm keeping you.\n",
+		"Feel free to go now if you need to.",
+		anim(0.b, 20002.w, 1032.d),
+		wait(255.b)
+	msg	voice(4.b),
+		anim(0.b, 20002.w, 1033.d),
+		"Come back again to see us sometime!",
+		anim(0.b, 20002.w, 1032.d),
+		wait(255.b)
+loc_69:
+	sfx	-65517.d, 2.d, 100.w
+	pushbp
+	setsp	1.d
+	setsp	63.d
+	setsp	20002.d
+	lib	48.w
+	popbp
+	camera	@unk237, 3.w
+	pos	20002.d, -12236.d, 0.w, -185.d
+	dir	20002.d, -54.d
+	pushbp
+	setsp	1.d
+	setsp	1.d
+	setsp	0.w
+	lib	145.w
+	popbp
+	lib	13.w
+	attach	20002.d, *sub_73
+	endif	*loc_68
+loc_71:
+	camera	@unk236, 3.w
+	lib	14.w
+	camera	@pos, -11661.d, 12855.w, 10750.w, 3.d, 0.w
+	camera	@unk227, -12061.d, 12501.w, 9751.w, 3.d, 0.w
+	camera	@unk229, 43.w, 3.d, 0.w
+	camera	@distance, 11.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	lib	13.w
+	msg	voice(4.b),
+		size(28.b),
+		"Go, Giga-Robo!",
+		wait(5.b)
+	msg	voice(4.b),
+		size(26.b),
+		"If you win this match, he's promised\n",
+		"to start saving his money!",
+		wait(254.b)
+	lib	14.w
+	camera	@unk237, 3.w
+	pushbp
+	setsp	1.d
+	setsp	1.d
+	setsp	0.w
+	lib	145.w
+	popbp
+	lib	13.w
+loc_68:
+	wait	@read, 20002.d
+	return
+
+
+sub_73:
+	wait	@time, 200.w
+	sfx	-65493.d, 4.d, 600.w, 128.w
+	return
+
+
+	.interact  2.d, *evt_npc_papa_2
+evt_npc_papa_2:
+	if	or(eq(hit, 2000.d), eq(hit, 2001.d)), else *loc_76
+	return
+loc_76:
+	camera	@unk236, 3.w
+	lib	14.w
+	camera	@pos, -25872.d, 8877.w, -431.d, 3.d, 0.w
+	camera	@unk227, -20800.d, 10161.w, 3240.w, 3.d, 0.w
+	camera	@unk229, 44.w, 3.d, 0.w
+	camera	@distance, 63.w, 3.d, 0.w
+	pushbp
+	setsp	1.d
+	setsp	1.d
+	setsp	0.w
+	lib	144.w
+	popbp
+	wait	@time, 1.w
+	wait	@cam
+	lib	13.w
+	msg	voice(3.b),
+		size(28.b),
+		shake(19.b, 2.b, 2.b),
+		"Nooooo!",
+		sfx(589851.d, 1.b),
+		wait(254.b)
+	msg	voice(3.b),
+		size(28.b),
+		"I want to spend my money on TOYS!",
+		sfx(589851.d, 1.b),
+		wait(254.b)
+	lib	14.w
+	camera	@unk237, 3.w
+	pushbp
+	setsp	1.d
+	setsp	1.d
+	setsp	0.w
+	lib	145.w
+	popbp
+	lib	13.w
+	return
+
+
+	.interact  120.d, *evt_npc_deca_robo_2_120
+evt_npc_deca_robo_2_120:
+	if	or(eq(hit, 2000.d), eq(hit, 2001.d)), else *loc_100
+	return
+loc_100:
+	camera	@unk236, 3.w
+	lib	14.w
+	camera	@pos, -21142.d, 10786.w, 1350.w, 3.d, 0.w
+	camera	@unk227, -15395.d, 8208.w, -3307.d, 3.d, 0.w
+	camera	@unk229, 57.w, 3.d, 0.w
+	camera	@distance, 78.w, 3.d, 0.w
+	pushbp
+	setsp	1.d
+	setsp	1.d
+	setsp	0.w
+	lib	144.w
+	popbp
+	wait	@time, 1.w
+	wait	@cam
+	lib	13.w
+	wait	@time, 100.w
+	lib	14.w
+	camera	@unk237, 3.w
+	pushbp
+	setsp	1.d
+	setsp	1.d
+	setsp	0.w
+	lib	145.w
+	popbp
+	lib	13.w
+	return
+
+
+	.interact  3.d, *evt_npc_tonpy_3
+evt_npc_tonpy_3:
+	lib	38.w
+	msg	voice(0.b),
+		anim(0.b, 20005.w, 1002.d),
+		size(28.b),
+		"Huh?! What?!!",
+		anim(0.b, 20005.w, 1.d),
+		wait(255.b)
+	msg	voice(0.b),
+		anim(0.b, 20005.w, 1002.d),
+		"I'll be waiting right here.",
+		anim(0.b, 20005.w, 1.d),
+		wait(255.b)
+	lib	39.w
+	return
+
+
+sub_32:
+	if	and(eq(flag(566.d), 1.w), eq(flag(567.d), 0.w)), else *loc_35
+	run	*sub_34
+loc_35:
+	return
+
+
+sub_34:
+	lib	38.w
+	disp	20002.d, 0.d
+	disp	20001.d, 0.d
+	disp	20000.d, 0.d
+	set	flag(31.d), 1.w
+	win	@letterbox
+	win	@color, 255.w, 255.w, 255.w, 0.w
+	set	flag(567.d), 1.w
+	disp	20009.d, 1.d
+	pos	20009.d, 400.w, 3300.w, -720.d
+	dir	20009.d, 174.w
+	pos	127.d, 162.w, 0.w, 15934.w
+	dir	127.d, 0.w
+	camera	@pos, 964.w, 5000.w, -5453.d, 3.d, 0.w
+	camera	@unk227, 964.w, 3800.w, -5440.d, 3.d, 0.w
+	camera	@unk229, 14.w, 3.d, 0.w
+	camera	@distance, 21.w, 3.d, 0.w
+	read	@sfx, 0.w, *loc_47
+	read	@anim, 20002.d, *loc_44
+	read	@anim, 20001.d, *loc_45
+	read	@anim, 20009.d, *loc_46
+	wait	@read, 20002.d
+	wait	@read, 20001.d
+	wait	@read, 20009.d
+	pushbp
+	setsp	200.w
+	lib	63.w
+	popbp
+	wait	@time, 80.w
+	camera	@pos, 964.w, 5522.w, -5521.d, 1.d, 800.w
+	camera	@unk227, 964.w, 3022.w, -5482.d, 1.d, 800.w
+	camera	@unk229, 27.w, 1.d, 800.w
+	camera	@distance, 25.w, 1.d, 800.w
+	wait	@cam
+	wait	@time, 180.w
+	camera	@pos, 964.w, 3762.w, -7889.d, 1.d, 600.w
+	camera	@unk227, 964.w, 3587.w, -5403.d, 1.d, 400.w
+	wait	@time, 400.w
+	msg	voice(8.b),
+		size(28.b),
+		speed(4.b),
+		"That fateful day, I found a doubloon\n",
+		"gleaming like a wee lassie's eyes.",
+		wait(254.b)
+	wait	@cam
+	wait	@time, 100.w
+	camera	@pos, 964.w, 3781.w, -7862.d, 1.d, 500.w
+	camera	@unk227, 971.w, 4026.w, -5407.d, 1.d, 500.w
+	camera	@unk229, 26.w, 1.d, 500.w
+	camera	@distance, 24.w, 1.d, 500.w
+	attach	20009.d, *sub_51
+	msg	voice(8.b),
+		size(28.b),
+		speed(4.b),
+		"And the salty scourge of the seas\n",
+		"that I was,",
+		wait(254.b)
+	wait	@cam
+	wait	@time, 100.w
+	detach	20009.d
+	attach	20009.d, *sub_52
+	msg	voice(8.b),
+		size(28.b),
+		speed(4.b),
+		"I decided t'seize this shiny treasure for\n",
+		"meself! Oh, a pretty treasure it was.",
+		wait(254.b)
+	msg	voice(8.b),
+		size(28.b),
+		speed(4.b),
+		"However...",
+		wait(254.b)
+	detach	20009.d
+	disp	20002.d, 1.d
+	pos	20002.d, 7226.w, 0.w, -3000.d
+	dir	20002.d, -120.d
+	anim	20002.d, add(6.d, mul(39.d, 65536.d))
+	lib	14.w
+	camera	@pos, 10024.w, 5333.w, -14932.d, 3.d, 0.w
+	camera	@unk227, 10401.w, 4967.w, -9970.d, 3.d, 0.w
+	camera	@unk229, 29.w, 3.d, 0.w
+	camera	@distance, 50.w, 3.d, 0.w
+	camera	@pos, 10160.w, 14935.w, -14942.d, 1.d, 900.w
+	camera	@unk227, 10546.w, 14446.w, -9991.d, 1.d, 900.w
+	lib	13.w
+	msg	voice(8.b),
+		size(28.b),
+		speed(4.b),
+		"The Sandersons were so poor, ye could\n",
+		"hear their bellies rumblin' like thunder!",
+		wait(20.b)
+	lib	14.w
+	disp	20002.d, 0.d
+	disp	120.d, 1.d
+	pos	120.d, -18119.d, 0.w, -5382.d
+	anim	120.d, 1.d
+	camera	@pos, -1805.d, 7646.w, 3237.w, 3.d, 0.w
+	camera	@unk227, -9510.d, 6783.w, 3051.w, 3.d, 0.w
+	camera	@unk229, 29.w, 3.d, 0.w
+	camera	@distance, 78.w, 3.d, 0.w
+	camera	@pos, -1430.d, 7646.w, -12290.d, 1.d, 1000.w
+	camera	@unk227, -9135.d, 6783.w, -12476.d, 1.d, 1000.w
+	lib	13.w
+	pushbp
+	setsp	actor_name(20007.d)
+	msg	voice(8.b),
+		size(28.b),
+		speed(4.b),
+		"Giga-Robo blamed himself for\n",
+		"their troubles, aye, he did...",
+		wait(20.b)
+	popbp
+	lib	14.w
+	disp	120.d, 0.d
+	camera	@pos, 7666.w, 4540.w, -15748.d, 3.d, 0.w
+	camera	@unk227, 2605.w, 3501.w, -7539.d, 3.d, 0.w
+	camera	@unk229, 28.w, 3.d, 0.w
+	camera	@distance, 97.w, 3.d, 0.w
+	anim	20009.d, 1015.d
+	lib	13.w
+	camera	@pos, 3657.w, 4540.w, -9255.d, 1.d, 500.w
+	camera	@unk227, -1413.d, 3501.w, -1051.d, 1.d, 500.w
+	msg	voice(8.b),
+		size(28.b),
+		speed(4.b),
+		"Every pirate swears to be as evil as a\n",
+		"barnacle in t'bed. It be our code.",
+		wait(254.b)
+	camera	@pos, 2294.w, 4342.w, -6931.d, 3.d, 0.w
+	camera	@unk227, -2661.d, 4056.w, 1401.w, 3.d, 0.w
+	camera	@unk229, 28.w, 3.d, 0.w
+	camera	@distance, 96.w, 3.d, 0.w
+	anim	20009.d, 1016.d
+	wait	@anim, 20009.d, -1.d
+	anim	20009.d, 1.d
+	msg	voice(8.b),
+		size(28.b),
+		speed(4.b),
+		"But I couldn't even steal one measly\n",
+		"doubloon. Gar, a foul humiliation it was.",
+		wait(254.b)
+	msg	voice(8.b),
+		size(28.b),
+		speed(4.b),
+		"As ye know, pirates who aren't evil\n",
+		anim(0.b, 20009.w, 1009.d),
+		"end up at theme parks... It be terrifyin'.",
+		anim(0.b, 20009.w, -1.d),
+		anim(0.b, 20009.w, 1.d),
+		wait(254.b)
+	lib	14.w
+	camera	@pos, -13816.d, 3146.w, 15532.w, 3.d, 0.w
+	camera	@unk227, -18758.d, 1846.w, 20610.w, 3.d, 0.w
+	camera	@unk229, 26.w, 3.d, 0.w
+	camera	@distance, 72.w, 3.d, 0.w
+	pos	20009.d, -14317.d, 0.w, 18338.w
+	dir	20009.d, 313.w
+	attach	20009.d, *sub_53
+	lib	13.w
+	msg	voice(8.b),
+		size(28.b),
+		speed(4.b),
+		"I hid me ship and confined meself in\n",
+		"the briny dark o' t'basement.",
+		wait(20.b)
+	lib	14.w
+	detach	20009.d
+	disp	20002.d, 1.d
+	pos	20002.d, -14866.d, 44.w, -244.d
+	anim1	20002.d, 1018.d
+	disp	20001.d, 1.d
+	pos	20001.d, -18120.d, 44.w, 11221.w
+	dir	20001.d, -110.d
+	anim1	20001.d, 1041.d
+	pos	20014.d, -9234.d, 44.w, 5287.w
+	camera	@pos, -11070.d, 8734.w, 30623.w, 3.d, 0.w
+	camera	@unk227, -12587.d, 5502.w, 22565.w, 3.d, 0.w
+	camera	@unk229, 40.w, 3.d, 0.w
+	camera	@distance, 88.w, 3.d, 0.w
+	wait	@cam
+	camera	@pos, -17721.d, 9172.w, 13360.w, 0.d, 450.w
+	camera	@unk227, -16107.d, 5416.w, 5552.w, 0.d, 450.w
+	lib	13.w
+	pushbp
+	setsp	actor_name(20002.d)
+	setsp	actor_name(20001.d)
+	msg	voice(8.b),
+		size(26.b),
+		speed(4.b),
+		"Yar, t'Sandersons be outta Moolah and\n",
+		"can't be buyin' food. I'm bettin' they be...",
+		wait(25.b)
+	popbp
+	lib	14.w
+	msg	voice(8.b),
+		size(28.b),
+		speed(4.b),
+		"Dead!",
+		wait(10.b)
+	sfx	786442.d, 1.d
+	wait	@time, 100.w
+	lib	39.w
+	camera	@unk237, 3.w
+	read	@anim, 20002.d, 0.d
+	read	@anim, 20001.d, 0.d
+	read	@anim, 20009.d, 0.d
+	set	flag(468.d), 0.d
+	warp	3.d, 0.d
+	return
+
+
+sub_51:
+	moveto	20009.d, 847.w, 3300.w, -4245.d, 400.w, 2.d, -2.d
+	wait	@move, 20009.d
+	anim	20009.d, 1.d
+	wait	@time, 50.w
+	anim	20009.d, 1013.d
+	wait	@anim, 20009.d, -1.d
+	anim	20009.d, 1.d
+	return
+
+
+sub_52:
+	anim	20009.d, 1014.d
+	wait	@anim, 20009.d, -1.d
+	anim	20009.d, 1015.d
+	return
+
+
+sub_53:
+	moveto	20009.d, -20549.d, 0.w, 24238.w, 350.w, 2.d, -1.d
+	wait	@move, 20009.d
+	anim	20009.d, 1.d
+	mdir	20009.d, @cam, 100.w, 2.d
+	wait	@dir, 20009.d
+	anim	20009.d, 1006.d
+	return
+
+
+loc_90:
+	.db	"cb_robo_22.dat"
+
+
+	.interact  85.d, *evt_parent_planter_85
+evt_parent_planter_85:
+	if	ne(use, 21.d), else *loc_82
+	return
+loc_82:
+	set	var(3.d), obj(@dir, 20000.d)
+	set	var(0.d), add(obj(@pos_x, 20000.d), mul(sin(mul(var(3.d), 100.w)), 5.w))
+	set	var(1.d), obj(@pos_y, 89.d)
+	set	var(2.d), add(obj(@pos_z, 20000.d), mul(cos(mul(var(3.d), 100.w)), 5.w))
+	set	var(4.d), sub(obj(@pos_y, 20000.d), obj(@pos_y, 85.d))
+	if	or(or(or(or(or(or(flag(697.d), lt(var(0.d), 19900.w)), lt(23900.w, var(0.d))), lt(var(2.d), -24675.d)), lt(-23250.d, var(2.d))), lt(var(4.d), 1950.w)), lt(2200.w, var(4.d))), else *loc_84
+	anim	20000.d, 2223.d
+	sfx	272.d, 1.d
+	return
+loc_84:
+	set	var(3.d), obj(@dir, 20000.d)
+	set	var(0.d), add(obj(@pos_x, 20000.d), mul(sin(mul(var(3.d), 100.w)), 5.w))
+	set	var(1.d), obj(@pos_y, 89.d)
+	set	var(2.d), add(obj(@pos_z, 20000.d), mul(cos(mul(var(3.d), 100.w)), 5.w))
+	pos	89.d, var(0.d), var(1.d), var(2.d)
+	pos	88.d, var(0.d), var(1.d), var(2.d)
+	wait	@time, 20.w
+	ptcl	50.d, @obj, 89.d, 0.w, 0.w, 0.w, 70.w, 70.w, 70.w, 0.w
+	wait	@time, 60.w
+	ptcl	50.d, @obj, 89.d, 0.w, 0.w, 0.w, 110.w, 110.w, 110.w, 0.w
+	wait	@time, 19.w
+	set	var(885.d), obj(@dir, 20000.d)
+	ptcl	52.d, @obj, 20000.d, 0.w, 0.w, 0.w, 100.w, 100.w, 100.w, sub(var(885.d), 90.w)
+	disp	89.d, 1.d
+	wait	@anim, 20000.d, -1.d
+	lib	67.w
+	run	*evt_kitchen_tuti_ana_89
+	call	-27.d, 85.d, 42.d
+	return
+
+
+	.interact  89.d, *evt_kitchen_tuti_ana_89
+evt_kitchen_tuti_ana_89:
+	menu	2.d
+	if	lt(result, 0.w), else *loc_87
+	return
+loc_87:
+	set	var(175.d), result
+	pushbp
+	setsp	result
+	lib	65.w
+	popbp
+	if	ne(var(175.d), 140.d), else *loc_89
+	lib	38.w
+	lib	333.w
+	lib	334.w
+	lib	67.w
+	lib	39.w
+	return
+loc_89:
+	set	flag(697.d), 1.d
+	read	@anim, 20000.d, *loc_90
+	wait	@read, 20000.d
+	wait	@time, 1.w
+	anim	20000.d, 1299.d
+	wait	@anim, 20000.d, 70.w
+	call	-100.d, 0.d
+	disp	89.d, 0.d
+	disp	88.d, 1.d
+	wait	@anim, 20000.d, -1.d
+	anim	20000.d, 17.d
+	read	@anim, 20000.d, 0.d
+	return

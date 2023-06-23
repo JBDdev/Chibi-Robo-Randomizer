@@ -1,0 +1,633 @@
+	.stage	"takanabe"
+
+
+loc_32:
+	.db	"npc/mama_0.dat"
+
+
+loc_75:
+	.dw	20000.w, 20017.w
+
+
+loc_76:
+	.dw	20000.w, 20018.w
+
+
+loc_77:
+	.dw	20000.w, 20019.w
+
+
+loc_78:
+	.dw	20000.w, 20038.w
+
+
+loc_79:
+	.dw	20000.w, 20039.w
+
+
+	.startup  *evt_startup
+evt_startup:
+	scrn	@fade, 0.w, 0.w, 0.w, 0.w, 0.w, 0.w, 0.w, 255.w, 0.w
+	read	@anim, 20002.d, *loc_32
+	anim	156.d, 3.w
+	pos	156.d, 0.w, -500.d, 0.w
+	disp	156.d, 1.d
+	call	20002.d, 100.d, 156.d, 6.w, 0.w, 4.w, 2.w, 0.w, 0.w, 0.w
+	if	not(flag(35.d)), else *loc_31
+	lib	74.w
+loc_31:
+	run	*sub_20
+	run	*sub_21
+	if	eq(time(0.d), 0.d), else *loc_19
+	color	-2.d, @blend, 0.w, 0.w, 0.w, 0.w
+	color	-2.d, @modulate, 255.w, 255.w, 255.w, 0.w
+	run	*sub_17
+	run	*sub_18
+loc_19:
+	if	eq(time(0.d), 1.d), else *loc_16
+	color	-2.d, @modulate, 150.w, 150.w, 230.w, 0.w
+	run	*sub_14
+	run	*sub_15
+loc_16:
+	if	flag(35.d), else *loc_12
+	lib	42.w
+	endif	*loc_5
+loc_12:
+	run	*sub_13
+loc_5:
+	if	flag(35.d), else *loc_10
+	set	flag(35.d), 0.w
+	set	flag(31.d), 1.w
+	wait	@cam
+	lib	8.w
+	endif	*loc_7
+loc_10:
+	run	*sub_11
+loc_7:
+	if	not(flag(31.d)), else *loc_9
+	lib	13.w
+loc_9:
+	set	flag(31.d), 0.d
+	return
+
+
+	.dead	*evt_dead
+evt_dead:
+	lib	0.w
+	return
+
+
+	.pose	*evt_pose
+evt_pose:
+	lib	86.w
+	if	result, else *loc_36
+	return
+loc_36:
+	set	var(0.d), 0.w
+	set	var(1.d), 8000.d
+	set	var(2.d), obj(@distance, *loc_75)
+	set	var(3.d), obj(@dir_to, *loc_75)
+	pushbp
+	setsp	20017.d
+	lib	91.w
+	popbp
+	set	var(2.d), obj(@distance, *loc_76)
+	set	var(3.d), obj(@dir_to, *loc_76)
+	pushbp
+	setsp	20018.d
+	lib	91.w
+	popbp
+	set	var(2.d), obj(@distance, *loc_77)
+	set	var(3.d), obj(@dir_to, *loc_77)
+	pushbp
+	setsp	20019.d
+	lib	91.w
+	popbp
+	set	var(2.d), obj(@distance, *loc_78)
+	set	var(3.d), obj(@dir_to, *loc_78)
+	pushbp
+	setsp	20038.d
+	lib	91.w
+	popbp
+	set	var(2.d), obj(@distance, *loc_79)
+	set	var(3.d), obj(@dir_to, *loc_79)
+	pushbp
+	setsp	20039.d
+	lib	91.w
+	popbp
+	if	eq(cur_suit, 7.d), else *loc_74
+	set	var(29.d), 0.w
+loc_74:
+	case	eq(var(0.d), 20017.d), else *loc_61
+	printf	"軍曹\n"
+	pushbp
+	setsp	obj(@distance, *loc_75)
+	printf	"距離　%d\n"
+	popbp
+	pushbp
+	setsp	obj(@dir_to, *loc_75)
+	printf	"角度　%d\n"
+	popbp
+	set	flag(45.d), 1.d
+	run	*evt_npc_army_1_108
+	break	*loc_39
+loc_61:
+	case	eq(var(0.d), 20018.d), else *loc_64
+	printf	"兵隊０\n"
+	set	flag(45.d), 1.d
+	run	*evt_npc_army_2_109
+	break	*loc_39
+loc_64:
+	case	eq(var(0.d), 20019.d), else *loc_67
+	printf	"兵隊１\n"
+	set	flag(45.d), 1.d
+	run	*evt_npc_army_2_110
+	break	*loc_39
+loc_67:
+	case	eq(var(0.d), 20038.d), else *loc_70
+	printf	"パイロット０\n"
+	set	flag(45.d), 1.d
+	run	*evt_npc_army_3_129
+	break	*loc_39
+loc_70:
+	case	eq(var(0.d), 20039.d), else *loc_73
+	printf	"パイロット１\n"
+	set	flag(45.d), 1.d
+	run	*evt_npc_army_3_130
+	break	*loc_39
+loc_73:
+	printf	"誰もいない\n"
+	return
+loc_39:
+	return
+
+
+	.time_cycle  *evt_time_cycle
+evt_time_cycle:
+	lib	73.w
+	if	eq(time(0.d), 1.d), else *loc_83
+	printf	"夜です\n"
+	endif	*loc_82
+loc_83:
+	elif	eq(time(0.d), 0.d), else *loc_85
+	printf	"昼です\n"
+	endif	*loc_82
+loc_85:
+	printf	"昼夜ステータスがないよ\n"
+loc_82:
+	warp	1.d, 1.w
+	return
+
+
+sub_13:
+	pos	20000.d, 0.w, 0.w, 0.w
+	dir	20000.d, 0.w
+	return
+
+
+	.interact  20.d, *evt_map_jump_box_20
+evt_map_jump_box_20:
+	lib	14.w
+	lib	12.w
+	lib	21.w
+	warp	7.d, 1.w
+	return
+
+
+	.interact  21.d, *evt_map_jump_box_21
+evt_map_jump_box_21:
+	lib	14.w
+	lib	12.w
+	lib	21.w
+	warp	3.d, 1.w
+	return
+
+
+	.interact  22.d, *evt_map_jump_box_22
+evt_map_jump_box_22:
+	lib	14.w
+	lib	12.w
+	lib	21.w
+	warp	1.d, 1.w
+	return
+
+
+	.interact  23.d, *evt_map_jump_box_23
+evt_map_jump_box_23:
+	lib	14.w
+	lib	12.w
+	lib	21.w
+	warp	6.d, 1.w
+	return
+
+
+	.interact  24.d, *evt_map_jump_box_24
+evt_map_jump_box_24:
+	lib	14.w
+	lib	12.w
+	lib	21.w
+	warp	4.d, 1.w
+	return
+
+
+	.interact  89.d, *evt_plug_start_89
+evt_plug_start_89:
+	lib	1.w
+	return
+
+
+sub_17:
+	return
+
+
+sub_14:
+	return
+
+
+	.interact  132.d, *evt_npc_tao_132
+evt_npc_tao_132:
+	return
+
+
+	.interact  108.d, *evt_npc_army_1_108
+evt_npc_army_1_108:
+	if	or(eq(hit, 2000.d), eq(hit, 2001.d)), else *loc_42
+	msg	voice(9.b),
+		anim(0.b, 20017.w, 25.d),
+		"軍曹です　ポッパー",
+		wait(254.b),
+		anim(0.b, 20017.w, 0.d)
+	return
+loc_42:
+	elif	ge(use, 0.w), else *loc_51
+	case	eq(use, 16.d), else *loc_46
+	msg	voice(9.b),
+		anim(0.b, 20017.w, 25.d),
+		"軍曹です　歯ブラシ",
+		wait(254.b),
+		anim(0.b, 20017.w, 0.d)
+	break	*loc_45
+loc_46:
+	case	eq(use, 21.d), else *loc_48
+	msg	voice(9.b),
+		anim(0.b, 20017.w, 25.d),
+		"軍曹です　スプーン",
+		wait(254.b),
+		anim(0.b, 20017.w, 0.d)
+	break	*loc_45
+loc_48:
+	case	eq(use, 22.d), else *loc_50
+	msg	voice(9.b),
+		anim(0.b, 20017.w, 25.d),
+		"軍曹です　マグカップ",
+		wait(254.b),
+		anim(0.b, 20017.w, 0.d)
+	break	*loc_45
+loc_50:
+	break	*loc_45
+loc_45:
+	return
+loc_51:
+	elif	flag(45.d), else *loc_60
+	set	flag(45.d), 0.d
+	case	eq(cur_suit, 1.d), else *loc_55
+	msg	voice(9.b),
+		anim(0.b, 20017.w, 25.d),
+		"軍曹です　ギッチョマン",
+		wait(254.b),
+		anim(0.b, 20017.w, 0.d)
+	break	*loc_54
+loc_55:
+	case	eq(cur_suit, 2.d), else *loc_57
+	msg	voice(9.b),
+		anim(0.b, 20017.w, 25.d),
+		"軍曹です　カエル",
+		wait(254.b),
+		anim(0.b, 20017.w, 0.d)
+	break	*loc_54
+loc_57:
+	case	eq(cur_suit, 3.d), else *loc_59
+	msg	voice(9.b),
+		anim(0.b, 20017.w, 25.d),
+		"軍曹です　タオ",
+		wait(254.b),
+		anim(0.b, 20017.w, 0.d)
+	break	*loc_54
+loc_59:
+	break	*loc_54
+loc_54:
+	return
+loc_60:
+	msg	voice(9.b),
+		anim(0.b, 20017.w, 25.d),
+		"軍曹です",
+		wait(254.b),
+		anim(0.b, 20017.w, 0.d)
+	return
+
+
+	.interact  109.d, *evt_npc_army_2_109
+evt_npc_army_2_109:
+	msg	"兵隊０です",
+		wait(254.b)
+	return
+
+
+	.interact  110.d, *evt_npc_army_2_110
+evt_npc_army_2_110:
+	msg	"兵隊１です",
+		wait(254.b)
+	return
+
+
+	.interact  111.d, *evt_npc_army_2_111
+evt_npc_army_2_111:
+	msg	"兵隊２です",
+		wait(254.b)
+	return
+
+
+	.interact  112.d, *evt_npc_army_2_112
+evt_npc_army_2_112:
+	msg	"兵隊３です",
+		wait(254.b)
+	return
+
+
+	.interact  113.d, *evt_npc_army_2_113
+evt_npc_army_2_113:
+	msg	"兵隊４です",
+		wait(254.b)
+	return
+
+
+	.interact  114.d, *evt_npc_army_2_114
+evt_npc_army_2_114:
+	msg	"兵隊５です",
+		wait(254.b)
+	return
+
+
+	.interact  115.d, *evt_npc_army_2_115
+evt_npc_army_2_115:
+	msg	"兵隊６です",
+		wait(254.b)
+	return
+
+
+	.interact  116.d, *evt_npc_army_2_116
+evt_npc_army_2_116:
+	msg	"兵隊７です",
+		wait(254.b)
+	return
+
+
+	.interact  117.d, *evt_npc_army_2_117
+evt_npc_army_2_117:
+	msg	"兵隊８です",
+		wait(254.b)
+	return
+
+
+	.interact  118.d, *evt_npc_army_2_118
+evt_npc_army_2_118:
+	msg	"兵隊９です",
+		wait(254.b)
+	return
+
+
+	.interact  119.d, *evt_npc_army_2_119
+evt_npc_army_2_119:
+	msg	"兵隊１０です",
+		wait(254.b)
+	return
+
+
+	.interact  120.d, *evt_npc_army_2_120
+evt_npc_army_2_120:
+	msg	"兵隊１１です",
+		wait(254.b)
+	return
+
+
+	.interact  121.d, *evt_npc_army_2_121
+evt_npc_army_2_121:
+	msg	"兵隊１２です",
+		wait(254.b)
+	return
+
+
+	.interact  122.d, *evt_npc_army_2_122
+evt_npc_army_2_122:
+	msg	"兵隊１３です",
+		wait(254.b)
+	return
+
+
+	.interact  123.d, *evt_npc_army_2_123
+evt_npc_army_2_123:
+	msg	"兵隊１４です",
+		wait(254.b)
+	return
+
+
+	.interact  124.d, *evt_npc_army_2_124
+evt_npc_army_2_124:
+	msg	"兵隊１５です",
+		wait(254.b)
+	return
+
+
+	.interact  125.d, *evt_npc_army_2_125
+evt_npc_army_2_125:
+	msg	"兵隊１６です",
+		wait(254.b)
+	return
+
+
+	.interact  126.d, *evt_npc_army_2_126
+evt_npc_army_2_126:
+	msg	"兵隊１７です",
+		wait(254.b)
+	return
+
+
+	.interact  127.d, *evt_npc_army_2_127
+evt_npc_army_2_127:
+	msg	"兵隊１８です",
+		wait(254.b)
+	return
+
+
+	.interact  128.d, *evt_npc_army_2_128
+evt_npc_army_2_128:
+	msg	"兵隊１９です",
+		wait(254.b)
+	return
+
+
+	.interact  129.d, *evt_npc_army_3_129
+evt_npc_army_3_129:
+	msg	"パイロット０です",
+		wait(254.b)
+	return
+
+
+	.interact  130.d, *evt_npc_army_3_130
+evt_npc_army_3_130:
+	msg	"パイロット１です",
+		wait(254.b)
+	return
+
+
+	.interact  90.d, *evt_npc_consentman_90
+evt_npc_consentman_90:
+	return
+
+
+sub_20:
+	pushbp
+	setsp	89.d
+	setsp	30.d
+	lib	43.w
+	popbp
+	return
+
+
+sub_18:
+	return
+
+
+sub_15:
+	return
+
+
+sub_21:
+	if	flag(38.d), else *loc_30
+	disp	20.d, 1.d
+	anim	25.d, 1.w
+	disp	26.d, 1.d
+	endif	*loc_23
+loc_30:
+	disp	26.d, 0.d
+	born	10000.d, 2.d, 23993.w, 9746.w, 19578.w, 0.w, 10.w, 30000.w, 18000.w, 0.w
+loc_23:
+	if	flag(42.d), else *loc_29
+	disp	22.d, 1.d
+	anim	3.d, 1.w
+loc_29:
+	if	flag(40.d), else *loc_28
+	disp	23.d, 1.d
+	anim	2.d, 1.w
+loc_28:
+	if	flag(41.d), else *loc_27
+	disp	24.d, 1.d
+	anim	4.d, 1.w
+loc_27:
+	return
+
+
+	.interact  131.d, *evt_item_brush_131
+evt_item_brush_131:
+	return
+
+
+sub_11:
+	return
+
+
+	.interact  104.d, *evt_test_box_8_104
+evt_test_box_8_104:
+	win	@unk209
+	win	@pos, 320.w, 220.w
+	msg	"高鍋用デバッグ",
+		wait(254.b)
+	select	"銃撃から再スタート\n",
+		"フラグ０「コップ持ってる」ＯＮ\n",
+		"フラグ１「アーミーはじめまして」ＯＮ\n",
+		"フラグ２「？？？」ＯＮ\n",
+		"フラグ３「？？？」ＯＮ\n",
+		"フラグ４「？？？」ＯＮ",
+		wait(254.b)
+	case	eq(result, 0.w), else *loc_96
+	set	flag(40.d), 0.d
+	set	flag(41.d), 0.d
+	win	@unk209
+	lib	14.w
+	warp	107.w, 1.w
+	break	*loc_95
+loc_96:
+	case	eq(result, 1.w), else *loc_98
+	set	flag(40.d), 1.d
+	set	flag(41.d), 0.d
+	win	@unk209
+	lib	14.w
+	warp	107.w, 1.w
+	break	*loc_95
+loc_98:
+	case	eq(result, 2.w), else *loc_100
+	set	flag(41.d), 1.d
+	win	@unk209
+	lib	14.w
+	warp	107.w, 1.w
+	break	*loc_95
+loc_100:
+	case	eq(result, 3.w), else *loc_102
+	set	flag(42.d), 1.d
+	win	@unk209
+	lib	14.w
+	warp	107.w, 1.w
+	break	*loc_95
+loc_102:
+	case	eq(result, 4.w), else *loc_104
+	set	flag(43.d), 1.d
+	win	@unk209
+	lib	14.w
+	warp	107.w, 1.w
+	break	*loc_95
+loc_104:
+	case	eq(result, 5.w), else *loc_106
+	set	flag(44.d), 1.d
+	win	@unk209
+	lib	14.w
+	warp	107.w, 1.w
+	break	*loc_95
+loc_106:
+	break	*loc_95
+loc_95:
+	win	@unk209
+	return
+
+
+	.interact  155.d, *evt_npc_mama_155
+evt_npc_mama_155:
+	camera	@pos, -4860.d, 7191.w, -194.d, 3.d, 0.w
+	camera	@unk227, 987.w, 8604.w, -3.d, 3.d, 0.w
+	camera	@unk229, 30.w, 3.d, 0.w
+	camera	@distance, 60.w, 3.d, 0.w
+	msg	voice(4.b),
+		anim(0.b, 20002.w, 26.d),
+		"1",
+		wait(254.b)
+	msg	voice(4.b),
+		anim(0.b, 20002.w, 27.d),
+		"2",
+		wait(254.b)
+	msg	voice(4.b),
+		anim(0.b, 20002.w, 1028.d),
+		"3",
+		wait(254.b)
+	msg	voice(4.b),
+		anim(0.b, 20002.w, 26.d),
+		"1",
+		wait(254.b)
+	msg	voice(4.b),
+		anim(0.b, 20002.w, 27.d),
+		"2",
+		wait(254.b)
+	msg	voice(4.b),
+		anim(0.b, 20002.w, 1028.d),
+		"3",
+		wait(254.b)
+	camera	@unk230
+	return

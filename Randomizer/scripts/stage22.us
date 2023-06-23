@@ -1,0 +1,696 @@
+	.stage	"stage22"
+
+
+loc_21:
+	.db	"npc/tonpy_0.dat"
+
+
+loc_29:
+	.dw	20000.w, 9.w
+
+
+loc_22:
+	.db	"sfx_martial.ssm"
+
+
+	.prologue  *evt_prologue
+evt_prologue:
+	kill	47.d
+	kill	48.d
+	kill	49.d
+	kill	50.d
+	kill	51.d
+	kill	52.d
+	kill	53.d
+	kill	54.d
+	kill	30.d
+	kill	31.d
+	kill	32.d
+	kill	33.d
+	kill	34.d
+	kill	35.d
+	kill	36.d
+	kill	37.d
+	kill	38.d
+	kill	39.d
+	return
+
+
+	.startup  *evt_startup
+evt_startup:
+	color	42.d, @modulate, 87.w, 106.w, 153.w, 0.w
+	color	43.d, @modulate, 87.w, 106.w, 153.w, 0.w
+	read	@sfx, 0.w, *loc_22
+	scrn	@hud, 1.d, 0.d
+	lib	156.w
+	call	-38.d
+	set	flag(468.d), 1.d
+	scrn	@fade, 0.w, 0.w, 0.w, 0.w, 0.w, 0.w, 0.w, 255.w, 0.w
+	if	not(flag(35.d)), else *loc_20
+	lib	74.w
+loc_20:
+	run	*sub_3
+	run	*sub_4
+	run	*sub_5
+	run	*sub_9
+	run	*sub_10
+	run	*sub_11
+	run	*sub_19
+	return
+
+
+	.dead	*evt_dead
+evt_dead:
+	detach	42.d
+	call	9.d, 17.d, 0.d
+	lib	243.w
+	if	result, else *loc_63
+	call	9.d, 7.d, 1.d
+	attach	42.d, *sub_24
+	return
+loc_63:
+	sfx	-65466.d, 2.d, 300.w
+	lib	155.w
+	camera	@unk232, -1.d
+	call	-37.d
+	set	flag(468.d), 0.d
+	detach	20005.d
+	lib	0.w
+	return
+
+
+sub_3:
+	return
+
+
+sub_4:
+	set	var(37.d), add(0.w, div(45.w, 2.w))
+	set	var(34.d), mul(sin(mul(var(37.d), 100.w)), 240.d)
+	set	var(36.d), mul(cos(mul(var(37.d), 100.w)), 240.d)
+	born	10000.d, 3.d, var(34.d), 0.w, var(36.d), var(37.d), mul(240.d, 100.w), 300.w, 500.w, *sub_23
+	set	var(37.d), add(45.w, div(45.w, 2.w))
+	set	var(34.d), mul(sin(mul(var(37.d), 100.w)), 240.d)
+	set	var(36.d), mul(cos(mul(var(37.d), 100.w)), 240.d)
+	born	10001.d, 3.d, var(34.d), 0.w, var(36.d), var(37.d), mul(240.d, 100.w), 300.w, 500.w, *sub_23
+	set	var(37.d), add(90.w, div(45.w, 2.w))
+	set	var(34.d), mul(sin(mul(var(37.d), 100.w)), 240.d)
+	set	var(36.d), mul(cos(mul(var(37.d), 100.w)), 240.d)
+	born	10002.d, 3.d, var(34.d), 0.w, var(36.d), var(37.d), mul(240.d, 100.w), 300.w, 500.w, *sub_23
+	set	var(37.d), add(135.w, div(45.w, 2.w))
+	set	var(34.d), mul(sin(mul(var(37.d), 100.w)), 240.d)
+	set	var(36.d), mul(cos(mul(var(37.d), 100.w)), 240.d)
+	born	10003.d, 3.d, var(34.d), 0.w, var(36.d), var(37.d), mul(240.d, 100.w), 300.w, 500.w, *sub_23
+	set	var(37.d), add(180.w, div(45.w, 2.w))
+	set	var(34.d), mul(sin(mul(var(37.d), 100.w)), 240.d)
+	set	var(36.d), mul(cos(mul(var(37.d), 100.w)), 240.d)
+	born	10004.d, 3.d, var(34.d), 0.w, var(36.d), var(37.d), mul(240.d, 100.w), 300.w, 500.w, *sub_23
+	set	var(37.d), add(225.w, div(45.w, 2.w))
+	set	var(34.d), mul(sin(mul(var(37.d), 100.w)), 240.d)
+	set	var(36.d), mul(cos(mul(var(37.d), 100.w)), 240.d)
+	born	10005.d, 3.d, var(34.d), 0.w, var(36.d), var(37.d), mul(240.d, 100.w), 300.w, 500.w, *sub_23
+	set	var(37.d), add(270.w, div(45.w, 2.w))
+	set	var(34.d), mul(sin(mul(var(37.d), 100.w)), 240.d)
+	set	var(36.d), mul(cos(mul(var(37.d), 100.w)), 240.d)
+	born	10006.d, 3.d, var(34.d), 0.w, var(36.d), var(37.d), mul(240.d, 100.w), 300.w, 500.w, *sub_23
+	set	var(37.d), add(315.w, div(45.w, 2.w))
+	set	var(34.d), mul(sin(mul(var(37.d), 100.w)), 240.d)
+	set	var(36.d), mul(cos(mul(var(37.d), 100.w)), 240.d)
+	born	10007.d, 3.d, var(34.d), 0.w, var(36.d), var(37.d), mul(240.d, 100.w), 300.w, 500.w, *sub_23
+	return
+
+
+sub_23:
+	return
+
+
+sub_5:
+	run	*sub_6
+	run	*sub_7
+	return
+
+
+sub_6:
+	return
+
+
+sub_7:
+	run	*sub_8
+	return
+
+
+sub_9:
+	return
+
+
+sub_10:
+	return
+
+
+sub_19:
+	camera	@unk230
+	return
+
+
+	.pose	*evt_pose
+evt_pose:
+	pushbp
+	setsp	7.d
+	setsp	6.d
+	setsp	5.d
+	setsp	4.d
+	setsp	3.d
+	setsp	2.d
+	setsp	1.d
+	lib	104.w
+	popbp
+	if	eq(result, 0.d), else *loc_68
+	if	eq(flag(1234.d), 1.d), else *loc_67
+	scrn	@hud, 0.d, 0.d
+	scrn	@hud, 1.d, 0.d
+loc_67:
+	return
+loc_68:
+	pushbp
+	setsp	0.d
+	lib	86.w
+	popbp
+	return
+
+
+	.interact  8.d, *evt_npc_tonpy_8
+evt_npc_tonpy_8:
+	lib	362.w
+	return
+
+
+sub_11:
+	if	eq(flag(961.d), 0.d), else *loc_17
+	run	*sub_14
+	endif	*loc_13
+loc_17:
+	run	*sub_18
+loc_13:
+	return
+
+
+sub_14:
+	set	flag(961.d), 1.d
+	read	@anim, 20005.d, *loc_21
+	call	20000.d, -1.d
+	color	42.d, @modulate, 1.w, 1.w, 1.w, 0.w
+	pos	20000.d, -4403.d, 0.w, 9061.w
+	dir	20000.d, 152.w
+	call	20005.d, 1.d, 0.d
+	pos	20005.d, -4775.d, 1000.w, 8075.w
+	dir	20005.d, 110.w
+	anim	20005.d, 1.d
+	pos	9.d, -315.d, 0.w, 4020.w
+	dir	9.d, -25.d
+	camera	@pos, -3632.d, 1723.w, 16632.w, 3.d, 0.w
+	camera	@unk227, -2406.d, 1224.w, 10471.w, 3.d, 0.w
+	camera	@unk229, 44.w, 3.d, 0.w
+	camera	@distance, 63.w, 3.d, 0.w
+	wait	@time, 1.w
+	camera	@unk240, 5.d, 181.w, 1.d, 0.w
+	wait	@time, 1.w
+	scrn	@zblur, 255.w, 0.w, 100.w, 100.w, 200.w
+	camera	@unk240, 5.d, 360.w, 1.d, 200.w
+	pushbp
+	setsp	100.w
+	lib	63.w
+	popbp
+	wait	@time, 100.w
+	camera	@pos, -4636.d, 658.w, 15672.w, 1.d, 400.w
+	camera	@unk227, -3335.d, 911.w, 10172.w, 1.d, 400.w
+	camera	@unk229, 36.w, 1.d, 400.w
+	camera	@distance, 56.w, 1.d, 400.w
+	color	42.d, @modulate, 87.w, 106.w, 153.w, 400.w
+	wait	@cam
+	anim	20005.d, 1020.d
+	pushbp
+	setsp	20005.d
+	setsp	2.w
+	lib	93.w
+	popbp
+	camera	@pos, -2010.d, 1582.w, 5117.w, 3.d, 0.w
+	camera	@unk227, -3749.d, 857.w, 7737.w, 3.d, 0.w
+	camera	@unk229, 32.w, 3.d, 0.w
+	camera	@distance, 32.w, 3.d, 0.w
+	mdir	20005.d, @dir, 50.w, 20.w, -1.d
+	wait	@dir, 20005.d
+	move	20005.d, 2000.w, 60.w, -1.d, -1.d
+	disp	10.d, 0.d
+	disp	21.d, 0.d
+	disp	22.d, 0.d
+	disp	23.d, 0.d
+	disp	24.d, 0.d
+	disp	25.d, 0.d
+	disp	26.d, 0.d
+	disp	27.d, 0.d
+	disp	28.d, 0.d
+	disp	29.d, 0.d
+	camera	@pos, -2010.d, 1582.w, 5117.w, 1.d, 100.w
+	camera	@unk227, -3154.d, 888.w, 8054.w, 1.d, 100.w
+	camera	@unk229, 32.w, 1.d, 100.w
+	camera	@distance, 32.w, 1.d, 100.w
+	wait	@move, 20005.d
+	win	@letterbox
+	win	@color, 255.w, 255.w, 255.w, 0.w
+	anim2	20005.d, 1013.d, 0.w, 150.w
+	wait	@anim, 20005.d, -1.d
+	anim	20005.d, 1020.d
+	camera	@pos, -2010.d, 1582.w, 5117.w, 1.d, 600.w
+	camera	@unk227, -294.d, 3230.w, 7297.w, 1.d, 600.w
+	camera	@unk229, 44.w, 1.d, 600.w
+	camera	@distance, 32.w, 1.d, 600.w
+	lib	363.w
+	wait	@cam
+	wait	@time, 60.w
+	pos	20000.d, 0.w, 0.w, 5000.w
+	dir	20000.d, 180.w
+	pos	20005.d, 1000.w, 1000.w, 5000.w
+	dir	20005.d, 180.w
+	pos	9.d, 0.w, 0.w, 0.w
+	dir	9.d, 0.w
+	disp	10.d, 1.d
+	disp	21.d, 1.d
+	disp	22.d, 1.d
+	disp	23.d, 1.d
+	disp	24.d, 1.d
+	disp	25.d, 1.d
+	disp	26.d, 1.d
+	disp	27.d, 1.d
+	disp	28.d, 1.d
+	disp	29.d, 1.d
+	scrn	@zblur, 100.w, 0.w, 20.w, 20.w, 100.w
+	camera	@pos, -912.d, 1264.w, 3940.w, 3.d, 0.w
+	camera	@unk227, 498.w, 1325.w, -3221.d, 3.d, 0.w
+	camera	@unk229, 60.w, 3.d, 0.w
+	camera	@distance, 73.w, 3.d, 0.w
+	wait	@time, 30.w
+	camera	@unk240, 5.d, 20.w, 1.d, 100.w
+	anim2	9.d, 6.d, 0.w, 40.w, 1.d, 0.w, 100.w
+	wait	@time, 100.w
+	pushbp
+	setsp	3.w
+	lib	259.w
+	popbp
+	scrn	@zblur, 200.w, 0.w, 30.w, 30.w, 100.w
+	camera	@pos, -1840.d, 1224.w, 8649.w, 2.d, 100.w
+	camera	@unk227, 498.w, 1325.w, -3221.d, 2.d, 100.w
+	camera	@unk229, 60.w, 2.d, 100.w
+	camera	@distance, 121.w, 2.d, 100.w
+	wait	@cam
+	wait	@time, 10.w
+	pushbp
+	setsp	2.w
+	lib	259.w
+	popbp
+	scrn	@zblur, 200.w, 0.w, 30.w, 30.w, 150.w
+	camera	@pos, -4160.d, 1124.w, 20423.w, 2.d, 150.w
+	camera	@unk227, 498.w, 1325.w, -3221.d, 2.d, 150.w
+	camera	@unk229, 60.w, 2.d, 150.w
+	camera	@distance, 241.w, 2.d, 150.w
+	wait	@cam
+	wait	@time, 5.w
+	pushbp
+	setsp	1.w
+	lib	259.w
+	popbp
+	scrn	@zblur, 200.w, 0.w, 30.w, 30.w, 300.w
+	camera	@pos, -6480.d, 1024.w, 32196.w, 2.d, 200.w
+	camera	@unk227, 498.w, 1325.w, -3221.d, 2.d, 200.w
+	camera	@unk229, 94.w, 2.d, 200.w
+	camera	@distance, 361.w, 2.d, 200.w
+	wait	@time, 100.w
+	sfx	-65469.d, 2.d, 100.w
+	pushbp
+	setsp	100.w
+	lib	186.w
+	popbp
+	lib	95.w
+	camera	@unk240, 5.d, 0.w, 3.d, 0.w
+	wait	@time, 1.w
+	camera	@pos, -206.d, 48.w, 4533.w, 3.d, 0.w
+	camera	@unk227, 4694.w, 1312.w, 13138.w, 3.d, 0.w
+	camera	@unk229, 45.w, 3.d, 0.w
+	camera	@distance, 99.w, 3.d, 0.w
+	camera	@pos, -636.d, 948.w, 4697.w, 1.d, 800.w
+	camera	@unk227, 9110.w, -359.d, 6414.w, 1.d, 800.w
+	camera	@unk229, 45.w, 1.d, 800.w
+	camera	@distance, 99.w, 1.d, 800.w
+	scrn	@fade, 255.w, 255.w, 255.w, 255.w, 255.w, 255.w, 255.w, 0.w, 200.w
+	wait	@time, 100.w
+	sfx	-65468.d, 4.d, 400.w, 64.w
+	wait	@time, 550.w
+	set	cur_atc, 2.d
+	wait	@cam
+	camera	@pos, 776.w, 491.w, 7614.w, 3.d, 0.w
+	camera	@unk227, -740.d, 2051.w, -6981.d, 3.d, 0.w
+	camera	@unk229, 38.w, 3.d, 0.w
+	camera	@distance, 147.w, 3.d, 0.w
+	camera	@unk229, 42.w, 1.d, 600.w
+	wait	@time, 30.w
+	lib	364.w
+	run	*sub_15
+	return
+
+
+sub_18:
+	read	@anim, 20005.d, *loc_21
+	call	20000.d, -1.d
+	color	42.d, @modulate, 1.w, 1.w, 1.w, 0.w
+	pos	20000.d, -4403.d, 0.w, 9061.w
+	dir	20000.d, 152.w
+	call	20005.d, 1.d, 0.d
+	pos	20005.d, -4775.d, 1000.w, 8075.w
+	dir	20005.d, 110.w
+	anim	20005.d, 1.d
+	pos	9.d, -315.d, 0.w, 4020.w
+	dir	9.d, -25.d
+	camera	@pos, -3632.d, 1723.w, 16632.w, 3.d, 0.w
+	camera	@unk227, -2406.d, 1224.w, 10471.w, 3.d, 0.w
+	camera	@unk229, 44.w, 3.d, 0.w
+	camera	@distance, 63.w, 3.d, 0.w
+	wait	@time, 1.w
+	camera	@unk240, 5.d, 181.w, 1.d, 0.w
+	wait	@time, 1.w
+	scrn	@zblur, 255.w, 0.w, 100.w, 100.w, 200.w
+	camera	@unk240, 5.d, 360.w, 1.d, 200.w
+	pushbp
+	setsp	100.w
+	lib	63.w
+	popbp
+	wait	@time, 100.w
+	camera	@pos, -11353.d, 757.w, 11281.w, 1.d, 400.w
+	camera	@unk227, -6336.d, 970.w, 8676.w, 1.d, 400.w
+	camera	@unk229, 36.w, 1.d, 400.w
+	camera	@distance, 56.w, 1.d, 400.w
+	color	42.d, @modulate, 255.w, 255.w, 255.w, 400.w
+	wait	@cam
+	pos	20000.d, 0.w, 0.w, 5000.w
+	dir	20000.d, 180.w
+	pos	20005.d, 1000.w, 1000.w, 5000.w
+	dir	20005.d, 180.w
+	pos	9.d, 0.w, 0.w, 0.w
+	dir	9.d, 0.w
+	camera	@pos, -206.d, 48.w, 4533.w, 3.d, 0.w
+	camera	@unk227, 4694.w, 1312.w, 13138.w, 3.d, 0.w
+	camera	@unk229, 45.w, 3.d, 0.w
+	camera	@distance, 99.w, 3.d, 0.w
+	camera	@pos, -636.d, 948.w, 4697.w, 1.d, 500.w
+	camera	@unk227, 9110.w, -359.d, 6414.w, 1.d, 500.w
+	camera	@unk229, 45.w, 1.d, 500.w
+	camera	@distance, 99.w, 1.d, 500.w
+	wait	@time, 350.w
+	set	cur_atc, 2.d
+	wait	@cam
+	camera	@pos, 776.w, 491.w, 7614.w, 3.d, 0.w
+	camera	@unk227, -740.d, 2051.w, -6981.d, 3.d, 0.w
+	camera	@unk229, 40.w, 3.d, 0.w
+	camera	@distance, 147.w, 3.d, 0.w
+	wait	@time, 30.w
+	win	@letterbox
+	win	@color, 255.w, 255.w, 255.w, 0.w
+	lib	364.w
+	run	*sub_15
+	return
+
+
+sub_15:
+	call	20005.d, 1.d, 1.d
+	attach	43.d, *sub_43
+	sfx	-65469.d, 2.d, 100.w
+	camera	@pos, 0.w, 1800.w, 11099.w, 3.d, 0.w
+	camera	@unk227, 0.w, 1000.w, 4600.w, 3.d, 0.w
+	camera	@unk229, 30.w, 3.d, 0.w
+	camera	@distance, 65.w, 3.d, 0.w
+	wait	@time, 1.w
+	camera	@unk232, -2.d
+	set	flag(964.d), 0.d
+	attach	20005.d, *sub_30
+	run	*sub_16
+	camera	@unk209, 2.d, 100.w
+	scrn	@letterbox, 0.d, 0.w, 0.w, 0.w, 255.w, 0.w, 0.w, 0.w, 0.w, 60.w
+	scrn	@hud, 0.d, 3.d
+	win	@unk209
+	attach	42.d, *sub_24
+	wait	@time, 100.w
+	sfx	-65466.d, 1.d
+	return
+
+
+sub_24:
+	while	1.d, else *loc_27
+	if	and(var(32.d), gt(var(176.d), 0.w)), else *loc_28
+	camera	@unk230
+	break	*loc_27
+loc_28:
+	set	var(0.d), obj(@dir, 20000.d)
+	set	var(0.d), add(add(obj(@dir_to, *loc_29), var(0.d)), 180.w)
+	set	var(51.d), add(obj(@pos_x, 20000.d), mul(sin(mul(var(0.d), 100.w)), 80.w))
+	set	var(52.d), add(obj(@pos_y, 20000.d), 2000.w)
+	set	var(53.d), add(obj(@pos_z, 20000.d), mul(cos(mul(var(0.d), 100.w)), 80.w))
+	camera	@pos, var(51.d), var(52.d), var(53.d), 1.d, 10.w
+	set	var(54.d), obj(@pos_x, 9.d)
+	set	var(55.d), add(obj(@pos_y, 9.d), 1500.w)
+	set	var(56.d), obj(@pos_z, 9.d)
+	camera	@unk227, var(54.d), var(55.d), var(56.d), 3.d, 10.w
+	wait	@time, 1.w
+	goto	*sub_24
+loc_27:
+	return
+
+
+sub_30:
+	while	1.d, else *loc_33
+	if	var(32.d), else *loc_34
+	break	*loc_33
+loc_34:
+	set	var(0.d), rand(300.w)
+	if	eq(var(0.d), 0.w), else *loc_41
+	set	var(0.d), rand(1.w)
+	win	@pos, 320.w, 80.w
+	if	eq(var(0.d), 0.w), else *loc_39
+	anim	20005.d, 1012.d
+	lib	365.w
+	anim	20005.d, 1020.d
+	endif	*loc_37
+loc_39:
+	elif	eq(var(0.d), 1.w), else *loc_37
+	anim	20005.d, 1012.d
+	lib	366.w
+	anim	20005.d, 1020.d
+loc_37:
+	win	@unk209
+	endif	*loc_38
+loc_41:
+	set	var(0.d), mul(div(battery(1.d), 10.w), 3.w)
+	if	and(le(battery(0.d), var(0.d)), eq(flag(964.d), 0.d)), else *loc_38
+	set	flag(964.d), 1.d
+	wait	@time, 100.w
+	win	@pos, 320.w, 80.w
+	anim	20005.d, 1012.d
+	lib	367.w
+	anim	20005.d, 1020.d
+	win	@unk209
+loc_38:
+	wait	@time, 1.w
+	goto	*sub_30
+loc_33:
+	return
+
+
+loc_47:
+	.dw	20000.w, 20005.w
+
+
+sub_43:
+	set	var(775.d), 0.w
+loc_45:
+	while	1.d, else *loc_46
+	set	var(774.d), obj(@distance, *loc_47)
+	pushbp
+	setsp	773.d
+	setsp	772.d
+	setsp	771.d
+	setsp	775.d
+	setsp	774.d
+	lib	279.w
+	popbp
+	wait	@time, 1.w
+	goto	*loc_45
+loc_46:
+	return
+
+
+sub_8:
+	disp	10.d, 1.d
+	disp	21.d, 1.d
+	disp	22.d, 1.d
+	disp	23.d, 1.d
+	disp	24.d, 1.d
+	disp	25.d, 1.d
+	disp	26.d, 1.d
+	disp	27.d, 1.d
+	disp	28.d, 1.d
+	disp	29.d, 1.d
+	call	9.d, 16.d
+	wait	@time, 1.w
+	return
+
+
+sub_16:
+	call	9.d, 7.d, 1.d
+	attach	9.d, *sub_48
+	return
+
+
+sub_48:
+	set	var(32.d), 0.w
+loc_56:
+	while	1.w, else *loc_53
+	call	9.d, 3.d, 32.d
+	if	var(32.d), else *loc_55
+	if	eq(var(176.d), 0.w), else *loc_54
+	timer	0.w, *sub_57
+	endif	*loc_52
+loc_54:
+	timer	0.w, *sub_58
+loc_52:
+	break	*loc_53
+loc_55:
+	wait	@time, 1.w
+	goto	*loc_56
+loc_53:
+	return
+
+
+sub_57:
+	sfx	-65466.d, 4.d, 100.w, 128.w
+	detach	42.d
+	lib	38.w
+	set	var(176.d), add(var(176.d), 1.w)
+	wait	@time, 1.w
+	camera	@unk229, 22.w, 2.d, 60.w
+	wait	@time, 60.w
+	sfx	1441828.d, 1.d
+	scrn	@zblur, 200.w, 0.w, 30.w, 30.w, 150.w
+	anim	9.d, 6.d, 22.d, 23.d
+	camera	@unk240, 3.d, -3.d, 2.d, 80.w
+	wait	@cam
+	wait	@time, 280.w
+	camera	@unk240, 3.d, 5.w, 2.d, 80.w
+	wait	@anim, 9.d, -1.d
+	wait	@cam
+	camera	@unk229, 30.w, 1.d, 100.w
+	lib	368.w
+	sfx	-65466.d, 4.d, 100.w, 255.w
+	call	9.d, 7.d, 1.d
+	attach	9.d, *sub_48
+	attach	20005.d, *sub_30
+	scrn	@letterbox, 0.d, 0.w, 0.w, 0.w, 255.w, 0.w, 0.w, 0.w, 0.w, 60.w
+	scrn	@hud, 0.d, 3.d
+	win	@unk209
+	set	var(32.d), 0.w
+	attach	42.d, *sub_24
+	return
+
+
+sub_58:
+	lib	38.w
+	wait	@time, 1.w
+	camera	@unk229, 28.w, 2.d, 60.w
+	anim	9.d, add(20.d, mul(23.d, 65536.d))
+	wait	@anim, 9.d, -1.d
+	scrn	@zblur, 200.w, 0.w, 30.w, 30.w, 150.w
+	camera	@unk229, 30.w, 1.d, 100.w
+	anim	9.d, add(21.d, mul(23.d, 65536.d))
+	call	9.d, 20.d
+	sfx	1441827.d, 1.d
+	sfx	-65466.d, 2.d, 50.w
+	scrn	@shake, 0.w, 300.w, 0.w, 0.w, 0.w, 0.w, 40.w
+	pushbp
+	setsp	3.w
+	lib	259.w
+	popbp
+	wait	@time, 1.w
+	call	9.d, 22.d
+	wait	@anim, 9.d, -1.d
+	disp	9.d, 0.d
+	set	var(176.d), add(var(176.d), 1.w)
+	scale	41.d, 0.w, 0.w, 0.w
+	scale	40.d, 0.w, 0.w, 0.w
+	wait	@time, 1.w
+	set	var(0.d), add(obj(@pos_x, 9.d), 500.w)
+	set	var(1.d), add(obj(@pos_y, 9.d), 300.w)
+	set	var(2.d), add(obj(@pos_z, 9.d), 500.w)
+	pos	41.d, var(0.d), var(1.d), var(2.d)
+	disp	41.d, 1.d
+	mscale	41.d, 100.w, 100.w, 100.w, 30.w
+	set	var(0.d), sub(obj(@pos_x, 9.d), 500.w)
+	set	var(1.d), add(obj(@pos_y, 9.d), 300.w)
+	set	var(2.d), sub(obj(@pos_z, 9.d), 500.w)
+	pos	40.d, var(0.d), var(1.d), var(2.d)
+	disp	40.d, 1.d
+	mscale	40.d, 100.w, 100.w, 100.w, 30.w
+	camera	@unk230
+	lib	369.w
+	set	flag(1234.d), 1.d
+	if	eq(cur_atc, 2.d), else *loc_60
+	set	cur_atc, 0.d
+	wait	@time, 200.w
+loc_60:
+	scrn	@hud, 0.d, 2.d
+	call	20000.d, 801.d
+	scrn	@letterbox, 0.d, 0.w, 0.w, 0.w, 255.w, 0.w, 0.w, 0.w, 0.w, 60.w
+	win	@unk209
+	return
+
+
+	.interact  40.d, *evt_item_frog_ring_40
+evt_item_frog_ring_40:
+	pushbp
+	setsp	0.d
+	lib	77.w
+	popbp
+	set	var(71.d), add(var(71.d), 1.w)
+	set	var(147.d), add(var(147.d), 1.w)
+	run	*sub_71
+	return
+
+
+	.interact  41.d, *evt_item_left_foot_41
+evt_item_left_foot_41:
+	pushbp
+	setsp	109.d
+	lib	77.w
+	popbp
+	run	*sub_71
+	return
+
+
+sub_71:
+	set	var(33.d), add(var(33.d), 1.w)
+	if	eq(var(33.d), 2.w), else *loc_73
+	set	flag(17.d), 1.d
+	detach	42.d
+	wait	@time, 100.w
+	color	42.d, @modulate, 0.w, 0.w, 0.w, 300.w
+	color	43.d, @modulate, 0.w, 0.w, 0.w, 300.w
+	camera	@unk240, 5.d, 0.w, 3.d, 0.w
+	wait	@time, 1.w
+	wait	@cam
+	camera	@unk240, 5.d, -569.d, 1.d, 300.w
+	wait	@time, 150.w
+	scrn	@zblur, 255.w, 0.w, 100.w, 100.w, 200.w
+	lib	14.w
+	call	-37.d
+	lib	155.w
+	camera	@unk232, -1.d
+	call	20000.d, 800.d
+	set	flag(468.d), 0.d
+	wait	@time, 20.w
+	warp	7.d, 0.d
+loc_73:
+	return

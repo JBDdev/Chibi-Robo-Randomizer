@@ -1,0 +1,39 @@
+	.stage	"stage08"
+
+
+	.startup  *evt_startup
+evt_startup:
+	return
+
+
+	.interact  4.d, *evt_test_box_12_4
+evt_test_box_12_4:
+	case	eq(map(1.d), 1.d), else *loc_4
+	warp	1.d, 1.w
+	break	*loc_3
+loc_4:
+	case	eq(map(1.d), 2.d), else *loc_6
+	warp	2.d, 1.w
+	break	*loc_3
+loc_6:
+	case	eq(map(1.d), 3.d), else *loc_8
+	warp	3.d, 1.w
+	break	*loc_3
+loc_8:
+	case	eq(map(1.d), 4.d), else *loc_10
+	warp	4.d, 1.w
+	break	*loc_3
+loc_10:
+	case	eq(map(1.d), 6.d), else *loc_12
+	warp	6.d, 1.w
+	break	*loc_3
+loc_12:
+	case	eq(map(1.d), 7.d), else *loc_14
+	warp	7.d, 1.w
+	break	*loc_3
+loc_14:
+	case	eq(map(1.d), 9.d), else *loc_3
+	warp	9.d, 1.w
+	break	*loc_3
+loc_3:
+	return

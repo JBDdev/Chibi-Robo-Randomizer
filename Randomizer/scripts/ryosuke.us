@@ -1,0 +1,24 @@
+	.stage	"ryosuke"
+
+
+	.startup  *evt_startup
+evt_startup:
+	lib	8.w
+loc_2:
+	while	1.w, else *loc_3
+	scrn	@wipe, 1.d, 1.d, 320.w, 150.w, 640.w, 480.w, 0.w, 0.w, 0.w, 0.w, 640.w, 300.w, 0.w, 0.w, 0.w, 255.w, 200.w
+	msg	wait(254.b)
+	scrn	@wipe, 1.d, 0.d, 320.w, 150.w, 640.w, 300.w, 0.w, 0.w, 0.w, 255.w, 640.w, 480.w, 0.w, 0.w, 0.w, 0.w, 200.w
+	msg	wait(254.b)
+	scrn	@wipe, 1.d, 1.d, 320.w, 220.w, 640.w, 480.w, 0.w, 0.w, 0.w, 0.w, 640.w, 240.w, 0.w, 0.w, 0.w, 255.w, 100.w
+	msg	wait(254.b)
+	scrn	@wipe, 1.d, 0.d, 320.w, 220.w, 640.w, 240.w, 0.w, 0.w, 0.w, 255.w, 640.w, 480.w, 0.w, 0.w, 0.w, 0.w, 100.w
+	msg	wait(254.b)
+	goto	*loc_2
+loc_3:
+	return
+
+
+	.pose	*evt_pose
+evt_pose:
+	return

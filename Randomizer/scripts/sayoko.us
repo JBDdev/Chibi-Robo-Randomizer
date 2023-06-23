@@ -1,0 +1,266 @@
+	.stage	"sayoko"
+
+
+	.startup  *evt_startup
+evt_startup:
+	set	var(74.d), 80.w
+	set	exp, add(exp, var(74.d))
+	return
+
+
+	.interact  18.d, *evt_npc_et_1_18
+evt_npc_et_1_18:
+	sfx	196626.d, 1.d
+	msg	size(40.b),
+		speed(7.b),
+		"キャプテン",
+		wait(254.b),
+		size(255.b)
+	return
+
+
+	.interact  19.d, *evt_npc_et_1_19
+evt_npc_et_1_19:
+	msg	size(40.b),
+		speed(7.b),
+		"ランデブー",
+		wait(254.b),
+		size(255.b)
+	return
+
+
+	.interact  20.d, *evt_npc_et_1_20
+evt_npc_et_1_20:
+	msg	size(40.b),
+		speed(7.b),
+		"ガリメデ",
+		wait(254.b),
+		size(255.b)
+	return
+
+
+	.interact  21.d, *evt_npc_et_1_21
+evt_npc_et_1_21:
+	msg	size(40.b),
+		speed(7.b),
+		"リトルバン",
+		wait(254.b),
+		size(255.b)
+	return
+
+
+	.interact  22.d, *evt_npc_army_3_22
+evt_npc_army_3_22:
+	msg	size(40.b),
+		speed(7.b),
+		"アーミー３",
+		wait(254.b),
+		size(255.b)
+	return
+
+
+	.interact  23.d, *evt_npc_army_4_23
+evt_npc_army_4_23:
+	msg	size(40.b),
+		speed(7.b),
+		"アーミー４",
+		wait(254.b),
+		size(255.b)
+	return
+
+
+	.interact  24.d, *evt_npc_army_5_24
+evt_npc_army_5_24:
+	msg	size(40.b),
+		speed(7.b),
+		"アーミー５",
+		wait(254.b),
+		size(255.b)
+	return
+
+
+	.interact  17.d, *evt_npc_bb_17
+evt_npc_bb_17:
+	return
+
+
+	.dead	*evt_dead
+evt_dead:
+	lib	0.w
+	return
+
+
+	.pose	*evt_pose
+evt_pose:
+	lib	69.w
+	return
+
+
+	.interact  1.d, *evt_socket_1
+evt_socket_1:
+	lib	1.w
+	return
+
+
+	.interact  13.d, *evt_item_frog_ring_13
+evt_item_frog_ring_13:
+	return
+
+
+	.interact  14.d, *evt_item_frog_ring_14
+evt_item_frog_ring_14:
+	return
+
+
+	.interact  15.d, *evt_item_frog_ring_15
+evt_item_frog_ring_15:
+	return
+
+
+	.interact  16.d, *evt_item_frog_ring_16
+evt_item_frog_ring_16:
+	return
+
+
+	.interact  2.d, *evt_npc_tonpy_2
+evt_npc_tonpy_2:
+	lib	38.w
+	lib	39.w
+	return
+
+
+	.interact  3.d, *evt_npc_jenny_3
+evt_npc_jenny_3:
+	sfx	196626.d, 1.d
+	wait	@time, 30.w
+	sfx	196627.d, 1.d
+	wait	@time, 30.w
+	sfx	196628.d, 1.d
+	wait	@time, 30.w
+	sfx	196629.d, 1.d
+	wait	@time, 30.w
+	sfx	196630.d, 1.d
+	wait	@time, 30.w
+	sfx	196631.d, 1.d
+	wait	@time, 30.w
+	sfx	196632.d, 1.d
+	return
+
+
+	.interact  5.d, *evt_npc_tao_5
+evt_npc_tao_5:
+	set	var(0.d), obj(@anim, 20004.d)
+	if	eq(var(0.d), 1.w), else *loc_11
+	detach	20004.d
+	move	20004.d, 0.w, 0.w, -1.d, -2.d
+	wait	@move, 20004.d
+	anim	20004.d
+loc_11:
+	msg	"わん",
+		wait(254.b)
+	if	eq(var(0.d), 1.w), else *loc_10
+	attach	20004.d, *sub_12
+loc_10:
+	return
+
+
+sub_12:
+	return
+
+
+	.interact  8.d, *evt_npc_mama_8
+evt_npc_mama_8:
+	select	"レベル３\v",
+		"レベル４\v",
+		"レベル５\v",
+		"レベル６"
+	case	eq(result, 0.w), else *loc_18
+	set	level, 2.d
+	break	*loc_17
+loc_18:
+	case	eq(result, 1.w), else *loc_20
+	set	level, 3.d
+	break	*loc_17
+loc_20:
+	case	eq(result, 2.w), else *loc_22
+	set	level, 4.d
+	break	*loc_17
+loc_22:
+	case	eq(result, 3.w), else *loc_24
+	set	level, 5.d
+	break	*loc_17
+loc_24:
+	break	*loc_17
+loc_17:
+	return
+
+
+	.interact  11.d, *evt_npc_papa_11
+evt_npc_papa_11:
+	return
+
+
+	.interact  10.d, *evt_npc_deca_robo_10
+evt_npc_deca_robo_10:
+	win	@color, 0.w, 0.w, 0.w, 255.w
+	msg	rgba(16711935.d),
+		"キミドリ",
+		wait(254.b)
+	msg	rgba(4281584895.d),
+		"ピンク",
+		wait(254.b)
+	msg	rgba(4278190335.d),
+		"アカ",
+		wait(254.b)
+	msg	rgba(869072895.d),
+		"ミズイロ",
+		wait(254.b)
+	msg	rgba(855703551.d),
+		"ネイビー",
+		wait(254.b)
+	msg	rgba(1711315455.d),
+		"ムラサキ",
+		wait(254.b)
+	msg	rgba(4294902015.d),
+		"キイロ",
+		wait(254.b)
+	msg	rgba(4291559679.d),
+		"オレンジ",
+		wait(254.b)
+	msg	rgba(2576980479.d),
+		"グレイ",
+		wait(254.b)
+	msg	rgba(10027263.d),
+		"ミドリ",
+		wait(254.b)
+	win	@unk209
+	return
+
+
+	.interact  9.d, *evt_npc_keath_9
+evt_npc_keath_9:
+	return
+
+
+	.interact  12.d, *evt_npc_fafa_12
+evt_npc_fafa_12:
+	anim	20012.d, 1043.d
+	call	20012.d, 1.d, 100.d
+	wait	@anim, 1043.d, -1.d
+	anim	20012.d, 26.d
+	return
+
+
+	.interact  4.d, *evt_map_jump_box_4
+evt_map_jump_box_4:
+	return
+
+
+	.interact  6.d, *evt_map_jump_box_6
+evt_map_jump_box_6:
+	return
+
+
+	.interact  7.d, *evt_map_jump_box_7
+evt_map_jump_box_7:
+	return

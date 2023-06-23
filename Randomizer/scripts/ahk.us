@@ -1,0 +1,501 @@
+	.stage	"ahk"
+
+
+loc_12:
+	.db	"cb_robo_5.dat"
+
+
+loc_13:
+	.db	"npc/jenny_0.dat"
+
+
+	.prologue  *evt_prologue
+evt_prologue:
+	pushbp
+	setsp	flag(-2.d)
+	printf	"prologue: mcload=%d\n"
+	popbp
+	msg	"prologue"
+	return
+
+
+	.startup  *evt_startup
+evt_startup:
+	pushbp
+	setsp	flag(-2.d)
+	printf	"startup: mcload=%d\n"
+	popbp
+	set	money, 1234567.d
+	set	item(24.d), 1.w
+	set	item(25.d), 1.w
+	set	item(26.d), 1.w
+	set	item(32.d), 1.w
+	set	item(33.d), 0.w
+	set	item(34.d), 1.w
+	set	item(30.d), 1.w
+	set	item(31.d), 1.w
+	set	item(16.d), 1.w
+	set	item(21.d), 1.w
+	set	item(22.d), 1.w
+	set	item(56.d), 1.w
+	set	item(3.d), 1.w
+	set	item(4.d), 2.w
+	set	item(5.d), 1.w
+	set	item(0.d), 5.w
+	set	item(54.d), 1.w
+	set	item(53.d), 1.w
+	set	var(1022.w), 0.w
+	set	var(1023.w), 0.w
+	read	@anim, 20000.d, *loc_12
+	wait	@read, 20000.d
+	read	@anim, 20003.d, *loc_13
+	wait	@read, 20003.d
+	call	17.d, 0.w, 6.w, 18.d, 19.d
+	call	17.d, 1.w
+	call	-11.d, 20005.d, or(or(1.d, 2.d), 16.d)
+	if	0.w, else *loc_9
+	set	var(0.w), 0.w
+	endif	*loc_3
+loc_9:
+	elif	0.w, else *loc_11
+	set	var(0.w), 1.w
+	endif	*loc_3
+loc_11:
+	set	var(0.w), 1.w
+loc_3:
+	set	var(0.w), add(var(0.w), 1.w)
+	set	var(0.w), 0.w
+	pushbp
+	setsp	var(0.w)
+	printf	"%d\n"
+	popbp
+	set	var(0.w), add(var(0.w), 128.w)
+	set	mula(var(0.w), 100.w)
+	pushbp
+	setsp	var(0.w)
+	printf	"%d\n"
+	popbp
+	set	diva(var(0.w), 100.w)
+	pushbp
+	setsp	var(0.w)
+	printf	"%d\n"
+	popbp
+	set	moda(var(0.w), 100.w)
+	pushbp
+	setsp	var(0.w)
+	printf	"%d\n"
+	popbp
+	set	mula(var(0.w), 100.w)
+	pushbp
+	setsp	var(0.w)
+	printf	"%d\n"
+	popbp
+	set	adda(var(0.w), 2.w)
+	pushbp
+	setsp	var(0.w)
+	printf	"%d\n"
+	popbp
+	set	suba(var(0.w), 5.w)
+	pushbp
+	setsp	var(0.w)
+	printf	"%d\n"
+	popbp
+	set	adda(var(0.w), 1.w)
+	pushbp
+	setsp	var(0.w)
+	printf	"%d\n"
+	popbp
+	set	suba(var(0.w), 1.w)
+	pushbp
+	setsp	var(0.w)
+	printf	"%d\n"
+	popbp
+	set	anda(var(0.w), 123.w)
+	pushbp
+	setsp	var(0.w)
+	printf	"%d\n"
+	popbp
+	set	ora(var(0.w), 5.w)
+	pushbp
+	setsp	var(0.w)
+	printf	"%d\n"
+	popbp
+	set	xora(var(0.w), -1.d)
+	pushbp
+	setsp	var(0.w)
+	printf	"%d\n"
+	popbp
+	if	not(flag(-2.d)), else *loc_8
+	pushbp
+	setsp	level
+	setsp	exp
+	printf	"exp=%d, lev=%d\n"
+	popbp
+	set	exp, 258.w
+	set	adda(level, 1.w)
+	set	adda(level, 1.w)
+	set	adda(exp, 10.w)
+	pushbp
+	setsp	level
+	setsp	exp
+	printf	"exp=%d, lev=%d\n"
+	popbp
+	set	exp, 123.w
+loc_8:
+	pushbp
+	setsp	atc(2.d)
+	printf	"popper=%d\n"
+	popbp
+	set	flag(500.w), 0.w
+	attach	16.d, *sub_14
+	set	var(0.w), 0.w
+loc_6:
+	while	lt(var(0.w), 159.d), else *loc_7
+	set	adda(var(0.w), 1.w)
+	goto	*loc_6
+loc_7:
+	set	adda(item(131.w), 1.w)
+	born	10001.w, 1.d, 9428.w, 1200.w, 15945.w, 45.w, 1000.w, 400.w, 1000.w, *evt_pushobj_1_5
+	return
+
+
+	.dead	*evt_dead
+evt_dead:
+	lib	243.w
+	if	result, else *loc_25
+	return
+loc_25:
+	lib	0.w
+	return
+
+
+	.pose	*evt_pose
+evt_pose:
+	menu	3.d
+	return
+
+
+	.time_cycle  *evt_time_cycle
+evt_time_cycle:
+	lib	73.w
+	lib	99.w
+	return
+
+
+	.time_up  *evt_time_up
+evt_time_up:
+	scrn	@fade, 0.w, 0.w, 0.w, 0.w, 0.w, 0.w, 0.w, 128.w, 50.w
+	wait	@fade
+	msg	speed(0.b),
+		"タイムアップ",
+		wait(254.b)
+	scrn	@wipe, 0.d, 1.d, 320.w, 240.w, 700.w, 700.w, 0.w, 0.w, 0.w, 255.w, 0.w, 0.w, 0.w, 0.w, 0.w, 255.w, 100.w
+	wait	@wipe
+	wait	@time, 50.w
+	warp	10000.d, 1.w
+	return
+
+
+	.interact  25.d, *evt_item_frog_ring_25
+evt_item_frog_ring_25:
+	wait	@anim, 20000.d, -1.d
+	if	ge(item(hold), 10.d), else *loc_46
+	pushbp
+	setsp	item_name(hold)
+	msg	"「",
+		format("%s"),
+		"」はこれ以上持てません",
+		wait(254.b)
+	popbp
+	endif	*loc_45
+loc_46:
+	pushbp
+	setsp	item(hold)
+	setsp	hold
+	msg	"hold=",
+		format("%d"),
+		"(",
+		format("%d"),
+		")",
+		wait(254.b)
+	popbp
+loc_45:
+	return
+
+
+	.interact  26.d, *evt_item_mag_cup_26
+evt_item_mag_cup_26:
+	wait	@anim, 20000.d, -1.d
+	msg	"get!",
+		wait(254.b)
+	return
+
+
+sub_41:
+	printf	"tttt\n"
+	return
+
+
+	.interact  23.d, *evt_npc_consentman_23
+evt_npc_consentman_23:
+	if	not(flag(500.w)), else *loc_40
+	born	10000.w, 0.d, -1597.d, 0.w, 27185.w, 45.w, 500.w, 400.w, 500.w, *sub_41
+	endif	*loc_39
+loc_40:
+	kill	10000.w
+loc_39:
+	set	flag(500.w), not(flag(500.w))
+	return
+
+
+sub_14:
+	while	1.w, else *loc_16
+	move	16.d, 500.w, 100.w, -1.d, 180.w
+	wait	@move, 16.d
+	move	16.d, 500.w, 100.w, -1.d, 90.w
+	wait	@move, 16.d
+	move	16.d, 500.w, 100.w, -1.d, 0.w
+	wait	@move, 16.d
+	move	16.d, 500.w, 100.w, -1.d, 270.w
+	wait	@move, 16.d
+	goto	*sub_14
+loc_16:
+	return
+
+
+loc_30:
+	.db	"npc/tonpy_2.dat"
+
+
+	.interact  4.d, *evt_npc_tonpy_4
+evt_npc_tonpy_4:
+	read	@anim, 20005.d, *loc_30
+	lib	38.w
+	wait	@read, 20005.d
+	anim	20005.d, 1002.d
+	msg	voice(0.b),
+		"はやく！はやく！　ちびロボさん！",
+		wait(254.b)
+	lib	39.w
+	return
+
+
+	.interact  24.d, *evt_chibi_house_chi_pc_24
+evt_chibi_house_chi_pc_24:
+	call	-12.d, 0.w
+	return
+
+
+	.interact  17.d, *evt_house_r_chibi_h_main_17
+evt_house_r_chibi_h_main_17:
+	lib	2.w
+	return
+
+
+	.interact  28.d, *evt_plug_start_28
+evt_plug_start_28:
+	lib	1.w
+	return
+
+
+	.interact  33.d, *evt_npc_mama_33
+evt_npc_mama_33:
+	scale	20002.d, 5.w, 5.w, 5.w
+	msg	wait(254.b)
+	scale	20002.d, 10.w, 10.w, 10.w
+	msg	wait(254.b)
+	mscale	20002.d, 5.w, 5.w, 5.w, 50.w
+	wait	@scale, 20002.d
+	msg	wait(254.b)
+	mscale	20002.d, 10.w, 10.w, 10.w, 50.w
+	wait	@scale, 20002.d
+	return
+
+
+	.interact  34.d, *evt_npc_jenny_34
+evt_npc_jenny_34:
+	wait	@time, 500.w
+	msg	wait(254.b)
+	return
+
+
+	.interact  100.d, *evt_npc_tao_100
+evt_npc_tao_100:
+	anim	20004.d, 1.w
+	msg	wait(254.b)
+	return
+
+
+	.interact  14.d, *evt_coin_g_14
+evt_coin_g_14:
+	return
+
+
+	.interact  15.d, *evt_coin_s_15
+evt_coin_s_15:
+	return
+
+
+	.interact  13.d, *evt_coin_c_13
+evt_coin_c_13:
+	return
+
+
+	.interact  9.d, *evt_test_box_4_9
+	.interact  10.d, *evt_test_box_4_9
+evt_test_box_4_9:
+	pushbp
+	setsp	use
+	msg	"use=",
+		format("%d"),
+		wait(254.b)
+	popbp
+	return
+
+
+	.interact  35.d, *evt_living_asiato_35
+	.interact  36.d, *evt_living_asiato_35
+	.interact  37.d, *evt_living_asiato_35
+	.interact  38.d, *evt_living_asiato_35
+	.interact  39.d, *evt_living_asiato_35
+	.interact  40.d, *evt_living_asiato_35
+	.interact  41.d, *evt_living_asiato_35
+	.interact  42.d, *evt_living_asiato_35
+	.interact  43.d, *evt_living_asiato_35
+	.interact  44.d, *evt_living_asiato_35
+	.interact  45.d, *evt_living_asiato_35
+	.interact  46.d, *evt_living_asiato_35
+	.interact  47.d, *evt_living_asiato_35
+	.interact  48.d, *evt_living_asiato_35
+	.interact  49.d, *evt_living_asiato_35
+	.interact  50.d, *evt_living_asiato_35
+evt_living_asiato_35:
+	pushbp
+	setsp	use
+	printf	"use=%d\n"
+	popbp
+	if	eq(use, 16.d), else *loc_56
+	set	adda(var(1022.w), 1.w)
+	pushbp
+	setsp	var(1022.w)
+	printf	"ヨゴレ=%d\n"
+	popbp
+	if	ge(var(1022.w), 16.w), else *loc_55
+	msg	"ヨゴレ掃除完了",
+		wait(254.b)
+loc_55:
+	endif	*loc_54
+loc_56:
+	elif	eq(use, 56.d), else *loc_54
+	call	20000.d, 900.d, 1.d, 255.w, 0.w, 0.w
+	printf	"注射器!\n"
+loc_54:
+	return
+
+
+	.interact  51.d, *evt_test_dust_0_51
+	.interact  52.d, *evt_test_dust_0_51
+	.interact  53.d, *evt_test_dust_0_51
+	.interact  54.d, *evt_test_dust_0_51
+	.interact  55.d, *evt_test_dust_0_51
+	.interact  56.d, *evt_test_dust_0_51
+	.interact  57.d, *evt_test_dust_0_51
+	.interact  58.d, *evt_test_dust_0_51
+	.interact  59.d, *evt_test_dust_0_51
+	.interact  60.d, *evt_test_dust_0_51
+	.interact  61.d, *evt_test_dust_0_51
+	.interact  62.d, *evt_test_dust_0_51
+	.interact  63.d, *evt_test_dust_0_51
+	.interact  64.d, *evt_test_dust_0_51
+	.interact  65.d, *evt_test_dust_0_51
+	.interact  66.d, *evt_test_dust_0_51
+	.interact  67.d, *evt_test_dust_0_51
+	.interact  68.d, *evt_test_dust_0_51
+	.interact  69.d, *evt_test_dust_0_51
+	.interact  70.d, *evt_test_dust_0_51
+	.interact  71.d, *evt_test_dust_0_51
+	.interact  72.d, *evt_test_dust_0_51
+	.interact  73.d, *evt_test_dust_0_51
+	.interact  74.d, *evt_test_dust_0_51
+	.interact  75.d, *evt_test_dust_0_51
+	.interact  76.d, *evt_test_dust_0_51
+	.interact  77.d, *evt_test_dust_0_51
+	.interact  78.d, *evt_test_dust_0_51
+	.interact  79.d, *evt_test_dust_0_51
+	.interact  80.d, *evt_test_dust_0_51
+	.interact  81.d, *evt_test_dust_0_51
+	.interact  82.d, *evt_test_dust_0_51
+	.interact  83.d, *evt_test_dust_0_51
+	.interact  84.d, *evt_test_dust_0_51
+	.interact  85.d, *evt_test_dust_0_51
+	.interact  86.d, *evt_test_dust_0_51
+	.interact  87.d, *evt_test_dust_0_51
+	.interact  88.d, *evt_test_dust_0_51
+	.interact  89.d, *evt_test_dust_0_51
+	.interact  90.d, *evt_test_dust_0_51
+	.interact  91.d, *evt_test_dust_0_51
+	.interact  92.d, *evt_test_dust_0_51
+	.interact  93.d, *evt_test_dust_0_51
+	.interact  94.d, *evt_test_dust_0_51
+	.interact  95.d, *evt_test_dust_0_51
+	.interact  96.d, *evt_test_dust_0_51
+	.interact  97.d, *evt_test_dust_0_51
+	.interact  98.d, *evt_test_dust_0_51
+evt_test_dust_0_51:
+	pushbp
+	setsp	hit
+	printf	"hit=%d\n"
+	popbp
+	if	or(or(eq(hit, 2000.d), eq(hit, 2001.d)), eq(hit, 2002.d)), else *loc_61
+	set	adda(var(1023.w), 1.w)
+	pushbp
+	setsp	var(1023.w)
+	printf	"ホコリ=%d\n"
+	popbp
+	if	ge(var(1023.w), 48.w), else *loc_61
+	msg	"ホコリ掃除完了",
+		wait(254.b)
+loc_61:
+	return
+
+
+	.interact  7.d, *evt_living_happy_box_7
+	.interact  99.d, *evt_living_happy_box_7
+evt_living_happy_box_7:
+	set	adda(var(1000.w), 5.w)
+	set	adda(exp, var(1000.w))
+	msg	"get!!!",
+		wait(254.b)
+	return
+
+
+loc_64:
+	.db	"npc/bb_1.dat"
+
+
+	.interact  101.d, *evt_npc_bb_101
+evt_npc_bb_101:
+	read	@anim, 20012.d, *loc_64
+	wait	@read, 20012.d
+	anim1	20012.d, 1011.d
+	wait	@anim, 20012.d, -1.d
+	anim1	20012.d, 1004.d
+	msg	"@",
+		wait(254.b)
+	return
+
+
+	.interact  5.d, *evt_pushobj_1_5
+evt_pushobj_1_5:
+	call	20000.d, 501.d
+loc_22:
+	while	1.w, else *loc_20
+	wait	@time, 1.w
+	call	20000.d, 514.d
+	if	result, else *loc_21
+	break	*loc_20
+loc_21:
+	goto	*loc_22
+loc_20:
+	msg	wait(254.b)
+	return

@@ -1,0 +1,30 @@
+	.stage	"stage10"
+
+
+loc_3:
+	.db	"movie/staff_roll_us.thp"
+
+
+	.startup  *evt_startup
+evt_startup:
+	scrn	@fade, 0.w, 0.w, 0.w, 0.w, 0.w, 0.w, 0.w, 255.w, 0.w
+	run	*sub_1
+	return
+
+
+sub_1:
+	movie	*loc_3, 320.w, 240.w, 640.w, 480.w, 0.w
+	wait	@unk246, -1.d
+	run	*sub_2
+	return
+
+
+sub_2:
+	set	flag(35.d), 1.w
+	lib	264.w
+	lib	265.w
+	set	time(1.d), 0.d
+	lib	252.w
+	set	time(0.d), 0.d
+	lib	121.w
+	return

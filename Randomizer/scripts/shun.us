@@ -1,0 +1,1875 @@
+	.stage	"shun"
+
+
+loc_120:
+	.db	"ちびパソへ"
+
+
+loc_121:
+	.db	"sfx_martial.ssm"
+
+
+loc_468:
+	.db	"npc/papa_6.dat"
+
+
+loc_469:
+	.db	"npc/papa_0.dat"
+
+
+loc_470:
+	.db	"npc/papa_0.dat"
+
+
+loc_404:
+	.db	"npc/mama_4.dat"
+
+
+loc_405:
+	.db	"npc/mama_0.dat"
+
+
+loc_330:
+	.db	"npc/jenny_2.dat"
+
+
+	.prologue  *evt_prologue
+evt_prologue:
+	return
+
+
+sub_117:
+	set	item(sp(0.b)), 1.w
+	set	flag(add(1700.d, sp(0.b))), 1.d
+	return
+
+
+	.startup  *evt_startup
+evt_startup:
+	call	20001.d, 6.d, 133.d
+	call	20012.d, 1.d, 100.d
+	set	money, add(money, 10000.w)
+	set	scrap, add(scrap, 10000.w)
+	call	20011.d, 1.d, 1.d
+	read	@sfx, 0.w, *loc_121
+	run	*sub_119
+	wait	@time, 1.w
+	attach	59.d, *sub_138
+	attach	20011.d, *sub_143
+	if	eq(flag(419.d), 0.w), else *loc_118
+	attach	20005.d, *sub_149
+loc_118:
+	set	atc(1.d), 1.w
+	set	atc(3.d), 0.w
+	set	flag(474.d), 1.w
+	set	flag(601.d), 1.w
+	run	*sub_41
+	run	*sub_93
+	lib	184.w
+	set	flag(359.d), 0.w
+	anim	20002.d, 27.d
+	call	20002.d, 2.d, 406.d
+	set	item(16.d), 1.w
+	set	item(21.d), 1.w
+	set	item(22.d), 1.w
+	set	item(56.d), 1.w
+	pushbp
+	setsp	25.d
+	run	*sub_117
+	popbp
+	pushbp
+	setsp	34.d
+	run	*sub_117
+	popbp
+	pushbp
+	setsp	24.d
+	run	*sub_117
+	popbp
+	pushbp
+	setsp	32.d
+	run	*sub_117
+	popbp
+	set	flag(19.d), 1.w
+	set	flag(1181.d), 1.w
+	set	flag(1612.d), 1.w
+	set	flag(667.d), 1.w
+	set	flag(1083.d), 1.w
+	set	flag(1617.d), 1.w
+	set	flag(1084.d), 1.w
+	set	flag(17.d), 1.w
+	set	flag(1225.d), 1.w
+	set	flag(1227.d), 1.w
+	pushbp
+	setsp	53.d
+	run	*sub_117
+	popbp
+	pushbp
+	setsp	54.d
+	run	*sub_117
+	popbp
+	pushbp
+	setsp	62.d
+	run	*sub_117
+	popbp
+	pushbp
+	setsp	158.d
+	run	*sub_117
+	popbp
+	set	flag(29.d), 1.d
+	set	flag(30.d), 1.d
+	pushbp
+	setsp	109.d
+	run	*sub_117
+	popbp
+	set	flag(28.d), 1.d
+	pushbp
+	setsp	124.d
+	run	*sub_117
+	popbp
+	set	flag(29.d), 1.w
+	set	flag(30.d), 1.w
+	set	var(136.d), 4000.w
+	set	flag(2.d), 1.w
+	set	flag(1080.d), 1.w
+	call	-200.d, *loc_120, *evt_chibi_house_8
+	anim	20015.d, 1.d
+	anim	20005.d, 1.d
+	pushbp
+	setsp	10893.w
+	setsp	0.w
+	setsp	5000.w
+	setsp	54.d
+	lib	153.w
+	popbp
+	pushbp
+	setsp	10893.w
+	setsp	0.w
+	setsp	7500.w
+	setsp	55.d
+	lib	153.w
+	popbp
+	pushbp
+	setsp	10893.w
+	setsp	0.w
+	setsp	10000.w
+	setsp	56.d
+	lib	153.w
+	popbp
+	if	and(not(flag(305.d)), flag(17.d)), else *loc_40
+	attach	20005.d, *sub_122
+loc_40:
+	set	flag(334.d), 1.w
+	set	flag(2001.d), 1.w
+	set	flag(427.d), 1.d
+	lib	150.w
+	set	var(add(500.d, 3.w)), 5.w
+	set	var(add(530.d, 3.w)), 0.w
+	set	var(add(500.d, 2.w)), 5.w
+	set	var(add(530.d, 2.w)), 1.w
+	set	flag(2001.d), 1.w
+	set	var(add(500.d, 1.w)), 5.w
+	set	var(add(530.d, 1.w)), 0.w
+	set	var(add(500.d, 9.w)), 5.w
+	set	var(add(530.d, 9.w)), 2.w
+	set	battery(1.d), 30000.w
+	set	battery(0.d), battery(1.d)
+	set	exp, 1000.w
+	run	*sub_4
+	pos	20000.d, -5769.d, 0.w, 11845.w
+	set	flag(4.d), 1.w
+	set	flag(335.d), 1.w
+	set	var(add(701.d, 0.w)), 1.d
+	set	var(728.d), 1.w
+	set	flag(943.d), 1.d
+	set	flag(944.d), 1.d
+	set	flag(945.d), 1.d
+	set	var(795.d), 2.w
+	set	var(794.d), 8.w
+	wait	@fade
+	return
+
+
+sub_122:
+	lib	292.w
+	return
+
+
+	.interact  3.d, *evt_item_frog_ring_3
+evt_item_frog_ring_3:
+	set	money, add(money, 1000.w)
+	return
+
+
+	.interact  4.d, *evt_item_frog_ring_4
+evt_item_frog_ring_4:
+	return
+
+
+	.interact  10.d, *evt_unk_item_6_10
+evt_unk_item_6_10:
+	return
+
+
+	.interact  11.d, *evt_unk_item_7_11
+evt_unk_item_7_11:
+	return
+
+
+	.interact  5.d, *evt_npc_deca_robo_2_5
+evt_npc_deca_robo_2_5:
+	select	"ON\v",
+		"OFF\v",
+		"アニメ０\v",
+		"アニメ１\v",
+		"アニメ２\v",
+		"ホック煙"
+	case	eq(result, 0.w), else *loc_178
+	call	5.d, 4.d, 111.d
+	break	*loc_177
+loc_178:
+	case	eq(result, 1.w), else *loc_180
+	call	5.d, 5.d
+	break	*loc_177
+loc_180:
+	case	eq(result, 2.w), else *loc_182
+	call	5.d, 9.d, 0.w
+	break	*loc_177
+loc_182:
+	case	eq(result, 3.w), else *loc_184
+	call	5.d, 9.d, 1.w
+	break	*loc_177
+loc_184:
+	case	eq(result, 4.w), else *loc_186
+	call	5.d, 9.d, 2.w
+	break	*loc_177
+loc_186:
+	case	eq(result, 5.w), else *loc_177
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_190
+	call	112.d, 1.d, 1035.d
+	break	*loc_189
+loc_190:
+	case	eq(result, 1.w), else *loc_189
+	call	112.d, 1.d, 0.d
+	break	*loc_189
+loc_189:
+	break	*loc_177
+loc_177:
+	return
+
+
+	.interact  6.d, *evt_npc_tonpy_6
+evt_npc_tonpy_6:
+	select	"クリア\v",
+		"アイテム\v",
+		"テスト"
+	case	eq(result, 0.w), else *loc_195
+	break	*loc_194
+loc_195:
+	case	eq(result, 1.w), else *loc_240
+	run	*sub_197
+	break	*loc_194
+loc_240:
+	case	eq(result, 2.w), else *loc_194
+	msg	"スパイダー",
+		wait(254.b)
+	select	"動きＯＦＦ\v",
+		"動きＯＮ"
+	case	eq(result, 0.w), else *loc_244
+	call	54.d, 7.d, 0.d
+	break	*loc_243
+loc_244:
+	case	eq(result, 1.w), else *loc_243
+	call	54.d, 7.d, 1.d
+	break	*loc_243
+loc_243:
+	break	*loc_194
+loc_194:
+	read	@anim, 20005.d, 0.d
+	return
+
+
+sub_197:
+	select	"ソーダ\v",
+		"コーク\v",
+		"メロン\v",
+		"マイク\v",
+		"服とマイク\v",
+		"両方\v",
+		"服アニメ"
+	case	eq(result, 0.w), else *loc_204
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_202
+	call	20005.d, 2.d, 61.d
+	break	*loc_200
+loc_202:
+	case	eq(result, 1.w), else *loc_200
+	call	20005.d, 2.d, 0.d
+	break	*loc_200
+loc_200:
+	break	*loc_201
+loc_204:
+	case	eq(result, 1.w), else *loc_210
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_208
+	call	20005.d, 2.d, 62.d
+	break	*loc_207
+loc_208:
+	case	eq(result, 1.w), else *loc_207
+	call	20005.d, 2.d, 0.d
+	break	*loc_207
+loc_207:
+	break	*loc_201
+loc_210:
+	case	eq(result, 2.w), else *loc_216
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_214
+	call	20005.d, 2.d, 63.d
+	break	*loc_213
+loc_214:
+	case	eq(result, 1.w), else *loc_213
+	call	20005.d, 2.d, 0.d
+	break	*loc_213
+loc_213:
+	break	*loc_201
+loc_216:
+	case	eq(result, 3.w), else *loc_222
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_220
+	call	20005.d, 5.d, 74.d
+	break	*loc_219
+loc_220:
+	case	eq(result, 1.w), else *loc_219
+	call	20005.d, 6.d
+	break	*loc_219
+loc_219:
+	break	*loc_201
+loc_222:
+	case	eq(result, 4.w), else *loc_228
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_226
+	call	20005.d, 5.d, 74.d
+	wait	@time, 4.w
+	call	20005.d, 7.d, 1.d, 72.d
+	break	*loc_225
+loc_226:
+	case	eq(result, 1.w), else *loc_225
+	call	20005.d, 6.d
+	wait	@time, 4.w
+	call	20005.d, 7.d, 0.d
+	break	*loc_225
+loc_225:
+	break	*loc_201
+loc_228:
+	case	eq(result, 5.w), else *loc_234
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_232
+	call	20005.d, 5.d, 74.d
+	wait	@time, 1.w
+	call	20005.d, 2.d, 541.d
+	break	*loc_231
+loc_232:
+	case	eq(result, 1.w), else *loc_231
+	call	20005.d, 6.d
+	wait	@time, 1.w
+	call	20005.d, 2.d, 0.d
+	break	*loc_231
+loc_231:
+	break	*loc_201
+loc_234:
+	case	eq(result, 6.w), else *loc_201
+	select	"０\v",
+		"１"
+	case	eq(result, 0.w), else *loc_238
+	anim	138.d, 0.w
+	break	*loc_237
+loc_238:
+	case	eq(result, 1.w), else *loc_237
+	anim	138.d, 1.w
+	break	*loc_237
+loc_237:
+	break	*loc_201
+loc_201:
+	return
+
+
+	.interact  9.d, *evt_npc_jenny_9
+evt_npc_jenny_9:
+	select	"あたま\v",
+		"くまよごれ\v",
+		"アイテム\v",
+		"手にのせましゅ\v",
+		"カエル帽子\v",
+		"お花"
+	case	eq(result, 0.w), else *loc_271
+	run	*sub_250
+	break	*loc_249
+loc_271:
+	case	eq(result, 1.w), else *loc_281
+	run	*sub_273
+	break	*loc_249
+loc_281:
+	case	eq(result, 2.w), else *loc_308
+	run	*sub_283
+	break	*loc_249
+loc_308:
+	case	eq(result, 3.w), else *loc_314
+	run	*sub_310
+	break	*loc_249
+loc_314:
+	case	eq(result, 4.w), else *loc_320
+	select	"ＯＮ\v",
+		"ＯＦＦ"
+	case	eq(result, 0.w), else *loc_318
+	call	20003.d, 8.d, 1.d
+	break	*loc_317
+loc_318:
+	case	eq(result, 1.w), else *loc_317
+	call	20003.d, 8.d, 0.d
+	break	*loc_317
+loc_317:
+	break	*loc_249
+loc_320:
+	case	eq(result, 5.w), else *loc_249
+	select	"１\v",
+		"２\v",
+		"３\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_324
+	set	var(51.d), 127.d
+	pos	var(51.d), 600.w, 1600.w, 880.w
+	disp	var(51.d), 1.d
+	call	20003.d, 100.d, var(51.d), 2.w, 0.w, 3.w
+	break	*loc_323
+loc_324:
+	case	eq(result, 1.w), else *loc_326
+	set	var(51.d), 129.d
+	pos	var(51.d), -900.d, 1600.w, 850.w
+	disp	var(51.d), 1.d
+	call	20003.d, 100.d, var(51.d), 2.w, 0.w, 3.w
+	break	*loc_323
+loc_326:
+	case	eq(result, 2.w), else *loc_328
+	set	var(51.d), 131.d
+	pos	var(51.d), 600.w, 1600.w, 900.w
+	disp	var(51.d), 1.d
+	call	20003.d, 100.d, var(51.d), 2.w, 0.w, 3.w
+	break	*loc_323
+loc_328:
+	case	eq(result, 3.w), else *loc_323
+	call	20003.d, 100.d, 0.d
+	break	*loc_323
+loc_323:
+	break	*loc_249
+loc_249:
+	return
+
+
+sub_250:
+	select	"ちび追従\v",
+		"ＭＤＩＲ\v",
+		"ぴっち"
+	case	eq(result, 0.w), else *loc_257
+	read	@anim, 20003.d, *loc_330
+	wait	@read, 20003.d
+	anim	20003.d, 1043.d
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_255
+	call	20003.d, 1.d, 1.d
+	break	*loc_253
+loc_255:
+	case	eq(result, 1.w), else *loc_253
+	call	20003.d, 1.d, 0.d
+	break	*loc_253
+loc_253:
+	break	*loc_254
+loc_257:
+	case	eq(result, 1.w), else *loc_265
+	select	"キース\v",
+		"スンミダ\v",
+		"ＯＦＦ"
+	case	eq(result, 0.w), else *loc_261
+	break	*loc_260
+loc_261:
+	case	eq(result, 1.w), else *loc_263
+	call	20003.d, 6.d, 208.d, 20011.d, 30.w
+	break	*loc_260
+loc_263:
+	case	eq(result, 2.w), else *loc_260
+	call	20003.d, 6.d, 0.d
+	break	*loc_260
+loc_260:
+	break	*loc_254
+loc_265:
+	case	eq(result, 2.w), else *loc_254
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_269
+	break	*loc_268
+loc_269:
+	case	eq(result, 1.w), else *loc_268
+	break	*loc_268
+loc_268:
+	break	*loc_254
+loc_254:
+	return
+
+
+sub_273:
+	select	color(4.b),
+		"グリーン\v",
+		color(7.b),
+		"レッド\v",
+		color(6.b),
+		"マゼンタ"
+	case	eq(result, 0.w), else *loc_276
+	call	20003.d, 2.d, 4.d
+	break	*loc_275
+loc_276:
+	case	eq(result, 1.w), else *loc_278
+	call	20003.d, 2.d, 7.d
+	break	*loc_275
+loc_278:
+	case	eq(result, 2.w), else *loc_280
+	call	20003.d, 2.d, 6.d
+	break	*loc_275
+loc_280:
+	msg	"お口ふきましょうね！",
+		wait(254.b)
+	call	20003.d, 2.d, 0.d
+	break	*loc_275
+loc_275:
+	return
+
+
+sub_283:
+	select	color(5.b),
+		"ソーダ\v",
+		color(7.b),
+		"コーク\v",
+		color(4.b),
+		"メロン\v",
+		color(8.b),
+		"ハンバーグ"
+	case	eq(result, 0.w), else *loc_290
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_288
+	call	20003.d, 3.d, 61.d
+	break	*loc_286
+loc_288:
+	case	eq(result, 1.w), else *loc_286
+	anim	20003.d, 4.d
+	call	20003.d, 3.d, 0.d
+	break	*loc_286
+loc_286:
+	break	*loc_287
+loc_290:
+	case	eq(result, 1.w), else *loc_296
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_294
+	call	20003.d, 3.d, 62.d
+	break	*loc_293
+loc_294:
+	case	eq(result, 1.w), else *loc_293
+	anim	20003.d, 4.d
+	call	20003.d, 3.d, 0.d
+	break	*loc_293
+loc_293:
+	break	*loc_287
+loc_296:
+	case	eq(result, 2.w), else *loc_302
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_300
+	call	20003.d, 3.d, 63.d
+	break	*loc_299
+loc_300:
+	case	eq(result, 1.w), else *loc_299
+	anim	20003.d, 4.d
+	call	20003.d, 3.d, 0.d
+	break	*loc_299
+loc_299:
+	break	*loc_287
+loc_302:
+	case	eq(result, 3.w), else *loc_287
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_306
+	read	@anim, 20003.d, *loc_331
+	wait	@read, 20003.d
+	anim	20003.d, 1032.d
+	call	20003.d, 3.d, 1025.d
+	break	*loc_305
+loc_306:
+	case	eq(result, 1.w), else *loc_305
+	anim	20003.d, 4.d
+	call	20003.d, 3.d, 0.d
+	break	*loc_305
+loc_305:
+	break	*loc_287
+loc_287:
+	return
+
+
+sub_310:
+	anim	20003.d, 1008.d
+	call	20003.d, 4.d, 1.d
+	msg	"あら、かわいいでしゅね！",
+		wait(255.b)
+	anim	20003.d, 1072.d
+	wait	@anim, 20003.d, -1.d
+	anim	20003.d, 1008.d
+	if	lt(result, 0.w), else *loc_313
+	printf	"何も選んでいません\n"
+	endif	*loc_312
+loc_313:
+	set	var(62.d), result
+	call	20000.d, 500.d, var(62.d)
+	wait	@anim, 20000.d, -1.d
+	msg	"それいいでしゅね～",
+		wait(254.b)
+	call	20000.d, 501.d, var(62.d)
+	wait	@anim, 20000.d, -1.d
+loc_312:
+	msg	"んじゃ、おろすでしゅ！",
+		wait(254.b)
+	anim	20003.d, 4.d
+	call	20003.d, 4.d, 0.d
+	return
+
+
+	.interact  13.d, *evt_npc_mama_13
+evt_npc_mama_13:
+	select	"アイテム\v",
+		"あたま回転\v",
+		"てにのせる\v",
+		"お花\v",
+		"フライパン\v",
+		"ウィンク\v",
+		"ハンバーグ"
+	case	eq(result, 0.w), else *loc_371
+	run	*sub_337
+	break	*loc_336
+loc_371:
+	case	eq(result, 1.w), else *loc_378
+	run	*sub_373
+	break	*loc_336
+loc_378:
+	case	eq(result, 2.w), else *loc_384
+	run	*sub_380
+	break	*loc_336
+loc_384:
+	case	eq(result, 3.w), else *loc_394
+	select	"１\v",
+		"２\v",
+		"３\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_388
+	pos	126.d, 500.w, 2100.w, 800.w
+	disp	126.d, 1.d
+	call	20002.d, 100.d, 126.d, 2.w, 0.w, 4.w
+	break	*loc_387
+loc_388:
+	case	eq(result, 1.w), else *loc_390
+	pos	128.d, 500.w, 2200.w, 1000.w
+	disp	128.d, 1.d
+	call	20002.d, 100.d, 128.d, 2.w, 0.w, 4.w
+	break	*loc_387
+loc_390:
+	case	eq(result, 2.w), else *loc_392
+	pos	130.d, 500.w, 2100.w, 900.w
+	disp	130.d, 1.d
+	call	20002.d, 100.d, 130.d, 2.w, 0.w, 4.w
+	break	*loc_387
+loc_392:
+	case	eq(result, 3.w), else *loc_387
+	call	20002.d, 100.d, 0.d
+	break	*loc_387
+loc_387:
+	break	*loc_336
+loc_394:
+	case	eq(result, 4.w), else *loc_400
+	read	@anim, 20002.d, *loc_404
+	wait	@read, 20002.d
+	anim	20002.d, 1065.d
+	select	"フライパンＯＮ\v",
+		"ＯＦＦ"
+	case	eq(result, 0.w), else *loc_398
+	call	20002.d, 2.d, 1115.d
+	break	*loc_397
+loc_398:
+	case	eq(result, 1.w), else *loc_397
+	call	20002.d, 2.d, 0.d
+	break	*loc_397
+loc_397:
+	break	*loc_336
+loc_400:
+	case	eq(result, 5.w), else *loc_402
+	read	@anim, 20002.d, *loc_405
+	wait	@read, 20002.d
+	anim	20002.d, 1014.d
+	call	20002.d, 3.d, 1.d
+	msg	"あら、かわいいわね！",
+		wait(255.b)
+	anim	20002.d, 1066.d
+	msg	"ウィンク！",
+		wait(255.b)
+	ptcl	130.d, @obj, 20002.d, -1000.d, 8100.w, -800.d, 200.w, 200.w, 200.w, 0.w
+	wait	@time, 100.w
+	ptcl	130.d, @obj, 20002.d, -1000.d, 8100.w, -1000.d, 200.w, 200.w, 200.w, 0.w
+	wait	@time, 100.w
+	ptcl	130.d, @obj, 20002.d, -1000.d, 8100.w, -1200.d, 200.w, 200.w, 200.w, 0.w
+	wait	@time, 100.w
+	anim	20002.d, 1.d
+	call	20002.d, 3.d, 0.d
+	break	*loc_336
+loc_402:
+	case	eq(result, 6.w), else *loc_336
+	anim	114.d, 1.w
+	pos	114.d, 0.w, -500.d, 0.w
+	disp	114.d, 1.d
+	call	20002.d, 100.d, 114.d, 6.w, 0.w, 4.w, 2.w, 0.w, 0.w, 0.w
+	break	*loc_336
+loc_336:
+	return
+
+
+sub_337:
+	select	"次へ\v",
+		"ティッシュ\v",
+		"でんわ"
+	case	eq(result, 0.w), else *loc_359
+	run	*sub_340
+	break	*loc_339
+loc_359:
+	case	eq(result, 1.w), else *loc_365
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_363
+	break	*loc_362
+loc_363:
+	case	eq(result, 1.w), else *loc_362
+	anim	20002.d, 1.d
+	call	20002.d, 2.d, 0.d
+	break	*loc_362
+loc_362:
+	break	*loc_339
+loc_365:
+	case	eq(result, 2.w), else *loc_339
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_369
+	break	*loc_368
+loc_369:
+	case	eq(result, 1.w), else *loc_368
+	anim	20002.d, 1.d
+	call	20002.d, 2.d, 0.d
+	break	*loc_368
+loc_368:
+	break	*loc_339
+loc_339:
+	return
+
+
+sub_340:
+	select	"カップ\v",
+		"洗い物\v",
+		"ぞうきん"
+	case	eq(result, 0.w), else *loc_347
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_345
+	anim	20002.d, 26.d
+	call	20002.d, 2.d, 406.d
+	break	*loc_343
+loc_345:
+	case	eq(result, 1.w), else *loc_343
+	anim	20002.d, 1.d
+	call	20002.d, 2.d, 0.d
+	break	*loc_343
+loc_343:
+	break	*loc_344
+loc_347:
+	case	eq(result, 1.w), else *loc_353
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_351
+	anim	20002.d, 29.d
+	call	20002.d, 2.d, 417.d
+	break	*loc_350
+loc_351:
+	case	eq(result, 1.w), else *loc_350
+	anim	20002.d, 1.d
+	call	20002.d, 2.d, 0.d
+	break	*loc_350
+loc_350:
+	break	*loc_344
+loc_353:
+	case	eq(result, 2.w), else *loc_344
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_357
+	break	*loc_356
+loc_357:
+	case	eq(result, 1.w), else *loc_356
+	anim	20002.d, 1.d
+	call	20002.d, 2.d, 0.d
+	break	*loc_356
+loc_356:
+	break	*loc_344
+loc_344:
+	return
+
+
+sub_373:
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_376
+	call	20002.d, 1.d, 1.d
+	break	*loc_375
+loc_376:
+	case	eq(result, 1.w), else *loc_375
+	call	20002.d, 1.d, 0.d
+	break	*loc_375
+loc_375:
+	return
+
+
+sub_380:
+	anim	20002.d, 1014.d
+	call	20002.d, 3.d, 1.d
+	msg	"あら、かわいいわね！",
+		wait(255.b)
+	menu	2.d
+	if	lt(result, 0.w), else *loc_383
+	printf	"何も選んでいません\n"
+	endif	*loc_382
+loc_383:
+	set	var(62.d), result
+	call	20000.d, 500.d, var(62.d)
+	wait	@anim, 20000.d, -1.d
+	msg	"あら、いいわね～",
+		wait(254.b)
+	call	20000.d, 501.d, var(62.d)
+	wait	@anim, 20000.d, -1.d
+loc_382:
+	msg	"んじゃ、おろすわよ！",
+		wait(254.b)
+	anim	20002.d, 1.d
+	call	20002.d, 3.d, 0.d
+	return
+
+
+	.interact  14.d, *evt_npc_papa_14
+evt_npc_papa_14:
+	select	"アイテム\v",
+		"あたま回転\v",
+		"てにのせる\v",
+		"口ひげ"
+	case	eq(result, 0.w), else *loc_452
+	run	*sub_409
+	break	*loc_408
+loc_452:
+	case	eq(result, 1.w), else *loc_459
+	run	*sub_454
+	break	*loc_408
+loc_459:
+	case	eq(result, 2.w), else *loc_462
+	run	*sub_461
+	break	*loc_408
+loc_462:
+	case	eq(result, 3.w), else *loc_408
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_466
+	call	20001.d, 8.d, 1.d
+	break	*loc_465
+loc_466:
+	case	eq(result, 1.w), else *loc_465
+	call	20001.d, 8.d, 0.d
+	break	*loc_465
+loc_465:
+	break	*loc_408
+loc_408:
+	return
+
+
+sub_409:
+	select	"てがみ\v",
+		"顔\v",
+		"ぎっちょ\v",
+		"ぷりも\v",
+		"ごっち\v",
+		"ブロック２\v",
+		"ハンバーグ"
+	case	eq(result, 0.w), else *loc_416
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_414
+	wait	@read, 20001.d
+	anim	20001.d, 1016.d
+	call	20001.d, 2.d, 500.d
+	break	*loc_412
+loc_414:
+	case	eq(result, 1.w), else *loc_412
+	call	20001.d, 2.d, 0.d
+	break	*loc_412
+loc_412:
+	break	*loc_413
+loc_416:
+	case	eq(result, 1.w), else *loc_422
+	select	"怖い顔\v",
+		"ノーマルの顔にしたい"
+	case	eq(result, 0.w), else *loc_420
+	anim	20001.d, 1019.d
+	break	*loc_419
+loc_420:
+	case	eq(result, 1.w), else *loc_419
+	call	20001.d, 5.d, 1019.d, 0.d
+	break	*loc_419
+loc_419:
+	break	*loc_413
+loc_422:
+	case	eq(result, 2.w), else *loc_428
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_426
+	anim	20008.d, 1035.d
+	anim	20001.d, 39.d
+	call	20001.d, 2.d, 864.d
+	break	*loc_425
+loc_426:
+	case	eq(result, 1.w), else *loc_425
+	call	20001.d, 2.d, 0.d
+	break	*loc_425
+loc_425:
+	break	*loc_413
+loc_428:
+	case	eq(result, 3.w), else *loc_434
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_432
+	anim	20001.d, 1016.d
+	call	20001.d, 2.d, 467.d
+	break	*loc_431
+loc_432:
+	case	eq(result, 1.w), else *loc_431
+	call	20001.d, 2.d, 0.d
+	break	*loc_431
+loc_431:
+	break	*loc_413
+loc_434:
+	case	eq(result, 4.w), else *loc_440
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_438
+	read	@anim, 20001.d, *loc_470
+	wait	@read, 20001.d
+	anim	20001.d, 1016.d
+	call	20001.d, 6.d, 133.d
+	break	*loc_437
+loc_438:
+	case	eq(result, 1.w), else *loc_437
+	call	20001.d, 7.d
+	break	*loc_437
+loc_437:
+	break	*loc_413
+loc_440:
+	case	eq(result, 5.w), else *loc_446
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_444
+	read	@anim, 20001.d, *loc_468
+	wait	@read, 20001.d
+	anim	20001.d, 1067.d
+	call	20001.d, 2.d, 1018.d
+	break	*loc_443
+loc_444:
+	case	eq(result, 1.w), else *loc_443
+	call	20001.d, 2.d, 0.d
+	break	*loc_443
+loc_443:
+	break	*loc_413
+loc_446:
+	case	eq(result, 6.w), else *loc_413
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_450
+	read	@anim, 20001.d, *loc_469
+	wait	@read, 20001.d
+	anim	20001.d, 1016.d
+	call	20001.d, 2.d, 1025.d
+	break	*loc_449
+loc_450:
+	case	eq(result, 1.w), else *loc_449
+	call	20001.d, 2.d, 0.d
+	break	*loc_449
+loc_449:
+	break	*loc_413
+loc_413:
+	return
+
+
+sub_454:
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_457
+	call	20001.d, 1.d, 1.d
+	break	*loc_456
+loc_457:
+	case	eq(result, 1.w), else *loc_456
+	call	20001.d, 1.d, 0.d
+	break	*loc_456
+loc_456:
+	return
+
+
+	.interact  7.d, *evt_living_keath_omc_7
+evt_living_keath_omc_7:
+	return
+
+
+sub_461:
+	return
+
+
+	.interact  8.d, *evt_chibi_house_8
+evt_chibi_house_8:
+	select	"ちびパソ\v",
+		"セーブ\v",
+		"次へ"
+	case	eq(result, 0.w), else *loc_128
+	lib	38.w
+	lib	184.w
+	menu	3.d
+	if	ge(result, 0.w), else *loc_127
+	pushbp
+	setsp	result
+	msg	speed(1.b),
+		rgba(2164228351.d),
+		"レチッカーズ",
+		color(0.b),
+		format("%d"),
+		"番買いました！",
+		wait(255.b)
+	popbp
+loc_127:
+	lib	39.w
+	break	*loc_126
+loc_128:
+	case	eq(result, 1.w), else *loc_130
+	lib	38.w
+	menu	4.d
+	lib	39.w
+	break	*loc_126
+loc_130:
+	case	eq(result, 2.w), else *loc_126
+	select	"リクエストクリア\v",
+		"リクエスト\v",
+		"アイテム"
+	case	eq(result, 0.w), else *loc_134
+	lib	38.w
+	lib	39.w
+	break	*loc_133
+loc_134:
+	case	eq(result, 1.w), else *loc_136
+	lib	38.w
+	lib	39.w
+	break	*loc_133
+loc_136:
+	case	eq(result, 2.w), else *loc_133
+	lib	38.w
+	menu	2.d
+	lib	39.w
+	break	*loc_133
+loc_133:
+	break	*loc_126
+loc_126:
+	return
+
+
+	.interact  33.d, *evt_npc_spider_1_33
+evt_npc_spider_1_33:
+	pushbp
+	setsp	33.d
+	lib	87.w
+	popbp
+	return
+
+
+	.interact  39.d, *evt_npc_spider_1_39
+evt_npc_spider_1_39:
+	pushbp
+	setsp	39.d
+	lib	87.w
+	popbp
+	return
+
+
+	.interact  43.d, *evt_npc_spider_1_43
+evt_npc_spider_1_43:
+	select	"ジャンクＯＮ\v",
+		"ＯＦＦ"
+	case	eq(result, 0.w), else *loc_496
+	call	-100.d, 13.w, 1.d
+	break	*loc_475
+loc_496:
+	case	eq(result, 1.w), else *loc_475
+	call	-100.d, 13.w, 0.d
+	break	*loc_475
+loc_475:
+	select	"表示\v",
+		"カウント\v",
+		"値"
+	case	eq(result, 0.w), else *loc_482
+	select	"OFF\v",
+		"ON"
+	case	eq(result, 0.w), else *loc_480
+	call	-100.d, 7.w, 0.d
+	break	*loc_478
+loc_480:
+	case	eq(result, 1.w), else *loc_478
+	call	-100.d, 7.w, 1.d
+	break	*loc_478
+loc_478:
+	break	*loc_479
+loc_482:
+	case	eq(result, 1.w), else *loc_488
+	select	"スタート\v",
+		"ストップ"
+	case	eq(result, 0.w), else *loc_486
+	call	-100.d, 8.w, 1.d
+	break	*loc_485
+loc_486:
+	case	eq(result, 1.w), else *loc_485
+	call	-100.d, 8.w, 0.d
+	break	*loc_485
+loc_485:
+	break	*loc_479
+loc_488:
+	case	eq(result, 2.w), else *loc_479
+	select	"０をセット\v",
+		"値を取得\v",
+		"９９：５０をセット"
+	case	eq(result, 0.w), else *loc_492
+	call	-100.d, 9.w, 1.w, 0.w
+	break	*loc_491
+loc_492:
+	case	eq(result, 1.w), else *loc_494
+	call	-100.d, 9.w, 0.w
+	pushbp
+	setsp	result
+	msg	speed(1.b),
+		rgba(2164228351.d),
+		"タイム",
+		color(0.b),
+		format("%d"),
+		"秒です！",
+		wait(255.b)
+	popbp
+	break	*loc_491
+loc_494:
+	case	eq(result, 2.w), else *loc_491
+	call	-100.d, 9.w, 1.w, 599000.d
+	break	*loc_491
+loc_491:
+	break	*loc_479
+loc_479:
+	return
+
+
+sub_148:
+	msg	"おちるよ！\n",
+		"おちたよ！！",
+		wait(2.b)
+	return
+
+
+sub_154:
+	scrn	@hud, 2.d, 3.d
+	msg	voice(0.b),
+		"アナログキーをがちゃがちゃして\n",
+		"ミニスパイダーをふりほどいてください",
+		wait(3.b)
+	scrn	@hud, 2.d, 2.d
+	return
+
+
+sub_138:
+	while	1.w, else *loc_141
+	call	59.d, 1.w, 688.d
+	wait	@time, 1.w
+	if	eq(var(688.d), 1.w), else *loc_142
+	msg	"そうじゃそうじゃ！\n",
+		wait(1.b)
+	set	var(688.d), 0.w
+	break	*loc_141
+loc_142:
+	goto	*sub_138
+loc_141:
+	return
+
+
+sub_143:
+	while	1.w, else *loc_146
+	call	20011.d, 3.w, 689.d
+	wait	@time, 1.w
+	if	eq(var(689.d), 1.w), else *loc_147
+	timer	0.w, *sub_148
+	set	var(689.d), 0.w
+	break	*loc_146
+loc_147:
+	goto	*sub_143
+loc_146:
+	return
+
+
+sub_149:
+	while	1.w, else *loc_152
+	call	20005.d, 3.d, 691.d
+	wait	@time, 1.w
+	if	gt(var(691.d), 0.w), else *loc_153
+	timer	0.w, *sub_154
+	set	var(691.d), 0.w
+	set	flag(419.d), 1.w
+	break	*loc_152
+loc_153:
+	goto	*sub_149
+loc_152:
+	return
+
+
+	.interact  64.d, *evt_npc_tao_64
+evt_npc_tao_64:
+	select	"アイテム"
+	case	eq(result, 0.w), else *loc_511
+	run	*sub_512
+	break	*loc_511
+loc_511:
+	return
+
+
+sub_512:
+	select	"べべ\v",
+		"おしゃぶりホネ\v",
+		"アーミー\v",
+		"首\v",
+		"ブロック"
+	case	eq(result, 0.w), else *loc_519
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_517
+	anim	20004.d, 19.d
+	anim	107.d, 1.w
+	call	20004.d, 2.d, 675.d
+	break	*loc_515
+loc_517:
+	case	eq(result, 1.w), else *loc_515
+	call	20004.d, 2.d, 0.d
+	wait	@time, 1.w
+	break	*loc_515
+loc_515:
+	break	*loc_516
+loc_519:
+	case	eq(result, 1.w), else *loc_525
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_523
+	anim	20004.d, 19.d
+	call	20004.d, 2.d, 258.d
+	break	*loc_522
+loc_523:
+	case	eq(result, 1.w), else *loc_522
+	call	20004.d, 2.d, 0.d
+	wait	@time, 1.w
+	break	*loc_522
+loc_522:
+	break	*loc_516
+loc_525:
+	case	eq(result, 2.w), else *loc_531
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_529
+	anim	20004.d, 19.d
+	call	20004.d, 2.d, 248.d, sub(16.w, 4.w)
+	break	*loc_528
+loc_529:
+	case	eq(result, 1.w), else *loc_528
+	call	20004.d, 2.d, 0.d
+	wait	@time, 1.w
+	break	*loc_528
+loc_528:
+	break	*loc_516
+loc_531:
+	case	eq(result, 3.w), else *loc_537
+	msg	"まずは首輪OFF",
+		wait(254.b)
+	call	20004.d, 5.d, 0.d
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_535
+	call	20004.d, 2.d, 1135.d
+	msg	"そんでかばん開く",
+		wait(254.b)
+	anim	135.d, 1.w
+	break	*loc_534
+loc_535:
+	case	eq(result, 1.w), else *loc_534
+	call	20004.d, 2.d, 0.d
+	break	*loc_534
+loc_534:
+	break	*loc_516
+loc_537:
+	case	eq(result, 4.w), else *loc_516
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_541
+	anim	20004.d, 19.d
+	call	20004.d, 3.d, 118.d
+	break	*loc_540
+loc_541:
+	case	eq(result, 1.w), else *loc_540
+	call	20004.d, 4.d
+	break	*loc_540
+loc_540:
+	break	*loc_516
+loc_516:
+	return
+
+
+sub_41:
+	if	and(eq(item(87.d), 0.w), ne(time(2.d), 200.d)), else *loc_92
+	set	var(600.d), 87.d
+	set	var(620.d), 1.w
+	endif	*loc_43
+loc_92:
+	set	var(600.d), 87.d
+	set	var(620.d), 0.w
+loc_43:
+	if	and(eq(item(89.d), 0.w), ne(time(2.d), 100.d)), else *loc_91
+	set	var(601.d), 89.d
+	set	var(621.d), 1.w
+	endif	*loc_45
+loc_91:
+	set	var(601.d), 89.d
+	set	var(621.d), 0.w
+loc_45:
+	if	and(eq(item(90.d), 0.w), ne(time(2.d), 67.d)), else *loc_90
+	set	var(602.d), 90.d
+	set	var(622.d), 1.w
+	endif	*loc_47
+loc_90:
+	set	var(602.d), 90.d
+	set	var(622.d), 0.w
+loc_47:
+	set	var(0.d), sub(10.w, item(92.d))
+	if	lt(var(0.d), 0.w), else *loc_89
+	set	var(0.d), 0.w
+loc_89:
+	set	var(603.d), 92.d
+	set	var(623.d), var(0.d)
+	set	var(0.d), sub(10.w, item(93.d))
+	if	lt(var(0.d), 0.w), else *loc_88
+	set	var(0.d), 0.w
+loc_88:
+	set	var(604.d), 93.d
+	set	var(624.d), var(0.d)
+	set	var(0.d), sub(10.w, item(94.d))
+	if	lt(var(0.d), 0.w), else *loc_87
+	set	var(0.d), 0.w
+loc_87:
+	set	var(605.d), 94.d
+	set	var(625.d), var(0.d)
+	set	var(0.d), sub(1.w, item(152.d))
+	if	lt(var(0.d), 0.w), else *loc_86
+	set	var(0.d), 0.w
+loc_86:
+	set	var(606.d), 152.d
+	set	var(626.d), var(0.d)
+	if	eq(item(53.d), 0.w), else *loc_83
+	set	var(607.d), 53.d
+	set	var(627.d), 1.w
+	endif	*loc_53
+loc_83:
+	if	item(53.d), else *loc_85
+	set	var(607.d), 53.d
+	set	var(627.d), 0.w
+	endif	*loc_53
+loc_85:
+	set	var(607.d), -1.d
+	set	var(627.d), 0.w
+loc_53:
+	if	eq(item(158.d), 0.w), else *loc_80
+	set	var(608.d), 158.d
+	set	var(628.d), 1.w
+	endif	*loc_55
+loc_80:
+	if	item(158.d), else *loc_82
+	set	var(608.d), 158.d
+	set	var(628.d), 0.w
+	endif	*loc_55
+loc_82:
+	set	var(608.d), -1.d
+	set	var(628.d), 0.w
+loc_55:
+	if	eq(atc(2.d), 0.w), else *loc_79
+	set	var(609.d), 131.d
+	set	var(629.d), 1.w
+	endif	*loc_57
+loc_79:
+	set	var(609.d), 131.d
+	set	var(629.d), 0.w
+loc_57:
+	if	eq(item(54.d), 0.w), else *loc_76
+	set	var(610.d), 54.d
+	set	var(630.d), 1.w
+	endif	*loc_59
+loc_76:
+	if	item(54.d), else *loc_78
+	set	var(610.d), 54.d
+	set	var(630.d), 0.w
+	endif	*loc_59
+loc_78:
+	set	var(610.d), -1.d
+	set	var(630.d), 0.w
+loc_59:
+	if	eq(atc(3.d), 0.w), else *loc_73
+	set	var(611.d), 132.d
+	set	var(631.d), 1.w
+	endif	*loc_61
+loc_73:
+	if	gt(atc(3.d), 0.w), else *loc_75
+	set	var(611.d), 132.d
+	set	var(631.d), 0.w
+	endif	*loc_61
+loc_75:
+	set	var(611.d), -1.d
+	set	var(631.d), 0.w
+loc_61:
+	if	eq(item(62.d), 0.w), else *loc_70
+	set	var(612.d), 62.d
+	set	var(632.d), 1.w
+	endif	*loc_63
+loc_70:
+	if	item(62.d), else *loc_72
+	set	var(612.d), 62.d
+	set	var(632.d), 0.w
+	endif	*loc_63
+loc_72:
+	set	var(612.d), -1.d
+	set	var(632.d), 0.w
+loc_63:
+	if	eq(item(123.d), 0.w), else *loc_69
+	set	var(613.d), 123.d
+	set	var(633.d), 1.w
+	endif	*loc_65
+loc_69:
+	set	var(613.d), 123.d
+	set	var(633.d), 0.w
+loc_65:
+	if	eq(item(107.d), 0.w), else *loc_68
+	set	var(614.d), 107.d
+	set	var(634.d), 1.w
+	endif	*loc_67
+loc_68:
+	set	var(614.d), 107.d
+	set	var(634.d), 0.w
+loc_67:
+	set	var(615.d), 32.d
+	set	var(635.d), 1.w
+	set	var(616.d), -1.d
+	set	var(636.d), 0.w
+	set	var(617.d), -1.d
+	set	var(637.d), 0.w
+	set	var(618.d), -1.d
+	set	var(638.d), 0.w
+	set	var(619.d), -1.d
+	set	var(639.d), 0.w
+	return
+
+
+sub_93:
+	set	var(560.d), -1.d
+	set	var(580.d), 0.w
+	set	var(561.d), -1.d
+	set	var(581.d), 0.w
+	set	var(562.d), -1.d
+	set	var(582.d), 0.w
+	set	var(563.d), -1.d
+	set	var(583.d), 0.w
+	set	var(564.d), -1.d
+	set	var(584.d), 0.w
+	set	var(565.d), -1.d
+	set	var(585.d), 0.w
+	set	var(566.d), -1.d
+	set	var(586.d), 0.w
+	set	var(567.d), -1.d
+	set	var(587.d), 0.w
+	set	var(568.d), -1.d
+	set	var(588.d), 0.w
+	set	var(569.d), -1.d
+	set	var(589.d), 0.w
+	set	var(570.d), -1.d
+	set	var(590.d), 0.w
+	set	var(571.d), -1.d
+	set	var(591.d), 0.w
+	set	var(572.d), -1.d
+	set	var(592.d), 0.w
+	set	var(573.d), -1.d
+	set	var(593.d), 0.w
+	set	var(574.d), -1.d
+	set	var(594.d), 0.w
+	set	var(575.d), -1.d
+	set	var(595.d), 0.w
+	set	var(576.d), -1.d
+	set	var(596.d), 0.w
+	set	var(577.d), -1.d
+	set	var(597.d), 0.w
+	set	var(578.d), -1.d
+	set	var(598.d), 0.w
+	set	var(579.d), -1.d
+	set	var(599.d), 0.w
+	if	and(flag(11.d), eq(flag(17.d), 0.w)), else *loc_95
+	return
+loc_95:
+	if	eq(var(728.d), 0.w), else *loc_98
+	set	var(560.d), 0.w
+	set	var(580.d), 1.w
+	endif	*loc_97
+loc_98:
+	elif	and(le(1.w, var(728.d)), le(var(728.d), 2.w)), else *loc_104
+	if	le(var(702.d), 0.d), else *loc_103
+	set	var(561.d), 1.w
+	set	var(581.d), 1.w
+loc_103:
+	if	le(var(703.d), 0.d), else *loc_102
+	set	var(562.d), 2.w
+	set	var(582.d), 1.w
+loc_102:
+	endif	*loc_97
+loc_104:
+	elif	and(eq(3.w, var(728.d)), flag(4.d)), else *loc_106
+	set	var(563.d), 3.w
+	set	var(583.d), 1.w
+	endif	*loc_97
+loc_106:
+	elif	and(le(4.w, var(728.d)), le(var(728.d), 5.w)), else *loc_112
+	if	le(var(705.d), 0.d), else *loc_111
+	set	var(564.d), 4.w
+	set	var(584.d), 1.w
+loc_111:
+	if	le(var(706.d), 0.d), else *loc_110
+	set	var(565.d), 5.w
+	set	var(585.d), 1.w
+loc_110:
+	endif	*loc_97
+loc_112:
+	elif	le(6.w, var(728.d)), else *loc_97
+	if	le(var(707.d), 0.d), else *loc_116
+	set	var(566.d), 6.w
+	set	var(586.d), 1.w
+loc_116:
+	if	le(var(708.d), 0.d), else *loc_97
+	set	var(567.d), 7.w
+	set	var(587.d), 1.w
+loc_97:
+	return
+
+
+	.interact  56.d, *evt_npc_spider_2_56
+evt_npc_spider_2_56:
+	pushbp
+	setsp	56.d
+	lib	135.w
+	popbp
+	return
+
+
+	.interact  97.d, *evt_npc_spider_2_97
+evt_npc_spider_2_97:
+	pushbp
+	setsp	97.d
+	lib	135.w
+	popbp
+	return
+
+
+	.interact  65.d, *evt_npc_bb_65
+evt_npc_bb_65:
+	select	"ON\v",
+		"OFF"
+	case	eq(result, 0.w), else *loc_546
+	anim	20012.d, 26.d
+	call	20012.d, 1.d, 100.d
+	break	*loc_545
+loc_546:
+	case	eq(result, 1.w), else *loc_545
+	call	20012.d, 2.d
+	break	*loc_545
+loc_545:
+	return
+
+
+loc_331:
+	.db	"npc/jenny_1.dat"
+
+
+	.interact  101.d, *evt_npc_army_1_101
+evt_npc_army_1_101:
+	msg	"隊長",
+		wait(254.b)
+	return
+
+
+sub_119:
+	disp	77.d, 1.d
+	disp	78.d, 1.d
+	disp	79.d, 1.d
+	disp	80.d, 1.d
+	disp	81.d, 1.d
+	disp	82.d, 1.d
+	disp	83.d, 1.d
+	disp	84.d, 1.d
+	disp	85.d, 1.d
+	disp	86.d, 1.d
+	call	108.d, 16.d
+	wait	@time, 1.w
+	return
+
+
+	.interact  109.d, *evt_npc_frog_109
+evt_npc_frog_109:
+	run	*evt_npc_tyou_bb_133
+	return
+
+
+	.interact  132.d, *evt_npc_frog_132
+evt_npc_frog_132:
+	return
+
+
+	.interact  133.d, *evt_npc_tyou_bb_133
+evt_npc_tyou_bb_133:
+	camera	@lead, 20000.d
+	anim	20053.d, 2.w
+	wait	@time, 150.w
+	ptcl	123.d, @lead, 20053.d, 0.w, 0.w, 0.w, 2.w, 0.w
+	wait	@anim, 20053.d, -1.d
+	anim	20053.d, 3.w
+	ptcl	123.d, @unk210
+	camera	@unk230
+	return
+
+
+	.pose	*evt_pose
+evt_pose:
+	pushbp
+	setsp	6.d
+	lib	86.w
+	popbp
+	case	eq(cur_suit, 6.d), else *loc_165
+	if	obj(@unk235, 54.d), else *loc_164
+	call	54.d, 1.d
+loc_164:
+	if	obj(@unk235, 55.d), else *loc_163
+	call	55.d, 1.d
+loc_163:
+	if	obj(@unk235, 56.d), else *loc_162
+	call	56.d, 1.d
+loc_162:
+	break	*loc_161
+loc_165:
+	case	eq(cur_suit, 1.d), else *loc_161
+	if	obj(@unk235, 54.d), else *loc_172
+	call	54.d, 21.d
+loc_172:
+	if	obj(@unk235, 55.d), else *loc_171
+	call	55.d, 21.d
+loc_171:
+	if	obj(@unk235, 56.d), else *loc_170
+	call	56.d, 21.d
+loc_170:
+	break	*loc_161
+loc_161:
+	return
+
+
+	.interact  44.d, *evt_item_junk_unko_44
+evt_item_junk_unko_44:
+	lib	283.w
+	return
+
+
+	.interact  45.d, *evt_item_junk_unko_45
+evt_item_junk_unko_45:
+	lib	283.w
+	return
+
+
+	.interact  46.d, *evt_item_junk_unko_46
+evt_item_junk_unko_46:
+	lib	283.w
+	return
+
+
+	.interact  47.d, *evt_item_junk_unko_47
+evt_item_junk_unko_47:
+	lib	283.w
+	return
+
+
+	.interact  48.d, *evt_item_junk_unko_48
+evt_item_junk_unko_48:
+	lib	283.w
+	return
+
+
+	.interact  49.d, *evt_item_junk_unko_49
+evt_item_junk_unko_49:
+	lib	283.w
+	return
+
+
+	.interact  50.d, *evt_item_junk_unko_50
+evt_item_junk_unko_50:
+	lib	283.w
+	return
+
+
+	.interact  51.d, *evt_item_junk_unko_51
+evt_item_junk_unko_51:
+	lib	283.w
+	return
+
+
+	.interact  52.d, *evt_item_junk_unko_52
+evt_item_junk_unko_52:
+	lib	283.w
+	return
+
+
+	.interact  53.d, *evt_item_junk_unko_53
+evt_item_junk_unko_53:
+	lib	283.w
+	return
+
+
+loc_155:
+	.dd	2.d, 3.d, 4.d, 5.d, 20005.d, 7.d, 8.d, 20003.d, 10.d, 11.d, 12.d, 20002.d, 20001.d, 15.d, 16.d, 17.d, 18.d, 19.d, 20.d, 21.d, 22.d, 23.d, 24.d, 25.d, 26.d, 27.d, 28.d, 29.d, 30.d, 31.d, 32.d, 33.d, 34.d, 35.d, 36.d, 37.d, 38.d, 39.d, 40.d, 41.d, 42.d, 44.d, 45.d, 46.d, 47.d, 48.d, 49.d, 50.d, 51.d, 52.d, 53.d, 54.d, 55.d, 56.d, 57.d, 20011.d, 59.d, 60.d, 61.d, 62.d, 20009.d, 20012.d, 66.d, 67.d, 68.d, 69.d, 70.d, 71.d, 72.d, 73.d, 74.d, 75.d, 76.d, 97.d, 98.d, 99.d, 100.d, 20017.d, 20018.d, 20040.d, 20041.d, 20042.d, 20043.d, 107.d, 20057.d, 110.d, 111.d, 112.d, 113.d, 114.d, 126.d, 127.d, 128.d, 129.d, 130.d, 131.d, 132.d, 20053.d, 134.d, 135.d, 136.d, 138.d, 139.d, 140.d, 141.d, 142.d, 0.d, 402656790.d, -100.d, 3096.d, 33561088.d
+
+
+sub_4:
+	set	var(40.d), 0.w
+	call	-100.d, 10.d
+loc_39:
+	while	1.w, else *loc_7
+	set	var(39.d), array(-4.d, var(40.d), *loc_155)
+	if	eq(var(39.d), 0.w), else *loc_8
+	break	*loc_7
+loc_8:
+	call	-100.d, 11.d, var(39.d)
+	set	var(40.d), add(var(40.d), 1.w)
+	set	var(39.d), array(-4.d, var(40.d), *loc_155)
+	if	eq(var(39.d), 0.w), else *loc_10
+	break	*loc_7
+loc_10:
+	call	-100.d, 11.d, var(39.d)
+	set	var(40.d), add(var(40.d), 1.w)
+	set	var(39.d), array(-4.d, var(40.d), *loc_155)
+	if	eq(var(39.d), 0.w), else *loc_12
+	break	*loc_7
+loc_12:
+	call	-100.d, 11.d, var(39.d)
+	set	var(40.d), add(var(40.d), 1.w)
+	set	var(39.d), array(-4.d, var(40.d), *loc_155)
+	if	eq(var(39.d), 0.w), else *loc_14
+	break	*loc_7
+loc_14:
+	call	-100.d, 11.d, var(39.d)
+	set	var(40.d), add(var(40.d), 1.w)
+	set	var(39.d), array(-4.d, var(40.d), *loc_155)
+	if	eq(var(39.d), 0.w), else *loc_16
+	break	*loc_7
+loc_16:
+	call	-100.d, 11.d, var(39.d)
+	set	var(40.d), add(var(40.d), 1.w)
+	set	var(39.d), array(-4.d, var(40.d), *loc_155)
+	if	eq(var(39.d), 0.w), else *loc_18
+	break	*loc_7
+loc_18:
+	call	-100.d, 11.d, var(39.d)
+	set	var(40.d), add(var(40.d), 1.w)
+	set	var(39.d), array(-4.d, var(40.d), *loc_155)
+	if	eq(var(39.d), 0.w), else *loc_20
+	break	*loc_7
+loc_20:
+	call	-100.d, 11.d, var(39.d)
+	set	var(40.d), add(var(40.d), 1.w)
+	set	var(39.d), array(-4.d, var(40.d), *loc_155)
+	if	eq(var(39.d), 0.w), else *loc_22
+	break	*loc_7
+loc_22:
+	call	-100.d, 11.d, var(39.d)
+	set	var(40.d), add(var(40.d), 1.w)
+	set	var(39.d), array(-4.d, var(40.d), *loc_155)
+	if	eq(var(39.d), 0.w), else *loc_24
+	break	*loc_7
+loc_24:
+	call	-100.d, 11.d, var(39.d)
+	set	var(40.d), add(var(40.d), 1.w)
+	set	var(39.d), array(-4.d, var(40.d), *loc_155)
+	if	eq(var(39.d), 0.w), else *loc_26
+	break	*loc_7
+loc_26:
+	call	-100.d, 11.d, var(39.d)
+	set	var(40.d), add(var(40.d), 1.w)
+	set	var(39.d), array(-4.d, var(40.d), *loc_155)
+	if	eq(var(39.d), 0.w), else *loc_28
+	break	*loc_7
+loc_28:
+	call	-100.d, 11.d, var(39.d)
+	set	var(40.d), add(var(40.d), 1.w)
+	set	var(39.d), array(-4.d, var(40.d), *loc_155)
+	if	eq(var(39.d), 0.w), else *loc_30
+	break	*loc_7
+loc_30:
+	call	-100.d, 11.d, var(39.d)
+	set	var(40.d), add(var(40.d), 1.w)
+	set	var(39.d), array(-4.d, var(40.d), *loc_155)
+	if	eq(var(39.d), 0.w), else *loc_32
+	break	*loc_7
+loc_32:
+	call	-100.d, 11.d, var(39.d)
+	set	var(40.d), add(var(40.d), 1.w)
+	set	var(39.d), array(-4.d, var(40.d), *loc_155)
+	if	eq(var(39.d), 0.w), else *loc_34
+	break	*loc_7
+loc_34:
+	call	-100.d, 11.d, var(39.d)
+	set	var(40.d), add(var(40.d), 1.w)
+	set	var(39.d), array(-4.d, var(40.d), *loc_155)
+	if	eq(var(39.d), 0.w), else *loc_36
+	break	*loc_7
+loc_36:
+	call	-100.d, 11.d, var(39.d)
+	set	var(40.d), add(var(40.d), 1.w)
+	set	var(39.d), array(-4.d, var(40.d), *loc_155)
+	if	eq(var(39.d), 0.w), else *loc_38
+	break	*loc_7
+loc_38:
+	call	-100.d, 11.d, var(39.d)
+	set	var(40.d), add(var(40.d), 1.w)
+	wait	@time, 1.w
+	goto	*loc_39
+loc_7:
+	return

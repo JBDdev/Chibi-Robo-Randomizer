@@ -1,0 +1,9 @@
+	.stage	"stage26"
+
+
+	.startup  *evt_startup
+evt_startup:
+	if	not(flag(35.d)), else *loc_2
+	lib	74.w
+loc_2:
+	return
