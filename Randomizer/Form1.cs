@@ -162,7 +162,7 @@ namespace WindowsFormsApp1
 
 
                 //Edits for Open Downstairs
-                if (freePJ.Checked)
+                if (openDownstairs.Checked)
                 {
                     JToken unusedShopItem = shopObj.SelectToken("items[17]");
                     unusedShopItem.SelectToken("item").Replace("drake_redcrest_suit");
