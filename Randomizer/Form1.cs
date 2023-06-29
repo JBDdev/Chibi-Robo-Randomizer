@@ -28,6 +28,12 @@ namespace WindowsFormsApp1
         JObject shopObj;
         JObject globals;
 
+        string foyerScriptDump;
+        string livingRoomScriptDump;
+        string chibiHouseScriptDump;
+        string backyardScriptDump;
+        string bedroomScriptDump;
+
         RootObject stageData;
         ItemPool itemPool;
         Random r;
@@ -129,7 +135,7 @@ namespace WindowsFormsApp1
                 r = new Random(randoSeed);
 
                 //Performs the randomization based on the settings
-                Dictionary<string, string> newSpoilerLog = shuffleItemsGlitchless();
+                //Dictionary<string, string> newSpoilerLog = shuffleItemsGlitchless();
 
                 //Settings involving edits to globals
 
@@ -198,11 +204,18 @@ namespace WindowsFormsApp1
                     logOutput.WriteLine("******\n");
                     logOutput.WriteLine("Locations: \n");
 
-                    foreach (string key in newSpoilerLog.Keys)
-                    {
-                        logOutput.WriteLine(key + ": " + newSpoilerLog[key]);
-                    }
+                    //foreach (string key in newSpoilerLog.Keys)
+                    //{
+                    //    logOutput.WriteLine(key + ": " + newSpoilerLog[key]);
+                    //}
                 }
+
+                editDrakeSuit(127);
+                editPajamas(127);
+                editDogSuit(127);
+                editFrogSuit(127);
+                editTraumaSuit(127);
+                editGhostSuit(127);
 
                 reimportStages();
 
@@ -259,6 +272,11 @@ namespace WindowsFormsApp1
             string shopInput = File.ReadAllText("shop.json");
             shopObj = Newtonsoft.Json.JsonConvert.DeserializeObject(@"{ 'items': " + shopInput + "}") as JObject;
 
+            foyerScriptDump = File.ReadAllText("stage02.us");
+            chibiHouseScriptDump = File.ReadAllText("stage05.us");
+            bedroomScriptDump = File.ReadAllText("stage06.us");
+            livingRoomScriptDump = File.ReadAllText("stage07.us");
+            backyardScriptDump = File.ReadAllText("stage09.us");
 
         }
         private void runUnplugCommand(string command) 
@@ -756,6 +774,7 @@ namespace WindowsFormsApp1
         //Reimports the JSON stage and shop data into the ISO
         private void reimportStages() 
         {
+            //JSON reimports
             File.WriteAllText("stage01.json", kitchenObj.ToString());
             File.WriteAllText("stage02.json", foyerObj.ToString());
             File.WriteAllText("stage03.json", basementObj.ToString());
@@ -770,6 +789,13 @@ namespace WindowsFormsApp1
             //JSON formatting for the shop is borked so this is the reconversion into the form that Unplug is looking for
             File.WriteAllText("shop.json", shopObj.ToString().Substring(14, shopObj.ToString().Length - 15));
 
+            //Assembly reimports
+            File.WriteAllText("stage02.us", foyerScriptDump);
+            File.WriteAllText("stage05.us", chibiHouseScriptDump);
+            File.WriteAllText("stage06.us", bedroomScriptDump);
+            File.WriteAllText("stage07.us", livingRoomScriptDump);
+            File.WriteAllText("stage09.us", backyardScriptDump);
+
             runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage01 \"" + Directory.GetCurrentDirectory() + @"\stage01.json" + "\"");
             runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage02 \"" + Directory.GetCurrentDirectory() + @"\stage02.json" + "\"");
             runUnplugCommand("stage import --iso \"" + newIsoPath + "\" stage03 \"" + Directory.GetCurrentDirectory() + @"\stage03.json" + "\"");
@@ -781,7 +807,7 @@ namespace WindowsFormsApp1
             runUnplugCommand("globals import --iso \"" + newIsoPath + "\" \"" + Directory.GetCurrentDirectory() + @"\globals.json" + "\"");
             runUnplugCommand("shop import --iso \"" + newIsoPath + "\" \"" + Directory.GetCurrentDirectory() + @"\shop.json" + "\"");
 
-            statusDialog.Text += Directory.GetCurrentDirectory();
+            //statusDialog.Text += Directory.GetCurrentDirectory();
             runUnplugCommand("script assemble --iso \"" + newIsoPath + "\" " + Directory.GetCurrentDirectory() + @"\stage02.us");
             runUnplugCommand("script assemble --iso \"" + newIsoPath + "\" " + Directory.GetCurrentDirectory() + @"\stage05.us");
             runUnplugCommand("script assemble --iso \"" + newIsoPath + "\" " + Directory.GetCurrentDirectory() + @"\stage06.us");
@@ -802,5 +828,76 @@ namespace WindowsFormsApp1
             }
         }
 
+
+        #region Location-Based Callback Functions
+        private void editDrakeSuit(int itemNumber) 
+        {
+            //statusDialog.Text += "\nDrake Suit item call before: " + livingRoomScriptDump[312917] + livingRoomScriptDump[312918] + livingRoomScriptDump[312919] + livingRoomScriptDump[312920];
+
+            //livingRoomScriptDump.Replace("setsp	24.d", "setsp	127.d");
+            string newItemCall = itemNumber + ".d";
+            livingRoomScriptDump = livingRoomScriptDump.Insert(312917, newItemCall);
+            livingRoomScriptDump = livingRoomScriptDump.Remove(312917 + newItemCall.Length, 4);
+
+            livingRoomScriptDump = livingRoomScriptDump.Insert(314964, "0");
+            livingRoomScriptDump = livingRoomScriptDump.Remove(314965, 1);
+
+            //statusDialog.Text += "\nDrake Suit item call after: " + livingRoomScriptDump[312917] + livingRoomScriptDump[312918] + livingRoomScriptDump[312919] + livingRoomScriptDump[312920];
+        }
+
+        private void editPajamas(int itemNumber) 
+        {
+            //statusDialog.Text += "\nDrake Suit item call before: " + livingRoomScriptDump[312917] + livingRoomScriptDump[312918] + livingRoomScriptDump[312919] + livingRoomScriptDump[312920];
+
+            string newItemCall = itemNumber + ".d";
+            bedroomScriptDump = bedroomScriptDump.Insert(73008, newItemCall);
+            bedroomScriptDump = bedroomScriptDump.Remove(73008 + newItemCall.Length, 4);
+
+            bedroomScriptDump = bedroomScriptDump.Insert(73090, "0");
+            bedroomScriptDump = bedroomScriptDump.Remove(73091, 1);
+
+        }
+
+        private void editDogSuit(int itemNumber) 
+        {
+            string newItemCall = itemNumber + ".d";
+            foyerScriptDump = foyerScriptDump.Insert(478147, newItemCall);
+            foyerScriptDump = foyerScriptDump.Remove(478147 + newItemCall.Length, 4);
+
+            foyerScriptDump = foyerScriptDump.Insert(478229, "0");
+            //This might be worth commenting out just so people can play Tao Training
+            foyerScriptDump = foyerScriptDump.Remove(478230, 1);
+        }
+
+        private void editFrogSuit(int itemNumber)
+        {
+            string newItemCall = itemNumber + ".d";
+            backyardScriptDump = backyardScriptDump.Insert(129784, newItemCall);
+            backyardScriptDump = backyardScriptDump.Remove(129784 + newItemCall.Length, 4);
+
+            backyardScriptDump = backyardScriptDump.Insert(129885, "0");
+            backyardScriptDump = backyardScriptDump.Remove(129886, 1);
+        }
+        private void editTraumaSuit(int itemNumber)
+        {
+            //chibiHouseScriptDump = chibiHouseScriptDump.Insert(36946, newItemCall);
+            //chibiHouseScriptDump = chibiHouseScriptDump.Remove(36946 + newItemCall.Length, 4);
+            chibiHouseScriptDump = chibiHouseScriptDump.Replace("set	item(32.d)", "set	item(" + itemNumber + ".d)");
+            chibiHouseScriptDump = chibiHouseScriptDump.Replace("set	cur_suit, 4.d", "set	cur_suit, 0.d");
+
+            //chibiHouseScriptDump = chibiHouseScriptDump.Insert(36972, "0");
+            //chibiHouseScriptDump = chibiHouseScriptDump.Remove(36973, 1);
+        }
+        private void editGhostSuit(int itemNumber)
+        {
+            //chibiHouseScriptDump = chibiHouseScriptDump.Insert(37103, newItemCall);
+            //chibiHouseScriptDump = chibiHouseScriptDump.Remove(37103 + newItemCall.Length, 4);
+            chibiHouseScriptDump = chibiHouseScriptDump.Replace("set	item(34.d)", "set	item(" + itemNumber + ".d)");
+            chibiHouseScriptDump = chibiHouseScriptDump.Replace("set	cur_suit, 6.d", "set	cur_suit, 0.d");
+
+            //chibiHouseScriptDump = chibiHouseScriptDump.Insert(37129, "0");
+            //chibiHouseScriptDump = chibiHouseScriptDump.Remove(37130, 1);
+        }
+        #endregion
     }
 }
